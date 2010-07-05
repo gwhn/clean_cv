@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title><%= yield :title %></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="description" content=" ... add description here ... "/>
+  <meta name="keywords" content=" ... add keywords here ... "/>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+  <%= stylesheet_link_tag 'screen', 'jquery.fancybox-1.2.6.css', 'tipsy' %>
+  <%= stylesheet_link_tag 'print', :media => 'print' %>
+  <!--[if lt IE 7]>
+  <%= javascript_include_tag 'DD_belatedPNG_0.0.7a-min.js' %>
+  <![endif]-->
+  <%= javascript_include_tag :defaults, 'jquery-1.4.2.min.js', 'cufon-yui.js', 'Aller.font.js',
+                             'jquery.fancybox-1.2.6.pack.js', 'jquery.tipsy.js' %>
+  <script type='text/javascript'>
+      $(function() {
+          Cufon.replace("h1");
+          Cufon.replace(".item h2");
+          Cufon.replace("h2.cv-section-name");
+          Cufon.now();
+          $("a.lightbox").fancybox({
+              overlayOpacity  : 0.7,
+              overlayColor    : "#333"
+          });
+          $(".tip").tipsy({gravity: "n"});
+      });
+  </script>
+</head>
+<body>
+<%= yield %>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @company.name %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%=h @company.role %>
+</p>
+
+<p>
+  <b>Business type:</b>
+  <%=h @company.business_type %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%=h @company.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%=h @company.end_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

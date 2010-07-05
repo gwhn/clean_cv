@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  course: MyString
+  result: MyString
+  date_from: 2010-07-05
+  date_to: 2010-07-05
+
+two:
+  name: MyString
+  course: MyString
+  result: MyString
+  date_from: 2010-07-05
+  date_to: 2010-07-05

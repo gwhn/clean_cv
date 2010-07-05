@@ -1,4 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :schools
+
+  map.resources :skills
+
+  map.resources :responsibilities
+
+  map.resources :projects
+
+  map.resources :companies
+
   map.resources :people
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,16 @@
+<h1>Editing responsibility</h1>
+
+<% form_for(@responsibility) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @responsibility %> |
+<%= link_to 'Back', responsibilities_path %>
