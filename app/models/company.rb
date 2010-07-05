@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-  validates_presence_of :name, :role, :business_type, :start_date
+  validates_presence_of :name, :role, :business_type, :start_date, :person_id
   validate :start_date_prior_to_end_date
 
   belongs_to :person

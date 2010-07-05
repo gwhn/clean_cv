@@ -1,5 +1,5 @@
 class School < ActiveRecord::Base
-  validates_presence_of :name, :course, :result, :date_from
+  validates_presence_of :name, :course, :result, :date_from, :person_id
   validates_uniqueness_of :name
   validate :date_from_prior_to_date_to
 
