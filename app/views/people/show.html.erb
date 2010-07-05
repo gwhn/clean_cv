@@ -1,0 +1,38 @@
+<p>
+  <b>Name:</b>
+  <%=h @person.name %>
+</p>
+
+<p>
+  <b>Job title:</b>
+  <%=h @person.job_title %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @person.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @person.phone %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%=h @person.mobile %>
+</p>
+
+<p>
+  <b>Portrait url:</b>
+  <%=h @person.portrait_url %>
+</p>
+
+<p>
+  <b>Profile:</b>
+  <%=h @person.profile %>
+</p>
+
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
