@@ -25,25 +25,20 @@
     color: #fff;
     padding: 5px;
     text-align: center;
-
 }
 
 .tipsy-north {
-    background-image: url("images/tipsy-north.gif");
-    background-position: top center;
+    background: url("/images/tipsy/tipsy-north.gif") top center;
 }
 
 .tipsy-south {
-    background-image: url("images/tipsy-south.gif");
-    background-position: bottom center;
+    background: url("/images/tipsy/tipsy-south.gif") bottom center;
 }
 
 .tipsy-east {
-    background-image: url("images/tipsy-east.gif");
-    background-position: right center;
+    background: url("/images/tipsy/tipsy-east.gif") right center;
 }
 
 .tipsy-west {
-    background-image: url("images/tipsy-west.gif");
-    background-position: left center;
+    background: url("/images/tipsy/tipsy-west.gif") left center;
 }

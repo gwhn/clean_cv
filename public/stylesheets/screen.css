@@ -21,7 +21,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font-weight: inherit;
     font-style: inherit;
     font-size: 100%;
-    font-family: inherit;
+    font-family: inherit, serif;
     vertical-align: baseline
 }
 
@@ -30,7 +30,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 body {
-    line-height: 1;
+    line-height: 1em;
     color: black;
     background: white
 }
@@ -90,10 +90,6 @@ em {
 
 .fixed {
     display: block;
-}
-
-/*  \*/
-.fixed {
     min-height: 1%;
 }
 
@@ -320,12 +316,10 @@ h2.cv-section-name {
     top: 66px;
     width: 230px;
     position: fixed;
-    _position: absolute;
 }
 
 a.emailme {
-    _background-image: none;
-    background: #333 url("images/bg-emailme.png") 90% 50% no-repeat;
+    background: #333 url("/images/bg-emailme.png") 90% 50% no-repeat;
     border: 1px solid #444;
     color: #fff;
     display: block;
@@ -333,23 +327,17 @@ a.emailme {
     font-weight: 700;
     left: 0;
     padding: 15px 40px 15px 15px;
-    _padding: 15px 20px 15px 15px;
     text-decoration: none;
     top: 85px;
     position: fixed;
-    _position: absolute;
 }
 
 a.emailme:hover {
-    background: #222 url("images/bg-emailme.png") 90% 50% no-repeat;
-    _position: absolute;
-    _background-image: none;
+    background: #222 url("/images/bg-emailme.png") 90% 50% no-repeat;
 }
 
 a.active.emailme {
-    background: #222 url("images/bg-emailme-extended.png") 90% 50% no-repeat;
-    _position: absolute;
-    _background-image: none;
+    background: #222 url("/images/bg-emailme-extended.png") 90% 50% no-repeat;
 }
 
 /* =CONTACT-FORM
@@ -377,8 +365,6 @@ textarea {
 }
 
 .btn {
-    _height: 25px;
-    _padding: 2px;
     width: 80px;
 }
 
