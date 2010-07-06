@@ -1,11 +1,12 @@
-<div class="item">
-  <h4><%= h company.start_date.to_s(:short) %> - <%= h company.end_date.to_s(:short) %></h4>
+<div class="item<%= " last-item" if company_counter == total - 1 %>">
+  <h4><%= h format_date_as_month_and_year(company.start_date) %> -
+    <%= h format_date_as_month_and_year(company.end_date) %></h4>
 
   <h2><%= h company.name %></h2>
 
-  <h3><%= h company.business_type %></h3>
-
   <h5><%= h company.role %></h5>
+
+  <h3><%= h company.business_type %></h3>
 
   <%= render :partial => 'project', :collection => company.projects %>
 </div>

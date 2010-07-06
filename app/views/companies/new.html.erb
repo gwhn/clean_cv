@@ -21,11 +21,15 @@
   </p>
   <p>
     <%= f.label :start_date %><br />
-    <%= f.date_select :start_date %>
+    <%= f.date_select :start_date,
+                      :start_year => Time.now.year - 30, :end_year => Time.now.year,
+                      :discard_day => true %>
   </p>
   <p>
     <%= f.label :end_date %><br />
-    <%= f.date_select :end_date %>
+    <%= f.date_select :end_date,
+                      :start_year => Time.now.year - 30, :end_year => Time.now.year,
+                      :discard_day => true %>
   </p>
   <p>
     <%= f.submit 'Create' %>

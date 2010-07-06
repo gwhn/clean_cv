@@ -1,9 +1,10 @@
-<div class="item">
-  <h4><%= h school.date_from.to_s(:short) %> - <%= h school.date_to.to_s(:short) %></h4>
+<div class="item<%= " last-item" if school_counter == total - 1 %>">
+  <h4><%= h format_date_as_year(school.date_from) %> -
+    <%= h format_date_as_year(school.date_to) %></h4>
 
   <h2><%= h school.name %></h2>
 
   <h3><%= h school.course %></h3>
 
-  <h5><%= h school.result %></h5>
+  <div class="result"><%= h school.result %></div>
 </div>
