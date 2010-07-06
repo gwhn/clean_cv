@@ -25,7 +25,8 @@ class CompaniesController < ApplicationController
   # GET /companies/new.xml
   def new
     @company = Company.new
-
+    @people = get_people
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @company }
@@ -35,6 +36,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1/edit
   def edit
     @company = Company.find(params[:id])
+    @people = get_people
   end
 
   # POST /companies
@@ -82,4 +84,5 @@ class CompaniesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end

@@ -1,23 +1,27 @@
 <h1>Editing skill</h1>
 
 <% form_for(@skill) do |f| %>
-  <%= f.error_messages %>
+    <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :level %><br />
-    <%= f.text_field :level %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+    <p>
+      <%= f.label :person_id %><br />
+      <%= f.select :person_id, @people %>
+    </p>
+    <p>
+      <%= f.label :name %><br/>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :level %><br/>
+      <%= f.text_field :level %>
+    </p>
+    <p>
+      <%= f.label :description %><br/>
+      <%= f.text_area :description %>
+    </p>
+    <p>
+      <%= f.submit 'Update' %>
+    </p>
 <% end %>
 
 <%= link_to 'Show', @skill %> |

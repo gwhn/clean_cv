@@ -25,6 +25,7 @@ class ResponsibilitiesController < ApplicationController
   # GET /responsibilities/new.xml
   def new
     @responsibility = Responsibility.new
+    @projects = get_projects
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class ResponsibilitiesController < ApplicationController
   # GET /responsibilities/1/edit
   def edit
     @responsibility = Responsibility.find(params[:id])
+    @projects = get_projects
   end
 
   # POST /responsibilities
@@ -81,5 +83,10 @@ class ResponsibilitiesController < ApplicationController
       format.html { redirect_to(responsibilities_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+  def get_projects
+    Project.find(:all, :order => :name).map {|p| [p.name, p.id]}
   end
 end

@@ -1,0 +1,9 @@
+<h6><%= h project.name %></h6>
+
+<p><%= h project.description %></p>
+
+<br/>
+
+<ul>
+  <%= render :partial => 'responsibility', :collection => project.responsibilities %>
+</ul>

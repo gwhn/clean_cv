@@ -25,6 +25,7 @@ class SkillsController < ApplicationController
   # GET /skills/new.xml
   def new
     @skill = Skill.new
+    @people = get_people
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class SkillsController < ApplicationController
   # GET /skills/1/edit
   def edit
     @skill = Skill.find(params[:id])
+    @people = get_people
   end
 
   # POST /skills

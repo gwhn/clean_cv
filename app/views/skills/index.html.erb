@@ -2,23 +2,25 @@
 
 <table>
   <tr>
+    <th>Person</th>
     <th>Name</th>
     <th>Level</th>
     <th>Description</th>
   </tr>
 
-<% @skills.each do |skill| %>
-  <tr>
-    <td><%=h skill.name %></td>
-    <td><%=h skill.level %></td>
-    <td><%=h skill.description %></td>
-    <td><%= link_to 'Show', skill %></td>
-    <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
-    <td><%= link_to 'Destroy', skill, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @skills.each do |skill| %>
+      <tr>
+        <td><%= h skill.person.name %></td>
+        <td><%= h skill.name %></td>
+        <td><%= h skill.level %></td>
+        <td><%= h skill.description %></td>
+        <td><%= link_to 'Show', skill %></td>
+        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+        <td><%= link_to 'Destroy', skill, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+  <% end %>
 </table>
 
-<br />
+<br/>
 
 <%= link_to 'New skill', new_skill_path %>

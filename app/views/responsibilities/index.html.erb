@@ -2,19 +2,21 @@
 
 <table>
   <tr>
+    <th>Project</th>
     <th>Description</th>
   </tr>
 
-<% @responsibilities.each do |responsibility| %>
-  <tr>
-    <td><%=h responsibility.description %></td>
-    <td><%= link_to 'Show', responsibility %></td>
-    <td><%= link_to 'Edit', edit_responsibility_path(responsibility) %></td>
-    <td><%= link_to 'Destroy', responsibility, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <% @responsibilities.each do |responsibility| %>
+      <tr>
+        <td><%= h responsibility.project.name %></td>
+        <td><%= h responsibility.description %></td>
+        <td><%= link_to 'Show', responsibility %></td>
+        <td><%= link_to 'Edit', edit_responsibility_path(responsibility) %></td>
+        <td><%= link_to 'Destroy', responsibility, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+  <% end %>
 </table>
 
-<br />
+<br/>
 
 <%= link_to 'New responsibility', new_responsibility_path %>

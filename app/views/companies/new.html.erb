@@ -3,7 +3,11 @@
 <% form_for(@company) do |f| %>
   <%= f.error_messages %>
 
-  <p>
+    <p>
+      <%= f.label :person_id %><br/>
+      <%= f.select :person_id, @people %>
+    </p>
+    <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>

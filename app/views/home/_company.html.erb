@@ -1,0 +1,11 @@
+<div class="item">
+  <h4><%= h company.start_date.to_s(:short) %> - <%= h company.end_date.to_s(:short) %></h4>
+
+  <h2><%= h company.name %></h2>
+
+  <h3><%= h company.business_type %></h3>
+
+  <h5><%= h company.role %></h5>
+
+  <%= render :partial => 'project', :collection => company.projects %>
+</div>

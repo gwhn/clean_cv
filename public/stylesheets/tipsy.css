@@ -28,17 +28,21 @@
 }
 
 .tipsy-north {
-    background: url("/images/tipsy/tipsy-north.gif") top center;
+    background-image: url("/images/tipsy/tipsy-north.gif");
+    background-position: top center;
 }
 
 .tipsy-south {
-    background: url("/images/tipsy/tipsy-south.gif") bottom center;
+    background-image: url("/images/tipsy/tipsy-south.gif");
+    background-position: bottom center;
 }
 
 .tipsy-east {
-    background: url("/images/tipsy/tipsy-east.gif") right center;
+    background-image: url("/images/tipsy/tipsy-east.gif");
+    background-position: right center;
 }
 
 .tipsy-west {
-    background: url("/images/tipsy/tipsy-west.gif") left center;
+    background-image: url("/images/tipsy/tipsy-west.gif");
+    background-position: left center;
 }

@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+  protected
+  def get_people
+    Person.find(:all, :order => :name).map {|p| [p.name, p.id]}
+  end
+  
 end

@@ -25,6 +25,7 @@ class SchoolsController < ApplicationController
   # GET /schools/new.xml
   def new
     @school = School.new
+    @people = get_people
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class SchoolsController < ApplicationController
   # GET /schools/1/edit
   def edit
     @school = School.find(params[:id])
+    @people = get_people
   end
 
   # POST /schools

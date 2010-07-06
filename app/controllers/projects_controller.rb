@@ -25,6 +25,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new.xml
   def new
     @project = Project.new
+    @companies = get_companies
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    @companies = get_companies
   end
 
   # POST /projects
@@ -81,5 +83,10 @@ class ProjectsController < ApplicationController
       format.html { redirect_to(projects_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+  def get_companies
+    Company.find(:all, :order => :name).map {|c| [c.name, c.id]}
   end
 end
