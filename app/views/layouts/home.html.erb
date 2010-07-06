@@ -73,5 +73,13 @@
 <br/>
 <a class="emailme" href="#">Email Me</a>
 
+<div class="authme">
+  <% if current_user %>
+      <%= link_to 'Logout', logout_path %>
+  <% else %>
+      <%= link_to 'Login', login_path %>
+  <% end %>
+</div>
+
 </body>
 </html>

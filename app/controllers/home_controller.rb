@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  skip_before_filter :authorize
+  
   caches_page :index
 
   def index
