@@ -8,6 +8,10 @@
     <th>Phone</th>
     <th>Mobile</th>
     <th>Portrait url</th>
+    <th>Flickr url</th>
+    <th>Twitter url</th>
+    <th>Facebook url</th>
+    <th>LinkedIn url</th>
     <th>Profile</th>
   </tr>
 
@@ -19,6 +23,10 @@
         <td><%= h person.phone %></td>
         <td><%= h person.mobile %></td>
         <td><%= h person.portrait_url %></td>
+        <td><%= h person.flickr_url %></td>
+        <td><%= h person.twitter_url %></td>
+        <td><%= h person.facebook_url %></td>
+        <td><%= h person.linked_in_url %></td>
         <td><%= h person.profile %></td>
         <td><%= link_to 'Show', person %></td>
         <td><%= link_to 'Edit', edit_person_path(person) %></td>

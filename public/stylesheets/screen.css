@@ -382,7 +382,7 @@ a.active.emailme {
     border: 1px solid #444;
     display: block;
     left: 0;
-    padding: 15px 15px 15px 15px;
+    padding: 13px 10px 12px 15px;
     top: 75px;
     position: fixed;
 }
@@ -398,6 +398,9 @@ a.active.emailme {
     background-color: #222;
 }
 
+.authme img {
+    padding: 0 0 0 5px;
+}
 /* =CONTACT-FORM
 --------------------- */
 
@@ -440,4 +443,3 @@ textarea {
 .formstatusok {
     color: #0C3;
 }
-	

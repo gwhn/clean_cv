@@ -3,42 +3,14 @@
 <% end %>
 
 <div class="cv-section first-cv-section fixed">
-  <div class="person">
-    <a class="lightbox" rel="mypics" href="/images/portrait_guy.jpg" title="<%= h @person.name %>">
-      <img src="/images/portrait_guy_thumb.jpg" width="100" height="100" alt="<%= h @person.name %>"/>
-    </a>
-
-    <h1><%= h @person.name %></h1>
-
-    <h2><%= h @person.job_title %></h2>
-  </div>
-  <div id="contact-info">
-    <ul id="social-media">
-      <li><a href="#" title="Flickr Profile" class="tip"><img src="/images/social-icons/flickr.png"
-                                                              alt="flickr icon"/></a></li>
-      <li><a href="#" title="Twitter Profile" class="tip"><img src="/images/social-icons/twitter.png"
-                                                               alt="twitter icon"/></a></li>
-      <li><a href="#" title="Facebook Profile" class="tip"><img src="/images/social-icons/facebook.png"
-                                                                alt="facebook icon"/></a></li>
-      <li><a href="#" title="Linked InProfile" class="tip"><img src="/images/social-icons/linkedin.png"
-                                                                alt="linkedin icon"/></a></li>
-      <li><a href="#" title="Send me a message" class="tip"><img src="/images/social-icons/yahoo.png"
-                                                                 alt="contact me"/></a></li>
-    </ul>
-    <table>
-      <tr><td>e:</td><td><a href="mailto:<%= h @person.email %>"><%= h @person.email %></a></td></tr>
-      <tr><td>t:</td><td><strong><%= h @person.phone %></strong></td></tr>
-      <tr><td>m:</td><td><strong><%= h @person.mobile %></strong></td></tr>
-    </table>
-  </div>
+  <%= render :partial => 'person', :object => @person %>
+  <%= render :partial => 'contact', :object => @person %>
 </div>
 <div class="cv-section fixed">
   <h2 class="cv-section-name">Professional Profile</h2>
 
   <div class="cv-section-items">
-    <div class="item last-item">
-      <p><%= h @person.profile %></p>
-    </div>
+    <%= render :partial => 'profile', :object => @person %>
   </div>
 </div>
 <div class="cv-section fixed">
