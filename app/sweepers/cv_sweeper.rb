@@ -1,15 +1,15 @@
 class CvSweeper < ActionController::Caching::Sweeper
   observe Person, Company, Project, Responsibility, Skill, School
 
-  def after_create
+  def after_create(record)
     expire_home_index
   end
 
-  def after_update
+  def after_update(record)
     expire_home_index
   end
 
-  def after_destroy
+  def after_destroy(record)
     expire_home_index    
   end
 
