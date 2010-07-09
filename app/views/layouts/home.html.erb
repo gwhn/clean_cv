@@ -37,42 +37,6 @@
 <div id="cv">
   <%= yield %>
 </div>
-<div class="panel">
-  <p id="formstatus"></p>
-
-  <form id="contact-form" action="javascript:alert('success!');">
-    <fieldset>
-      <p>
-        <input class="textbox" type="text" name="name" value="Name*"
-               onfocus="if(this.value=='Name*')this.value='';" onblur="if(this.value=='')this.value='Name*';"/>
-      </p>
-
-      <p>
-        <input class="textbox" type="text" name="email" value="Email*"
-               onfocus="if(this.value=='Email*')this.value='';"
-               onblur="if(this.value=='')this.value='Email*';"/>
-      </p>
-
-      <p>
-        <input class="textbox" type="text" name="subject" value="Subject*"
-               onfocus="if(this.value=='Subject*')this.value='';"
-               onblur="if(this.value=='')this.value='Subject*';"/>
-      </p>
-
-      <p>
-        <textarea class="textbox" name="message" rows="3" cols="25"></textarea>
-      </p>
-
-      <p>
-        <input class="btn" type="submit" name="submit" value="Send!"/>
-      </p>
-    </fieldset>
-  </form>
-</div>
-<br/>
-<br/>
-<a class="emailme" href="#">Email Me</a>
-
 <div class="authme">
   <% if current_user %>
       <%= link_to 'Logout', logout_path %>
