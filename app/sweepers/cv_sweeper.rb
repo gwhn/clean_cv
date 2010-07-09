@@ -1,4 +1,4 @@
-class CVSweeper < ActionController::Caching::Sweeper
+class CvSweeper < ActionController::Caching::Sweeper
   observe Person, Company, Project, Responsibility, Skill, School
 
   def after_create
