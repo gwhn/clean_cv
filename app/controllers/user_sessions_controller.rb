@@ -9,7 +9,6 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      expire_action :controller => 'home', :action => 'index'
       flash[:notice] = "Successfully logged in."
       redirect_to root_url
     else
