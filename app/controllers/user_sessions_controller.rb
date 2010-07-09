@@ -4,12 +4,12 @@ class UserSessionsController < ApplicationController
   def new
     redirect_to new_user_path if User.count == 0
     @user_session = UserSession.new
-    expire_action :controller => 'home', :action => 'index'
   end
   
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
+      expire_action :controller => 'home', :action => 'index'
       flash[:notice] = "Successfully logged in."
       redirect_to root_url
     else
