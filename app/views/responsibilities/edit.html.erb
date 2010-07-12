@@ -1,12 +1,8 @@
 <h1>Editing responsibility</h1>
 
-<% form_for(@responsibility) do |f| %>
+<% form_for([@person, @company, @project, @responsibility]) do |f| %>
     <%= f.error_messages %>
 
-    <p>
-      <%= f.label :project_id %><br />
-      <%= f.select :project_id, @projects %>
-    </p>
     <p>
       <%= f.label :description %><br/>
       <%= f.text_area :description %>
@@ -16,5 +12,5 @@
     </p>
 <% end %>
 
-<%= link_to 'Show', @responsibility %> |
-<%= link_to 'Back', responsibilities_path %>
+<%= link_to 'Show', person_company_project_responsibility_path(@person, @company, @project, @responsibility) %> |
+<%= link_to 'Back', person_company_project_responsibilities_path(@person, @company, @project) %>

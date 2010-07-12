@@ -1,4 +1,9 @@
 <p>
+  <b>Person:</b>
+  <%= h @project.company.person.name %>
+</p>
+
+<p>
   <b>Company:</b>
   <%= h @project.company.name %>
 </p>
@@ -14,5 +19,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Edit', edit_person_company_project_path(@person, @company, @project) %> |
+<%= link_to 'Back', person_company_projects_path(@person, @company) %>

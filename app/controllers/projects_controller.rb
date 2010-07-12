@@ -1,8 +1,10 @@
 class ProjectsController < ApplicationController
-  # GET /projects
-  # GET /projects.xml
+  before_filter :find_person_company
+  
+  # GET /people/1/company/1/projects
+  # GET /people/1/company/1/projects.xml
   def index
-    @projects = Project.all
+    @projects = @company.projects
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,10 +12,10 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # GET /projects/1
-  # GET /projects/1.xml
+  # GET /people/1/company/1/projects/1
+  # GET /people/1/company/1/projects/1.xml
   def show
-    @project = Project.find(params[:id])
+    @project = @company.projects.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -21,11 +23,10 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # GET /projects/new
-  # GET /projects/new.xml
+  # GET /people/1/company/1/projects/new
+  # GET /people/1/company/1/projects/new.xml
   def new
     @project = Project.new
-    @companies = get_companies
 
     respond_to do |format|
       format.html # new.html.erb
@@ -33,21 +34,20 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # GET /projects/1/edit
+  # GET /people/1/company/1/projects/1/edit
   def edit
-    @project = Project.find(params[:id])
-    @companies = get_companies
+    @project = @company.projects.find(params[:id])
   end
 
-  # POST /projects
-  # POST /projects.xml
+  # POST /people/1/company/1/projects
+  # POST /people/1/company/1/projects.xml
   def create
     @project = Project.new(params[:project])
 
     respond_to do |format|
-      if @project.save
+      if @company.projects << @project
         flash[:notice] = 'Project was successfully created.'
-        format.html { redirect_to(@project) }
+        format.html { redirect_to(person_company_project_url(@person, @company, @project)) }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       else
         format.html { render :action => "new" }
@@ -56,15 +56,15 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PUT /projects/1
-  # PUT /projects/1.xml
+  # PUT /people/1/company/1/projects/1
+  # PUT /people/1/company/1/projects/1.xml
   def update
-    @project = Project.find(params[:id])
+    @project = @company.projects.find(params[:id])
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
         flash[:notice] = 'Project was successfully updated.'
-        format.html { redirect_to(@project) }
+        format.html { redirect_to(person_company_project_url(@person, @company, @project)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -73,20 +73,16 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1
-  # DELETE /projects/1.xml
+  # DELETE /people/1/company/1/projects/1
+  # DELETE /people/1/company/1/projects/1.xml
   def destroy
-    @project = Project.find(params[:id])
-    @project.destroy
+    project = @company.projects.find(params[:id])
+    @company.projects.destroy(project)
 
     respond_to do |format|
-      format.html { redirect_to(projects_url) }
+      format.html { redirect_to(person_company_projects_url(@person, @company)) }
       format.xml  { head :ok }
     end
   end
 
-  private
-  def get_companies
-    Company.find(:all, :order => :name).map {|c| [c.name, c.id]}
-  end
 end
