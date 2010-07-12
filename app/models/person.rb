@@ -8,4 +8,9 @@ class Person < ActiveRecord::Base
   has_many :companies, :order => 'start_date DESC'
   has_many :skills
   has_many :schools, :order => 'date_from DESC'
+
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
+
 end

@@ -1,0 +1,39 @@
+<% content_for(:title) do %>
+    <%= h @person.name %>
+<% end %>
+
+<div class="cv-section first-cv-section fixed">
+  <%= render :partial => 'person', :object => @person %>
+  <%= render :partial => 'contact', :object => @person %>
+</div>
+<div class="cv-section fixed">
+  <h2 class="cv-section-name">Professional Profile</h2>
+
+  <div class="cv-section-items">
+    <%= render :partial => 'profile', :object => @person %>
+  </div>
+</div>
+<div class="cv-section fixed">
+  <h2 class="cv-section-name">Work Experience</h2>
+
+  <div class="cv-section-items">
+    <%= render :partial => 'company', :collection => @person.companies,
+               :locals => {:total => @person.companies.count} %>
+  </div>
+</div>
+<div class="cv-section fixed">
+  <h2 class="cv-section-name">Technical Skills</h2>
+
+  <div class="cv-section-items">
+    <%= render :partial => 'skill', :collection => @person.skills,
+               :locals => {:total => @person.skills.count} %>
+  </div>
+</div>
+<div class="cv-section last-cv-section fixed">
+  <h2 class="cv-section-name">Education</h2>
+
+  <div class="cv-section-items">
+    <%= render :partial => 'school', :collection => @person.schools,
+               :locals => {:total => @person.schools.count} %>
+  </div>
+</div>
