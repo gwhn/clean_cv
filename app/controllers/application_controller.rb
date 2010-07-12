@@ -14,14 +14,16 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
   protected
-  def get_people
-    Person.find(:all, :order => :name).map {|p| [p.name, p.id]}
-  end
-
   def authorize
     unless current_user
       redirect_to login_path
     end
+  end
+
+  def find_person
+    @person_id = params[:person_id]
+    return (redirect_to(people_url)) unless @person_id
+    @person = Person.find(@person_id)
   end
 
   private

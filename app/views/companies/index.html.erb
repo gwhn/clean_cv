@@ -18,13 +18,14 @@
         <td><%= h company.business_type %></td>
         <td><%= h company.start_date %></td>
         <td><%= h company.end_date %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to 'Show', person_company_path(@person, company) %></td>
+        <td><%= link_to 'Edit', edit_person_company_path(@person, company) %></td>
+        <td><%= link_to 'Destroy', person_company_path(@person, company),
+                        :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
   <% end %>
 </table>
 
 <br/>
 
-<%= link_to 'New company', new_company_path %>
+<%= link_to 'New company', new_person_company_path(@person) %>

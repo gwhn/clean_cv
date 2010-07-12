@@ -1,0 +1,63 @@
+(in /Users/guy/work/cv)
+                                     login        /login                                                                                            {:controller=>"user_sessions", :action=>"new"}
+                                    logout        /logout                                                                                           {:controller=>"user_sessions", :action=>"destroy"}
+                             user_sessions GET    /user_sessions(.:format)                                                                          {:controller=>"user_sessions", :action=>"index"}
+                                           POST   /user_sessions(.:format)                                                                          {:controller=>"user_sessions", :action=>"create"}
+                          new_user_session GET    /user_sessions/new(.:format)                                                                      {:controller=>"user_sessions", :action=>"new"}
+                         edit_user_session GET    /user_sessions/:id/edit(.:format)                                                                 {:controller=>"user_sessions", :action=>"edit"}
+                              user_session GET    /user_sessions/:id(.:format)                                                                      {:controller=>"user_sessions", :action=>"show"}
+                                           PUT    /user_sessions/:id(.:format)                                                                      {:controller=>"user_sessions", :action=>"update"}
+                                           DELETE /user_sessions/:id(.:format)                                                                      {:controller=>"user_sessions", :action=>"destroy"}
+                                     users GET    /users(.:format)                                                                                  {:controller=>"users", :action=>"index"}
+                                           POST   /users(.:format)                                                                                  {:controller=>"users", :action=>"create"}
+                                  new_user GET    /users/new(.:format)                                                                              {:controller=>"users", :action=>"new"}
+                                 edit_user GET    /users/:id/edit(.:format)                                                                         {:controller=>"users", :action=>"edit"}
+                                      user GET    /users/:id(.:format)                                                                              {:controller=>"users", :action=>"show"}
+                                           PUT    /users/:id(.:format)                                                                              {:controller=>"users", :action=>"update"}
+                                           DELETE /users/:id(.:format)                                                                              {:controller=>"users", :action=>"destroy"}
+   person_company_project_responsibilities GET    /people/:person_id/companies/:company_id/projects/:project_id/responsibilities(.:format)          {:controller=>"responsibilities", :action=>"index"}
+                                           POST   /people/:person_id/companies/:company_id/projects/:project_id/responsibilities(.:format)          {:controller=>"responsibilities", :action=>"create"}
+ new_person_company_project_responsibility GET    /people/:person_id/companies/:company_id/projects/:project_id/responsibilities/new(.:format)      {:controller=>"responsibilities", :action=>"new"}
+edit_person_company_project_responsibility GET    /people/:person_id/companies/:company_id/projects/:project_id/responsibilities/:id/edit(.:format) {:controller=>"responsibilities", :action=>"edit"}
+     person_company_project_responsibility GET    /people/:person_id/companies/:company_id/projects/:project_id/responsibilities/:id(.:format)      {:controller=>"responsibilities", :action=>"show"}
+                                           PUT    /people/:person_id/companies/:company_id/projects/:project_id/responsibilities/:id(.:format)      {:controller=>"responsibilities", :action=>"update"}
+                                           DELETE /people/:person_id/companies/:company_id/projects/:project_id/responsibilities/:id(.:format)      {:controller=>"responsibilities", :action=>"destroy"}
+                   person_company_projects GET    /people/:person_id/companies/:company_id/projects(.:format)                                       {:controller=>"projects", :action=>"index"}
+                                           POST   /people/:person_id/companies/:company_id/projects(.:format)                                       {:controller=>"projects", :action=>"create"}
+                new_person_company_project GET    /people/:person_id/companies/:company_id/projects/new(.:format)                                   {:controller=>"projects", :action=>"new"}
+               edit_person_company_project GET    /people/:person_id/companies/:company_id/projects/:id/edit(.:format)                              {:controller=>"projects", :action=>"edit"}
+                    person_company_project GET    /people/:person_id/companies/:company_id/projects/:id(.:format)                                   {:controller=>"projects", :action=>"show"}
+                                           PUT    /people/:person_id/companies/:company_id/projects/:id(.:format)                                   {:controller=>"projects", :action=>"update"}
+                                           DELETE /people/:person_id/companies/:company_id/projects/:id(.:format)                                   {:controller=>"projects", :action=>"destroy"}
+                          person_companies GET    /people/:person_id/companies(.:format)                                                            {:controller=>"companies", :action=>"index"}
+                                           POST   /people/:person_id/companies(.:format)                                                            {:controller=>"companies", :action=>"create"}
+                        new_person_company GET    /people/:person_id/companies/new(.:format)                                                        {:controller=>"companies", :action=>"new"}
+                       edit_person_company GET    /people/:person_id/companies/:id/edit(.:format)                                                   {:controller=>"companies", :action=>"edit"}
+                            person_company GET    /people/:person_id/companies/:id(.:format)                                                        {:controller=>"companies", :action=>"show"}
+                                           PUT    /people/:person_id/companies/:id(.:format)                                                        {:controller=>"companies", :action=>"update"}
+                                           DELETE /people/:person_id/companies/:id(.:format)                                                        {:controller=>"companies", :action=>"destroy"}
+                             person_skills GET    /people/:person_id/skills(.:format)                                                               {:controller=>"skills", :action=>"index"}
+                                           POST   /people/:person_id/skills(.:format)                                                               {:controller=>"skills", :action=>"create"}
+                          new_person_skill GET    /people/:person_id/skills/new(.:format)                                                           {:controller=>"skills", :action=>"new"}
+                         edit_person_skill GET    /people/:person_id/skills/:id/edit(.:format)                                                      {:controller=>"skills", :action=>"edit"}
+                              person_skill GET    /people/:person_id/skills/:id(.:format)                                                           {:controller=>"skills", :action=>"show"}
+                                           PUT    /people/:person_id/skills/:id(.:format)                                                           {:controller=>"skills", :action=>"update"}
+                                           DELETE /people/:person_id/skills/:id(.:format)                                                           {:controller=>"skills", :action=>"destroy"}
+                            person_schools GET    /people/:person_id/schools(.:format)                                                              {:controller=>"schools", :action=>"index"}
+                                           POST   /people/:person_id/schools(.:format)                                                              {:controller=>"schools", :action=>"create"}
+                         new_person_school GET    /people/:person_id/schools/new(.:format)                                                          {:controller=>"schools", :action=>"new"}
+                        edit_person_school GET    /people/:person_id/schools/:id/edit(.:format)                                                     {:controller=>"schools", :action=>"edit"}
+                             person_school GET    /people/:person_id/schools/:id(.:format)                                                          {:controller=>"schools", :action=>"show"}
+                                           PUT    /people/:person_id/schools/:id(.:format)                                                          {:controller=>"schools", :action=>"update"}
+                                           DELETE /people/:person_id/schools/:id(.:format)                                                          {:controller=>"schools", :action=>"destroy"}
+                                    people GET    /people(.:format)                                                                                 {:controller=>"people", :action=>"index"}
+                                           POST   /people(.:format)                                                                                 {:controller=>"people", :action=>"create"}
+                                new_person GET    /people/new(.:format)                                                                             {:controller=>"people", :action=>"new"}
+                               edit_person GET    /people/:id/edit(.:format)                                                                        {:controller=>"people", :action=>"edit"}
+                                    person GET    /people/:id(.:format)                                                                             {:controller=>"people", :action=>"show"}
+                                           PUT    /people/:id(.:format)                                                                             {:controller=>"people", :action=>"update"}
+                                           DELETE /people/:id(.:format)                                                                             {:controller=>"people", :action=>"destroy"}
+                                           GET    /:name                                                                                            {:controller=>"home", :action=>"show"}
+                                      root        /                                                                                                 {:controller=>"home", :action=>"index"}
+                                                  /:controller/:action/:id                                                                          
+                                                  /:controller/:action/:id(.:format)                                                                

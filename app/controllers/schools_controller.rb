@@ -1,8 +1,10 @@
 class SchoolsController < ApplicationController
-  # GET /schools
-  # GET /schools.xml
+  before_filter :find_person
+
+  # GET /people/1/schools
+  # GET /people/1/schools.xml
   def index
-    @schools = School.all
+    @schools = @person.schools
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,10 +12,10 @@ class SchoolsController < ApplicationController
     end
   end
 
-  # GET /schools/1
-  # GET /schools/1.xml
+  # GET /people/1/schools/1
+  # GET /people/1/schools/1.xml
   def show
-    @school = School.find(params[:id])
+    @school = @person.schools.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -21,11 +23,10 @@ class SchoolsController < ApplicationController
     end
   end
 
-  # GET /schools/new
-  # GET /schools/new.xml
+  # GET /people/1/schools/new
+  # GET /people/1/schools/new.xml
   def new
     @school = School.new
-    @people = get_people
 
     respond_to do |format|
       format.html # new.html.erb
@@ -33,21 +34,20 @@ class SchoolsController < ApplicationController
     end
   end
 
-  # GET /schools/1/edit
+  # GET /people/1/schools/1/edit
   def edit
-    @school = School.find(params[:id])
-    @people = get_people
+    @school = @person.schools.find(params[:id])
   end
 
-  # POST /schools
-  # POST /schools.xml
+  # POST /people/1/schools
+  # POST /people/1/schools.xml
   def create
     @school = School.new(params[:school])
 
     respond_to do |format|
-      if @school.save
+      if @person.schools << @school
         flash[:notice] = 'School was successfully created.'
-        format.html { redirect_to(@school) }
+        format.html { redirect_to(person_schools_url(@person)) }
         format.xml  { render :xml => @school, :status => :created, :location => @school }
       else
         format.html { render :action => "new" }
@@ -56,15 +56,15 @@ class SchoolsController < ApplicationController
     end
   end
 
-  # PUT /schools/1
-  # PUT /schools/1.xml
+  # PUT /people/1/schools/1
+  # PUT /people/1/schools/1.xml
   def update
-    @school = School.find(params[:id])
+    @school = @person.schools.find(params[:id])
 
     respond_to do |format|
       if @school.update_attributes(params[:school])
         flash[:notice] = 'School was successfully updated.'
-        format.html { redirect_to(@school) }
+        format.html { redirect_to(person_schools_url(@person)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -73,14 +73,14 @@ class SchoolsController < ApplicationController
     end
   end
 
-  # DELETE /schools/1
-  # DELETE /schools/1.xml
+  # DELETE /people/1/schools/1
+  # DELETE /people/1/schools/1.xml
   def destroy
-    @school = School.find(params[:id])
-    @school.destroy
+    school = @person.schools.find(params[:id])
+    @person.schools.destroy(school)
 
     respond_to do |format|
-      format.html { redirect_to(schools_url) }
+      format.html { redirect_to(person_schools_url(@person)) }
       format.xml  { head :ok }
     end
   end

@@ -1,12 +1,8 @@
 <h1>Editing skill</h1>
 
-<% form_for(@skill) do |f| %>
+<% form_for([@person, @skill]) do |f| %>
     <%= f.error_messages %>
 
-    <p>
-      <%= f.label :person_id %><br />
-      <%= f.select :person_id, @people %>
-    </p>
     <p>
       <%= f.label :name %><br/>
       <%= f.text_field :name %>
@@ -24,5 +20,5 @@
     </p>
 <% end %>
 
-<%= link_to 'Show', @skill %> |
-<%= link_to 'Back', skills_path %>
+<%= link_to 'Show', person_skill_path(@person, @skill) %> |
+<%= link_to 'Back', person_skills_path(@person) %>

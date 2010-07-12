@@ -1,12 +1,8 @@
 <h1>Editing school</h1>
 
-<% form_for(@school) do |f| %>
+<% form_for([@person, @school]) do |f| %>
     <%= f.error_messages %>
 
-    <p>
-      <%= f.label :person_id %><br />
-      <%= f.select :person_id, @people %>
-    </p>
     <p>
       <%= f.label :name %><br/>
       <%= f.text_field :name %>
@@ -36,5 +32,5 @@
     </p>
 <% end %>
 
-<%= link_to 'Show', @school %> |
-<%= link_to 'Back', schools_path %>
+<%= link_to 'Show', person_school_path(@person, @school) %> |
+<%= link_to 'Back', person_schools_path(@person) %>
