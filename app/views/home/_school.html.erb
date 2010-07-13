@@ -1,6 +1,6 @@
 <div class="item<%= " last-item" if school_counter == total - 1 %>">
-  <h4><%= h format_date_as_year(school.date_from) %> -
-    <%= h format_date_as_year(school.date_to) %></h4>
+  <h4><%= h school.date_from.to_s(:year_only) %> -
+    <%= h school.date_to.to_s(:year_only) %></h4>
 
   <h2><%= h school.name %></h2>
 

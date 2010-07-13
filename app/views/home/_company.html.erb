@@ -1,6 +1,6 @@
 <div class="item<%= " last-item" if company_counter == total - 1 %>">
-  <h4><%= h format_date_as_month_and_year(company.start_date) %> -
-    <%= h format_date_as_month_and_year(company.end_date) %></h4>
+  <h4><%= h company.start_date.to_s(:month_and_year) %> -
+    <%= h company.end_date.to_s(:year_only) %></h4>
 
   <h2><%= h company.name %></h2>
 
