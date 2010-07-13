@@ -42,10 +42,10 @@ class SkillsController < ApplicationController
   # POST /people/1/skills
   # POST /people/1/skills.xml
   def create
-    @skill = Skill.new(params[:skill])
+    @skill = @person.skills.new(params[:skill])
 
     respond_to do |format|
-      if @person.skills << @skill
+      if @skill.save
         flash[:notice] = 'Skill was successfully created.'
         format.html { redirect_to(person_skills_url(@person)) }
         format.xml  { render :xml => @skill, :status => :created, :location => @skill }
@@ -77,7 +77,7 @@ class SkillsController < ApplicationController
   # DELETE /people/1/skills/1.xml
   def destroy
     skill = @person.skills.find(params[:id])
-    @person.skills.destroy(skill)
+    skill.destroy
 
     respond_to do |format|
       format.html { redirect_to(person_skills_url(@person)) }

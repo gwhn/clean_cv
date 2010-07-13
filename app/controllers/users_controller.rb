@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = current_url
+    @user = current_user
     if @user.update_attributes(params[:user])
       flash[:notice] = "Successfully updated user."
       redirect_to root_url

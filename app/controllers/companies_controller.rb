@@ -41,10 +41,10 @@ class CompaniesController < ApplicationController
   # POST /people/1/companies
   # POST /people/1/companies.xml
   def create
-    @company = Company.new(params[:company])
+    @company = @person.companies.new(params[:company])
 
     respond_to do |format|
-      if @person.companies << @company
+      if @company.save
         flash[:notice] = 'Company was successfully created.'
         format.html { redirect_to(person_companies_url(@person)) }
         format.xml  { render :xml => @company, :status => :created, :location => @company }
@@ -76,7 +76,7 @@ class CompaniesController < ApplicationController
   # DELETE /people/1/companies/1.xml
   def destroy
     company = @person.companies.find(params[:id])
-    @person.companies.destroy(company)
+    company.destroy
 
     respond_to do |format|
       format.html { redirect_to(person_companies_url(@person)) }

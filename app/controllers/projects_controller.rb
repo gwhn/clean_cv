@@ -43,10 +43,10 @@ class ProjectsController < ApplicationController
   # POST /people/1/company/1/projects
   # POST /people/1/company/1/projects.xml
   def create
-    @project = Project.new(params[:project])
+    @project = @company.projects.new(params[:project])
 
     respond_to do |format|
-      if @company.projects << @project
+      if @project.save
         flash[:notice] = 'Project was successfully created.'
         format.html { redirect_to(person_company_project_url(@person, @company, @project)) }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
@@ -79,7 +79,7 @@ class ProjectsController < ApplicationController
   # DELETE /people/1/company/1/projects/1.xml
   def destroy
     project = @company.projects.find(params[:id])
-    @company.projects.destroy(project)
+    project.destroy
 
     respond_to do |format|
       format.html { redirect_to(person_company_projects_url(@person, @company)) }

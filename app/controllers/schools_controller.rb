@@ -42,10 +42,10 @@ class SchoolsController < ApplicationController
   # POST /people/1/schools
   # POST /people/1/schools.xml
   def create
-    @school = School.new(params[:school])
+    @school = @person.schools.new(params[:school])
 
     respond_to do |format|
-      if @person.schools << @school
+      if @school.save
         flash[:notice] = 'School was successfully created.'
         format.html { redirect_to(person_schools_url(@person)) }
         format.xml  { render :xml => @school, :status => :created, :location => @school }
@@ -77,7 +77,7 @@ class SchoolsController < ApplicationController
   # DELETE /people/1/schools/1.xml
   def destroy
     school = @person.schools.find(params[:id])
-    @person.schools.destroy(school)
+    school.destroy
 
     respond_to do |format|
       format.html { redirect_to(person_schools_url(@person)) }

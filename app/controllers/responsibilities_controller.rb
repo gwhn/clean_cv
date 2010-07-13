@@ -42,10 +42,10 @@ class ResponsibilitiesController < ApplicationController
   # POST /responsibilities
   # POST /responsibilities.xml
   def create
-    @responsibility = Responsibility.new(params[:responsibility])
+    @responsibility = @project.responsibilities.new(params[:responsibility])
 
     respond_to do |format|
-      if @project.responsibilities << @responsibility
+      if @responsibility.save
         flash[:notice] = 'Responsibility was successfully created.'
         format.html { redirect_to(person_company_project_responsibility_url(
                 @person, @company, @project, @responsibility)) }
@@ -78,7 +78,7 @@ class ResponsibilitiesController < ApplicationController
   # DELETE /responsibilities/1.xml
   def destroy
     responsibility = @project.responsibilities.find(params[:id])
-    @project.responsibilities.destroy(responsibility)
+    responsibility.destroy
 
     respond_to do |format|
       format.html { redirect_to(person_company_project_responsibilities_url(@person, @company, @project)) }
