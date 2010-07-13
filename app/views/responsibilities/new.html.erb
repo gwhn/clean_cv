@@ -1,15 +1,6 @@
 <h1>New responsibility</h1>
 
-<% form_for([@person, @company, @project, @responsibility]) do |f| %>
-    <%= f.error_messages %>
-
-    <p>
-      <%= f.label :description %><br/>
-      <%= f.text_area :description %>
-    </p>
-    <p>
-      <%= f.submit 'Create' %>
-    </p>
-<% end %>
+<%= render :partial => 'form', :locals => {:person => @person, :company => @company, :project => @project,
+                                           :responsibility => @responsibility, :command => 'Create'} %>
 
 <%= link_to 'Back', person_company_project_responsibilities_path(@person, @company, @project) %>

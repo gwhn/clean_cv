@@ -1,36 +1,6 @@
 <h1>Editing school</h1>
 
-<% form_for([@person, @school]) do |f| %>
-    <%= f.error_messages %>
-
-    <p>
-      <%= f.label :name %><br/>
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.label :course %><br/>
-      <%= f.text_field :course %>
-    </p>
-    <p>
-      <%= f.label :result %><br/>
-      <%= f.text_field :result %>
-    </p>
-    <p>
-      <%= f.label :date_from %><br/>
-      <%= f.date_select :date_from,
-                        :start_year => Time.now.year - 30, :end_year => Time.now.year,
-                        :discard_day => true, :discard_month => true %>
-    </p>
-    <p>
-      <%= f.label :date_to %><br/>
-      <%= f.date_select :date_to,
-                        :start_year => Time.now.year - 30, :end_year => Time.now.year, 
-                        :discard_day => true, :discard_month => true %>
-    </p>
-    <p>
-      <%= f.submit 'Update' %>
-    </p>
-<% end %>
+<%= render :partial => 'form', :locals => {:person => @person, :school => @school, :command => 'Update'} %>
 
 <%= link_to 'Show', person_school_path(@person, @school) %> |
 <%= link_to 'Back', person_schools_path(@person) %>

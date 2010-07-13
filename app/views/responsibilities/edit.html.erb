@@ -1,16 +1,7 @@
 <h1>Editing responsibility</h1>
 
-<% form_for([@person, @company, @project, @responsibility]) do |f| %>
-    <%= f.error_messages %>
-
-    <p>
-      <%= f.label :description %><br/>
-      <%= f.text_area :description %>
-    </p>
-    <p>
-      <%= f.submit 'Update' %>
-    </p>
-<% end %>
+<%= render :partial => 'form', :locals => {:person => @person, :company => @company, :project => @project,
+                                           :responsibility => @responsibility, :command => 'Update'} %>
 
 <%= link_to 'Show', person_company_project_responsibility_path(@person, @company, @project, @responsibility) %> |
 <%= link_to 'Back', person_company_project_responsibilities_path(@person, @company, @project) %>
