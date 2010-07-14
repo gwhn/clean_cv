@@ -1,8 +1,0 @@
-<h1>Editing project</h1>
-
-<%= render :partial => 'form',
-           :locals => {:person => @person, :company => @company,
-                       :project => @project, :command => 'Update'} %>
-
-<%= link_to 'Show', person_company_project_path(@person, @company, @project) %> |
-<%= link_to 'Back', person_company_projects_path(@person, @company) %>

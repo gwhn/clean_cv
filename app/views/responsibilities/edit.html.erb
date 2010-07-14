@@ -1,7 +1,0 @@
-<h1>Editing responsibility</h1>
-
-<%= render :partial => 'form', :locals => {:person => @person, :company => @company, :project => @project,
-                                           :responsibility => @responsibility, :command => 'Update'} %>
-
-<%= link_to 'Show', person_company_project_responsibility_path(@person, @company, @project, @responsibility) %> |
-<%= link_to 'Back', person_company_project_responsibilities_path(@person, @company, @project) %>

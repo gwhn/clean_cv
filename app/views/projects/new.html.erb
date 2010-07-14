@@ -1,7 +1,0 @@
-<h1>New project</h1>
-
-<%= render :partial => 'form',
-           :locals => {:person => @person, :company => @company,
-                       :project => @project, :command => 'Create'} %>
-
-<%= link_to 'Back', person_company_projects_path(@person, @company) %>
