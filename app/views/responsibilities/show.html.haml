@@ -1,0 +1,15 @@
+%p
+  %strong Person:
+  = h @responsibility.project.company.person.name 
+%p
+  %strong Company:
+  = h @responsibility.project.company.name 
+%p
+  %strong Project:
+  = h @responsibility.project.name 
+%p
+  %strong Description:
+  = h @responsibility.description 
+= link_to 'Edit', edit_person_company_project_responsibility_path(@person, @company, @project, @responsibility)
+|
+= link_to 'Back', person_company_project_responsibilities_path(@person, @company, @project) 

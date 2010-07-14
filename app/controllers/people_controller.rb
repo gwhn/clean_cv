@@ -2,10 +2,12 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.xml
   def index
-    @people = Person.all
+    sort_by = %w(name job_title email).detect {|f| f == params[:order]} || 'id'
+    direction = params[:direction] =~ %r(desc)i ? 'DESC' : 'ASC'
+    @people = Person.find(:all, :order => "#{sort_by} #{direction}")
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.xml  { render :xml => @people }
     end
   end
@@ -16,7 +18,7 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.xml  { render :xml => @person }
     end
   end
@@ -27,7 +29,7 @@ class PeopleController < ApplicationController
     @person = Person.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.xml  { render :xml => @person }
     end
   end

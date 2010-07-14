@@ -1,0 +1,21 @@
+%p
+  %strong Person:
+  = h @company.person.name 
+%p
+  %strong Name:
+  = h @company.name 
+%p
+  %strong Role:
+  = h @company.role 
+%p
+  %strong Business type:
+  = h @company.business_type 
+%p
+  %strong Start date:
+  = h @company.start_date 
+%p
+  %strong End date:
+  = h @company.end_date 
+= link_to 'Edit', edit_person_company_path(@person, @company)
+|
+= link_to 'Back', person_companies_path(@person) 

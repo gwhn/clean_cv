@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     @projects = @company.projects
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.xml  { render :xml => @projects }
     end
   end
@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
     @project = @company.projects.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.xml  { render :xml => @project }
     end
   end
@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
     @project.responsibilities.build
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.xml  { render :xml => @project }
     end
   end

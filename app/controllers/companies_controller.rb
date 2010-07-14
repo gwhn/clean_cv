@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
     @companies = @person.companies
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.xml  { render :xml => @companies }
     end
   end
@@ -17,7 +17,7 @@ class CompaniesController < ApplicationController
     @company = @person.companies.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.xml  { render :xml => @company }
     end
   end
@@ -28,7 +28,7 @@ class CompaniesController < ApplicationController
     @company = Company.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.xml  { render :xml => @company }
     end
   end

@@ -1,0 +1,11 @@
+- error_handling_form_for([person, company]) do |f|
+  = f.text_field :name
+  = f.text_field :role
+  = f.text_field :business_type
+  = f.date_select :start_date,
+    :start_year => Time.now.year - 30, :end_year => Time.now.year,
+    :discard_day => true
+  = f.date_select :end_date,
+    :start_year => Time.now.year - 30, :end_year => Time.now.year,
+    :discard_day => true
+  = f.submit command

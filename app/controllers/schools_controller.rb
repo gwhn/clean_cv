@@ -7,7 +7,7 @@ class SchoolsController < ApplicationController
     @schools = @person.schools
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.xml  { render :xml => @schools }
     end
   end
@@ -18,7 +18,7 @@ class SchoolsController < ApplicationController
     @school = @person.schools.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.xml  { render :xml => @school }
     end
   end
@@ -29,7 +29,7 @@ class SchoolsController < ApplicationController
     @school = School.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.xml  { render :xml => @school }
     end
   end

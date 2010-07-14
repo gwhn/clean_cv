@@ -1,0 +1,3 @@
+%h1 New school
+= render :partial => 'form', :locals => {:person => @person, :school => @school, :command => 'Create'}
+= link_to 'Back', person_schools_path(@person)

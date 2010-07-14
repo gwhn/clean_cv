@@ -1,0 +1,21 @@
+%p
+  %strong Person:
+  = h @school.person.name 
+%p
+  %strong Name:
+  = h @school.name 
+%p
+  %strong Course:
+  = h @school.course 
+%p
+  %strong Result:
+  = h @school.result 
+%p
+  %strong Date from:
+  = h @school.date_from 
+%p
+  %strong Date to:
+  = h @school.date_to 
+= link_to 'Edit', edit_person_school_path(@person, @school)
+|
+= link_to 'Back', person_schools_path(@person) 

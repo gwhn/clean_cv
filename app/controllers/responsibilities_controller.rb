@@ -7,7 +7,7 @@ class ResponsibilitiesController < ApplicationController
     @responsibilities = @project.responsibilities
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.xml { render :xml => @responsibilities }
     end
   end
@@ -18,7 +18,7 @@ class ResponsibilitiesController < ApplicationController
     @responsibility = @project.responsibilities.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.html.haml
       format.xml { render :xml => @responsibility }
     end
   end
@@ -29,7 +29,7 @@ class ResponsibilitiesController < ApplicationController
     @responsibility = Responsibility.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.html.haml
       format.xml { render :xml => @responsibility }
     end
   end

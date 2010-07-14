@@ -1,0 +1,3 @@
+%h1 New person
+= render :partial => 'form', :locals => {:person => @person, :command => 'Create'}
+= link_to 'Back', people_path

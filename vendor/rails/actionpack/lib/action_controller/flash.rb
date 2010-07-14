@@ -16,7 +16,7 @@ module ActionController #:nodoc:
   #     end
   #   end
   #
-  #   show.html.erb
+  #   show.html.haml
   #     <% if flash[:notice] %>
   #       <div class="notice"><%= flash[:notice] %></div>
   #     <% end %>
