@@ -1,4 +1,8 @@
 class PeopleController < ApplicationController
+  skip_before_filter :authorize, :only => [:index, :show]
+
+  caches_action :index, :show
+
   # GET /people
   # GET /people.xml
   def index
