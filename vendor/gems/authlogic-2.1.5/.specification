@@ -245,3 +245,4 @@ test_files:
 - test/session_test/unauthorized_record_test.rb
 - test/session_test/validation_test.rb
 - test/test_helper.rb
+
