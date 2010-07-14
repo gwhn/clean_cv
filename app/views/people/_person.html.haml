@@ -1,0 +1,5 @@
+.person
+  %a.lightbox{:rel => "mypics", :href => "#{h person.portrait_url}", :title => "#{h person.name}"}
+    %img{:src => "#{h person.portrait_thumb_url}", :width => "100", :height => "100", :alt => "#{h person.name}"}
+  %h1= h person.name
+  %h2= h person.job_title

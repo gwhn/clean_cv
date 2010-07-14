@@ -1,39 +1,24 @@
-%p
-  %strong Name:
+- content_for(:title) do
   = h @person.name
-%p
-  %strong Job title:
-  = h @person.job_title
-%p
-  %strong Email:
-  = h @person.email
-%p
-  %strong Phone:
-  = h @person.phone
-%p
-  %strong Mobile:
-  = h @person.mobile
-%p
-  %strong Portrait url:
-  = h @person.portrait_url
-%p
-  %strong Portrait thumb url:
-  = h @person.portrait_thumb_url
-%p
-  %strong Flickr url:
-  = h @person.flickr_url
-%p
-  %strong Twitter url:
-  = h @person.twitter_url
-%p
-  %strong Facebook url:
-  = h @person.facebook_url
-%p
-  %strong LinkedIn url:
-  = h @person.linked_in_url
-%p
-  %strong Profile:
-  = h @person.profile
-= link_to 'Edit', edit_person_path(@person) 
-|
-= link_to 'Back', people_path
+.cv-section.first-cv-section.fixed
+  = render :partial => 'person', :object => @person
+  = render :partial => 'contact', :object => @person
+.cv-section.fixed
+  %h2.cv-section-name Professional Profile
+  .cv-section-items
+    = render :partial => 'profile', :object => @person
+.cv-section.fixed
+  %h2.cv-section-name Work Experience
+  .cv-section-items
+    = render :partial => 'companies/list', :collection => @person.companies,
+      :locals => {:total => @person.companies.count}
+.cv-section.fixed
+  %h2.cv-section-name Technical Skills
+  .cv-section-items
+    = render :partial => 'skills/list', :collection => @person.skills,
+      :locals => {:total => @person.skills.count}
+.cv-section.last-cv-section.fixed
+  %h2.cv-section-name Education
+  .cv-section-items
+    = render :partial => 'schools/list', :collection => @person.schools,
+      :locals => {:total => @person.schools.count}
