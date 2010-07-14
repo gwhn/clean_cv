@@ -1,0 +1,14 @@
+.cv-section.first-cv-section.fixed
+  = render :partial => 'person', :object => list
+  = render :partial => 'contact', :object => list
+  .tr-options
+    = link_to 'Show', list
+    |
+    = link_to 'Edit', edit_person_path(list)
+    |
+    = link_to 'Destroy', list, :confirm => 'Are you sure?', :method => :delete
+.cv-section.fixed
+  %h2.cv-section-name Professional Profile
+  .cv-section-items
+    = render :partial => 'profile', :object => list
+
