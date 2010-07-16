@@ -1,0 +1,6 @@
+%div{:class => [:item, item_counter == total - 1 ? 'last-item' : '']}
+  %h4 #{h item.start_date.to_s(:month_and_year)} - #{h item.end_date.to_s(:month_and_year)}
+  %h2= h item.name
+  %h5= h item.role
+  %h3= h item.business_type
+  = render :partial => 'projects/item', :collection => item.projects

@@ -1,0 +1,5 @@
+%div{:class => [:item, item_counter == total - 1 ? 'last-item' : '']}
+  %h4 #{h item.date_from.to_s(:year_only)} - #{h item.date_to.to_s(:year_only)}
+  %h2= h item.name
+  %h3= h item.course
+  .result= h item.result

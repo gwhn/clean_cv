@@ -1,3 +1,4 @@
-= render :partial => 'list', :collection => @people
-.bl-options
-  = link_to 'New person', new_person_path
+= render :partial => 'item', :collection => @people
+- if current_user
+  .bl-options
+    = link_to 'New', new_person_path

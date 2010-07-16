@@ -1,5 +1,5 @@
 - content_for(:title) do
-  = h @person.name
+  = h @person.name.upcase
 .cv-section.first-cv-section.fixed
   = render :partial => 'person', :object => @person
   = render :partial => 'contact', :object => @person
@@ -10,15 +10,15 @@
 .cv-section.fixed
   %h2.cv-section-name Work Experience
   .cv-section-items
-    = render :partial => 'companies/list', :collection => @person.companies,
+    = render :partial => 'companies/item', :collection => @person.companies,
       :locals => {:total => @person.companies.count}
 .cv-section.fixed
   %h2.cv-section-name Technical Skills
   .cv-section-items
-    = render :partial => 'skills/list', :collection => @person.skills,
+    = render :partial => 'skills/item', :collection => @person.skills,
       :locals => {:total => @person.skills.count}
 .cv-section.last-cv-section.fixed
   %h2.cv-section-name Education
   .cv-section-items
-    = render :partial => 'schools/list', :collection => @person.schools,
+    = render :partial => 'schools/item', :collection => @person.schools,
       :locals => {:total => @person.schools.count}

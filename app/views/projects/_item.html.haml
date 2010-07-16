@@ -1,0 +1,4 @@
+%h6= h item.name
+%p.project= h item.description
+%ul
+  = render :partial => 'responsibilities/item', :collection => item.responsibilities
