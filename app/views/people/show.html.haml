@@ -1,12 +1,6 @@
 - content_for(:title) do
   = h @person.name.upcase
-.cv-section.first-cv-section.fixed
-  = render :partial => 'person', :object => @person
-  = render :partial => 'contact', :object => @person
-.cv-section.fixed
-  %h2.cv-section-name Professional Profile
-  .cv-section-items
-    = render :partial => 'profile', :object => @person
+= render :partial => 'item', :object => @person
 .cv-section.fixed
   %h2.cv-section-name Work Experience
   .cv-section-items

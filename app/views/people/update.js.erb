@@ -1,0 +1,3 @@
+$(".ui-dialog-content").html("<%= escape_javascript(render :partial => 'form', :locals => {:person => @person, :command => controller.action_name}) %>");
+focusOnFirstFormTextField("#form-dialog");
+bindFormButtons("#form-dialog");
