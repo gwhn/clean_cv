@@ -2,14 +2,17 @@
   .cv-section.first-cv-section.fixed
     = render :partial => 'person', :object => item
     = render :partial => 'contact', :object => item
+
     - if current_user
       .tr-options
+        = link_to_unless_current('View', person_path(item)) << ' | '
         = link_to 'Edit', edit_person_path(item), :class => 'remote-link', :title => 'Edit person'
         |
         = link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete
-    - else
+    - elsif !current_page?(person_path(item))
       .tr-options
-        = link_to 'Show', item
+        = link_to 'View', item
+
   .cv-section.fixed
     %h2.cv-section-name Professional Profile
     .cv-section-items

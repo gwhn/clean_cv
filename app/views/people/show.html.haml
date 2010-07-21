@@ -1,18 +1,34 @@
 - content_for(:title) do
   = h @person.name.upcase
+
 = render :partial => 'item', :object => @person
+
 .cv-section.fixed
   %h2.cv-section-name Work Experience
   .cv-section-items
     = render :partial => 'companies/item', :collection => @person.companies,
       :locals => {:total => @person.companies.count}
+
+    - if current_user
+      .tl-options
+        = link_to 'New', new_person_company_path(@person), :class => 'remote-link', :title => 'New company'
+
 .cv-section.fixed
   %h2.cv-section-name Technical Skills
   .cv-section-items
     = render :partial => 'skills/item', :collection => @person.skills,
       :locals => {:total => @person.skills.count}
+
+    - if current_user
+      .tl-options
+        = link_to 'New', new_person_skill_path(@person), :class => 'remote-link', :title => 'New skill'
+
 .cv-section.last-cv-section.fixed
   %h2.cv-section-name Education
   .cv-section-items
     = render :partial => 'schools/item', :collection => @person.schools,
       :locals => {:total => @person.schools.count}
+
+    - if current_user
+      .tl-options
+        = link_to 'New', new_person_school_path(@person), :class => 'remote-link', :title => 'New school'

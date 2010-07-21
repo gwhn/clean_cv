@@ -1,5 +1,12 @@
 %div{:class => [:item, item_counter == total - 1 ? 'last-item' : '']}
   %h4 #{h item.date_from.to_s(:year_only)} - #{h item.date_to.to_s(:year_only)}
   %h2= h item.name
+
+  - if current_user
+    .br-options
+      = link_to 'Edit', edit_person_school_path(item), :class => 'remote-link', :title => 'Edit school'
+      |
+      = link_to 'Delete', person_school_path(item), :confirm => 'Are you sure?', :method => :delete
+
   %h3= h item.course
   .result= h item.result

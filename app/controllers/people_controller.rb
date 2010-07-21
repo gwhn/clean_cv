@@ -53,6 +53,7 @@ class PeopleController < ApplicationController
         flash[:notice] = 'Person was successfully created.'
         format.html { redirect_to(@person) }
         format.xml  { render :xml => @person, :status => :created, :location => @person }
+        format.js   { render :action => "append" }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }

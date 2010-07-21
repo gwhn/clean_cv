@@ -15,7 +15,7 @@ class UserSessionsController < ApplicationController
           flash[:notice] = "Successfully logged in."
           redirect_to root_url
         end
-        format.js { render :action => :redirect }
+        format.js { render :action => 'redirect' }
       end
     else
       respond_to do |format|

@@ -1,5 +1,12 @@
 %div{:class => [:item, item_counter == total - 1 ? 'last-item' : '']}
   %h4= item.level
   %h2= item.name
+
+  - if current_user
+    .br-options
+      = link_to 'Edit', edit_person_skill_path(item), :class => 'remote-link', :title => 'Edit skill'
+      |
+      = link_to 'Delete', person_skill_path(item), :confirm => 'Are you sure?', :method => :delete
+
   %br
   %p= item.description

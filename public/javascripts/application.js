@@ -4,10 +4,12 @@ function replaceFonts(selector) {
     Cufon.replace(selector);
     Cufon.now();
 }
+
 function focusOnFirstFormTextField(container) {
     $form = $(container).find("form");
     $form.find(":text:first").focus();
 }
+
 function bindFormButtons(container) {
     $form = $(container).find("form");
     $btn = $form.find(":submit");
@@ -33,7 +35,7 @@ function initModalDialog(selector) {
             modal     : true,
             title     : $(this).attr("title"),
             height    : 400,
-            maxHeight : 400
+            width     : 600
         }).load($(this).attr("href") + " form", function() {
             $(this).dialog("open");
             focusOnFirstFormTextField(this);
