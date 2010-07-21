@@ -49,9 +49,11 @@ class SkillsController < ApplicationController
         flash[:notice] = 'Skill was successfully created.'
         format.html { redirect_to(person_skills_url(@person)) }
         format.xml  { render :xml => @skill, :status => :created, :location => @skill }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @skill.errors, :status => :unprocessable_entity }
+        format.js   { render :action => "invalid" }
       end
     end
   end
@@ -66,9 +68,11 @@ class SkillsController < ApplicationController
         flash[:notice] = 'Skill was successfully updated.'
         format.html { redirect_to(person_skills_url(@person)) }
         format.xml  { head :ok }
+        format.js
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @skill.errors, :status => :unprocessable_entity }
+        format.js   { render :action => "invalid" }
       end
     end
   end
@@ -76,12 +80,13 @@ class SkillsController < ApplicationController
   # DELETE /people/1/skills/1
   # DELETE /people/1/skills/1.xml
   def destroy
-    skill = @person.skills.find(params[:id])
-    skill.destroy
+    @skill = @person.skills.find(params[:id])
+    @skill.destroy
 
     respond_to do |format|
       format.html { redirect_to(person_skills_url(@person)) }
       format.xml  { head :ok }
+      format.js
     end
   end
 end

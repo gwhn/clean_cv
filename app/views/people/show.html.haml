@@ -6,8 +6,9 @@
 .cv-section.fixed
   %h2.cv-section-name Work Experience
   .cv-section-items
-    = render :partial => 'companies/item', :collection => @person.companies,
-      :locals => {:total => @person.companies.count}
+    #companies
+      = render :partial => 'companies/item', :collection => @person.companies,
+        :locals => {:total => @person.companies.count}
 
     - if current_user
       .tl-options
@@ -16,8 +17,9 @@
 .cv-section.fixed
   %h2.cv-section-name Technical Skills
   .cv-section-items
-    = render :partial => 'skills/item', :collection => @person.skills,
-      :locals => {:total => @person.skills.count}
+    #skills
+      = render :partial => 'skills/item', :collection => @person.skills,
+        :locals => {:total => @person.skills.count}
 
     - if current_user
       .tl-options
@@ -26,8 +28,9 @@
 .cv-section.last-cv-section.fixed
   %h2.cv-section-name Education
   .cv-section-items
-    = render :partial => 'schools/item', :collection => @person.schools,
-      :locals => {:total => @person.schools.count}
+    #schools
+      = render :partial => 'schools/item', :collection => @person.schools,
+        :locals => {:total => @person.schools.count}
 
     - if current_user
       .tl-options

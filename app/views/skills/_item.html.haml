@@ -1,12 +1,13 @@
-%div{:class => [:item, item_counter == total - 1 ? 'last-item' : '']}
-  %h4= item.level
-  %h2= item.name
+%div{:id => ['skill', item.id], :class => 'skill'}
+  %div{:class => [:item, (defined?(item_counter) && defined?(total) && item_counter == total - 1 ? 'last-item' : '')]}
+    %h4= item.level
+    %h2= item.name
 
-  - if current_user
-    .br-options
-      = link_to 'Edit', edit_person_skill_path(item), :class => 'remote-link', :title => 'Edit skill'
-      |
-      = link_to 'Delete', person_skill_path(item), :confirm => 'Are you sure?', :method => :delete
+    - if current_user
+      .br-options
+        = link_to 'Edit', edit_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Edit skill'
+        |
+        = link_to 'Delete', person_skill_path(item.person, item), :confirm => 'Are you sure?', :method => :delete
 
-  %br
-  %p= item.description
+    %br
+    %p= item.description

@@ -49,9 +49,11 @@ class SchoolsController < ApplicationController
         flash[:notice] = 'School was successfully created.'
         format.html { redirect_to(person_schools_url(@person)) }
         format.xml  { render :xml => @school, :status => :created, :location => @school }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @school.errors, :status => :unprocessable_entity }
+        format.js   { render :action => "invalid" }
       end
     end
   end
@@ -66,9 +68,11 @@ class SchoolsController < ApplicationController
         flash[:notice] = 'School was successfully updated.'
         format.html { redirect_to(person_schools_url(@person)) }
         format.xml  { head :ok }
+        format.js
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @school.errors, :status => :unprocessable_entity }
+        format.js   { render :action => "invalid" }
       end
     end
   end
@@ -76,12 +80,13 @@ class SchoolsController < ApplicationController
   # DELETE /people/1/schools/1
   # DELETE /people/1/schools/1.xml
   def destroy
-    school = @person.schools.find(params[:id])
-    school.destroy
+    @school = @person.schools.find(params[:id])
+    @school.destroy
 
     respond_to do |format|
       format.html { redirect_to(person_schools_url(@person)) }
       format.xml  { head :ok }
+      format.js
     end
   end
 end

@@ -5,6 +5,17 @@ function replaceFonts(selector) {
     Cufon.now();
 }
 
+function initFancyBox(selector) {
+    $(selector).fancybox({
+        overlayOpacity  : 0.7,
+        overlayColor    : "#333"
+    });
+}
+
+function initTipsy(selector) {
+    $(selector).tipsy({gravity: "n"});
+}
+
 function focusOnFirstFormTextField(container) {
     $form = $(container).find("form");
     $form.find(":text:first").focus();
@@ -29,6 +40,7 @@ function bindFormButtons(container) {
 }
 
 function initModalDialog(selector) {
+    $("#form-dialog").dialog("destory");
     $(selector).click(function() {
         $("<div/>").attr("id", "form-dialog").appendTo("body").dialog({
             autoOpen  : false,
@@ -44,3 +56,4 @@ function initModalDialog(selector) {
         return false;
     });
 }
+

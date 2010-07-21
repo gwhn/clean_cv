@@ -53,11 +53,12 @@ class PeopleController < ApplicationController
         flash[:notice] = 'Person was successfully created.'
         format.html { redirect_to(@person) }
         format.xml  { render :xml => @person, :status => :created, :location => @person }
-        format.js   { render :action => "append" }
+        format.js
       else
+        puts "invalid template from create action"
         format.html { render :action => "new" }
         format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
-        format.js
+        format.js   { render :action => "invalid" }
       end
     end
   end
@@ -72,11 +73,12 @@ class PeopleController < ApplicationController
         flash[:notice] = 'Person was successfully updated.'
         format.html { redirect_to(@person) }
         format.xml  { head :ok }
-        format.js   { render :action => "refresh" }
+        format.js
       else
+        puts "invalid template from update action"
         format.html { render :action => "edit" }
         format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
-        format.js
+        format.js   { render :action => "invalid" }
       end
     end
   end

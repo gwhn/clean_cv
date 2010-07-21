@@ -399,14 +399,6 @@ h2.cv-section-name {
     font-weight: 400;
 }
 
-.item h5 {
-    color: #262625;
-    font-family: Georgia, serif;
-    font-size: 15px;
-    font-style: italic;
-    font-weight: 400;
-}
-
 .item h6 {
     color: #06A;
     font-family: Georgia, serif;
@@ -440,6 +432,7 @@ h2.cv-section-name {
     border-bottom: none;
 }
 
+.item h5,
 .item .result {
     color: #262625;
     font-family: Georgia, serif;

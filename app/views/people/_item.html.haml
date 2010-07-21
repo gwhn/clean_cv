@@ -5,11 +5,13 @@
 
     - if current_user
       .tr-options
-        = link_to_unless_current('View', person_path(item)) << ' | '
+        - if !current_page?(item)
+          = link_to 'View', item
+          |
         = link_to 'Edit', edit_person_path(item), :class => 'remote-link', :title => 'Edit person'
         |
         = link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete
-    - elsif !current_page?(person_path(item))
+    - elsif !current_page?(item)
       .tr-options
         = link_to 'View', item
 
