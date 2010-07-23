@@ -11,15 +11,15 @@ class UserSessionsController < ApplicationController
     if @user_session.save
       respond_to do |format|
         format.html do
-          expire_action :controller => 'people', :action => ['index', 'show']
+          expire_action :controller => 'people', :action => [:index, :show]
           flash[:notice] = "Successfully logged in."
           redirect_to root_url
         end
-        format.js { render :action => 'redirect' }
+        format.js { render :action => :redirect }
       end
     else
       respond_to do |format|
-        format.html { render :action => 'new' }
+        format.html { render :action => :new }
         format.js
       end
 
@@ -29,7 +29,7 @@ class UserSessionsController < ApplicationController
   def destroy
     @user_session = UserSession.find(params[:id])
     @user_session.destroy
-    expire_action :controller => 'people', :action => ['index', 'show']
+    expire_action :controller => :people, :action => [:index, :show]
     flash[:notice] = "Successfully logged out."
     redirect_to root_url
   end

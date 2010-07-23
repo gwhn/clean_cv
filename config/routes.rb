@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
     person.resources :skills
     person.resources :schools
   end
+  map.resources :people, :member => { :delete => :get }
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -55,10 +55,9 @@ class PeopleController < ApplicationController
         format.xml  { render :xml => @person, :status => :created, :location => @person }
         format.js   { render :layout => false }
       else
-        puts "invalid template from create action"
-        format.html { render :action => "new" }
+        format.html { render :action => :new }
         format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
-        format.js   { render :action => "invalid", :layout => false }
+        format.js   { render :action => :invalid, :layout => false }
       end
     end
   end
@@ -76,10 +75,19 @@ class PeopleController < ApplicationController
         format.js   { render :layout => false }
       else
         puts "invalid template from update action"
-        format.html { render :action => "edit" }
+        format.html { render :action => :edit }
         format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
-        format.js   { render :action => "invalid", :layout => false }
+        format.js   { render :action => :invalid, :layout => false }
       end
+    end
+  end
+
+  # GET /people/1/delete
+  def delete
+    @person = Person.find(params[:id])
+
+    respond_to do |format|
+      format.html # delete.html.haml
     end
   end
 
@@ -87,11 +95,13 @@ class PeopleController < ApplicationController
   # DELETE /people/1.xml
   def destroy
     @person = Person.find(params[:id])
+    redirect_to(@person) and return if params[:cancel]
     @person.destroy
 
     respond_to do |format|
-      format.html { redirect_to(people_url) }
+      format.html { redirect_to people_url }
       format.xml  { head :ok }
+      format.js   { render :action => :redirect }
     end
   end
 end

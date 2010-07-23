@@ -51,7 +51,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to(person_company_project_url(@person, @company, @project)) }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => :new }
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       end
     end
@@ -69,7 +69,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to(person_company_project_url(@person, @company, @project)) }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => :edit }
         format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
       end
     end

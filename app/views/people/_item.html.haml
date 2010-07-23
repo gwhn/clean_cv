@@ -10,7 +10,7 @@
           |
         = link_to 'Edit', edit_person_path(item), :class => 'remote-link', :title => 'Edit person'
         |
-        = link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Delete', delete_person_path(item), :class => 'remote-link', :title => 'Delete person'
     - elsif !current_page?(item)
       .tr-options
         = link_to 'View', item

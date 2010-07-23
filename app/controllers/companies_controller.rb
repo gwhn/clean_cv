@@ -50,9 +50,9 @@ class CompaniesController < ApplicationController
         format.xml  { render :xml => @company, :status => :created, :location => @company }
         format.js   { render :layout => false }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => :new }
         format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
-        format.js   { render :action => "invalid", :layout => false }
+        format.js   { render :action => :invalid, :layout => false }
       end
     end
   end
@@ -69,9 +69,9 @@ class CompaniesController < ApplicationController
         format.xml  { head :ok }
         format.js   { render :layout => false }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => :edit }
         format.xml  { render :xml => @company.errors, :status => :unprocessable_entity }
-        format.js   { render :action => "invalid", :layout => false }
+        format.js   { render :action => :invalid, :layout => false }
       end
     end
   end

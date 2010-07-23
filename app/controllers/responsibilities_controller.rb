@@ -51,7 +51,7 @@ class ResponsibilitiesController < ApplicationController
                 @person, @company, @project, @responsibility)) }
         format.xml { render :xml => @responsibility, :status => :created, :location => @responsibility }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => :new }
         format.xml { render :xml => @responsibility.errors, :status => :unprocessable_entity }
       end
     end
@@ -68,7 +68,7 @@ class ResponsibilitiesController < ApplicationController
         format.html { redirect_to(person_company_project_responsibility_url(@person, @company, @project, @responsibility)) }
         format.xml { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => :edit }
         format.xml { render :xml => @responsibility.errors, :status => :unprocessable_entity }
       end
     end

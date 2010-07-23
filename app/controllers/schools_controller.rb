@@ -51,9 +51,9 @@ class SchoolsController < ApplicationController
         format.xml  { render :xml => @school, :status => :created, :location => @school }
         format.js   { render :layout => false }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => :new }
         format.xml  { render :xml => @school.errors, :status => :unprocessable_entity }
-        format.js   { render :action => "invalid", :layout => false }
+        format.js   { render :action => :invalid, :layout => false }
       end
     end
   end
@@ -70,9 +70,9 @@ class SchoolsController < ApplicationController
         format.xml  { head :ok }
         format.js   { render :layout => false }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => :edit }
         format.xml  { render :xml => @school.errors, :status => :unprocessable_entity }
-        format.js   { render :action => "invalid", :layout => false }
+        format.js   { render :action => :invalid, :layout => false }
       end
     end
   end
