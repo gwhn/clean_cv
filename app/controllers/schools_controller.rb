@@ -96,7 +96,7 @@ class SchoolsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(person_schools_url(@person)) }
       format.xml  { head :ok }
-      format.js   { render :action => :redirect }
+      format.js
     end
   end
 

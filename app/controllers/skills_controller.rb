@@ -96,7 +96,7 @@ class SkillsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(person_skills_url(@person)) }
       format.xml  { head :ok }
-      format.js   { render :action => :redirect }
+      format.js
     end
   end
 

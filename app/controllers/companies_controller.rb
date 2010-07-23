@@ -95,7 +95,7 @@ class CompaniesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(person_companies_url(@person)) }
       format.xml  { head :ok }
-      format.js   { render :action => :redirect }
+      format.js
     end
   end
 
