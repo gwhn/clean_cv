@@ -5,9 +5,9 @@
 
     - if current_user
       .br-options
-        = link_to 'Edit', edit_person_company_path(item), :class => 'remote-link', :title => 'Edit company'
+        = link_to 'Edit', edit_person_company_path(item.person, item), :class => 'remote-link', :title => 'Edit company'
         |
-        = link_to 'Delete', person_company_path(item), :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Delete', person_company_path(item.person, item), :confirm => 'Are you sure?', :method => :delete
 
     %h5= h item.role
     %h3= h item.business_type

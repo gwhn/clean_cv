@@ -5,9 +5,9 @@
 
     - if current_user
       .br-options
-        = link_to 'Edit', edit_person_school_path(item), :class => 'remote-link', :title => 'Edit school'
+        = link_to 'Edit', edit_person_school_path(item.person, item), :class => 'remote-link', :title => 'Edit school'
         |
-        = link_to 'Delete', person_school_path(item), :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Delete', person_school_path(item.person, item), :confirm => 'Are you sure?', :method => :delete
 
     %h3= h item.course
     .result= h item.result
