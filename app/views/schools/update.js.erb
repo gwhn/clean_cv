@@ -1,3 +1,4 @@
 $("#school_<%= @school.id %>").html("<%= escape_javascript(render :partial => 'item', :object => @school) %>");
+$("#schools .school:last .item").addClass("last-item");
 replaceFonts("h1, h6, .item h2, h2.cv-section-name");
-initModalDialog(".remote-link");
+bindRemoteLinks("#form-dialog", "#schools #school_<%= @school.id %> .remote-link");

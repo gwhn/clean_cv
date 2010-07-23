@@ -1,4 +1,2 @@
-$("#form-dialog").dialog("open");
 $(".ui-dialog-content").html("<%= escape_javascript(render :partial => 'form', :locals => {:person => @person, :school => @school, :command => controller.action_name.capitalize}) %>");
-focusOnFirstFormTextField("#form-dialog");
-bindFormButtons("#form-dialog");
+openForm("#form-dialog", "Invalid school");

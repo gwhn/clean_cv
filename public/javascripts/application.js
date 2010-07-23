@@ -16,44 +16,52 @@ function initTipsy(selector) {
     $(selector).tipsy({gravity: "n"});
 }
 
-function focusOnFirstFormTextField(container) {
-    $form = $(container).find("form");
-    $form.find(":text:first").focus();
+function initModalDialog(id) {
+    return $("<div/>").attr("id", id).appendTo("body").dialog({
+        autoOpen  : false,
+        modal     : true,
+        height    : 400,
+        width     : 600,
+        show      : "blind"
+    });
 }
 
-function bindFormButtons(container) {
-    $form = $(container).find("form");
-    $btn = $form.find(":submit");
-    var txt = $btn.val();
-    $btn.remove();
+function bindRemoteLinks(dialog, selector) {
+    $(selector).click(function() {
+        var href = $(this).attr("href");
+        var title = $(this).attr("title");
+        $(dialog).load(href + " form", function() {
+            openForm(this, title);
+        });
+        return false;
+    });
+}
+
+function openForm(dialog, title) {
+    bindFormSubmit(dialog);
+    $(dialog).dialog("option", "title", title);
+    $(dialog).find(":text:first").focus();
+    $(dialog).dialog("open");
+}
+
+function bindFormSubmit(dialog) {
+    var $form = $(dialog).find("form");
+    var $submit = $form.find(":submit");
+    var label = $submit.val();
+    $submit.remove();
     var buttons = {};
-    buttons[txt] = function() {
+    buttons[label] = function() {
         $.ajax({
             type    : $form.attr("method"),
             url     : $form.attr("action"),
             data    : $form.serialize(),
             dataType: "script"
         });
+        $(dialog).dialog("close");
+    };
+    buttons["Cancel"] = function() {
         $(this).dialog("close");
     };
-    $(container).dialog("option", "buttons", buttons);
-}
-
-function initModalDialog(selector) {
-    $("#form-dialog").dialog("destory");
-    $(selector).click(function() {
-        $("<div/>").attr("id", "form-dialog").appendTo("body").dialog({
-            autoOpen  : false,
-            modal     : true,
-            title     : $(this).attr("title"),
-            height    : 400,
-            width     : 600
-        }).load($(this).attr("href") + " form", function() {
-            $(this).dialog("open");
-            focusOnFirstFormTextField(this);
-            bindFormButtons(this);
-        });
-        return false;
-    });
+    $(dialog).dialog("option", "buttons", buttons);
 }
 

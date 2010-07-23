@@ -49,11 +49,11 @@ class SkillsController < ApplicationController
         flash[:notice] = 'Skill was successfully created.'
         format.html { redirect_to(person_skills_url(@person)) }
         format.xml  { render :xml => @skill, :status => :created, :location => @skill }
-        format.js
+        format.js   { render :layout => false }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @skill.errors, :status => :unprocessable_entity }
-        format.js   { render :action => "invalid" }
+        format.js   { render :action => "invalid", :layout => false }
       end
     end
   end
@@ -68,11 +68,11 @@ class SkillsController < ApplicationController
         flash[:notice] = 'Skill was successfully updated.'
         format.html { redirect_to(person_skills_url(@person)) }
         format.xml  { head :ok }
-        format.js
+        format.js   { render :layout => false }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @skill.errors, :status => :unprocessable_entity }
-        format.js   { render :action => "invalid" }
+        format.js   { render :action => "invalid", :layout => false }
       end
     end
   end

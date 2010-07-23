@@ -1,3 +1,5 @@
+$("#companies .company:last .item").removeClass("last-item");
 $("<%= escape_javascript(render :partial => 'item', :object => @company) %>").appendTo("#companies");
+$("#companies .company:last .item").addClass("last-item");
 replaceFonts("h1, h6, .item h2, h2.cv-section-name");
-initModalDialog(".remote-link");
+bindRemoteLinks("#form-dialog", "#companies #company_<%= @company.id %> .remote-link");

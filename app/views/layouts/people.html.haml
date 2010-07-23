@@ -19,7 +19,7 @@
         replaceFonts("h1, h6, .item h2, h2.cv-section-name");
         initFancyBox("a.lightbox");
         initTipsy(".tip");
-        initModalDialog(".remote-link");
+        bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");
       });
   %body
     #cv= yield
