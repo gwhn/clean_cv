@@ -104,4 +104,5 @@ class PeopleController < ApplicationController
       format.js   { render :action => :redirect }
     end
   end
+
 end

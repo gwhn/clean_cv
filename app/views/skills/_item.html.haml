@@ -7,7 +7,7 @@
       .br-options
         = link_to 'Edit', edit_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Edit skill'
         |
-        = link_to 'Delete', person_skill_path(item.person, item), :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Delete', delete_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Delete skill'
 
     %br
     %p= item.description

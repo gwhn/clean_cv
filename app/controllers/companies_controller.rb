@@ -76,16 +76,26 @@ class CompaniesController < ApplicationController
     end
   end
 
+  # GET /people/1/companies/1/delete
+  def delete
+    @company = @person.companies.find(params[:id])
+
+    respond_to do |format|
+      format.html # delete.html.haml
+    end
+  end
+
   # DELETE /people/1/companies/1
   # DELETE /people/1/companies/1.xml
   def destroy
     @company = @person.companies.find(params[:id])
+    redirect_to(person_company_url(@person, @company)) and return if params[:cancel]
     @company.destroy
 
     respond_to do |format|
       format.html { redirect_to(person_companies_url(@person)) }
       format.xml  { head :ok }
-      format.js
+      format.js   { render :action => :redirect }
     end
   end
 

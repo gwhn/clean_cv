@@ -6,16 +6,15 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users
 
-  map.resources :people do |person|
-    person.resources :companies do |company|
+  map.resources :people, :member => { :delete => :get } do |person|
+    person.resources :companies, :member => { :delete => :get } do |company|
       company.resources :projects do |project|
         project.resources :responsibilities
       end
     end
-    person.resources :skills
-    person.resources :schools
+    person.resources :skills, :member => { :delete => :get }
+    person.resources :schools, :member => { :delete => :get }
   end
-  map.resources :people, :member => { :delete => :get }
 
   # The priority is based upon order of creation: first created -> highest priority.
 

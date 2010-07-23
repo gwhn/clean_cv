@@ -77,16 +77,27 @@ class SkillsController < ApplicationController
     end
   end
 
+  # GET /people/1/skills/1/delete
+  def delete
+    @skill = @person.skills.find(params[:id])
+
+    respond_to do |format|
+      format.html # delete.html.haml
+    end
+  end
+
   # DELETE /people/1/skills/1
   # DELETE /people/1/skills/1.xml
   def destroy
     @skill = @person.skills.find(params[:id])
+    redirect_to(person_skill_url(@person, @skill)) and return if params[:cancel]
     @skill.destroy
 
     respond_to do |format|
       format.html { redirect_to(person_skills_url(@person)) }
       format.xml  { head :ok }
-      format.js
+      format.js   { render :action => :redirect }
     end
   end
+
 end

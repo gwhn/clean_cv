@@ -77,16 +77,27 @@ class SchoolsController < ApplicationController
     end
   end
 
+  # GET /people/1/schools/1/delete
+  def delete
+    @school = @person.schools.find(params[:id])
+
+    respond_to do |format|
+      format.html # delete.html.haml
+    end
+  end
+
   # DELETE /people/1/schools/1
   # DELETE /people/1/schools/1.xml
   def destroy
     @school = @person.schools.find(params[:id])
+    redirect_to(person_school_url(@person, @school)) and return if params[:cancel]
     @school.destroy
 
     respond_to do |format|
       format.html { redirect_to(person_schools_url(@person)) }
       format.xml  { head :ok }
-      format.js
+      format.js   { render :action => :redirect }
     end
   end
+
 end

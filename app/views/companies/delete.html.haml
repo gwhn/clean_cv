@@ -1,0 +1,5 @@
+- form_for [@person, @company], :html => { :method => 'delete' } do
+  %h2
+    Are you sure you want to delete #{@company.name}?
+  = submit_tag 'Yes'
+  = submit_tag 'No', :name => 'cancel'
