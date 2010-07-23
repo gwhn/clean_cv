@@ -26,7 +26,5 @@
     .authme
       - if current_user
         = link_to 'Logout', logout_path
-        = image_tag '/images/log_out.png'
       - else
         = link_to 'Login', login_path, :class => 'remote-link', :title => 'Log in'
-        = image_tag '/images/log_in.png'
