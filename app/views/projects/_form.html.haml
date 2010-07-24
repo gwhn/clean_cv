@@ -1,8 +1,4 @@
 - error_handling_form_for([person, company, project]) do |f|
   = f.text_field :name
   = f.text_area :description
-  #responsibilities
-    = render :partial => 'responsibility', :collection => project.responsibilities
-  %p
-    = add_responsibility_link "Add a responsibility"
   = f.submit command

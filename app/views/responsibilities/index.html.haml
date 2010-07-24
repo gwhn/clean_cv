@@ -3,17 +3,15 @@
   %tr
     %th Person
     %th Company
-    %th Project
     %th Description
   - @responsibilities.each do |responsibility|
     %tr
-      %td= h responsibility.project.company.person.name 
-      %td= h responsibility.project.company.name 
-      %td= h responsibility.project.name 
+      %td= h responsibility.company.person.name
+      %td= h responsibility.company.name
       %td= h responsibility.description 
-      %td= link_to 'Show', person_company_project_responsibility_path(@person, @company, @project, responsibility) 
-      %td= link_to 'Edit', edit_person_company_project_responsibility_path(@person, @company, @project, responsibility) 
-      %td= link_to 'Destroy', person_company_project_responsibility_path(@person, @company, @project, responsibility),
+      %td= link_to 'Show', person_company_responsibility_path(@person, @company, responsibility)
+      %td= link_to 'Edit', edit_person_company_responsibility_path(@person, @company, responsibility)
+      %td= link_to 'Destroy', person_company_responsibility_path(@person, @company, responsibility),
         :confirm => 'Are you sure?', :method => :delete
 %br
-= link_to 'New responsibility', new_person_company_project_responsibility_path(@person, @company, @project)
+= link_to 'New responsibility', new_person_company_responsibility_path(@person, @company)

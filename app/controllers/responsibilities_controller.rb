@@ -1,10 +1,10 @@
 class ResponsibilitiesController < ApplicationController
-  before_filter :find_person_company_project
+  before_filter :find_person_company
 
-  # GET /responsibilities
-  # GET /responsibilities.xml
+  # GET /people/1/company/1/responsibilities
+  # GET /people/1/company/1/responsibilities.xml
   def index
-    @responsibilities = @project.responsibilities
+    @responsibilities = @company.responsibilities
 
     respond_to do |format|
       format.html # index.html.haml
@@ -12,10 +12,10 @@ class ResponsibilitiesController < ApplicationController
     end
   end
 
-  # GET /responsibilities/1
-  # GET /responsibilities/1.xml
+  # GET /people/1/company/1/responsibilities/1
+  # GET /people/1/company/1/responsibilities/1.xml
   def show
-    @responsibility = @project.responsibilities.find(params[:id])
+    @responsibility = @company.responsibilities.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.haml
@@ -23,8 +23,8 @@ class ResponsibilitiesController < ApplicationController
     end
   end
 
-  # GET /responsibilities/new
-  # GET /responsibilities/new.xml
+  # GET /people/1/company/1/responsibilities/new
+  # GET /people/1/company/1/responsibilities/new.xml
   def new
     @responsibility = Responsibility.new
 
@@ -34,21 +34,20 @@ class ResponsibilitiesController < ApplicationController
     end
   end
 
-  # GET /responsibilities/1/edit
+  # GET /people/1/company/1/responsibilities/1/edit
   def edit
-    @responsibility = @project.responsibilities.find(params[:id])
+    @responsibility = @company.responsibilities.find(params[:id])
   end
 
-  # POST /responsibilities
-  # POST /responsibilities.xml
+  # POST /people/1/company/1/responsibilities
+  # POST /people/1/company/1/responsibilities.xml
   def create
-    @responsibility = @project.responsibilities.new(params[:responsibility])
+    @responsibility = @company.responsibilities.new(params[:responsibility])
 
     respond_to do |format|
       if @responsibility.save
         flash[:notice] = 'Responsibility was successfully created.'
-        format.html { redirect_to(person_company_project_responsibility_url(
-                @person, @company, @project, @responsibility)) }
+        format.html { redirect_to(person_company_responsibility_url(@person, @company, @responsibility)) }
         format.xml { render :xml => @responsibility, :status => :created, :location => @responsibility }
       else
         format.html { render :action => :new }
@@ -57,15 +56,15 @@ class ResponsibilitiesController < ApplicationController
     end
   end
 
-  # PUT /responsibilities/1
-  # PUT /responsibilities/1.xml
+  # PUT /people/1/company/1/responsibilities/1
+  # PUT /people/1/company/1/responsibilities/1.xml
   def update
-    @responsibility = @project.responsibilities.find(params[:id])
+    @responsibility = @company.responsibilities.find(params[:id])
 
     respond_to do |format|
       if @responsibility.update_attributes(params[:responsibility])
         flash[:notice] = 'Responsibility was successfully updated.'
-        format.html { redirect_to(person_company_project_responsibility_url(@person, @company, @project, @responsibility)) }
+        format.html { redirect_to(person_company_responsibility_url(@person, @company, @responsibility)) }
         format.xml { head :ok }
       else
         format.html { render :action => :edit }
@@ -74,14 +73,14 @@ class ResponsibilitiesController < ApplicationController
     end
   end
 
-  # DELETE /responsibilities/1
-  # DELETE /responsibilities/1.xml
+  # DELETE /people/1/company/1/responsibilities/1
+  # DELETE /people/1/company/1/responsibilities/1.xml
   def destroy
-    responsibility = @project.responsibilities.find(params[:id])
+    responsibility = @company.responsibilities.find(params[:id])
     responsibility.destroy
 
     respond_to do |format|
-      format.html { redirect_to(person_company_project_responsibilities_url(@person, @company, @project)) }
+      format.html { redirect_to(person_company_responsibilities_url(@person, @company)) }
       format.xml { head :ok }
     end
   end

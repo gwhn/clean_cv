@@ -8,9 +8,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :people, :member => { :delete => :get } do |person|
     person.resources :companies, :member => { :delete => :get } do |company|
-      company.resources :projects do |project|
-        project.resources :responsibilities
-      end
+      company.resources :projects
+      company.resources :responsibilities
     end
     person.resources :skills, :member => { :delete => :get }
     person.resources :schools, :member => { :delete => :get }

@@ -27,7 +27,6 @@ class ProjectsController < ApplicationController
   # GET /people/1/company/1/projects/new.xml
   def new
     @project = Project.new
-    @project.responsibilities.build
 
     respond_to do |format|
       format.html # new.html.haml
@@ -60,7 +59,6 @@ class ProjectsController < ApplicationController
   # PUT /people/1/company/1/projects/1
   # PUT /people/1/company/1/projects/1.xml
   def update
-    params[:project][:existing_responsibility_attributes] ||= {}
     @project = @company.projects.find(params[:id])
 
     respond_to do |format|

@@ -12,4 +12,7 @@
     %h5= h item.role
     %h3= h item.business_type
 
+    %ul
+      = render :partial => 'responsibilities/item', :collection => item.responsibilities
+
     = render :partial => 'projects/item', :collection => item.projects

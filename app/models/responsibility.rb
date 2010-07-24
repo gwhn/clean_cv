@@ -1,5 +1,5 @@
 class Responsibility < ActiveRecord::Base
-  validates_presence_of :description, :project_id
+  validates_presence_of :description, :company_id
 
-  belongs_to :project
+  belongs_to :company
 end
