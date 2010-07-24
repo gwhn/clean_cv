@@ -20,6 +20,8 @@
         initFancyBox("a.lightbox");
         initTipsy(".tip");
         bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");
+        bindAddChildLinks("#form-dialog form a.add_project");
+        bindRemoveChildLinks("#form-dialog form a.remove_project");        
       });
   %body
     #cv= yield

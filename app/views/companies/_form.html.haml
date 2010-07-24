@@ -8,4 +8,10 @@
   = f.date_select :end_date,
     :start_year => Time.now.year - 30, :end_year => Time.now.year,
     :discard_day => true
+  %h3 Projects
+  - f.fields_for :projects do |p|
+    #projects
+      = render :partial => 'project', :locals => {:f => p}
+  %p= add_child_link 'New project', :projects, :class => 'add_project'
+  = new_child_fields_template f, :projects
   = f.submit command

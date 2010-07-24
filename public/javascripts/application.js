@@ -65,3 +65,24 @@ function bindFormSubmit(dialog) {
     $(dialog).dialog("option", "buttons", buttons);
 }
 
+function bindAddChildLinks(selector) {
+    $(selector).live('click', function() {
+        var assoc = $(this).attr('data-association');
+        var content = $('#' + assoc + '_fields_template').html();
+        var regexp = new RegExp('new_' + assoc, 'g');
+        var new_id = new Date().getTime();
+        $(this).parent().before(content.replace(regexp, new_id));
+        return false;
+    });
+}
+
+function bindRemoveChildLinks(selector) {
+    $(selector).live('click', function() {
+        var hidden_field = $(this).prev('input[type=hidden]')[0];
+        if (hidden_field) {
+            hidden_field.value = '1';
+        }
+        $(this).parents('.fields').hide();
+        return false;
+    });
+}

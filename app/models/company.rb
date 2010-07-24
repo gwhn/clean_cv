@@ -5,6 +5,8 @@ class Company < ActiveRecord::Base
   belongs_to :person
   has_many :projects
 
+  accepts_nested_attributes_for :projects, :reject_if => lambda { |a| a.values.all?(& :blank?) }, :allow_destroy =>true
+
   protected
   def start_date_prior_to_end_date
     errors.add(:start_date, 'should be earlier than end date') if !end_date.nil? && end_date < start_date
