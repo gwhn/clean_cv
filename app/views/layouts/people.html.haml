@@ -22,6 +22,8 @@
         bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");
         bindAddChildLinks("#form-dialog form a.add_project");
         bindRemoveChildLinks("#form-dialog form a.remove_project");        
+        bindAddChildLinks("#form-dialog form a.add_responsibility");
+        bindRemoveChildLinks("#form-dialog form a.remove_responsibility");        
       });
   %body
     #cv= yield
