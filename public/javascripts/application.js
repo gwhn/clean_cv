@@ -78,7 +78,7 @@ function bindAddChildLinks(selector) {
 
 function bindRemoveChildLinks(selector) {
     $(selector).live("click", function() {
-        var hidden_field = $(this).prev("input[type=hidden]")[0];
+        var hidden_field = $(this).parent().find("input[type=hidden]")[0];
         if (hidden_field) {
             hidden_field.value = "1";
         }
