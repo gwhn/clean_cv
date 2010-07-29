@@ -5,9 +5,9 @@ class Person < ActiveRecord::Base
   validates_format_of :portrait_url, :with => %r{\.(gif|jpg|png)$}i,
                       :message => 'must be a URL for GIF, JPG or PNG image'
 
-  has_many :companies, :order => 'start_date DESC'
-  has_many :skills
-  has_many :schools, :order => 'date_from DESC'
+  has_many :companies, :dependent => :destroy, :order => 'start_date DESC'
+  has_many :skills, :dependent => :destroy
+  has_many :schools, :dependent => :destroy, :order => 'date_from DESC'
 
   def to_param
     "#{id}-#{name.parameterize}"

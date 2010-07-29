@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :tasks
+
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
 
@@ -8,7 +10,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :people, :member => { :delete => :get } do |person|
     person.resources :companies, :member => { :delete => :get } do |company|
-      company.resources :projects
+      company.resources :projects, :member => { :delete => :get } do |project|
+        project.resources :tasks
+      end
       company.resources :responsibilities
     end
     person.resources :skills, :member => { :delete => :get }

@@ -1,2 +1,15 @@
-%h6= h item.name
-%p.project= h item.description
+%div{:id => ['project', item.id], :class => 'project'}
+
+  %h6= h item.name
+
+  - if current_user
+    .tr-options
+      = link_to 'Edit', edit_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Edit project'
+      |
+      = link_to 'Delete', delete_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Delete project'
+
+  %p= h item.description
+
+  %ul
+    = render :partial => 'tasks/item', :collection => item.tasks
+

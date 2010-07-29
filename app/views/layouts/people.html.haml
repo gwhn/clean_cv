@@ -20,10 +20,12 @@
         initFancyBox("a.lightbox");
         initTipsy(".tip");
         bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");
-        bindAddChildLinks("#form-dialog form a.add_project");
-        bindRemoveChildLinks("#form-dialog form a.remove_project");        
-        bindAddChildLinks("#form-dialog form a.add_responsibility");
-        bindRemoveChildLinks("#form-dialog form a.remove_responsibility");        
+        bindAddChildLinks("#form-dialog form a.add-person-company-project");
+        bindRemoveChildLinks("#form-dialog form a.remove-person-company-project");
+        bindAddChildLinks("#form-dialog form a.add-person-company-responsibility");
+        bindRemoveChildLinks("#form-dialog form a.remove-person-company-responsibility");
+        bindAddChildLinks("#form-dialog form a.add-person-company-project-task");
+        bindRemoveChildLinks("#form-dialog form a.remove-person-company-project-task");
       });
   %body
     #cv= yield

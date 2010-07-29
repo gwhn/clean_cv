@@ -1,0 +1,19 @@
+%h1 Listing responsibilities
+%table
+  %tr
+    %th Person
+    %th Company
+    %th Project
+    %th Description
+  - @tasks.each do |task|
+    %tr
+      %td= h task.project.company.person.name
+      %td= h task.project.company.name
+      %td= h task.project.name
+      %td= h task.description
+      %td= link_to 'Show', person_company_project_task_path(@person, @company, @project, task)
+      %td= link_to 'Edit', edit_person_company_project_task_path(@person, @company, @project, task)
+      %td= link_to 'Destroy', person_company_project_task_path(@person, @company, @project, task),
+        :confirm => 'Are you sure?', :method => :delete
+%br
+= link_to 'New responsibility', new_person_company_project_task_path(@person, @company)

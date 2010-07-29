@@ -199,6 +199,14 @@ ul#social-media li {
     padding-bottom: 0;
 }
 
+#projects {
+    position: relative;
+}
+
+.project {
+    position: relative;
+}
+
 .tl-options,
 .tr-options,
 .br-options,
@@ -411,7 +419,7 @@ h2.cv-section-name {
     text-align: justify;
 }
 
-.item p.project {
+.project p {
     font-style: italic;
 }
 

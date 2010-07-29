@@ -46,7 +46,7 @@ class CompaniesController < ApplicationController
     respond_to do |format|
       if @company.save
         flash[:notice] = 'Company was successfully created.'
-        format.html { redirect_to(person_companies_url(@person)) }
+        format.html { redirect_to(person_company_url(@person, @company)) }
         format.xml  { render :xml => @company, :status => :created, :location => @company }
         format.js   { render :layout => false }
       else
@@ -65,7 +65,7 @@ class CompaniesController < ApplicationController
     respond_to do |format|
       if @company.update_attributes(params[:company])
         flash[:notice] = 'Company was successfully updated.'
-        format.html { redirect_to(person_companies_url(@person)) }
+        format.html { redirect_to(person_company_url(@person, @company)) }
         format.xml  { head :ok }
         format.js   { render :layout => false }
       else

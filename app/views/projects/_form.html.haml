@@ -1,4 +1,13 @@
 - error_handling_form_for([person, company, project]) do |f|
   = f.text_field :name
   = f.text_area :description
+
+  %hr
+  %strong Tasks
+  - f.fields_for :tasks do |t|
+    #tasks
+      = render :partial => 'task', :locals => {:f => t}
+  %p= add_child_link 'New task', :tasks, :class => 'add-person-company-project-task'
+  = new_child_fields_template f, :tasks
+
   = f.submit command

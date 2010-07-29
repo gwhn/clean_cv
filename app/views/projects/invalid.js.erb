@@ -1,0 +1,2 @@
+$(".ui-dialog-content").html("<%= escape_javascript(render :partial => 'form', :locals => {:person => @person, :company => @company, :project => @project, :command => controller.action_name.capitalize}) %>");
+openForm("#form-dialog", "Invalid project");

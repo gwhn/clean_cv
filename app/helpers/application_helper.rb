@@ -7,16 +7,16 @@ module ApplicationHelper
       args << options
     end
     options[:builder] = ErrorHandlingFormBuilder unless options.nil?
-    form_for(record_or_name_or_array, * args, & proc)
+    form_for record_or_name_or_array, * args, & proc
   end
 
   def remove_child_link(name, form_builder, html_options = {})
-    form_builder.hidden_field(:_delete) + link_to(name, "javascript:void(0)", html_options)
+    form_builder.hidden_field(:_destroy) + link_to(name, "javascript:void(0)", html_options)
   end
 
   def add_child_link(name, association, html_options = {})
     html_options[:"data-association"] ||= association
-    link_to(name, "javascript:void(0)", html_options)
+    link_to name, "javascript:void(0)", html_options
   end
 
   def new_child_fields_template(form_builder, association, options = {})
@@ -25,8 +25,8 @@ module ApplicationHelper
     options[:form_builder_local] ||= :f
 
     content_tag(:div, :id => "#{association}_fields_template", :style => "display: none") do
-      form_builder.fields_for(association, options[:object], :child_index => "new_#{association}") do |f|
-        render(:partial => options[:partial], :locals => {options[:form_builder_local] => f})
+      form_builder.fields_for association, options[:object], :child_index => "new_#{association}" do |f|
+        render :partial => options[:partial], :locals => {options[:form_builder_local] => f}
       end
     end
   end

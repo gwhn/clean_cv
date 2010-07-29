@@ -1,0 +1,6 @@
+%h1 Editing responsibility
+= render :partial => 'form', :locals => {:person => @person, :company => @company,
+  :project => @project, :task => @task, :command => 'Update'}
+= link_to 'Show', person_company_project_task_path(@person, @company, @project, @task)
+|
+= link_to 'Back', person_company_project_tasks_path(@person, @company, @project)

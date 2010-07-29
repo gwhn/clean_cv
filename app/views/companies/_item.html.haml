@@ -15,4 +15,9 @@
     %ul
       = render :partial => 'responsibilities/item', :collection => item.responsibilities
 
-    = render :partial => 'projects/item', :collection => item.projects
+    #projects
+      = render :partial => 'projects/item', :collection => item.projects
+
+      - if current_user
+        .bl-options
+          = link_to 'New', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'

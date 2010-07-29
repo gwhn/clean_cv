@@ -1,0 +1,3 @@
+$("#project_<%= @project.id %>").html("<%= escape_javascript(render :partial => 'item', :object => @project) %>");
+replaceFonts("h1, h6, .item h2, h2.cv-section-name");
+bindRemoteLinks("#form-dialog", "#projects #project_<%= @project.id %> .remote-link");
