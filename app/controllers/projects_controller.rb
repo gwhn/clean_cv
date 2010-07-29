@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :find_person_company
-  
+
   # GET /people/1/company/1/projects
   # GET /people/1/company/1/projects.xml
   def index
@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.haml
-      format.xml  { render :xml => @projects }
+      format.xml { render :xml => @projects }
     end
   end
 
@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.haml
-      format.xml  { render :xml => @project }
+      format.xml { render :xml => @project }
     end
   end
 
@@ -30,7 +30,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.haml
-      format.xml  { render :xml => @project }
+      format.xml { render :xml => @project }
     end
   end
 
@@ -48,12 +48,13 @@ class ProjectsController < ApplicationController
       if @project.save
         flash[:notice] = 'Project was successfully created.'
         format.html { redirect_to(person_company_project_url(@person, @company, @project)) }
-        format.xml  { render :xml => @project, :status => :created, :location => @project }
-        format.js   { render :layout => false }
+        format.xml { render :xml => @project, :status => :created, :location => @project }
+        format.js { render :layout => false }
       else
+        puts @project.errors.each_full { |msg| puts msg }
         format.html { render :action => :new }
-        format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
-        format.js   { render :action => :invalid, :layout => false }
+        format.xml { render :xml => @project.errors, :status => :unprocessable_entity }
+        format.js { render :action => :invalid, :layout => false }
       end
     end
   end
@@ -67,12 +68,12 @@ class ProjectsController < ApplicationController
       if @project.update_attributes(params[:project])
         flash[:notice] = 'Project was successfully updated.'
         format.html { redirect_to(person_company_project_url(@person, @company, @project)) }
-        format.xml  { head :ok }
-        format.js   { render :layout => false }
+        format.xml { head :ok }
+        format.js { render :layout => false }
       else
         format.html { render :action => :edit }
-        format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
-        format.js   { render :action => :invalid, :layout => false }
+        format.xml { render :xml => @project.errors, :status => :unprocessable_entity }
+        format.js { render :action => :invalid, :layout => false }
       end
     end
   end
@@ -95,7 +96,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(person_company_projects_url(@person, @company)) }
-      format.xml  { head :ok }
+      format.xml { head :ok }
       format.js
     end
   end
