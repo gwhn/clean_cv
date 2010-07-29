@@ -1,6 +1,6 @@
 class SkillsController < ApplicationController
   before_filter :find_person
-  
+
   # GET /people/1/skills
   # GET /people/1/skills.xml
   def index
@@ -8,7 +8,7 @@ class SkillsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.haml
-      format.xml  { render :xml => @skills }
+      format.xml { render :xml => @skills }
     end
   end
 
@@ -19,7 +19,7 @@ class SkillsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.haml
-      format.xml  { render :xml => @skill }
+      format.xml { render :xml => @skill }
     end
   end
 
@@ -30,7 +30,7 @@ class SkillsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.haml
-      format.xml  { render :xml => @skill }
+      format.xml { render :xml => @skill }
     end
   end
 
@@ -48,12 +48,12 @@ class SkillsController < ApplicationController
       if @skill.save
         flash[:notice] = 'Skill was successfully created.'
         format.html { redirect_to(person_skills_url(@person)) }
-        format.xml  { render :xml => @skill, :status => :created, :location => @skill }
-        format.js   { render :layout => false }
+        format.xml { render :xml => @skill, :status => :created, :location => @skill }
+        format.js { render :layout => false }
       else
         format.html { render :action => :new }
-        format.xml  { render :xml => @skill.errors, :status => :unprocessable_entity }
-        format.js   { render :action => :invalid, :layout => false }
+        format.xml { render :xml => @skill.errors, :status => :unprocessable_entity }
+        format.js { render :action => :invalid, :layout => false }
       end
     end
   end
@@ -67,12 +67,12 @@ class SkillsController < ApplicationController
       if @skill.update_attributes(params[:skill])
         flash[:notice] = 'Skill was successfully updated.'
         format.html { redirect_to(person_skills_url(@person)) }
-        format.xml  { head :ok }
-        format.js   { render :layout => false }
+        format.xml { head :ok }
+        format.js { render :layout => false }
       else
         format.html { render :action => :edit }
-        format.xml  { render :xml => @skill.errors, :status => :unprocessable_entity }
-        format.js   { render :action => :invalid, :layout => false }
+        format.xml { render :xml => @skill.errors, :status => :unprocessable_entity }
+        format.js { render :action => :invalid, :layout => false }
       end
     end
   end
@@ -95,7 +95,7 @@ class SkillsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(person_skills_url(@person)) }
-      format.xml  { head :ok }
+      format.xml { head :ok }
       format.js
     end
   end

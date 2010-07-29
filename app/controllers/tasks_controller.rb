@@ -8,7 +8,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.haml
-      format.xml  { render :xml => @tasks }
+      format.xml { render :xml => @tasks }
     end
   end
 
@@ -19,7 +19,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.haml
-      format.xml  { render :xml => @task }
+      format.xml { render :xml => @task }
     end
   end
 
@@ -30,7 +30,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.haml
-      format.xml  { render :xml => @task }
+      format.xml { render :xml => @task }
     end
   end
 
@@ -48,10 +48,10 @@ class TasksController < ApplicationController
       if @task.save
         flash[:notice] = 'Task was successfully created.'
         format.html { redirect_to(person_company_project_task_url(@person, @company, @project, @task)) }
-        format.xml  { render :xml => @task, :status => :created, :location => @task }
+        format.xml { render :xml => @task, :status => :created, :location => @task }
       else
         format.html { render :action => :new }
-        format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
+        format.xml { render :xml => @task.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -65,10 +65,10 @@ class TasksController < ApplicationController
       if @task.update_attributes(params[:task])
         flash[:notice] = 'Task was successfully updated.'
         format.html { redirect_to(person_company_project_task_url(@person, @company, @project, @task)) }
-        format.xml  { head :ok }
+        format.xml { head :ok }
       else
         format.html { render :action => :edit }
-        format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
+        format.xml { render :xml => @task.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -81,7 +81,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(person_company_project_tasks_url(@person, @company, @project)) }
-      format.xml  { head :ok }
+      format.xml { head :ok }
     end
   end
 end

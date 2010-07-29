@@ -6,13 +6,13 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.xml
   def index
-    sort_by = %w(name job_title email).detect {|f| f == params[:order]} || 'id'
+    sort_by = %w(  name job_title email  ).detect { |f| f == params[:order] } || 'id'
     direction = params[:direction] =~ %r(desc)i ? 'DESC' : 'ASC'
     @people = Person.find(:all, :order => "#{sort_by} #{direction}")
 
     respond_to do |format|
       format.html # index.html.haml
-      format.xml  { render :xml => @people }
+      format.xml { render :xml => @people }
     end
   end
 
@@ -23,7 +23,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.haml
-      format.xml  { render :xml => @person }
+      format.xml { render :xml => @person }
     end
   end
 
@@ -34,7 +34,7 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.haml
-      format.xml  { render :xml => @person }
+      format.xml { render :xml => @person }
     end
   end
 
@@ -52,12 +52,12 @@ class PeopleController < ApplicationController
       if @person.save
         flash[:notice] = 'Person was successfully created.'
         format.html { redirect_to(@person) }
-        format.xml  { render :xml => @person, :status => :created, :location => @person }
-        format.js   { render :layout => false }
+        format.xml { render :xml => @person, :status => :created, :location => @person }
+        format.js { render :layout => false }
       else
         format.html { render :action => :new }
-        format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
-        format.js   { render :action => :invalid, :layout => false }
+        format.xml { render :xml => @person.errors, :status => :unprocessable_entity }
+        format.js { render :action => :invalid, :layout => false }
       end
     end
   end
@@ -71,13 +71,13 @@ class PeopleController < ApplicationController
       if @person.update_attributes(params[:person])
         flash[:notice] = 'Person was successfully updated.'
         format.html { redirect_to(@person) }
-        format.xml  { head :ok }
-        format.js   { render :layout => false }
+        format.xml { head :ok }
+        format.js { render :layout => false }
       else
         puts "invalid template from update action"
         format.html { render :action => :edit }
-        format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
-        format.js   { render :action => :invalid, :layout => false }
+        format.xml { render :xml => @person.errors, :status => :unprocessable_entity }
+        format.js { render :action => :invalid, :layout => false }
       end
     end
   end
@@ -100,8 +100,8 @@ class PeopleController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to people_url }
-      format.xml  { head :ok }
-      format.js   { render :action => :redirect }
+      format.xml { head :ok }
+      format.js { render :action => :redirect }
     end
   end
 

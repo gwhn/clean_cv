@@ -51,7 +51,6 @@ class ProjectsController < ApplicationController
         format.xml { render :xml => @project, :status => :created, :location => @project }
         format.js { render :layout => false }
       else
-        puts @project.errors.each_full { |msg| puts msg }
         format.html { render :action => :new }
         format.xml { render :xml => @project.errors, :status => :unprocessable_entity }
         format.js { render :action => :invalid, :layout => false }
