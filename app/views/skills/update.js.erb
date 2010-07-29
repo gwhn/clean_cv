@@ -1,4 +1,4 @@
-$("#skill_<%= @skill.id %>").html("<%= escape_javascript(render :partial => 'item', :object => @skill) %>");
+$("#skill_<%= @skill.id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @skill) %>");
 $("#skills .skill:last .item").addClass("last-item");
 replaceFonts("h1, h6, .item h2, h2.cv-section-name");
 bindRemoteLinks("#form-dialog", "#skills #skill_<%= @skill.id %> .remote-link");
