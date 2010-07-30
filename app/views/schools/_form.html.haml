@@ -1,5 +1,5 @@
 - semantic_form_for([person, school]) do |f|
-  - f.inputs
+  - f.inputs do
     = f.input :name
     = f.input :course
     = f.input :result
@@ -10,4 +10,4 @@
       :start_year => Time.now.year - 30, :end_year => Time.now.year,
       :discard_day => true, :discard_month => true
   - f.buttons do
-    = f.commit_button 
+    = f.commit_button
