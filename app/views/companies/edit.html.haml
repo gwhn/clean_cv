@@ -1,5 +1,5 @@
 %h1 Editing company
-= render :partial => 'form', :locals => {:person => @person, :company => @company, :command => 'Update'}
+= render :partial => 'form', :locals => {:person => @person, :company => @company}
 = link_to 'Show', person_company_path(@person, @company)
 |
 = link_to 'Back', person_companies_path(@person)

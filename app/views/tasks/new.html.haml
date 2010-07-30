@@ -1,4 +1,4 @@
 %h1 New responsibility
 = render :partial => 'form', :locals => {:person => @person, :company => @company,
-  :project => @project, :task => @task, :command => 'Create'}
+  :project => @project, :task => @task}
 = link_to 'Back', person_company_project_tasks_path(@person, @company, @project)

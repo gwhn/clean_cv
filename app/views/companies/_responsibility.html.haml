@@ -1,3 +1,4 @@
 .fields
-  = f.text_area :description
+  - f.inputs do
+    = f.input :description
   = remove_child_link 'Remove', f, :class => 'remove-person-company-responsibility'

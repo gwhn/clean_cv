@@ -1,6 +1,8 @@
-- error_handling_form_for user do |f|
-  = f.text_field :username
-  = f.text_field :email
-  = f.password_field :password
-  = f.password_field :password_confirmation
-  = f.submit command
+- semantic_form_for user do |f|
+  - f.inputs do
+    = f.input :username
+    = f.input :email
+    = f.input :password, :as => :password
+    = f.input :password_confirmation, :as => :password
+  - f.buttons do
+    = f.commit_button

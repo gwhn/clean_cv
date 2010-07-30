@@ -1,4 +1,6 @@
-- error_handling_form_for user_session do |f|
-  = f.text_field :username
-  = f.password_field :password
-  = f.submit 'Login'
+- semantic_form_for user_session do |f|
+  - f.inputs do
+    = f.input :username
+    = f.input :password, :as => :password
+  - f.buttons do
+    = f.commit_button 'Login'

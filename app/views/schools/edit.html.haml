@@ -1,5 +1,5 @@
 %h1 Editing school
-= render :partial => 'form', :locals => {:person => @person, :school => @school, :command => 'Update'}
+= render :partial => 'form', :locals => {:person => @person, :school => @school}
 = link_to 'Show', person_school_path(@person, @school)
 |
 = link_to 'Back', person_schools_path(@person)

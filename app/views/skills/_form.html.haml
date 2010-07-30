@@ -1,5 +1,7 @@
-- error_handling_form_for([person, skill]) do |f|
-  = f.text_field :name
-  = f.text_field :level
-  = f.text_area :description
-  = f.submit command
+- semantic_form_for([person, skill]) do |f|
+  - f.inputs do
+    = f.input :name
+    = f.input :level
+    = f.input :description
+  - f.buttons do
+    = f.commit_button

@@ -1,28 +1,26 @@
-- error_handling_form_for([person, company]) do |f|
-  = f.text_field :name
-  = f.text_field :role
-  = f.text_field :business_type
-  = f.date_select :start_date,
-    :start_year => Time.now.year - 30, :end_year => Time.now.year,
-    :discard_day => true
-  = f.date_select :end_date,
-    :start_year => Time.now.year - 30, :end_year => Time.now.year,
-    :discard_day => true
+- semantic_form_for([person, company]) do |f|
+  - f.inputs do
+    = f.input :name
+    = f.input :role
+    = f.input :business_type
+    = f.input :start_date, :as => :date,
+      :start_year => Time.now.year - 30, :end_year => Time.now.year,
+      :discard_day => true
+    = f.input :end_date, :as => :date,
+      :start_year => Time.now.year - 30, :end_year => Time.now.year,
+      :discard_day => true
 
-  %hr
-  %strong Responsibilities
-  - f.fields_for :responsibilities do |r|
+  - f.semantic_fields_for :responsibilities, :name => 'Responsibilities' do |r|
     #responsibilities
       = render :partial => 'responsibility', :locals => {:f => r}
   %p= add_child_link 'New responsibility', :responsibilities, :class => 'add-person-company-responsibility'
   = new_child_fields_template f, :responsibilities
 
-  %hr
-  %strong Projects
-  - f.fields_for :projects do |p|
+  - f.semantic_fields_for :projects, :name => 'Projects' do |p|
     #projects
       = render :partial => 'project', :locals => {:f => p}
   %p= add_child_link 'New project', :projects, :class => 'add-person-company-project'
   = new_child_fields_template f, :projects
 
-  = f.submit command
+  - f.buttons do
+    = f.commit_button

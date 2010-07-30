@@ -1,4 +1,5 @@
 .fields
-  = f.text_field :name
-  = f.text_area :description
+  - f.inputs do
+    = f.input :name
+    = f.input :description
   = remove_child_link 'Remove', f, :class => 'remove-person-company-project'

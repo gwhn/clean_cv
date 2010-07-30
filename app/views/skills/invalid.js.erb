@@ -1,2 +1,2 @@
-$(".ui-dialog-content").html("<%= escape_javascript(render :partial => 'form', :locals => {:person => @person, :skill => @skill, :command => controller.action_name.capitalize}) %>");
+$(".ui-dialog-content").html("<%= escape_javascript(render :partial => 'form', :locals => {:person => @person, :skill => @skill}) %>");
 openForm("#form-dialog", "Invalid skill");
