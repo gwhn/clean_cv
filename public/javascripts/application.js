@@ -50,7 +50,22 @@ function bindFormSubmit(dialog) {
     var label = $submit.val();
     $submit.remove();
     var buttons = {};
-    buttons[label] = function() {
+    buttons[label] = formSubmitHandler(dialog);
+    buttons["Cancel"] = function() {
+        $(this).dialog("close");
+    };
+    $(dialog).dialog("option", "buttons", buttons);
+}
+
+function formSubmitHandler(dialog) {
+    var $form = $(dialog).find("form");
+    if ($form.attr("target") != '') {
+        return function() {
+            $form.submit();
+            $(dialog).dialog("close");
+        }
+    }
+    return function() {
         $.ajax({
             type    : $form.attr("method"),
             url     : $form.attr("action"),
@@ -59,11 +74,8 @@ function bindFormSubmit(dialog) {
         });
         $(dialog).dialog("close");
     };
-    buttons["Cancel"] = function() {
-        $(this).dialog("close");
-    };
-    $(dialog).dialog("option", "buttons", buttons);
 }
+
 
 function bindAddChildLinks(selector) {
     $(selector).live("click", function() {
