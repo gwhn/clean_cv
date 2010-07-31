@@ -6,7 +6,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.xml
   def index
-    sort_by = %w(  name job_title email  ).detect { |f| f == params[:order] } || 'id'
+    sort_by = %w(   name job_title email   ).detect { |f| f == params[:order] } || 'id'
     direction = params[:direction] =~ %r(desc)i ? 'DESC' : 'ASC'
     @people = Person.find(:all, :order => "#{sort_by} #{direction}")
 
@@ -53,11 +53,18 @@ class PeopleController < ApplicationController
         flash[:notice] = 'Person was successfully created.'
         format.html { redirect_to(@person) }
         format.xml { render :xml => @person, :status => :created, :location => @person }
-        format.js { render :layout => false }
+#        format.js { render :layout => false }
+        format.js do
+          responds_to_parent { render :layout => false }
+        end
       else
+        @person.errors.each_full {|msg| puts msg}
         format.html { render :action => :new }
         format.xml { render :xml => @person.errors, :status => :unprocessable_entity }
-        format.js { render :action => :invalid, :layout => false }
+#        format.js { render :action => :invalid, :layout => false }
+        format.js do
+          responds_to_parent { render :action => :invalid, :layout => false }
+        end
       end
     end
   end
