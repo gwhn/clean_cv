@@ -308,6 +308,8 @@ ul#social-media li {
     background-color: #FDB020;
 }
 
+.handle { position: absolute; margin-left: -1.3em; }
+
 /* =COLORS-TYPOGRAPHY
 ----------------------------------*/
 

@@ -5,7 +5,7 @@ class Company < ActiveRecord::Base
 
   belongs_to :person
   has_many :projects, :dependent => :destroy
-  has_many :responsibilities, :dependent => :destroy
+  has_many :responsibilities, :dependent => :destroy, :order => :position
 
   accepts_nested_attributes_for :projects, :responsibilities,
                                 :allow_destroy => true,

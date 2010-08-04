@@ -100,4 +100,14 @@ class SkillsController < ApplicationController
     end
   end
 
+  # PUT /people/1/skills/sort
+  def sort
+    @person.skills.each do |skill|
+      skill.position = params[:skill].index(skill.id.to_s) + 1
+      skill.save
+    end
+
+    render :nothing => true
+  end
+
 end

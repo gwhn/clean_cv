@@ -4,7 +4,7 @@ class Project < ActiveRecord::Base
   validates_associated :tasks
 
   belongs_to :company
-  has_many :tasks, :dependent => :destroy
+  has_many :tasks, :dependent => :destroy, :order => :position
 
   accepts_nested_attributes_for :tasks,
                                 :allow_destroy => true,
