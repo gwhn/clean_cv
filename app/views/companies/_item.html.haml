@@ -1,5 +1,5 @@
 %div{:id => ['company', item.id], :class => 'company'}
-  %div{:class => [:item, (defined?(item_counter) && defined?(total) && item_counter == total - 1 ? 'last-item' : '')]}
+  %div{:class => [:item, last_item(item_counter, total)]}
     %h4 #{h item.start_date.to_s(:month_and_year)} - #{h item.end_date.to_s(:month_and_year)}
     %h2= h item.name
 

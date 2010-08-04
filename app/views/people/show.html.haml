@@ -8,7 +8,7 @@
   .cv-section-items
     #companies
       = render :partial => 'companies/item', :collection => @person.companies,
-        :locals => {:total => @person.companies.count}
+        :locals => {:total => @person.companies.length}
 
     - if current_user
       .tl-options
@@ -19,7 +19,7 @@
   .cv-section-items
     #skills
       = render :partial => 'skills/item', :collection => @person.skills,
-        :locals => {:total => @person.skills.count}
+        :locals => {:total => @person.skills.length}
 
     - if current_user
       .tl-options
@@ -30,7 +30,7 @@
   .cv-section-items
     #schools
       = render :partial => 'schools/item', :collection => @person.schools,
-        :locals => {:total => @person.schools.count}
+        :locals => {:total => @person.schools.length}
 
     - if current_user
       .tl-options

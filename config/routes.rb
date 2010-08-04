@@ -6,15 +6,15 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users
 
-  map.resources :people, :member => { :delete => :get } do |person|
-    person.resources :companies, :member => { :delete => :get } do |company|
-      company.resources :projects, :member => { :delete => :get } do |project|
-        project.resources :tasks
+  map.resources :people, :member => {:delete => :get} do |person|
+    person.resources :companies, :member => {:delete => :get} do |company|
+      company.resources :projects, :member => {:delete => :get} do |project|
+        project.resources :tasks, :collection => {:sort => :put}
       end
-      company.resources :responsibilities
+      company.resources :responsibilities, :collection => {:sort => :put}
     end
-    person.resources :skills, :member => { :delete => :get }
-    person.resources :schools, :member => { :delete => :get }
+    person.resources :skills, :member => {:delete => :get}, :collection => {:sort => :put}
+    person.resources :schools, :member => {:delete => :get}
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -35,7 +35,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+
   # Sample resource route with more complex sub-resources
   #   map.resources :products do |products|
   #     products.resources :comments

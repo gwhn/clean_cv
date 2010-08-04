@@ -21,4 +21,7 @@ module ApplicationHelper
     end
   end
 
+  def last_item(current, total)
+    defined?(current) && defined?(total) && current == total - 1 ? 'last-item' : ''
+  end
 end

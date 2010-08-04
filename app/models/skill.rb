@@ -3,4 +3,8 @@ class Skill < ActiveRecord::Base
   validates_uniqueness_of :name
 
   belongs_to :person
+
+  acts_as_list :scope => :person
+
+  default_scope 'position'
 end

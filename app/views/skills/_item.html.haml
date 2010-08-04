@@ -1,5 +1,5 @@
 %div{:id => ['skill', item.id], :class => 'skill'}
-  %div{:class => [:item, (defined?(item_counter) && defined?(total) && item_counter == total - 1 ? 'last-item' : '')]}
+  %div{:class => [:item, last_item(item_counter, total)]}
     %h4= item.level
     %h2= item.name
 
