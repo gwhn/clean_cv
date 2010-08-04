@@ -84,4 +84,16 @@ class TasksController < ApplicationController
       format.xml { head :ok }
     end
   end
+
+
+  # PUT /people/1/company/1/projects/1/tasks/sort
+  def sort
+    @project.tasks.each do |task|
+      task.position = params[:task].index(task.id.to_s) + 1
+      task.save
+    end
+
+    render :nothing => true
+  end
+
 end

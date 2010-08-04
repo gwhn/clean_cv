@@ -85,4 +85,14 @@ class ResponsibilitiesController < ApplicationController
     end
   end
 
+  # PUT /people/1/company/1/responsibilities/sort
+  def sort
+    @company.responsibilities.each do |resp|
+      resp.position = params[:responsibility].index(resp.id.to_s) + 1
+      resp.save
+    end
+
+    render :nothing => true
+  end
+
 end
