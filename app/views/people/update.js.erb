@@ -1,4 +1,5 @@
 $("#person_<%= @person.id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @person) %>");
 replaceFonts("h1, h6, .item h2, h2.cv-section-name");
+initFancyBox("a.lightbox");
 bindRemoteLinks("#form-dialog", "#cv #person_<%= @person.id %> .remote-link");
 
