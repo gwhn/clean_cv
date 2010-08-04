@@ -1,5 +1,5 @@
 %h1 Editing person
-= render :partial => 'form', :locals => {:person => @person}
+= render :partial => 'form', :locals => {:person => @person, :url => person_url(@person, :format => :js)}
 = link_to 'Show', @person
 |
 = link_to 'Back', people_path
