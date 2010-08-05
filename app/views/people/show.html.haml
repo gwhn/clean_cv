@@ -6,7 +6,9 @@
 .cv-section.fixed
   %h2.cv-section-name Work Experience
   .cv-section-items
-    #companies
+
+    - companies_id = "person_#{@person.id}_companies"
+    %div{:id => companies_id}
       = render :partial => 'companies/item', :collection => @person.companies,
         :locals => {:total => @person.companies.length}
 
@@ -56,7 +58,9 @@
 .cv-section.last-cv-section.fixed
   %h2.cv-section-name Education
   .cv-section-items
-    #schools
+
+    - schools_id = "person_#{@person.id}_schools"
+    %div{:id => schools_id}
       = render :partial => 'schools/item', :collection => @person.schools,
         :locals => {:total => @person.schools.length}
 

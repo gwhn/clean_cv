@@ -1,1 +1,2 @@
-$("#skills #skill_<%= @skill.id %>").remove();
+<%- skills_id = "person_#{@person.id}_skills" %>
+$("#<%= skills_id %> #skill_<%= @skill.id %>").remove();

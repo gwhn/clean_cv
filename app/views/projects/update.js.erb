@@ -1,3 +1,4 @@
-$("#project_<%= @project.id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @project) %>");
+<%- projects_id = "person_#{@person.id}_company_#{@company.id}_projects" %>
+$("#<%= projects_id %> #project_<%= @project.id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @project) %>");
 replaceFonts("h1, h6, .item h2, h2.cv-section-name");
-bindRemoteLinks("#form-dialog", "#projects #project_<%= @project.id %> .remote-link");
+bindRemoteLinks("#form-dialog", "#<%= projects_id %> #project_<%= @project.id %> .remote-link");

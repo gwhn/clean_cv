@@ -1,1 +1,2 @@
-$("#schools #school_<%= @school.id %>").remove();
+<%- schools_id = "person_#{@person.id}_schools" %>
+$("#<%= schools_id %> #school_<%= @school.id %>").remove();

@@ -1,1 +1,2 @@
-$("#projects #project_<%= @project.id %>").remove();
+<%- projects_id = "person_#{@person.id}_company_#{@company.id}_projects" %>
+$("#<%= projects_id %> #project_<%= @project.id %>").remove();

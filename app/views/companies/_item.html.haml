@@ -42,7 +42,8 @@
             $("##{responsibilities_id}").disableSelection();
           });
 
-    #projects
+    - projects_id = "person_#{item.person.id}_company_#{item.id}_projects"
+    %div{:id => projects_id}
       = render :partial => 'projects/item', :collection => item.projects
 
       - if current_user
