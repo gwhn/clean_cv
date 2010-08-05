@@ -8,7 +8,7 @@ class PeopleController < ApplicationController
   def index
     sort_by = %w(   name job_title email   ).detect { |f| f == params[:order] } || 'id'
     direction = params[:direction] =~ %r(desc)i ? 'DESC' : 'ASC'
-    @people = Person.find(:all, :order => "#{sort_by} #{direction}")
+    @people = Person.paginate :page => params[:page], :per_page => 1, :order => "#{sort_by} #{direction}"
 
     respond_to do |format|
       format.html # index.html.haml

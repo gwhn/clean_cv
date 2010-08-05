@@ -1,5 +1,9 @@
+.page-info= page_entries_info @people
+
 = render :partial => 'item', :collection => @people
 
 - if current_user
   .bl-options
     = link_to 'New', new_person_path, :class => 'remote-link', :title => 'New person'
+
+= will_paginate @people, :class => 'pager', :previous_label => '&#171;', :next_label => '&#187;', :separator => '|'
