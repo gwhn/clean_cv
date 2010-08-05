@@ -5,5 +5,5 @@ class Task < ActiveRecord::Base
 
   acts_as_list :scope => :project
 
-  default_scope 'position'
+  default_scope :order => :position
 end

@@ -6,5 +6,5 @@ class Skill < ActiveRecord::Base
 
   acts_as_list :scope => :person
 
-  default_scope 'position'
+  default_scope :order => :position
 end

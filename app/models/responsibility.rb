@@ -5,5 +5,5 @@ class Responsibility < ActiveRecord::Base
 
   acts_as_list :scope => :company
 
-  default_scope 'position'
+  default_scope :order => :position
 end

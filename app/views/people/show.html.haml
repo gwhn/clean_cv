@@ -17,14 +17,16 @@
 .cv-section.fixed
   %h2.cv-section-name Technical Skills
   .cv-section-items
-    %div#skills
+
+    - skills_id = "person_#{@person.id}_skills"
+    %div{:id => skills_id}
       = render :partial => 'skills/item', :collection => @person.skills,
         :locals => {:total => @person.skills.length}
 
       = content_for :javascript do
         :javascript
           $(function() {
-            $("#skills").sortable({
+            $("##{skills_id}").sortable({
               axis: "y",
               dropOnEmpty: false,
               handle: ".handle",
@@ -35,16 +37,16 @@
               update: function() {
                 $.ajax({
                   type: "put",
-                  data: $("#skills").sortable("serialize") + "&person_id=#{@person.id}",
+                  data: $("##{skills_id}").sortable("serialize") + "&person_id=#{@person.id}",
                   dataType: "script",
                   complete: function(request){
-                    $("#skills").effect("highlight");
+                    $("##{skills_id}").effect("highlight");
                   },
                   url: "#{sort_person_skills_url(@person)}"
                 });
               }
             });
-            $("#skills").disableSelection();
+            $("##{skills_id}").disableSelection();
           });
 
     - if current_user
