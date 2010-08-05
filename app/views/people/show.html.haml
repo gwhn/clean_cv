@@ -31,11 +31,12 @@
             $("##{skills_id}").sortable({
               axis: "y",
               dropOnEmpty: false,
-              handle: ".handle",
+              handle: ".block-handle",
               cursor: "crosshair",
               items: ".skill",
               opacity: 0.4,
               scroll: true,
+              placeholder: "ui-state-highlight",
               update: function() {
                 $.ajax({
                   type: "put",

@@ -233,7 +233,7 @@ ul#social-media li {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 5px;
-    -webkit-box-shadow: -2px 2px 4px  #222;
+    -webkit-box-shadow: -2px 2px 4px #222;
     -moz-box-shadow: -2px 2px 4px #222;
     box-shadow: -2px 2px 4px #222;
 }
@@ -254,7 +254,7 @@ ul#social-media li {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
-    -webkit-box-shadow: 2px -2px 4px  #222;
+    -webkit-box-shadow: 2px -2px 4px #222;
     -moz-box-shadow: 2px -2px 4px #222;
     box-shadow: 2px -2px 4px #222;
 }
@@ -275,7 +275,7 @@ ul#social-media li {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 0px;
-    -webkit-box-shadow: 2px 2px 4px  #222;
+    -webkit-box-shadow: 2px 2px 4px #222;
     -moz-box-shadow: 2px 2px 4px #222;
     box-shadow: 2px 2px 4px #222;
 }
@@ -296,7 +296,7 @@ ul#social-media li {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
-    -webkit-box-shadow: -2px -2px 4px  #222;
+    -webkit-box-shadow: -2px -2px 4px #222;
     -moz-box-shadow: -2px -2px 4px #222;
     box-shadow: -2px -2px 4px #222;
 }
@@ -308,7 +308,16 @@ ul#social-media li {
     background-color: #FDB020;
 }
 
-.handle { position: absolute; margin-left: -1.3em; }
+.list-handle {
+    position: absolute;
+    margin-left: -1.6em;
+    margin-top: -1.6em;
+}
+
+.block-handle {
+    position: absolute;
+    margin-left: -1.6em;
+}
 
 /* =COLORS-TYPOGRAPHY
 ----------------------------------*/

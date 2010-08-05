@@ -20,11 +20,12 @@
           $("##{tasks_id}").sortable({
             axis: "y",
             dropOnEmpty: false,
-            handle: ".handle",
+            handle: ".list-handle",
             cursor: "crosshair",
             items: ".task",
             opacity: 0.4,
             scroll: true,
+            placeholder: "ui-state-highlight",
             update: function() {
               $.ajax({
                 type: "put",

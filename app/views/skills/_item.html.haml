@@ -1,5 +1,5 @@
 %div{:id => ['skill', item.id], :class => ['skill']}
-  %span{:class => ['handle', 'ui-icon', 'ui-icon-arrowthick-2-n-s']} 
+  %span{:class => ['block-handle', 'ui-icon', 'ui-icon-arrowthick-2-n-s']} 
   %div{:class => [:item, (defined?(current) && defined?(total) && current == total - 1 ? 'last-item' : '')]}
     %h4= item.level
     %h2= item.name
