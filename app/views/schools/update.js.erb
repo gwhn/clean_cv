@@ -3,4 +3,4 @@ $("#<%= schools_id %> #school_<%= @school.id %>").replaceWith("<%= escape_javasc
 $("#<%= schools_id %> .school:last .item").addClass("last-item");
 replaceFonts("h1, h6, .item h2, h2.cv-section-name");
 bindRemoteLinks("#form-dialog", "#<%= schools_id %> #school_<%= @school.id %> .remote-link");
-$("#<%= schools_id %>").effect("highlight");
+$("#<%= schools_id %> #school_<%= @school.id %>").effect("highlight");
