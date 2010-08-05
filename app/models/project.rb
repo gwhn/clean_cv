@@ -5,6 +5,7 @@ class Project < ActiveRecord::Base
 
   belongs_to :company
   has_many :tasks, :dependent => :destroy, :order => :position
+  has_and_belongs_to_many :skills
 
   accepts_nested_attributes_for :tasks,
                                 :allow_destroy => true,

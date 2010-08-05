@@ -3,6 +3,7 @@ class Skill < ActiveRecord::Base
   validates_uniqueness_of :name
 
   belongs_to :person
+  has_and_belongs_to_many :projects, :readonly => true  
 
   acts_as_list :scope => :person
 
