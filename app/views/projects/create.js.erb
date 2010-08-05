@@ -2,4 +2,5 @@
 $("<%= escape_javascript(render :partial => 'item', :object => @project) %>").appendTo("#<%= projects_id %>");
 replaceFonts("h1, h6, .item h2, h2.cv-section-name");
 bindRemoteLinks("#form-dialog", "#<%= projects_id %> #project_<%= @project.id %> .remote-link");
-$("#<%= projects_id %>").effect("highlight");
+$.scrollTo("#<%= projects_id %> #project_<%= @project.id %>", "fast");
+$("#<%= projects_id %> #project_<%= @project.id %>").effect("highlight");
