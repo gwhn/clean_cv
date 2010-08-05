@@ -77,14 +77,12 @@ class PeopleController < ApplicationController
         flash[:notice] = 'Person was successfully updated.'
         format.html { redirect_to(@person) }
         format.xml { head :ok }
-#        format.js { render :layout => false }
         format.js do
           responds_to_parent { render :layout => false }
         end
       else
         format.html { render :action => :edit }
         format.xml { render :xml => @person.errors, :status => :unprocessable_entity }
-#        format.js { render :action => :invalid, :layout => false }
         format.js do
           @url = person_path(@person, :format => :js)
           responds_to_parent { render :action => :invalid, :layout => false }

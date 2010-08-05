@@ -1,6 +1,10 @@
 class Person < ActiveRecord::Base
   validates_presence_of :name, :job_title, :email, :phone, :mobile, :profile
   validates_uniqueness_of :name, :email
+  validates_format_of :flickr_url, :twitter_url, :facebook_url, :linked_in_url,
+                      :with => %r{\A(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?гхрсту]))\Z}i,
+                      :allow_blank => true
+  validates_format_of :email, :with => %r{/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z}i
 
   has_many :companies, :dependent => :destroy, :order => 'start_date DESC'
   has_many :skills, :dependent => :destroy, :order => :position
