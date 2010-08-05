@@ -4,3 +4,4 @@ $("<%= escape_javascript(render :partial => 'item', :object => @company) %>").ap
 $("#<%= companies_id %> .company:last .item").addClass("last-item");
 replaceFonts("h1, h6, .item h2, h2.cv-section-name");
 bindRemoteLinks("#form-dialog", "#<%= companies_id %> #company_<%= @company.id %> .remote-link");
+$("#<%= companies_id %>").effect("highlight");
