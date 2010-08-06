@@ -37,7 +37,7 @@
                   complete: function(request){
                     $("##{responsibilities_id}").effect("highlight");
                   },
-                  url: "#{sort_person_company_responsibilities_url(item.person, item)}"
+                  url: "#{reposition_person_company_responsibilities_url(item.person, item)}"
                 });
               }
             });

@@ -35,7 +35,7 @@
                 complete: function(request){
                   $("##{tasks_id}").effect("highlight");
                 },
-                url: "#{sort_person_company_project_tasks_url(item.company.person, item.company, item)}"
+                url: "#{reposition_person_company_project_tasks_url(item.company.person, item.company, item)}"
               });
             }
           });
