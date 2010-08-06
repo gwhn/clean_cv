@@ -16,6 +16,8 @@
 %p
   %strong End date:
   = h @company.end_date 
-= link_to 'Edit', edit_person_company_path(@person, @company)
-|
-= link_to 'Back', person_companies_path(@person) 
+
+- if permitted_to? :update, @company
+  = link_to 'Edit', edit_person_company_path(@person, @company)
+- if permitted_to? :read, @company
+  = link_to 'Back', person_companies_path(@person)

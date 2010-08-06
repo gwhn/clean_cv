@@ -11,9 +11,10 @@
       %td= h project.company.name 
       %td= h project.name 
       %td= h project.description 
-      %td= link_to 'Show', person_company_project_path(@person, @company, project) 
-      %td= link_to 'Edit', edit_person_company_project_path(@person, @company, project) 
+      %td= link_to 'Show', person_company_project_path(@person, @company, project) if permitted_to? :read, project
+      %td= link_to 'Edit', edit_person_company_project_path(@person, @company, project) if permitted_to? :update, project
       %td= link_to 'Destroy', person_company_project_path(@person, @company, project), 
-        :confirm => 'Are you sure?', :method => :delete
+        :confirm => 'Are you sure?', :method => :delete if permitted_to? :delete, project
 %br
-= link_to 'New project', new_person_company_project_path(@person, @company)
+- if permitted_to? :create, :projects
+  = link_to 'New project', new_person_company_project_path(@person, @company)

@@ -9,9 +9,10 @@
       %td= h responsibility.company.person.name
       %td= h responsibility.company.name
       %td= h responsibility.description 
-      %td= link_to 'Show', person_company_responsibility_path(@person, @company, responsibility)
-      %td= link_to 'Edit', edit_person_company_responsibility_path(@person, @company, responsibility)
+      %td= link_to 'Show', person_company_responsibility_path(@person, @company, responsibility) if permitted_to? :read, responsibility
+      %td= link_to 'Edit', edit_person_company_responsibility_path(@person, @company, responsibility) if permitted_to? :update, responsibility
       %td= link_to 'Destroy', person_company_responsibility_path(@person, @company, responsibility),
-        :confirm => 'Are you sure?', :method => :delete
+        :confirm => 'Are you sure?', :method => :delete if permitted_to? :delete, responsibility
 %br
-= link_to 'New responsibility', new_person_company_responsibility_path(@person, @company)
+- if permitted_to? :create, :responsibilities
+  = link_to 'New responsibility', new_person_company_responsibility_path(@person, @company)

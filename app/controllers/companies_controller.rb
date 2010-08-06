@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
-  before_filter :find_person
+  filter_resource_access :nested_in => :people
+
   # GET /people/1/companies
   # GET /people/1/companies.xml
   def index
@@ -14,8 +15,6 @@ class CompaniesController < ApplicationController
   # GET /people/1/companies/1
   # GET /people/1/companies/1.xml
   def show
-    @company = @person.companies.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.haml
       format.xml { render :xml => @company }
@@ -25,8 +24,6 @@ class CompaniesController < ApplicationController
   # GET /people/1/companies/new
   # GET /people/1/companies/new.xml
   def new
-    @company = Company.new
-
     respond_to do |format|
       format.html # new.html.haml
       format.xml { render :xml => @company }
@@ -35,14 +32,11 @@ class CompaniesController < ApplicationController
 
   # GET /people/1/companies/1/edit
   def edit
-    @company = @person.companies.find(params[:id])
   end
 
   # POST /people/1/companies
   # POST /people/1/companies.xml
   def create
-    @company = @person.companies.new(params[:company])
-
     respond_to do |format|
       if @company.save
         flash[:notice] = 'Company was successfully created.'
@@ -60,8 +54,6 @@ class CompaniesController < ApplicationController
   # PUT /people/1/companies/1
   # PUT /people/1/companies/1.xml
   def update
-    @company = @person.companies.find(params[:id])
-
     respond_to do |format|
       if @company.update_attributes(params[:company])
         flash[:notice] = 'Company was successfully updated.'
@@ -78,8 +70,6 @@ class CompaniesController < ApplicationController
 
   # GET /people/1/companies/1/delete
   def delete
-    @company = @person.companies.find(params[:id])
-
     respond_to do |format|
       format.html # delete.html.haml
     end
@@ -88,7 +78,6 @@ class CompaniesController < ApplicationController
   # DELETE /people/1/companies/1
   # DELETE /people/1/companies/1.xml
   def destroy
-    @company = @person.companies.find(params[:id])
     redirect_to(person_company_url(@person, @company)) and return if params[:cancel]
     @company.destroy
 

@@ -9,11 +9,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :people, :member => {:delete => :get} do |person|
     person.resources :companies, :member => {:delete => :get} do |company|
       company.resources :projects, :member => {:delete => :get} do |project|
-        project.resources :tasks, :collection => {:sort => :put}
+        project.resources :tasks, :collection => {:reposition => :put}
       end
-      company.resources :responsibilities, :collection => {:sort => :put}
+      company.resources :responsibilities, :collection => {:reposition => :put}
     end
-    person.resources :skills, :member => {:delete => :get}, :collection => {:sort => :put}
+    person.resources :skills, :member => {:delete => :get}, :collection => {:reposition => :put}
     person.resources :schools, :member => {:delete => :get}
   end
 

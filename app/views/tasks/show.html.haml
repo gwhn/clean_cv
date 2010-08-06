@@ -10,6 +10,8 @@
 %p
   %strong Description:
   = h @task.description
-= link_to 'Edit', edit_person_company_project_task_path(@person, @company, @project, @task)
-|
-= link_to 'Back', person_company_project_tasks_path(@person, @company, @project) 
+
+- if permitted_to? :update, @task
+  = link_to 'Edit', edit_person_company_project_task_path(@person, @company, @project, @task)
+- if permitted_to? :read, @task
+  = link_to 'Back', person_company_project_tasks_path(@person, @company, @project)

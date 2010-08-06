@@ -1,4 +1,6 @@
 class Responsibility < ActiveRecord::Base
+  using_access_control
+
   validates_presence_of :description, :company_id
 
   belongs_to :company

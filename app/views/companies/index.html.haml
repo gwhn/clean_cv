@@ -15,9 +15,10 @@
       %td= h company.business_type
       %td= h company.start_date
       %td= h company.end_date
-      %td= link_to 'Show', person_company_path(@person, company)
-      %td= link_to 'Edit', edit_person_company_path(@person, company) 
+      %td= link_to 'Show', person_company_path(@person, company) if permitted_to? :read, company
+      %td= link_to 'Edit', edit_person_company_path(@person, company) if permitted_to? :update, company
       %td= link_to 'Destroy', person_company_path(@person, company),
-        :confirm => 'Are you sure?', :method => :delete
+        :confirm => 'Are you sure?', :method => :delete if permitted_to? :delete, company
 %br
-= link_to 'New company', new_person_company_path(@person)
+- if permitted_to? :create, :companies
+  = link_to 'New company', new_person_company_path(@person)

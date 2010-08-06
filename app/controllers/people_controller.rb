@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
   skip_before_filter :authorize, :only => [:index, :show]
+  filter_resource_access
 
   caches_action :index, :show
 
@@ -19,8 +20,6 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.xml
   def show
-    @person = Person.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.haml
       format.xml { render :xml => @person }
@@ -30,8 +29,6 @@ class PeopleController < ApplicationController
   # GET /people/new
   # GET /people/new.xml
   def new
-    @person = Person.new
-
     respond_to do |format|
       format.html # new.html.haml
       format.xml { render :xml => @person }
@@ -40,14 +37,11 @@ class PeopleController < ApplicationController
 
   # GET /people/1/edit
   def edit
-    @person = Person.find(params[:id])
   end
 
   # POST /people
   # POST /people.xml
   def create
-    @person = Person.new(params[:person])
-
     respond_to do |format|
       if @person.save
         flash[:notice] = 'Person was successfully created.'
@@ -70,8 +64,6 @@ class PeopleController < ApplicationController
   # PUT /people/1
   # PUT /people/1.xml
   def update
-    @person = Person.find(params[:id])
-
     respond_to do |format|
       if @person.update_attributes(params[:person])
         flash[:notice] = 'Person was successfully updated.'
@@ -93,8 +85,6 @@ class PeopleController < ApplicationController
 
   # GET /people/1/delete
   def delete
-    @person = Person.find(params[:id])
-
     respond_to do |format|
       format.html # delete.html.haml
     end
@@ -103,7 +93,6 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   # DELETE /people/1.xml
   def destroy
-    @person = Person.find(params[:id])
     redirect_to(@person) and return if params[:cancel]
     @person.destroy
 
@@ -114,4 +103,9 @@ class PeopleController < ApplicationController
     end
   end
 
+  protected
+  # Overriding the default filter_resource_access new method:
+  def new_person_from_params
+    @person = Person.new(:user => current_user)
+  end
 end

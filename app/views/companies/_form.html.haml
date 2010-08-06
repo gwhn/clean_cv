@@ -13,14 +13,18 @@
   - f.semantic_fields_for :responsibilities, :name => 'Responsibilities' do |r|
     #responsibilities
       = render :partial => 'responsibility', :locals => {:f => r}
-  %p= add_child_link 'New responsibility', :responsibilities, :class => 'add-person-company-responsibility'
-  = new_child_fields_template f, :responsibilities
+
+  - if permitted_to? :create, :responsibilities
+    %p= add_child_link 'New responsibility', :responsibilities, :class => 'add-person-company-responsibility'
+    = new_child_fields_template f, :responsibilities
 
   - f.semantic_fields_for :projects, :name => 'Projects' do |p|
     #projects
       = render :partial => 'project', :locals => {:f => p}
-  %p= add_child_link 'New project', :projects, :class => 'add-person-company-project'
-  = new_child_fields_template f, :projects
+
+  -if permitted_to? :create, :projects
+    %p= add_child_link 'New project', :projects, :class => 'add-person-company-project'
+    = new_child_fields_template f, :projects
 
   - f.buttons do
     = f.commit_button

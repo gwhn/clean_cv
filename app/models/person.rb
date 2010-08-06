@@ -1,5 +1,7 @@
 class Person < ActiveRecord::Base
-  validates_presence_of :name, :job_title, :email, :phone, :mobile, :profile
+  using_access_control
+
+  validates_presence_of :name, :job_title, :email, :phone, :mobile, :profile, :user
   validates_uniqueness_of :name, :email
   validates_format_of :flickr_url, :twitter_url, :facebook_url, :linked_in_url,
                       :with => %r{\A(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?гхрсту]))\Z}i,
@@ -16,6 +18,8 @@ class Person < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 10.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
+  belongs_to :user
+  
   def to_param
     "#{id}-#{name.parameterize}"
   end

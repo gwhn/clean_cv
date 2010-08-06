@@ -16,6 +16,8 @@
 %p
   %strong Date to:
   = h @school.date_to 
-= link_to 'Edit', edit_person_school_path(@person, @school)
-|
-= link_to 'Back', person_schools_path(@person) 
+
+- if permitted_to? :update, @school
+  = link_to 'Edit', edit_person_school_path(@person, @school)
+- if permitted_to? :read, @school
+  = link_to 'Back', person_schools_path(@person)

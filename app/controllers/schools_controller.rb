@@ -1,5 +1,5 @@
 class SchoolsController < ApplicationController
-  before_filter :find_person
+  filter_resource_access :nested_in => :people
 
   # GET /people/1/schools
   # GET /people/1/schools.xml
@@ -15,8 +15,6 @@ class SchoolsController < ApplicationController
   # GET /people/1/schools/1
   # GET /people/1/schools/1.xml
   def show
-    @school = @person.schools.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.haml
       format.xml { render :xml => @school }
@@ -26,8 +24,6 @@ class SchoolsController < ApplicationController
   # GET /people/1/schools/new
   # GET /people/1/schools/new.xml
   def new
-    @school = School.new
-
     respond_to do |format|
       format.html # new.html.haml
       format.xml { render :xml => @school }
@@ -36,14 +32,11 @@ class SchoolsController < ApplicationController
 
   # GET /people/1/schools/1/edit
   def edit
-    @school = @person.schools.find(params[:id])
   end
 
   # POST /people/1/schools
   # POST /people/1/schools.xml
   def create
-    @school = @person.schools.new(params[:school])
-
     respond_to do |format|
       if @school.save
         flash[:notice] = 'School was successfully created.'
@@ -61,8 +54,6 @@ class SchoolsController < ApplicationController
   # PUT /people/1/schools/1
   # PUT /people/1/schools/1.xml
   def update
-    @school = @person.schools.find(params[:id])
-
     respond_to do |format|
       if @school.update_attributes(params[:school])
         flash[:notice] = 'School was successfully updated.'
@@ -79,8 +70,6 @@ class SchoolsController < ApplicationController
 
   # GET /people/1/schools/1/delete
   def delete
-    @school = @person.schools.find(params[:id])
-
     respond_to do |format|
       format.html # delete.html.haml
     end
@@ -89,7 +78,6 @@ class SchoolsController < ApplicationController
   # DELETE /people/1/schools/1
   # DELETE /people/1/schools/1.xml
   def destroy
-    @school = @person.schools.find(params[:id])
     redirect_to(person_school_url(@person, @school)) and return if params[:cancel]
     @school.destroy
 

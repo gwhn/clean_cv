@@ -1,4 +1,6 @@
 class Skill < ActiveRecord::Base
+  using_access_control
+
   validates_presence_of :name, :level, :description, :person_id
   validates_uniqueness_of :name
 

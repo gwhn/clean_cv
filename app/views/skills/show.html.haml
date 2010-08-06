@@ -9,7 +9,9 @@
   = h @skill.level 
 %p
   %strong Description:
-  = h @skill.description 
-= link_to 'Edit', edit_person_skill_path(@person, @skill)
-|
-= link_to 'Back', person_skills_path(@person) 
+  = h @skill.description
+
+- if permitted_to? :update, @skill
+  = link_to 'Edit', edit_person_skill_path(@person, @skill)
+- if permitted_to? :read, @skill
+  = link_to 'Back', person_skills_path(@person)

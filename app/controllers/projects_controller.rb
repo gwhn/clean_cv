@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :find_person_company
+  filter_resource_access :nested_in => :companies
 
   # GET /people/1/company/1/projects
   # GET /people/1/company/1/projects.xml
@@ -15,8 +15,6 @@ class ProjectsController < ApplicationController
   # GET /people/1/company/1/projects/1
   # GET /people/1/company/1/projects/1.xml
   def show
-    @project = @company.projects.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.haml
       format.xml { render :xml => @project }
@@ -26,8 +24,6 @@ class ProjectsController < ApplicationController
   # GET /people/1/company/1/projects/new
   # GET /people/1/company/1/projects/new.xml
   def new
-    @project = Project.new
-
     respond_to do |format|
       format.html # new.html.haml
       format.xml { render :xml => @project }
@@ -36,14 +32,11 @@ class ProjectsController < ApplicationController
 
   # GET /people/1/company/1/projects/1/edit
   def edit
-    @project = @company.projects.find(params[:id])
   end
 
   # POST /people/1/company/1/projects
   # POST /people/1/company/1/projects.xml
   def create
-    @project = @company.projects.new(params[:project])
-
     respond_to do |format|
       if @project.save
         flash[:notice] = 'Project was successfully created.'
@@ -61,8 +54,6 @@ class ProjectsController < ApplicationController
   # PUT /people/1/company/1/projects/1
   # PUT /people/1/company/1/projects/1.xml
   def update
-    @project = @company.projects.find(params[:id])
-
     respond_to do |format|
       if @project.update_attributes(params[:project])
         flash[:notice] = 'Project was successfully updated.'
@@ -79,8 +70,6 @@ class ProjectsController < ApplicationController
 
   # GET /people/1/companies/1/projects/1/delete
   def delete
-    @project = @company.projects.find(params[:id])
-
     respond_to do |format|
       format.html # delete.html.haml
     end
@@ -89,7 +78,6 @@ class ProjectsController < ApplicationController
   # DELETE /people/1/company/1/projects/1
   # DELETE /people/1/company/1/projects/1.xml
   def destroy
-    @project = @company.projects.find(params[:id])
     redirect_to(person_company_project_url(@person, @company, @project)) and return if params[:cancel]
     @project.destroy
 

@@ -1,5 +1,6 @@
 class SkillsController < ApplicationController
-  before_filter :find_person
+  filter_resource_access :nested_in => :people,
+                         :additional_collection => {:reposition => :update}
 
   # GET /people/1/skills
   # GET /people/1/skills.xml
@@ -15,8 +16,6 @@ class SkillsController < ApplicationController
   # GET /people/1/skills/1
   # GET /people/1/skills/1.xml
   def show
-    @skill = @person.skills.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.haml
       format.xml { render :xml => @skill }
@@ -26,8 +25,6 @@ class SkillsController < ApplicationController
   # GET /people/1/skills/new
   # GET /people/1/skills/new.xml
   def new
-    @skill = Skill.new
-
     respond_to do |format|
       format.html # new.html.haml
       format.xml { render :xml => @skill }
@@ -36,14 +33,11 @@ class SkillsController < ApplicationController
 
   # GET /people/1/skills/1/edit
   def edit
-    @skill = @person.skills.find(params[:id])
   end
 
   # POST /people/1/skills
   # POST /people/1/skills.xml
   def create
-    @skill = @person.skills.new(params[:skill])
-
     respond_to do |format|
       if @skill.save
         flash[:notice] = 'Skill was successfully created.'
@@ -61,8 +55,6 @@ class SkillsController < ApplicationController
   # PUT /people/1/skills/1
   # PUT /people/1/skills/1.xml
   def update
-    @skill = @person.skills.find(params[:id])
-
     respond_to do |format|
       if @skill.update_attributes(params[:skill])
         flash[:notice] = 'Skill was successfully updated.'
@@ -79,8 +71,6 @@ class SkillsController < ApplicationController
 
   # GET /people/1/skills/1/delete
   def delete
-    @skill = @person.skills.find(params[:id])
-
     respond_to do |format|
       format.html # delete.html.haml
     end
@@ -89,7 +79,6 @@ class SkillsController < ApplicationController
   # DELETE /people/1/skills/1
   # DELETE /people/1/skills/1.xml
   def destroy
-    @skill = @person.skills.find(params[:id])
     redirect_to(person_skill_url(@person, @skill)) and return if params[:cancel]
     @skill.destroy
 
@@ -100,8 +89,8 @@ class SkillsController < ApplicationController
     end
   end
 
-  # PUT /people/1/skills/sort
-  def sort
+  # PUT /people/1/skills/reposition
+  def reposition
     @person.skills.each do |skill|
       skill.position = params[:skill].index(skill.id.to_s) + 1
       skill.save

@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-  before_filter :find_person_company_project
+  filter_resource_access :nested_in => :projects,
+                         :additional_collection => {:reposition => :update}
 
   # GET people/1/company/1/project/1/tasks
   # GET people/1/company/1/project/1/tasks.xml
@@ -15,8 +16,6 @@ class TasksController < ApplicationController
   # GET people/1/company/1/project/1/tasks/1
   # GET people/1/company/1/project/1/tasks/1.xml
   def show
-    @task = @project.tasks.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.haml
       format.xml { render :xml => @task }
@@ -26,8 +25,6 @@ class TasksController < ApplicationController
   # GET people/1/company/1/project/1/tasks/new
   # GET people/1/company/1/project/1/tasks/new.xml
   def new
-    @task = Task.new
-
     respond_to do |format|
       format.html # new.html.haml
       format.xml { render :xml => @task }
@@ -36,14 +33,11 @@ class TasksController < ApplicationController
 
   # GET people/1/company/1/project/1/tasks/1/edit
   def edit
-    @task = @project.tasks.find(params[:id])
   end
 
   # POST people/1/company/1/project/1/tasks
   # POST people/1/company/1/project/1/tasks.xml
   def create
-    @task = @project.tasks.new(params[:task])
-
     respond_to do |format|
       if @task.save
         flash[:notice] = 'Task was successfully created.'
@@ -59,8 +53,6 @@ class TasksController < ApplicationController
   # PUT people/1/company/1/project/1/tasks/1
   # PUT people/1/company/1/project/1/tasks/1.xml
   def update
-    @task = @project.tasks.find(params[:id])
-
     respond_to do |format|
       if @task.update_attributes(params[:task])
         flash[:notice] = 'Task was successfully updated.'
@@ -76,8 +68,7 @@ class TasksController < ApplicationController
   # DELETE people/1/company/1/project/1/tasks/1
   # DELETE people/1/company/1/project/1/tasks/1.xml
   def destroy
-    task = @project.tasks.find(params[:id])
-    task.destroy
+    @task.destroy
 
     respond_to do |format|
       format.html { redirect_to(person_company_project_tasks_url(@person, @company, @project)) }
@@ -86,8 +77,8 @@ class TasksController < ApplicationController
   end
 
 
-  # PUT /people/1/company/1/projects/1/tasks/sort
-  def sort
+  # PUT /people/1/company/1/projects/1/tasks/reposition
+  def reposition
     @project.tasks.each do |task|
       task.position = params[:task].index(task.id.to_s) + 1
       task.save

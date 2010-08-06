@@ -7,8 +7,10 @@
   - f.semantic_fields_for :tasks, :name => 'Tasks' do |t|
     #tasks
       = render :partial => 'task', :locals => {:f => t}
-  %p= add_child_link 'New task', :tasks, :class => 'add-person-company-project-task'
-  = new_child_fields_template f, :tasks
+
+  - if permitted_to? :create, :tasks    
+    %p= add_child_link 'New task', :tasks, :class => 'add-person-company-project-task'
+    = new_child_fields_template f, :tasks
 
   - f.buttons do
     = f.commit_button
