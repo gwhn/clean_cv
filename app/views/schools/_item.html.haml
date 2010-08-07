@@ -6,9 +6,9 @@
     - if current_user
       .br-options
         - if permitted_to? :update, item
-          = link_to 'Edit', edit_person_school_path(item.person, item), :class => 'remote-link', :title => 'Edit school'
+          = link_to 'Edit school', edit_person_school_path(item.person, item), :class => 'remote-link', :title => 'Edit school'
         - if permitted_to? :delete, item
-          = link_to 'Delete', delete_person_school_path(item.person, item), :class => 'remote-link', :title => 'Delete school'
+          = link_to 'Delete school', delete_person_school_path(item.person, item), :class => 'remote-link', :title => 'Delete school'
 
     %h3= h item.course
     .result= h item.result

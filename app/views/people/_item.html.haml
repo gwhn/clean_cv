@@ -6,14 +6,14 @@
     - if current_user
       .tr-options
         - if !current_page?(item) and permitted_to? :read, item
-          = link_to 'View', item
+          = link_to 'View person', item
         - if permitted_to? :update, item
-          = link_to 'Edit', edit_person_path(item), :class => 'remote-link', :title => 'Edit person'
+          = link_to 'Edit person', edit_person_path(item), :class => 'remote-link', :title => 'Edit person'
         - if permitted_to? :delete, item
-          = link_to 'Delete', delete_person_path(item), :class => 'remote-link', :title => 'Delete person'
+          = link_to 'Delete person', delete_person_path(item), :class => 'remote-link', :title => 'Delete person'
     - elsif !current_page?(item) and permitted_to? :read, item
       .tr-options
-        = link_to 'View', item
+        = link_to 'View person', item
 
   .cv-section.fixed
     %h2.cv-section-name Professional Profile

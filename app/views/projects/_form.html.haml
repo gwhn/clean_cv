@@ -2,7 +2,7 @@
   - f.inputs do
     = f.input :name
     = f.input :description
-    = f.input :skills, :as => :check_boxes
+    = f.input :skills, :as => :check_boxes, :collection => person.skills
 
   - f.semantic_fields_for :tasks, :name => 'Tasks' do |t|
     #tasks

@@ -2,6 +2,7 @@ class Responsibility < ActiveRecord::Base
   using_access_control
 
   validates_presence_of :description, :company_id
+  validates_uniqueness_of :description, :scope => :company_id
 
   belongs_to :company
 

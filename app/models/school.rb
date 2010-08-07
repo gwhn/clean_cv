@@ -2,7 +2,7 @@ class School < ActiveRecord::Base
   using_access_control
 
   validates_presence_of :name, :course, :result, :date_from, :person_id
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name, :scope => :person_id
   validate :date_from_prior_to_date_to
 
   belongs_to :person

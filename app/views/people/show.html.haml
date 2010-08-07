@@ -14,7 +14,7 @@
 
     - if permitted_to? :create, :companies
       .tl-options
-        = link_to 'New', new_person_company_path(@person), :class => 'remote-link', :title => 'New company'
+        = link_to 'New company', new_person_company_path(@person), :class => 'remote-link', :title => 'New company'
 
 .cv-section.fixed
   %h2.cv-section-name Technical Skills
@@ -54,7 +54,7 @@
 
     - if permitted_to? :create, :skills
       .tl-options
-        = link_to 'New', new_person_skill_path(@person), :class => 'remote-link', :title => 'New skill'
+        = link_to 'New skill', new_person_skill_path(@person), :class => 'remote-link', :title => 'New skill'
 
 .cv-section.last-cv-section.fixed
   %h2.cv-section-name Education
@@ -67,4 +67,4 @@
 
     - if permitted_to? :create, :schools
       .tl-options
-        = link_to 'New', new_person_school_path(@person), :class => 'remote-link', :title => 'New school'
+        = link_to 'New school', new_person_school_path(@person), :class => 'remote-link', :title => 'New school'

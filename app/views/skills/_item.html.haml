@@ -7,9 +7,9 @@
     - if current_user
       .br-options
         - if permitted_to? :update, item
-          = link_to 'Edit', edit_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Edit skill'
+          = link_to 'Edit skill', edit_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Edit skill'
         - if permitted_to? :delete, item
-          = link_to 'Delete', delete_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Delete skill'
+          = link_to 'Delete skill', delete_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Delete skill'
 
     %br
     %p= item.description

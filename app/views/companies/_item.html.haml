@@ -6,9 +6,9 @@
     - if current_user
       .br-options
         - if permitted_to? :update, item
-          = link_to 'Edit', edit_person_company_path(item.person, item), :class => 'remote-link', :title => 'Edit company'
+          = link_to 'Edit company', edit_person_company_path(item.person, item), :class => 'remote-link', :title => 'Edit company'
         - if permitted_to? :delete, item
-          = link_to 'Delete', delete_person_company_path(item.person, item), :class => 'remote-link', :title => 'Delete company'
+          = link_to 'Delete company', delete_person_company_path(item.person, item), :class => 'remote-link', :title => 'Delete company'
 
     %h5= h item.role
     %h3= h item.business_type
@@ -51,4 +51,4 @@
       - if current_user
         .bl-options
           - if permitted_to? :create, :projects
-            = link_to 'New', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'
+            = link_to 'New project', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'

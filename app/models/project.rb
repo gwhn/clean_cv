@@ -1,8 +1,8 @@
 class Project < ActiveRecord::Base
   using_access_control
 
-  validates_presence_of :name, :description
-  validates_uniqueness_of :name
+  validates_presence_of :name, :description, :company_id
+  validates_uniqueness_of :name, :scope => :company_id
   validates_associated :tasks
 
   belongs_to :company

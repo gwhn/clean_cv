@@ -5,9 +5,9 @@
   - if current_user
     .tr-options
       - if permitted_to? :update, item
-        = link_to 'Edit', edit_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Edit project'
+        = link_to 'Edit project', edit_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Edit project'
       - if permitted_to? :delete, item
-        = link_to 'Delete', delete_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Delete project'
+        = link_to 'Delete project', delete_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Delete project'
 
   %p= h item.description
 
