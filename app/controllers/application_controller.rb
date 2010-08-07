@@ -23,7 +23,11 @@ class ApplicationController < ActionController::Base
 
   def permission_denied
     flash[:error] = "Permission denied!"
-    redirect_to root_url
+    respond_to do |format|
+      format.html { redirect_to(:back) rescue redirect_to root_url }
+      format.xml { head :unauthorized }
+      format.js { head :unauthorized }
+    end
   end
 
   private
@@ -39,5 +43,19 @@ class ApplicationController < ActionController::Base
   def current_user
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.record
+  end
+
+  def load_person
+    @person = Person.find params[:person_id]
+  end
+
+  def load_person_company
+    load_person
+    @company = @person.companies.find params[:company_id]
+  end
+
+  def load_person_company_project
+    load_person_company
+    @project = @company.projects.find params[:project_id]
   end
 end

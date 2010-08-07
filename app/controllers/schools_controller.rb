@@ -1,5 +1,8 @@
 class SchoolsController < ApplicationController
-  filter_resource_access :nested_in => :people
+  before_filter :load_person
+  before_filter :load_school, :only => [:show, :edit, :update, :delete, :destroy]
+  before_filter :new_school, :only => [:new, :create, :index]
+  filter_access_to :all, :attribute_check => true
 
   # GET /people/1/schools
   # GET /people/1/schools.xml
@@ -88,4 +91,12 @@ class SchoolsController < ApplicationController
     end
   end
 
+  protected
+  def load_school
+    @school = School.find params[:id]
+  end
+
+  def new_school
+    @school = @person.schools.new params[:school]
+  end
 end

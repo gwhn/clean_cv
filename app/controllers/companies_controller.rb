@@ -1,5 +1,8 @@
 class CompaniesController < ApplicationController
-  filter_resource_access :nested_in => :people
+  before_filter :load_person
+  before_filter :load_company, :only => [:show, :edit, :update, :delete, :destroy]
+  before_filter :new_company, :only => [:new, :create, :index]
+  filter_access_to :all, :attribute_check => true
 
   # GET /people/1/companies
   # GET /people/1/companies.xml
@@ -88,4 +91,12 @@ class CompaniesController < ApplicationController
     end
   end
 
+  protected
+  def load_company
+    @company = Company.find params[:id]
+  end
+
+  def new_company
+    @company = @person.companies.new params[:company]
+  end
 end

@@ -1,5 +1,8 @@
 class ProjectsController < ApplicationController
-  filter_resource_access :nested_in => :companies
+  before_filter :load_person_company
+  before_filter :load_project, :only => [:show, :edit, :update, :delete, :destroy]
+  before_filter :new_project, :only => [:new, :create, :index]
+  filter_access_to :all, :attribute_check => true
 
   # GET /people/1/company/1/projects
   # GET /people/1/company/1/projects.xml
@@ -24,6 +27,7 @@ class ProjectsController < ApplicationController
   # GET /people/1/company/1/projects/new
   # GET /people/1/company/1/projects/new.xml
   def new
+    puts "@person=#{@person}"
     respond_to do |format|
       format.html # new.html.haml
       format.xml { render :xml => @project }
@@ -88,4 +92,12 @@ class ProjectsController < ApplicationController
     end
   end
 
+  protected
+  def load_project
+    @project = Project.find params[:id]
+  end
+
+  def new_project
+    @project = @company.projects.new params[:project]
+  end
 end

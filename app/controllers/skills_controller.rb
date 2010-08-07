@@ -1,6 +1,9 @@
 class SkillsController < ApplicationController
-  filter_resource_access :nested_in => :people,
-                         :additional_collection => {:reposition => :update}
+  before_filter :load_person
+  before_filter :load_skill, :only => [:show, :edit, :update, :delete, :destroy]
+  before_filter :new_skill, :only => [:new, :create, :index]
+  filter_access_to :all, :attribute_check => true
+  filter_access_to :reposition, :require => :update
 
   # GET /people/1/skills
   # GET /people/1/skills.xml
@@ -99,4 +102,12 @@ class SkillsController < ApplicationController
     render :nothing => true
   end
 
+  protected
+  def load_skill
+    @skill = Skill.find params[:id]
+  end
+
+  def new_skill
+    @skill = @person.skills.new params[:skill]
+  end
 end

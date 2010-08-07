@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
-  filter_resource_access :nested_in => :projects,
-                         :additional_collection => {:reposition => :update}
+  before_filter :load_person_company_project
+  before_filter :load_task, :only => [:show, :edit, :update, :destroy]
+  before_filter :new_task, :only => [:new, :create, :index]
+  filter_access_to :all, :attribute_check => true
+  filter_access_to :reposition, :require => :update
 
   # GET people/1/company/1/project/1/tasks
   # GET people/1/company/1/project/1/tasks.xml
@@ -87,4 +90,12 @@ class TasksController < ApplicationController
     render :nothing => true
   end
 
+  protected
+  def load_task
+    @task = Task.find params[:id]
+  end
+
+  def new_task
+    @task = @project.tasks.new params[:task]
+  end
 end

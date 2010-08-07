@@ -1,6 +1,10 @@
 class PeopleController < ApplicationController
   skip_before_filter :authorize, :only => [:index, :show]
-  filter_resource_access
+
+  before_filter :load_person, :only => [:show, :edit, :update, :delete, :destroy]
+  before_filter :new_person_from_params, :only => [:new, :create]
+  filter_access_to :all, :attribute_check => true
+  filter_access_to :index, :attribute_check => false
 
   caches_action :index, :show
 
@@ -104,8 +108,12 @@ class PeopleController < ApplicationController
   end
 
   protected
-  # Overriding the default filter_resource_access new method:
   def new_person_from_params
-    @person = Person.new(:user => current_user)
+    @person = Person.new params[:person]
+    @person.user = current_user
+  end
+
+  def load_person
+    @person = Person.find params[:id]
   end
 end

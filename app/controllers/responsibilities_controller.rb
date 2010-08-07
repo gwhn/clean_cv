@@ -1,6 +1,9 @@
 class ResponsibilitiesController < ApplicationController
-  filter_resource_access :nested_in => :companies,
-                         :additional_collection => {:reposition => :update}
+  before_filter :load_person_company
+  before_filter :load_responsibility, :only => [:show, :edit, :update, :destroy]
+  before_filter :new_responsibility, :only => [:new, :create, :index]
+  filter_access_to :all, :attribute_check => true
+  filter_access_to :reposition, :require => :update
 
   # GET /people/1/company/1/responsibilities
   # GET /people/1/company/1/responsibilities.xml
@@ -86,4 +89,12 @@ class ResponsibilitiesController < ApplicationController
     render :nothing => true
   end
 
+  protected
+  def load_responsibility
+    @responsibility = Responsibility.find params[:id]
+  end
+
+  def new_responsibility
+    @responsibility = @company.responsibilities.new params[:responsibility]
+  end
 end
