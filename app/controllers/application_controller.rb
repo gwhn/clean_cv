@@ -11,11 +11,11 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
-  before_filter :authorize
+  before_filter :require_user
   before_filter :set_current_user
 
   protected
-  def authorize
+  def require_user
     unless current_user
       redirect_to login_path
     end

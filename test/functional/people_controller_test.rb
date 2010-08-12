@@ -1,22 +1,27 @@
 require 'test_helper'
 
-setup :activate_authlogic
-
 class PeopleControllerTest < ActionController::TestCase
+  setup :activate_authlogic
+
   test "should get index" do
+    people = [people(:homer), people(:marge)]
+    Person.expects(:find).returns(people)
     get :index
     assert_response :success
-    assert_not_nil assigns(:people)
+    assert_equal people, assigns(:people)
   end
 
   test "should get new" do
+    login_as users(:guy)
     get :new
     assert_response :success
+    assert_not_nil assigns(:person)
   end
 
   test "should create person" do
+    login_as users(:guy)
     assert_difference('Person.count') do
-      post :create, :person => { }
+      post :create, :person => Person.plan
     end
 
     assert_redirected_to person_path(assigns(:person))

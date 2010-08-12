@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class CompaniesControllerTest < ActionController::TestCase
+  setup :activate_authlogic
+
   test "should get index" do
     get :index
     assert_response :success

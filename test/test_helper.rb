@@ -39,4 +39,8 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
   setup { Sham.reset }
+  
+  def login_as(username)
+    UserSession.create(username)
+  end
 end

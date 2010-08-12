@@ -13,6 +13,7 @@ Sham.define do
   phone { Faker::PhoneNumber.phone_number }
   mobile { Faker::PhoneNumber.phone_number }
   profile { Faker::Lorem.paragraphs(1) }
+  photo { File.open("#{RAILS_ROOT}/test/fixtures/photo.jpg") }
   company_name { Faker::Company.name }
   company_role { Faker::Company.bs }
   business_type { Faker::Company.catch_phrase }
@@ -41,13 +42,13 @@ Role.blueprint do
 end
 
 Person.blueprint do
-  user
   name { Sham.person_name }
   job_title
   email
   phone
   mobile
   profile
+  photo
 end
 
 Company.blueprint do

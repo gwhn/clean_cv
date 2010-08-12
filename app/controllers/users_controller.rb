@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_filter :authorize #if User.count == 0
+  skip_before_filter :require_user #if User.count == 0
 
   def new
     @user = User.new

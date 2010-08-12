@@ -1,5 +1,5 @@
 class UserSessionsController < ApplicationController
-  skip_before_filter :authorize
+  skip_before_filter :require_user
 
   def new
     redirect_to new_user_path if User.count == 0

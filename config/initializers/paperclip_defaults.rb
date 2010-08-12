@@ -2,8 +2,8 @@ module Paperclip
   class Attachment
     def self.default_options
       @default_options ||= {
-              :url           => "/system/:class/:attachment/:id/:style/:basename.:extension",
-              :path          => ":rails_root/public/system/:class/:attachment/:id/:style/:basename.:extension",
+              :url               => "/system/:class/:attachment/:id/:style/:basename.:extension",
+              :path              => ":rails_root/public/system/:class/:attachment/:id/:style/:basename.:extension",
               :styles            => {},
               :processors        => [:thumbnail],
               :convert_options   => {},
