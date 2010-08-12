@@ -1,15 +1,16 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  role: MyString
-  business_type: MyString
-  start_date: 2010-07-05
-  end_date: 2010-07-05
+itv:
+  person: homer
+  name: ITV
+  role: TV Presenter
+  business_type: Media
+  start_date: 2000-07-05
+  end_date: 2004-04-04
 
-two:
-  name: MyString
-  role: MyString
-  business_type: MyString
-  start_date: 2010-07-05
-  end_date: 2010-07-05
+bbc:
+  person: homer
+  name: BBC
+  role: Actor
+  business_type: Media
+  start_date: 2004-04-07

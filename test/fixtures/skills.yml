@@ -1,11 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  level: MyString
-  description: MyText
+eating:
+  person: homer
+  name: Eating
+  level: Advanced
+  description: I can eat a lot
 
-two:
-  name: MyString
-  level: MyString
-  description: MyText
+drinking:
+  person: homer
+  name: Drinking
+  level: Advanced
+  description: I can drink a lot

@@ -1,19 +1,17 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  job_title: MyString
-  email: MyString
-  phone: MyString
-  mobile: MyString
-  portrait_url: MyString
-  profile: MyText
+homer:
+  name: Homer Simpson
+  job_title: Technician
+  email: homer@simpsons.com
+  phone: 123456789876
+  mobile: 345676545677
+  profile: This is Homer's profile
 
-two:
-  name: MyString
-  job_title: MyString
-  email: MyString
-  phone: MyString
-  mobile: MyString
-  portrait_url: MyString
-  profile: MyText
+marge:
+  name: Marge Simpsons
+  job_title: Housewife
+  email: marge@simpsons.com
+  phone: 123456789876
+  mobile: 876545678987
+  profile: This is Marge's profile

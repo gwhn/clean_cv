@@ -1,7 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  description: MyText
+shoulders:
+  company: bbc
+  description: |
+    If you want children to keep their feet on the ground,
+    put some responsibility on their shoulders.
 
-two:
-  description: MyText
+fess_up:
+  company: itv
+  description: If you mess up, 'fess up.

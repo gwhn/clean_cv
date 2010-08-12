@@ -1,15 +1,17 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  course: MyString
-  result: MyString
-  date_from: 2010-07-05
-  date_to: 2010-07-05
+lwc:
+  person: homer
+  name: Lord Wandsworth College
+  course: Media Studies
+  result: Pass
+  date_from: 1990-08-05
+  date_to: 1992-04-30
 
-two:
-  name: MyString
-  course: MyString
-  result: MyString
-  date_from: 2010-07-05
-  date_to: 2010-07-05
+mit:
+  person: marge
+  name: MIT
+  course: Rocket Science
+  result: A+
+  date_from: 1991-07-10
+  date_to: 1994-06-19

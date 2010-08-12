@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  description: MyText
-  project_id: 1
+tea:
+  project: lost_frostbite
+  description: I had to get the tea
 
-two:
-  description: MyText
-  project_id: 1
+coffee:
+  project: hot_plastic
+  description: I had to get the coffee

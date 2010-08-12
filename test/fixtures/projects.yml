@@ -1,9 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  description: MyText
+lost_frostbite:
+  company: bbc
+  name: Lost Frostbite
+  description: Lost Frostbite is a project of the BBC
 
-two:
-  name: MyString
-  description: MyText
+hot_plastic:
+  company: itv
+  name: Hot Plastic
+  description: Hot Plastic is a project of the BBC
