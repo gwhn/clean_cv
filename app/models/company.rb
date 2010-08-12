@@ -1,7 +1,7 @@
 class Company < ActiveRecord::Base
   using_access_control
 
-  validates_presence_of :name, :role, :business_type, :start_date, :person_id
+  validates_presence_of :name, :role, :business_type, :start_date, :person
   validates_uniqueness_of :name, :scope => :person_id  
   validate :start_date_prior_to_end_date
   validates_associated :projects, :responsibilities

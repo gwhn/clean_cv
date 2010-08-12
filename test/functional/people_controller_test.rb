@@ -1,5 +1,7 @@
 require 'test_helper'
 
+setup :activate_authlogic
+
 class PeopleControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
