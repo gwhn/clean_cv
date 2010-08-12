@@ -4,7 +4,7 @@ guy:
   password_salt: <%= salt = Authlogic::Random.hex_token %>
   crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("guy" + salt) %>
   persistence_token: <%= Authlogic::Random.hex_token %>
-  roles: admin
+  roles: admin, author
 
 chaz:
   username: chaz

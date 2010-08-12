@@ -11,7 +11,7 @@ authorization do
     has_permission_on :people, :to => :read
   end
 
-  role :user do
+  role :author do
     includes :guest
     has_permission_on :people, :to => :create
     has_permission_on :people, :to => [:update, :delete] do

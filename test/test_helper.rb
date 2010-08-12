@@ -41,6 +41,8 @@ class ActiveSupport::TestCase
   setup { Sham.reset }
   
   def login_as(username)
-    UserSession.create(username)
+    session = UserSession.create(username)
+    Authorization.current_user = session.user
+    session
   end
 end
