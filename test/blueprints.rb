@@ -5,6 +5,7 @@ Sham.define do
   role_name { Faker::Lorem.words(1) }
   username { Faker::Name.name }
   email { Faker::Internet.email }
+  password { Faker::Lorem.sentence.underscore }
   salt = Authlogic::Random.hex_token
   password_salt { salt }
   crypted_password { Authlogic::CryptoProviders::Sha512.encrypt("password_#{salt}") }
@@ -49,6 +50,8 @@ User.blueprint do
   password_salt
   crypted_password
   persistence_token
+  password
+  password_confirmation { password }
 end
 
 Person.blueprint do

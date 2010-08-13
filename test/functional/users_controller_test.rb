@@ -1,37 +1,33 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  def test_new
+  setup :activate_authlogic
+
+  test "should get new" do
     get :new
-    assert_template 'new'
+    assert_response :success
+    assert_not_nil assigns(:user)
   end
-  
-  def test_create_invalid
-    User.any_instance.stubs(:valid?).returns(false)
-    post :create
-    assert_template 'new'
+
+  test "should create user" do
+    assert_difference('User.count') do
+      post :create, :user => User.plan
+    end
+    assert_not_nil assigns(:user)
+    assert_redirected_to root_path
   end
-  
-  def test_create_valid
-    User.any_instance.stubs(:valid?).returns(true)
-    post :create
-    assert_redirected_to root_url
+
+  test "should get edit" do
+    login_as users(:guy)
+    get :edit
+    assert_response :success
+    assert_not_nil assigns(:user)
   end
-  
-  def test_edit
-    get :edit, :id => User.first
-    assert_template 'edit'
-  end
-  
-  def test_update_invalid
-    User.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => User.first
-    assert_template 'edit'
-  end
-  
-  def test_update_valid
-    User.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => User.first
-    assert_redirected_to root_url
+
+  test "should update user" do
+    login_as users(:guy)
+    put :update, :user => User.plan
+    assert_not_nil assigns(:user)
+    assert_redirected_to root_path
   end
 end
