@@ -27,7 +27,6 @@ class ProjectsController < ApplicationController
   # GET /people/1/company/1/projects/new
   # GET /people/1/company/1/projects/new.xml
   def new
-    puts "@person=#{@person}"
     respond_to do |format|
       format.html # new.html.haml
       format.xml { render :xml => @project }

@@ -20,6 +20,10 @@ class TasksControllerTest < ActionController::TestCase
     assert_not_nil assigns(:task)
   end
 
+  test "new form has expected form fields" do
+    assert false
+  end
+
   test "should create task" do
     assert_difference('Task.count') do
       post :create, :person_id => @person.to_param,
@@ -30,6 +34,14 @@ class TasksControllerTest < ActionController::TestCase
 
     assert_redirected_to person_company_project_task_path(assigns(:person), assigns(:company),
                                                           assigns(:project), assigns(:task))
+  end
+
+  test "should not create task" do
+    assert false
+  end
+
+  test "should associate current project with new task" do
+    assert false
   end
 
   test "should show task" do
@@ -50,6 +62,10 @@ class TasksControllerTest < ActionController::TestCase
     assert_not_nil assigns(:task)
   end
 
+  test "edit form has expected form fields" do
+    assert false
+  end
+
   test "should update task" do
     put :update, :person_id => @person.to_param,
         :company_id => @company.to_param,
@@ -58,6 +74,10 @@ class TasksControllerTest < ActionController::TestCase
         :task => Task.plan(:project => @project)
     assert_redirected_to person_company_project_task_path(assigns(:person), assigns(:company),
                                                           assigns(:project), assigns(:task))
+  end
+
+  test "should not update task" do
+    assert false
   end
 
   test "should destroy task" do
@@ -70,5 +90,9 @@ class TasksControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to person_company_project_tasks_path(assigns(:person), assigns(:company), assigns(:project))
+  end
+
+  test "should reposition tasks" do
+    assert false
   end
 end

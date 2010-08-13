@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.xml
   def index
-    sort_by = %w(   name job_title email   ).detect { |f| f == params[:order] } || 'id'
+    sort_by = %w(   name email   ).detect { |f| f == params[:order] } || 'id'
     direction = params[:direction] =~ %r(desc)i ? 'DESC' : 'ASC'
     @people = Person.paginate :page => params[:page], :per_page => 1, :order => "#{sort_by} #{direction}"
 

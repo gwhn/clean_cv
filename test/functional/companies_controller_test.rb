@@ -16,6 +16,10 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:company)
   end
 
+  test "new form has expected form fields" do
+    assert false
+  end
+
   test "should create company" do
     assert_difference('Company.count') do
       post :create, :person_id => @person.to_param,
@@ -23,6 +27,38 @@ class CompaniesControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to person_company_path(assigns(:person), assigns(:company))
+  end
+
+  test "should not create company" do
+    assert false
+  end
+
+  test "should create company on xhr" do
+    assert false
+  end
+
+  test "should not create company on xhr" do
+    assert false
+  end
+
+  test "should create company with nested responsibilities" do
+    assert false
+  end
+
+  test "should create company ignoring blank nested responsibilities" do
+    assert false
+  end
+
+  test "should create company with nested projects" do
+    assert false
+  end
+
+  test "should create company ignoring blank nested project" do
+    assert false
+  end
+
+  test "should associate current person with new company" do
+    assert false
   end
 
   test "should show company" do
@@ -39,11 +75,47 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:company)
   end
 
+  test "edit form has expected form fields" do
+    assert false
+  end
+
   test "should update company" do
     put :update, :person_id => @person.to_param,
         :id => Company.make(:person => @person),
         :skill => Company.plan(:person => @person)
     assert_redirected_to person_company_path(assigns(:person), assigns(:company))
+  end
+
+  test "should not update company" do
+    assert false
+  end
+
+  test "should update company on xhr" do
+    assert false
+  end
+
+  test "should not update company on xhr" do
+    assert false
+  end
+
+  test "should update company with nested responsibilities" do
+    assert false
+  end
+
+  test "should update company ignoring blank nested responsibilities" do
+    assert false
+  end
+
+  test "should update company with nested projects" do
+    assert false
+  end
+
+  test "should update company ignoring blank nested projects" do
+    assert false
+  end
+
+  test "should get delete confirmation" do
+    assert false
   end
 
   test "should destroy company" do
@@ -54,5 +126,13 @@ class CompaniesControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to person_companies_path(assigns(:person))
+  end
+
+  test "should destroy company on xhr" do
+    assert false
+  end
+
+  test "should cancel destroy company" do
+    assert false
   end
 end

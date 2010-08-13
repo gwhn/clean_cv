@@ -16,6 +16,10 @@ class SkillsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:skill)
   end
 
+  test "new form has expected form fields" do
+    assert false
+  end
+
   test "should create skill" do
     assert_difference('Skill.count') do
       post :create, :person_id => @person.to_param,
@@ -23,6 +27,22 @@ class SkillsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to person_skill_path(assigns(:person), assigns(:skill))
+  end
+
+  test "should not create skill" do
+    assert false
+  end
+
+  test "should create skill on xhr" do
+    assert false
+  end
+
+  test "should not create skill on xhr" do
+    assert false
+  end
+
+  test "should associate current person with new skill" do
+    assert false
   end
 
   test "should show skill" do
@@ -39,11 +59,31 @@ class SkillsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:skill)
   end
 
+  test "edit form has expected form fields" do
+    assert false
+  end
+
   test "should update skill" do
     put :update, :person_id => @person.to_param,
         :id => Skill.make(:person => @person),
         :skill => Skill.plan(:person => @person)
     assert_redirected_to person_skill_path(assigns(:person), assigns(:skill))
+  end
+
+  test "should not update skill" do
+    assert false
+  end
+
+  test "should update skill on xhr" do
+    assert false
+  end
+
+  test "should not update skill on xhr" do
+    assert false
+  end
+
+  test "should get delete confirmation" do
+    assert false
   end
 
   test "should destroy skill" do
@@ -54,5 +94,17 @@ class SkillsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to person_skills_path(assigns(:person))
+  end
+
+  test "should destroy skill on xhr" do
+    assert false
+  end
+
+  test "should cancel destroy skill" do
+    assert false
+  end
+
+  test "should reposition skills" do
+    assert false
   end
 end

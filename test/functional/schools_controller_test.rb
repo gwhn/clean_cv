@@ -16,6 +16,10 @@ class SchoolsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:school)
   end
 
+  test "new form has expected form fields" do
+    assert false
+  end
+
   test "should create school" do
     assert_difference('School.count') do
       post :create, :person_id => @person.to_param,
@@ -23,6 +27,22 @@ class SchoolsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to person_school_path(assigns(:person), assigns(:school))
+  end
+
+  test "should not create school" do
+    assert false
+  end
+
+  test "should create school on xhr" do
+    assert false
+  end
+
+  test "should not create school on xhr" do
+    assert false
+  end
+
+  test "should associate current person with new school" do
+    assert false
   end
 
   test "should show school" do
@@ -39,11 +59,31 @@ class SchoolsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:school)
   end
 
+  test "edit form has expected form fields" do
+    assert false
+  end
+
   test "should update school" do
     put :update, :person_id => @person.to_param,
         :id => School.make(:person => @person),
         :school => School.plan(:person => @person)
     assert_redirected_to person_school_path(assigns(:person), assigns(:school))
+  end
+
+  test "should not update school" do
+    assert false
+  end
+
+  test "should update school on xhr" do
+    assert false
+  end
+
+  test "should not update school on xhr" do
+    assert false
+  end
+
+  test "should get delete confirmation" do
+    assert false
   end
 
   test "should destroy school" do
@@ -54,5 +94,13 @@ class SchoolsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to person_schools_path(assigns(:person))
+  end
+
+  test "should destroy school on xhr" do
+    assert false
+  end
+
+  test "should cancel destroy school" do
+    assert false
   end
 end
