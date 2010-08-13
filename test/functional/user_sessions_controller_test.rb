@@ -1,27 +1,26 @@
 require 'test_helper'
 
 class UserSessionsControllerTest < ActionController::TestCase
-  def test_new
+  setup :activate_authlogic
+
+  test "should get new" do
     get :new
-    assert_template 'new'
+    assert_response :success
+    assert_not_nil assigns(:user_session)
   end
-  
-  def test_create_invalid
-    UserSession.any_instance.stubs(:valid?).returns(false)
-    post :create
-    assert_template 'new'
+
+  test "should create user session" do
+    user = User.make
+    post :create, :user_session => {:username => user.username, :password => user.password}
+    assert_not_nil assigns(:user_session)
+                                 
+    assert_redirected_to root_path
   end
-  
-  def test_create_valid
-    UserSession.any_instance.stubs(:valid?).returns(true)
-    post :create
-    assert_redirected_to root_url
-  end
-  
-  def test_destroy
-    user_session = UserSession.first
-    delete :destroy, :id => user_session
-    assert_redirected_to root_url
-    assert !UserSession.exists?(user_session.id)
+
+  test "should destroy user session" do
+    delete :destroy, :id => login_as(users(:guy))
+    assert_not_nil assigns(:user_session)
+
+    assert_redirected_to root_path
   end
 end

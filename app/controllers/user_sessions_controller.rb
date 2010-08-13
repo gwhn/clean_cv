@@ -11,7 +11,7 @@ class UserSessionsController < ApplicationController
     if @user_session.save
       respond_to do |format|
         format.html do
-          expire_action :controller => 'people', :action => [:index, :show]
+          expire_action :controller => :people, :action => [:index, :show]
           flash[:notice] = "Successfully logged in."
           redirect_to root_url
         end
