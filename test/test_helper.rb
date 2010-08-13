@@ -50,4 +50,9 @@ class ActiveSupport::TestCase
     session = login_as users(:guy)
     @person = Person.make(:user => session.user)
   end
+
+  def make_company
+    make_person
+    @company = Company.make(:person => @person)
+  end
 end
