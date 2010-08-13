@@ -61,6 +61,10 @@ class PersonTest < ActiveSupport::TestCase
     assert false
   end
 
+  test "small style photo created on photo file upload" do
+    assert false
+  end
+
   test "rejects photo file upload more than 10mb" do
     assert false
   end

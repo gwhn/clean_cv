@@ -1,8 +1,31 @@
 require 'test_helper'
 
 class SchoolTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "valid school" do
+    assert false
+  end
+
+  test "invalid school with missing name" do
+    assert false
+  end
+
+  test "invalid school with missing course" do
+    assert false
+  end
+
+  test "invalid company with missing date from" do
+    assert false
+  end
+
+  test "invalid school with missing person" do
+    assert false
+  end
+
+  test "invalid school with same name for person" do
+    assert false
+  end
+
+  test "invalid school with date from after date to" do
+    assert false
   end
 end
