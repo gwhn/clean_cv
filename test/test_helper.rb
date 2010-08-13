@@ -55,4 +55,9 @@ class ActiveSupport::TestCase
     make_person
     @company = Company.make(:person => @person)
   end
+
+  def make_project
+    make_company
+    @project = Project.make(:company => @company)
+  end
 end

@@ -2,46 +2,73 @@ require 'test_helper'
 
 class TasksControllerTest < ActionController::TestCase
   setup :activate_authlogic
+  setup :make_project
 
   test "should get index" do
-    get :index
+    get :index, :person_id => @person.to_param,
+        :company_id => @company.to_param,
+        :project_id => @project.to_param
     assert_response :success
     assert_not_nil assigns(:tasks)
   end
 
   test "should get new" do
-    get :new
+    get :new, :person_id => @person.to_param,
+        :company_id => @company.to_param,
+        :project_id => @project.to_param
     assert_response :success
+    assert_not_nil assigns(:task)
   end
 
   test "should create task" do
     assert_difference('Task.count') do
-      post :create, :task => { }
+      post :create, :person_id => @person.to_param,
+           :company_id => @company.to_param,
+           :project_id => @project.to_param,
+           :task => Task.plan(:project => @project)
     end
 
-    assert_redirected_to task_path(assigns(:task))
+    assert_redirected_to person_company_project_task_path(assigns(:person), assigns(:company),
+                                                          assigns(:project), assigns(:task))
   end
 
   test "should show task" do
-    get :show, :id => tasks(:one).to_param
+    get :show, :person_id => @person.to_param,
+        :company_id => @company.to_param,
+        :project_id => @project.to_param,
+        :id => Task.make(:project => @project).to_param
     assert_response :success
+    assert_not_nil assigns(:task)
   end
 
   test "should get edit" do
-    get :edit, :id => tasks(:one).to_param
+    get :edit, :person_id => @person.to_param,
+        :company_id => @company.to_param,
+        :project_id => @project.to_param,
+        :id => Task.make(:project => @project).to_param
     assert_response :success
+    assert_not_nil assigns(:task)
   end
 
   test "should update task" do
-    put :update, :id => tasks(:one).to_param, :task => { }
-    assert_redirected_to task_path(assigns(:task))
+    put :update, :person_id => @person.to_param,
+        :company_id => @company.to_param,
+        :project_id => @project.to_param,
+        :id => Task.make(:project => @project),
+        :task => Task.plan(:project => @project)
+    assert_redirected_to person_company_project_task_path(assigns(:person), assigns(:company),
+                                                          assigns(:project), assigns(:task))
   end
 
   test "should destroy task" do
+    task = Task.make(:project => @project)
     assert_difference('Task.count', -1) do
-      delete :destroy, :id => tasks(:one).to_param
+      delete :destroy, :person_id => @person.to_param,
+             :company_id => @company.to_param,
+             :project_id => @project.to_param,
+             :id => task.to_param
     end
 
-    assert_redirected_to tasks_path
+    assert_redirected_to person_company_project_tasks_path(assigns(:person), assigns(:company), assigns(:project))
   end
 end

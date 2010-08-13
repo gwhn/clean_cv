@@ -2,46 +2,57 @@ require 'test_helper'
 
 class ProjectsControllerTest < ActionController::TestCase
   setup :activate_authlogic
+  setup :make_company
 
   test "should get index" do
-    get :index
+    get :index, :person_id => @person.to_param, :company_id => @company.to_param
     assert_response :success
     assert_not_nil assigns(:projects)
   end
 
   test "should get new" do
-    get :new
+    get :new, :person_id => @person.to_param, :company_id => @company.to_param
     assert_response :success
+    assert_not_nil assigns(:project)
   end
 
   test "should create project" do
     assert_difference('Project.count') do
-      post :create, :project => { }
+      post :create, :person_id => @person.to_param, :company_id => @company.to_param,
+           :project => Project.plan(:company => @company)
     end
 
-    assert_redirected_to project_path(assigns(:project))
+    assert_redirected_to person_company_project_path(assigns(:person), assigns(:company), assigns(:project))
   end
 
   test "should show project" do
-    get :show, :id => projects(:one).to_param
+    get :show, :person_id => @person.to_param, :company_id => @company.to_param,
+        :id => Project.make(:company => @company).to_param
     assert_response :success
+    assert_not_nil assigns(:project)
   end
 
   test "should get edit" do
-    get :edit, :id => projects(:one).to_param
+    get :edit, :person_id => @person.to_param, :company_id => @company.to_param,
+        :id => Project.make(:company => @company).to_param
     assert_response :success
+    assert_not_nil assigns(:project)
   end
 
   test "should update project" do
-    put :update, :id => projects(:one).to_param, :project => { }
-    assert_redirected_to project_path(assigns(:project))
+    put :update, :person_id => @person.to_param, :company_id => @company.to_param,
+        :id => Project.make(:company => @company),
+        :project => Project.plan(:company => @company)
+    assert_redirected_to person_company_project_path(assigns(:person), assigns(:company), assigns(:project))
   end
 
   test "should destroy project" do
+    project = Project.make(:company => @company)
     assert_difference('Project.count', -1) do
-      delete :destroy, :id => projects(:one).to_param
+      delete :destroy, :person_id => @person.to_param, :company_id => @company.to_param,
+             :id => project.to_param
     end
 
-    assert_redirected_to projects_path
+    assert_redirected_to person_company_projects_path(assigns(:person), assigns(:company))
   end
 end
