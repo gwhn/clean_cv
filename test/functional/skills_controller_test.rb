@@ -4,11 +4,6 @@ class SkillsControllerTest < ActionController::TestCase
   setup :activate_authlogic
   setup :make_person
 
-  def make_person
-    session = login_as users(:guy)
-    @person = Person.make(:user => session.user)
-  end
-
   test "should get index" do
     get :index, :person_id => @person.to_param
     assert_response :success

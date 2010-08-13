@@ -25,6 +25,7 @@ Sham.define do
   school_name { Faker::Lorem.words(3) }
   school_course { Faker::Lorem.words(5) }
   school_result { Faker::Lorem.sentence(1) }
+  date_from { Date.civil((1970..2010).to_a.rand, (1..12).to_a.rand, (1..28).to_a.rand)}
   responsibility_desc { Faker::Lorem.paragraph }
   project_name { Faker::Lorem.words(1) }
   project_desc { Faker::Lorem.paragraph }
@@ -52,7 +53,6 @@ User.blueprint do
 end
 
 Person.blueprint do
-#  user
   name { Sham.person_name }
   job_title
   email
@@ -99,5 +99,6 @@ School.blueprint do
   course { Sham.school_course }
   result { Sham.school_result }
   date_from
+  date_to { date_from + 1.year }
 end
 

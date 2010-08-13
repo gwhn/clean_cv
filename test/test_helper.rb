@@ -45,4 +45,9 @@ class ActiveSupport::TestCase
     Authorization.current_user = session.user
     session
   end
+
+  def make_person
+    session = login_as users(:guy)
+    @person = Person.make(:user => session.user)
+  end
 end

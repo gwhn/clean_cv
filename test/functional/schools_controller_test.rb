@@ -2,46 +2,57 @@ require 'test_helper'
 
 class SchoolsControllerTest < ActionController::TestCase
   setup :activate_authlogic
+  setup :make_person
 
   test "should get index" do
-    get :index
+    get :index, :person_id => @person.to_param
     assert_response :success
     assert_not_nil assigns(:schools)
   end
 
   test "should get new" do
-    get :new
+    get :new, :person_id => @person.to_param
     assert_response :success
+    assert_not_nil assigns(:school)
   end
 
   test "should create school" do
     assert_difference('School.count') do
-      post :create, :school => { }
+      post :create, :person_id => @person.to_param,
+           :school => School.plan(:person => @person)
     end
 
-    assert_redirected_to school_path(assigns(:school))
+    assert_redirected_to person_schools_path(assigns(:person))
   end
 
   test "should show school" do
-    get :show, :id => schools(:one).to_param
+    get :show, :person_id => @person.to_param,
+        :id => School.make(:person => @person).to_param
     assert_response :success
+    assert_not_nil assigns(:school)
   end
 
   test "should get edit" do
-    get :edit, :id => schools(:one).to_param
+    get :edit, :person_id => @person.to_param,
+        :id => School.make(:person => @person).to_param
     assert_response :success
+    assert_not_nil assigns(:school)
   end
 
   test "should update school" do
-    put :update, :id => schools(:one).to_param, :school => { }
-    assert_redirected_to school_path(assigns(:school))
+    put :update, :person_id => @person.to_param,
+        :id => School.make(:person => @person),
+        :school => School.plan(:person => @person)
+    assert_redirected_to person_schools_path(assigns(:person))
   end
 
   test "should destroy school" do
+    school = School.make(:person => @person)
     assert_difference('School.count', -1) do
-      delete :destroy, :id => schools(:one).to_param
+      delete :destroy, :person_id => @person.to_param,
+             :id => school.to_param
     end
 
-    assert_redirected_to schools_path
+    assert_redirected_to person_schools_path(assigns(:person))
   end
 end
