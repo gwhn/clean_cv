@@ -22,7 +22,7 @@ class SchoolsControllerTest < ActionController::TestCase
            :school => School.plan(:person => @person)
     end
 
-    assert_redirected_to person_schools_path(assigns(:person))
+    assert_redirected_to person_school_path(assigns(:person), assigns(:school))
   end
 
   test "should show school" do
@@ -43,7 +43,7 @@ class SchoolsControllerTest < ActionController::TestCase
     put :update, :person_id => @person.to_param,
         :id => School.make(:person => @person),
         :school => School.plan(:person => @person)
-    assert_redirected_to person_schools_path(assigns(:person))
+    assert_redirected_to person_school_path(assigns(:person), assigns(:school))
   end
 
   test "should destroy school" do

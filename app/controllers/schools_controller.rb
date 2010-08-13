@@ -43,7 +43,7 @@ class SchoolsController < ApplicationController
     respond_to do |format|
       if @school.save
         flash[:notice] = 'School was successfully created.'
-        format.html { redirect_to(person_schools_url(@person)) }
+        format.html { redirect_to(person_school_url(@person, @school)) }
         format.xml { render :xml => @school, :status => :created, :location => @school }
         format.js { render :layout => false }
       else
@@ -60,7 +60,7 @@ class SchoolsController < ApplicationController
     respond_to do |format|
       if @school.update_attributes(params[:school])
         flash[:notice] = 'School was successfully updated.'
-        format.html { redirect_to(person_schools_url(@person)) }
+        format.html { redirect_to(person_school_url(@person, @school)) }
         format.xml { head :ok }
         format.js { render :layout => false }
       else

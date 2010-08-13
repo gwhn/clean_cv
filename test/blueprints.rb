@@ -1,7 +1,6 @@
 require 'machinist/active_record'
 require 'sham'
 
-
 Sham.define do
   role_name { Faker::Lorem.words(1) }
   username { Faker::Name.name }
@@ -25,7 +24,7 @@ Sham.define do
   school_name { Faker::Lorem.words(3) }
   school_course { Faker::Lorem.words(5) }
   school_result { Faker::Lorem.sentence(1) }
-  date_from { Date.civil((1970..2010).to_a.rand, (1..12).to_a.rand, (1..28).to_a.rand)}
+  date_from { Date.civil((1970..2010).to_a.rand, (1..12).to_a.rand, (1..28).to_a.rand) }
   responsibility_desc { Faker::Lorem.paragraph }
   project_name { Faker::Lorem.words(1) }
   project_desc { Faker::Lorem.paragraph }
@@ -33,7 +32,7 @@ Sham.define do
 end
 
 Role.blueprint do
-  name { Sham.role_name}
+  name { Sham.role_name }
 end
 
 Role.blueprint :admin do
@@ -67,7 +66,8 @@ Company.blueprint do
   name { Sham.company_name }
   role { Sham.company_role }
   business_type
-  start_date
+  start_date { Sham.date_from }
+  end_date { start_date + 1.year }
 end
 
 Responsibility.blueprint do

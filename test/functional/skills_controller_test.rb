@@ -22,7 +22,7 @@ class SkillsControllerTest < ActionController::TestCase
            :skill => Skill.plan(:person => @person)
     end
 
-    assert_redirected_to person_skills_path(assigns(:person))
+    assert_redirected_to person_skill_path(assigns(:person), assigns(:skill))
   end
 
   test "should show skill" do
@@ -43,7 +43,7 @@ class SkillsControllerTest < ActionController::TestCase
     put :update, :person_id => @person.to_param,
         :id => Skill.make(:person => @person),
         :skill => Skill.plan(:person => @person)
-    assert_redirected_to person_skills_path(assigns(:person))
+    assert_redirected_to person_skill_path(assigns(:person), assigns(:skill))
   end
 
   test "should destroy skill" do
