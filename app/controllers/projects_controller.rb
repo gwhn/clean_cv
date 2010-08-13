@@ -94,7 +94,7 @@ class ProjectsController < ApplicationController
 
   protected
   def load_project
-    @project = Project.find params[:id]
+    @project = @company.projects.find params[:id]
   end
 
   def new_project

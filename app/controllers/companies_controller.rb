@@ -93,7 +93,7 @@ class CompaniesController < ApplicationController
 
   protected
   def load_company
-    @company = Company.find params[:id]
+    @company = @person.companies.find params[:id]
   end
 
   def new_company

@@ -52,6 +52,7 @@ User.blueprint do
 end
 
 Person.blueprint do
+#  user
   name { Sham.person_name }
   job_title
   email

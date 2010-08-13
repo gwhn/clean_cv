@@ -2,46 +2,62 @@ require 'test_helper'
 
 class SkillsControllerTest < ActionController::TestCase
   setup :activate_authlogic
+  setup :make_person
+
+  def make_person
+    session = login_as users(:guy)
+    @person = Person.make(:user => session.user)
+  end
 
   test "should get index" do
-    get :index
+    get :index, :person_id => @person.to_param
     assert_response :success
     assert_not_nil assigns(:skills)
   end
 
   test "should get new" do
-    get :new
+    get :new, :person_id => @person.to_param
     assert_response :success
+    assert_not_nil assigns(:skill)
   end
 
   test "should create skill" do
     assert_difference('Skill.count') do
-      post :create, :skill => { }
+      post :create, :person_id => @person.to_param,
+           :skill => Skill.plan(:person => @person)
     end
 
-    assert_redirected_to skill_path(assigns(:skill))
+    assert_redirected_to person_skills_path(assigns(:person))
   end
 
   test "should show skill" do
-    get :show, :id => skills(:one).to_param
+    get :show, :person_id => @person.to_param,
+        :id => Skill.make(:person => @person).to_param
     assert_response :success
+    assert_not_nil assigns(:skill)
   end
 
   test "should get edit" do
-    get :edit, :id => skills(:one).to_param
+    get :edit, :person_id => @person.to_param,
+        :id => Skill.make(:person => @person).to_param
     assert_response :success
+    assert_not_nil assigns(:skill)
   end
 
   test "should update skill" do
-    put :update, :id => skills(:one).to_param, :skill => { }
-    assert_redirected_to skill_path(assigns(:skill))
+    put :update, :person_id => @person.to_param,
+        :id => Skill.make(:person => @person),
+        :skill => Skill.plan(:person => @person)
+    assert_redirected_to person_skills_path(assigns(:person))
   end
 
   test "should destroy skill" do
+    skill = Skill.make(:person => @person)
     assert_difference('Skill.count', -1) do
-      delete :destroy, :id => skills(:one).to_param
+      delete :destroy, :person_id => @person.to_param,
+             :id => skill.to_param
     end
 
-    assert_redirected_to skills_path
+    assert_redirected_to person_skills_path(assigns(:person))
   end
 end

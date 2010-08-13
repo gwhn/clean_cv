@@ -91,7 +91,7 @@ class ResponsibilitiesController < ApplicationController
 
   protected
   def load_responsibility
-    @responsibility = Responsibility.find params[:id]
+    @responsibility = @company.responsibilities.find params[:id]
   end
 
   def new_responsibility

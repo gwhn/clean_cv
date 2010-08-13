@@ -93,7 +93,7 @@ class SchoolsController < ApplicationController
 
   protected
   def load_school
-    @school = School.find params[:id]
+    @school = @person.schools.find params[:id]
   end
 
   def new_school

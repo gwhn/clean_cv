@@ -104,7 +104,7 @@ class SkillsController < ApplicationController
 
   protected
   def load_skill
-    @skill = Skill.find params[:id]
+    @skill = @person.skills.find params[:id]
   end
 
   def new_skill

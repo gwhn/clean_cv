@@ -92,7 +92,7 @@ class TasksController < ApplicationController
 
   protected
   def load_task
-    @task = Task.find params[:id]
+    @task = @project.tasks.find params[:id]
   end
 
   def new_task
