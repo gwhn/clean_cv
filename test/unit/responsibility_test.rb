@@ -2,21 +2,41 @@ require 'test_helper'
 
 class ResponsibilityTest < ActiveSupport::TestCase
   setup :activate_authlogic
+  setup :valid_responsibility
+
+  def valid_responsibility
+    @session = login_as users(:guy)
+    @person = Person.make :user => @session.user
+    @company = Company.make :person => @person
+    plan = Responsibility.plan :company => @company
+    @responsibility = Responsibility.new :description => plan[:description],
+                                         :company => @company
+    assert @responsibility.valid?
+  end
 
   test "valid responsibility" do
-    assert false
+    assert_difference('Responsibility.count') do
+      assert @responsibility.save
+    end
   end
 
   test "invalid responsibility with missing description" do
-    assert false
+    @responsibility.description = nil
+    assert !@responsibility.valid?
+    assert @responsibility.errors.invalid?(:description)
   end
 
   test "invalid responsibility with missing company" do
-    assert false
+    @responsibility.company = nil
+    assert !@responsibility.valid?
+    assert @responsibility.errors.invalid?(:company)
   end
 
   test "invalid responsibility with same description for company" do
-    assert false
+    taken = Responsibility.make :company => @company
+    @responsibility.description = taken.description
+    assert !@responsibility.valid?
+    assert @responsibility.errors.invalid?(:description)
   end
 
   test "responsibility acts as list for company" do

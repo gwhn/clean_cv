@@ -2,21 +2,42 @@ require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
   setup :activate_authlogic
+  setup :valid_task
+
+  def valid_task
+    @session = login_as users(:guy)
+    @person = Person.make :user => @session.user
+    @company = Company.make :person => @person
+    @project = Project.make :company => @company
+    plan = Task.plan :project => @project
+    @task = Task.new :description => plan[:description],
+                     :project => @project
+    assert @task.valid?
+  end
 
   test "valid task" do
-    assert false
+    assert_difference('Task.count') do
+      assert @task.save
+    end
   end
 
   test "invalid task with missing description" do
-    assert false
+    @task.description = nil
+    assert !@task.valid?
+    assert @task.errors.invalid?(:description)
   end
 
   test "invalid task with missing project" do
-    assert false
+    @task.project = nil
+    assert !@task.valid?
+    assert @task.errors.invalid?(:project)
   end
 
   test "invalid task with same description for project" do
-    assert false
+    taken = Task.make :project => @project
+    @task.description = taken.description
+    assert !@task.valid?
+    assert @task.errors.invalid?(:description)
   end
 
   test "task acts as list for project" do

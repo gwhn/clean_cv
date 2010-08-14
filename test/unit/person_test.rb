@@ -2,9 +2,9 @@ require 'test_helper'
 
 class PersonTest < ActiveSupport::TestCase
   setup :activate_authlogic
-  setup :plan_person
+  setup :valid_person
 
-  def plan_person
+  def valid_person
     @session = login_as users(:guy)
     plan = Person.plan
     @person = Person.new :name => plan[:name],
@@ -15,11 +15,11 @@ class PersonTest < ActiveSupport::TestCase
                          :profile => plan[:profile],
                          :photo => plan[:photo],
                          :user => @session.user
+    assert @person.valid?
   end
 
   test "valid person" do
     assert_difference('Person.count') do
-      assert @person.valid?
       assert @person.save
     end
   end
