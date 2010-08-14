@@ -47,7 +47,12 @@ class ProjectTest < ActiveSupport::TestCase
   end
 
   test "associated tasks ordered by list position" do
-    assert false
+    (1...10).each do
+      @last = Task.make :project => @project
+    end
+    @project.reload.tasks.each do |t|
+      assert t.position <= @last.position
+    end
   end
 
   test "accepts nested attributes for tasks" do

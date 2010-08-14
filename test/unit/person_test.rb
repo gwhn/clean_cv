@@ -104,15 +104,32 @@ class PersonTest < ActiveSupport::TestCase
   end
 
   test "associated companies ordered by start date" do
-    assert false
+    (1...10).each do |i|
+      @last = Company.make :person => @person,
+                          :start_date => Date.today - i.year
+    end
+    @person.reload.companies.each do |c|
+      assert c.start_date >= @last.start_date
+    end
   end
 
   test "associated skills ordered by list position" do
-    assert false
+    (1...10).each do
+      @last = Skill.make :person => @person
+    end
+    @person.reload.skills.each do |s|
+      assert s.position <= @last.position
+    end
   end
 
   test "associated schools ordered by date from" do
-    assert false
+    (1...10).each do |i|
+      @last = School.make :person => @person,
+                          :date_from => Date.today - i.year
+    end
+    @person.reload.schools.each do |s|
+      assert s.date_from >= @last.date_from
+    end
   end
 
   test "accepts nested attributes for companies" do

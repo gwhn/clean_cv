@@ -66,7 +66,12 @@ class CompanyTest < ActiveSupport::TestCase
   end
 
   test "associated responsibilities ordered by list position" do
-    assert false
+    (1...10).each do
+      @last = Responsibility.make :company => @company
+    end
+    @company.reload.responsibilities.each do |r|
+      assert r.position <= @last.position
+    end
   end
 
   test "accepts nested attributes for projects" do
