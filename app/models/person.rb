@@ -12,6 +12,10 @@ class Person < ActiveRecord::Base
   has_many :skills, :dependent => :destroy, :order => :position
   has_many :schools, :dependent => :destroy, :order => 'date_from DESC'
 
+  accepts_nested_attributes_for :companies, :skills, :schools,
+                                :allow_destroy => true,
+                                :reject_if => lambda { |a| a.values.all?(& :blank?) }
+
   has_attached_file :photo, :styles => {:small => '100x100#'}
 
   validates_attachment_presence :photo

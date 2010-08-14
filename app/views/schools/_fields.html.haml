@@ -1,0 +1,10 @@
+- fields.inputs do
+  = fields.input :name
+  = fields.input :course
+  = fields.input :result
+  = fields.input :date_from, :as => :date,
+    :start_year => Time.now.year - 30, :end_year => Time.now.year,
+    :discard_day => true, :discard_month => true
+  = fields.input :date_to, :as => :date,
+    :start_year => Time.now.year - 30, :end_year => Time.now.year,
+    :discard_day => true, :discard_month => true

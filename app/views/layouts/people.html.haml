@@ -23,6 +23,12 @@
         initFancyBox("a.lightbox");
         initTipsy(".tip");
         bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");
+        bindAddChildLinks("#form-dialog form a.add-person-company");
+        bindRemoveChildLinks("#form-dialog form a.remove-person-company");
+        bindAddChildLinks("#form-dialog form a.add-person-skill");
+        bindRemoveChildLinks("#form-dialog form a.remove-person-skill");
+        bindAddChildLinks("#form-dialog form a.add-person-school");
+        bindRemoveChildLinks("#form-dialog form a.remove-person-school");
         bindAddChildLinks("#form-dialog form a.add-person-company-project");
         bindRemoveChildLinks("#form-dialog form a.remove-person-company-project");
         bindAddChildLinks("#form-dialog form a.add-person-company-responsibility");

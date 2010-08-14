@@ -115,6 +115,42 @@ class PersonTest < ActiveSupport::TestCase
     assert false
   end
 
+  test "accepts nested attributes for companies" do
+    assert false
+  end
+
+  test "rejects nested attributes for companies with blank values" do
+    assert false
+  end
+
+  test "rejects nested attributes for companies with invalid values" do
+    assert false
+  end
+
+  test "accepts nested attributes for skills" do
+    assert false
+  end
+
+  test "rejects nested attributes for skills with blank values" do
+    assert false
+  end
+
+  test "rejects nested attributes for skills with invalid values" do
+    assert false
+  end
+
+  test "accepts nested attributes for schools" do
+    assert false
+  end
+
+  test "rejects nested attributes for schools with blank values" do
+    assert false
+  end
+
+  test "rejects nested attributes for schools with invalid values" do
+    assert false
+  end
+
   test "accepts photo file upload" do
     assert false
   end

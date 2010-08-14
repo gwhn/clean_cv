@@ -12,6 +12,31 @@
     = f.input :facebook_url
     = f.input :linked_in_url
     = f.input :profile
+
+  - f.semantic_fields_for :companies, :name => 'Companies' do |c|
+    #companies
+      = render :partial => 'company', :locals => {:f => c}
+
+  - if permitted_to? :create, :companies
+    %p= add_child_link 'New company', :companies, :class => 'add-person-company'
+    = new_child_fields_template f, :companies
+
+  - f.semantic_fields_for :skills, :name => 'Skills' do |sk|
+    #skills
+      = render :partial => 'skill', :locals => {:f => sk}
+
+  -if permitted_to? :create, :skills
+    %p= add_child_link 'New skill', :skills, :class => 'add-person-skill'
+    = new_child_fields_template f, :skills
+
+  - f.semantic_fields_for :schools, :name => 'Schools' do |sc|
+    #schools
+      = render :partial => 'school', :locals => {:f => sc}
+
+  - if permitted_to? :create, :schools
+    %p= add_child_link 'New school', :schools, :class => 'add-person-school'
+    = new_child_fields_template f, :schools
+
   - f.buttons do
     = f.commit_button
   %iframe#upload_frame{:name => 'upload_frame', :style => 'width:1px;height:1px;border:0px'}
