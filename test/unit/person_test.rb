@@ -104,9 +104,9 @@ class PersonTest < ActiveSupport::TestCase
   end
 
   test "associated companies ordered by start date" do
-    (1...10).each do |i|
+    (1..10).each do |i|
       @last = Company.make :person => @person,
-                          :start_date => Date.today - i.year
+                           :start_date => Date.today - i.year
     end
     @person.reload.companies.each do |c|
       assert c.start_date >= @last.start_date
@@ -114,7 +114,7 @@ class PersonTest < ActiveSupport::TestCase
   end
 
   test "associated skills ordered by list position" do
-    (1...10).each do
+    (1..10).each do
       @last = Skill.make :person => @person
     end
     @person.reload.skills.each do |s|
@@ -123,7 +123,7 @@ class PersonTest < ActiveSupport::TestCase
   end
 
   test "associated schools ordered by date from" do
-    (1...10).each do |i|
+    (1..10).each do |i|
       @last = School.make :person => @person,
                           :date_from => Date.today - i.year
     end
@@ -133,39 +133,66 @@ class PersonTest < ActiveSupport::TestCase
   end
 
   test "accepts nested attributes for companies" do
-    assert false
-  end
-
-  test "rejects nested attributes for companies with blank values" do
-    assert false
+    assert @person.save
+    attrs = @person.attributes
+    attrs[:companies_attributes] = {}
+    count = 10
+    (1..count).each do |i|
+      attrs[:companies_attributes][i.to_s] = Company.plan
+    end
+    assert @person.update_attributes(attrs)
+    assert_equal count, @person.reload.companies.count
   end
 
   test "rejects nested attributes for companies with invalid values" do
-    assert false
+    assert @person.save
+    attrs = @person.attributes
+    attrs[:companies_attributes] = {}
+    attrs[:companies_attributes][:invalid] = Company.plan :name => nil
+    assert !@person.update_attributes(attrs)
+    assert @person.errors.invalid?(:companies)
   end
 
   test "accepts nested attributes for skills" do
-    assert false
-  end
-
-  test "rejects nested attributes for skills with blank values" do
-    assert false
+    assert @person.save
+    attrs = @person.attributes
+    attrs[:skills_attributes] = {}
+    count = 10
+    (1..count).each do |i|
+      attrs[:skills_attributes][i.to_s] = Skill.plan
+    end
+    assert @person.update_attributes(attrs)
+    assert_equal count, @person.reload.skills.count
   end
 
   test "rejects nested attributes for skills with invalid values" do
-    assert false
+    assert @person.save
+    attrs = @person.attributes
+    attrs[:skills_attributes] = {}
+    attrs[:skills_attributes][:invalid] = Skill.plan :name => nil
+    assert !@person.update_attributes(attrs)
+    assert @person.errors.invalid?(:skills)
   end
 
   test "accepts nested attributes for schools" do
-    assert false
-  end
-
-  test "rejects nested attributes for schools with blank values" do
-    assert false
+    assert @person.save
+    attrs = @person.attributes
+    attrs[:schools_attributes] = {}
+    count = 10
+    (1..count).each do |i|
+      attrs[:schools_attributes][i.to_s] = School.plan
+    end
+    assert @person.update_attributes(attrs)
+    assert_equal count, @person.reload.schools.count
   end
 
   test "rejects nested attributes for schools with invalid values" do
-    assert false
+    assert @person.save
+    attrs = @person.attributes
+    attrs[:schools_attributes] = {}
+    attrs[:schools_attributes][:invalid] = School.plan :name => nil
+    assert !@person.update_attributes(attrs)
+    assert @person.errors.invalid?(:schools)
   end
 
   test "accepts photo file upload" do

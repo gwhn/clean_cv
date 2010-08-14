@@ -66,7 +66,7 @@ class CompanyTest < ActiveSupport::TestCase
   end
 
   test "associated responsibilities ordered by list position" do
-    (1...10).each do
+    (1..10).each do
       @last = Responsibility.make :company => @company
     end
     @company.reload.responsibilities.each do |r|
@@ -75,26 +75,44 @@ class CompanyTest < ActiveSupport::TestCase
   end
 
   test "accepts nested attributes for projects" do
-    assert false
-  end
-
-  test "rejects nested attributes for projects with blank values" do
-    assert false
+    assert @company.save
+    attrs = @company.attributes
+    attrs[:projects_attributes] = {}
+    count = 10
+    (1..count).each do |i|
+      attrs[:projects_attributes][i.to_s] = Project.plan
+    end
+    assert @company.update_attributes(attrs)
+    assert_equal count, @company.reload.projects.count
   end
 
   test "rejects nested attributes for projects with invalid values" do
-    assert false
+    assert @company.save
+    attrs = @company.attributes
+    attrs[:projects_attributes] = {}
+    attrs[:projects_attributes][:invalid] = Project.plan :name => nil
+    assert !@company.update_attributes(attrs)
+    assert @company.errors.invalid?(:projects)
   end
 
   test "accepts nested attributes for responsibilities" do
-    assert false
-  end
-
-  test "rejects nested attributes for responsibilities with blank values" do
-    assert false
+    assert @company.save
+    attrs = @company.attributes
+    attrs[:responsibilities_attributes] = {}
+    count = 10
+    (1..count).each do |i|
+      attrs[:responsibilities_attributes][i.to_s] = Responsibility.plan
+    end
+    assert @company.update_attributes(attrs)
+    assert_equal count, @company.reload.responsibilities.count
   end
 
   test "rejects nested attributes for responsibilities with invalid values" do
-    assert false
+    assert @company.save
+    attrs = @company.attributes
+    attrs[:responsibilities_attributes] = {}
+    attrs[:responsibilities_attributes][:invalid] = Responsibility.plan :description => nil
+    assert !@company.update_attributes(attrs)
+    assert @company.errors.invalid?(:responsibilities)
   end
 end

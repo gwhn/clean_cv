@@ -65,7 +65,7 @@ Person.blueprint do
 end
 
 Company.blueprint do
-  person
+#  person
   name { Sham.company_name }
   role { Sham.company_role }
   business_type
@@ -74,30 +74,30 @@ Company.blueprint do
 end
 
 Responsibility.blueprint do
-  company
+#  company
   description { Sham.responsibility_desc }
 end
 
 Project.blueprint do
-  company
+#  company
   name { Sham.project_name }
   description { Sham.project_desc }
 end
 
 Task.blueprint do
-  project
+#  project
   description { Sham.task_desc }
 end
 
 Skill.blueprint do
-  person
+#  person
   name { Sham.skill_name }
   level { Sham.skill_level }
   description { Sham.skill_desc }
 end
 
 School.blueprint do
-  person
+#  person
   name { Sham.school_name }
   course { Sham.school_course }
   result { Sham.school_result }

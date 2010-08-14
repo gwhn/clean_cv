@@ -12,6 +12,7 @@ class Person < ActiveRecord::Base
   has_many :skills, :dependent => :destroy, :order => :position
   has_many :schools, :dependent => :destroy, :order => 'date_from DESC'
 
+  validates_associated :companies, :skills, :schools
   accepts_nested_attributes_for :companies, :skills, :schools,
                                 :allow_destroy => true,
                                 :reject_if => lambda { |a| a.values.all?(& :blank?) }

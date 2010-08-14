@@ -47,7 +47,7 @@ class ProjectTest < ActiveSupport::TestCase
   end
 
   test "associated tasks ordered by list position" do
-    (1...10).each do
+    (1..10).each do
       @last = Task.make :project => @project
     end
     @project.reload.tasks.each do |t|
@@ -56,14 +56,23 @@ class ProjectTest < ActiveSupport::TestCase
   end
 
   test "accepts nested attributes for tasks" do
-    assert false
-  end
-
-  test "rejects nested attributes for tasks with blank values" do
-    assert false
+    assert @project.save
+    attrs = @project.attributes
+    attrs[:tasks_attributes] = {}
+    count = 10
+    (1..count).each do |i|
+      attrs[:tasks_attributes][i.to_s] = Task.plan
+    end
+    assert @project.update_attributes(attrs)
+    assert_equal count, @project.reload.tasks.count
   end
 
   test "rejects nested attributes for tasks with invalid values" do
-    assert false
+    assert @project.save
+    attrs = @project.attributes
+    attrs[:tasks_attributes] = {}
+    attrs[:tasks_attributes][:invalid] = Task.plan :description => nil
+    assert !@project.update_attributes(attrs)
+    assert @project.errors.invalid?(:tasks)
   end
 end
