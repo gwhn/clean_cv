@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class SchoolTest < ActiveSupport::TestCase
+  setup :activate_authlogic
+
   test "valid school" do
     assert false
   end

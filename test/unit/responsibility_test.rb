@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ResponsibilityTest < ActiveSupport::TestCase
+  setup :activate_authlogic
+
   test "valid responsibility" do
     assert false
   end

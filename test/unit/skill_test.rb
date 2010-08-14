@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class SkillTest < ActiveSupport::TestCase
+  setup :activate_authlogic
+
   test "valid skill" do
     assert false
   end

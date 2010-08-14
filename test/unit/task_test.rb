@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class TaskTest < ActiveSupport::TestCase
+  setup :activate_authlogic
+
   test "valid task" do
     assert false
   end

@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ProjectTest < ActiveSupport::TestCase
+  setup :activate_authlogic
+
   test "valid project" do
     assert false
   end

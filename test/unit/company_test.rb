@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class CompanyTest < ActiveSupport::TestCase
+  setup :activate_authlogic
+
   test "valid company" do
     assert false
   end
