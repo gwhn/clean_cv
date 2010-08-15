@@ -47,7 +47,15 @@ class SkillsControllerTest < ActionController::TestCase
   end
 
   test "should create skill on xhr" do
-    assert false
+    assert_difference('Skill.count') do
+      xhr :post,
+          :create,
+          :person_id => @person.to_param,
+          :skill => Skill.plan(:person => @person)
+    end
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:skill)
+    assert_template :create
   end
 
   test "should not create skill on xhr" do

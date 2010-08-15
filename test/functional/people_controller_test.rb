@@ -54,7 +54,12 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should create person on xhr" do
-    assert false
+    login_as users(:guy)
+    assert_difference('Person.count') do
+      xhr :post, :create, :person => Person.plan
+    end
+    assert_not_nil assigns(:person)
+    assert_template :create
   end
 
   test "should not create person on xhr" do

@@ -47,7 +47,15 @@ class SchoolsControllerTest < ActionController::TestCase
   end
 
   test "should create school on xhr" do
-    assert false
+    assert_difference('School.count') do
+      xhr :post,
+          :create,
+          :person_id => @person.to_param,
+          :school => School.plan(:person => @person)
+    end
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:school)
+    assert_template :create
   end
 
   test "should not create school on xhr" do
