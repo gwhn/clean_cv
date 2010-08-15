@@ -53,6 +53,9 @@ class SkillTest < ActiveSupport::TestCase
   end
 
   test "skill acts as list for person" do
-    assert false
+    assert @skill.save
+    @person.reload
+    assert @person.skills[0].first?
+    assert @person.skills[0].last?
   end
 end

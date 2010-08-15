@@ -40,6 +40,9 @@ class ResponsibilityTest < ActiveSupport::TestCase
   end
 
   test "responsibility acts as list for company" do
-    assert false
+    assert @responsibility.save
+    @company.reload
+    assert @company.responsibilities[0].first?
+    assert @company.responsibilities[0].last?
   end
 end

@@ -41,6 +41,9 @@ class TaskTest < ActiveSupport::TestCase
   end
 
   test "task acts as list for project" do
-    assert false
+    assert @task.save
+    @project.reload
+    assert @project.tasks[0].first?
+    assert @project.tasks[0].last?
   end
 end
