@@ -32,7 +32,13 @@ class ResponsibilitiesControllerTest < ActionController::TestCase
   end
 
   test "should not create responsibility" do
-    assert false
+    login_as users(:guy)
+    assert_no_difference('Responsibility.count') do
+      post :create, :person_id => @person.to_param, :company_id => @company.to_param,
+           :responsibility => Responsibility.plan(:company => @company, :description => nil)
+    end
+    assert_not_nil assigns(:responsibility)
+    assert_template :new
   end
 
   test "should associate current company with new responsibility" do

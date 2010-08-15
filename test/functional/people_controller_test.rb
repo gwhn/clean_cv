@@ -15,13 +15,13 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should get index by email in descending order" do
-    assert false                  
+    assert false
   end
 
   test "should get page of index" do
     assert false
   end
-  
+
   test "should get new" do
     login_as users(:guy)
     get :new
@@ -33,7 +33,7 @@ class PeopleControllerTest < ActionController::TestCase
   test "new form has expected form fields" do
     assert false
   end
-  
+
   test "should create person" do
     login_as users(:guy)
     assert_difference('Person.count') do
@@ -44,7 +44,12 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should not create person" do
-    assert false
+    login_as users(:guy)
+    assert_no_difference('Person.count') do
+      post :create, :person => Person.plan(:name => nil)
+    end
+    assert_not_nil assigns(:person)
+    assert_template :new
   end
 
   test "should create person on xhr" do
@@ -54,7 +59,7 @@ class PeopleControllerTest < ActionController::TestCase
   test "should not create person on xhr" do
     assert false
   end
-  
+
   test "should associate current user with new person" do
     assert false
   end
@@ -63,7 +68,7 @@ class PeopleControllerTest < ActionController::TestCase
     get :show, :id => people(:homer).to_param
     assert_response :success
     assert_not_nil assigns(:person)
-    assert_template :show    
+    assert_template :show
   end
 
   test "should get edit" do
@@ -82,7 +87,7 @@ class PeopleControllerTest < ActionController::TestCase
     session = login_as users(:guy)
     person = Person.make(:user => session.user)
     put :update, :id => person.to_param, :person => Person.plan
-    
+
     assert_redirected_to person_path(assigns(:person))
   end
 

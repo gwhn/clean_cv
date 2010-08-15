@@ -32,7 +32,13 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should not create company" do
-    assert false
+    login_as users(:guy)
+    assert_no_difference('Company.count') do
+      post :create, :person_id => @person.to_param,
+           :company => Company.plan(:person => @person, :name => nil)
+    end
+    assert_not_nil assigns(:company)
+    assert_template :new
   end
 
   test "should create company on xhr" do

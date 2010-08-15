@@ -32,7 +32,13 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should not create project" do
-    assert false
+    login_as users(:guy)
+    assert_no_difference('Project.count') do
+      post :create, :person_id => @person.to_param, :company_id => @company.to_param,
+           :project => Project.plan(:company => @company, :name => nil)
+    end
+    assert_not_nil assigns(:project)
+    assert_template :new
   end
 
   test "should create project on xhr" do

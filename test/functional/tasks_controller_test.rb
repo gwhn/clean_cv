@@ -39,7 +39,15 @@ class TasksControllerTest < ActionController::TestCase
   end
 
   test "should not create task" do
-    assert false
+    login_as users(:guy)
+    assert_no_difference('Task.count') do
+      post :create, :person_id => @person.to_param,
+           :company_id => @company.to_param,
+           :project_id => @project.to_param,
+           :task => Task.plan(:project => @project, :description => nil)
+    end
+    assert_not_nil assigns(:task)
+    assert_template :new
   end
 
   test "should associate current project with new task" do
