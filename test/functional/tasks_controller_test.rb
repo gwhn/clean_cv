@@ -5,7 +5,8 @@ class TasksControllerTest < ActionController::TestCase
   setup :make_project
 
   test "should get index" do
-    get :index, :person_id => @person.to_param,
+    get :index,
+        :person_id => @person.to_param,
         :company_id => @company.to_param,
         :project_id => @project.to_param
     assert_response :success
@@ -14,7 +15,8 @@ class TasksControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new, :person_id => @person.to_param,
+    get :new,
+        :person_id => @person.to_param,
         :company_id => @company.to_param,
         :project_id => @project.to_param
     assert_response :success
@@ -28,23 +30,27 @@ class TasksControllerTest < ActionController::TestCase
 
   test "should create task" do
     assert_difference('Task.count') do
-      post :create, :person_id => @person.to_param,
+      post :create,
+           :person_id => @person.to_param,
            :company_id => @company.to_param,
            :project_id => @project.to_param,
            :task => Task.plan(:project => @project)
     end
 
-    assert_redirected_to person_company_project_task_path(assigns(:person), assigns(:company),
-                                                          assigns(:project), assigns(:task))
+    assert_redirected_to person_company_project_task_path(assigns(:person),
+                                                          assigns(:company),
+                                                          assigns(:project),
+                                                          assigns(:task))
   end
 
   test "should not create task" do
-    login_as users(:guy)
     assert_no_difference('Task.count') do
-      post :create, :person_id => @person.to_param,
+      post :create,
+           :person_id => @person.to_param,
            :company_id => @company.to_param,
            :project_id => @project.to_param,
-           :task => Task.plan(:project => @project, :description => nil)
+           :task => Task.plan(:project => @project,
+                              :description => nil)
     end
     assert_not_nil assigns(:task)
     assert_template :new
@@ -55,7 +61,8 @@ class TasksControllerTest < ActionController::TestCase
   end
 
   test "should show task" do
-    get :show, :person_id => @person.to_param,
+    get :show,
+        :person_id => @person.to_param,
         :company_id => @company.to_param,
         :project_id => @project.to_param,
         :id => Task.make(:project => @project).to_param
@@ -65,7 +72,8 @@ class TasksControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, :person_id => @person.to_param,
+    get :edit,
+        :person_id => @person.to_param,
         :company_id => @company.to_param,
         :project_id => @project.to_param,
         :id => Task.make(:project => @project).to_param
@@ -79,24 +87,39 @@ class TasksControllerTest < ActionController::TestCase
   end
 
   test "should update task" do
-    put :update, :person_id => @person.to_param,
+    put :update,
+        :person_id => @person.to_param,
         :company_id => @company.to_param,
         :project_id => @project.to_param,
         :id => Task.make(:project => @project),
         :task => Task.plan(:project => @project)
-    
-    assert_redirected_to person_company_project_task_path(assigns(:person), assigns(:company),
-                                                          assigns(:project), assigns(:task))
+
+    assert_redirected_to person_company_project_task_path(assigns(:person),
+                                                          assigns(:company),
+                                                          assigns(:project),
+                                                          assigns(:task))
   end
 
   test "should not update task" do
-    assert false
+    task = Task.make(:project => @project)
+    assert_no_difference('Task.count') do
+      put :update,
+          :person_id => @person.to_param,
+          :company_id => @company.to_param,
+          :project_id => @project.to_param,
+          :id => task.to_param,
+          :task => Task.plan(:project => @project,
+                             :description => nil)
+    end
+    assert_not_nil assigns(:task)
+    assert_template :edit
   end
 
   test "should destroy task" do
     task = Task.make(:project => @project)
     assert_difference('Task.count', -1) do
-      delete :destroy, :person_id => @person.to_param,
+      delete :destroy,
+             :person_id => @person.to_param,
              :company_id => @company.to_param,
              :project_id => @project.to_param,
              :id => task.to_param

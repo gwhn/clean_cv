@@ -5,14 +5,16 @@ class SkillsControllerTest < ActionController::TestCase
   setup :make_person
 
   test "should get index" do
-    get :index, :person_id => @person.to_param
+    get :index,
+        :person_id => @person.to_param
     assert_response :success
     assert_not_nil assigns(:skills)
     assert_template :index
   end
 
   test "should get new" do
-    get :new, :person_id => @person.to_param
+    get :new,
+        :person_id => @person.to_param
     assert_response :success
     assert_not_nil assigns(:skill)
     assert_template :new
@@ -24,18 +26,21 @@ class SkillsControllerTest < ActionController::TestCase
 
   test "should create skill" do
     assert_difference('Skill.count') do
-      post :create, :person_id => @person.to_param,
+      post :create,
+           :person_id => @person.to_param,
            :skill => Skill.plan(:person => @person)
     end
 
-    assert_redirected_to person_skill_path(assigns(:person), assigns(:skill))
+    assert_redirected_to person_skill_path(assigns(:person),
+                                           assigns(:skill))
   end
 
   test "should not create skill" do
-    login_as users(:guy)
     assert_no_difference('Skill.count') do
-      post :create, :person_id => @person.to_param,
-           :skill => Skill.plan(:person => @person, :name => nil)
+      post :create,
+           :person_id => @person.to_param,
+           :skill => Skill.plan(:person => @person,
+                                :name => nil)
     end
     assert_not_nil assigns(:skill)
     assert_template :new
@@ -54,7 +59,8 @@ class SkillsControllerTest < ActionController::TestCase
   end
 
   test "should show skill" do
-    get :show, :person_id => @person.to_param,
+    get :show,
+        :person_id => @person.to_param,
         :id => Skill.make(:person => @person).to_param
     assert_response :success
     assert_not_nil assigns(:skill)
@@ -62,7 +68,8 @@ class SkillsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, :person_id => @person.to_param,
+    get :edit,
+        :person_id => @person.to_param,
         :id => Skill.make(:person => @person).to_param
     assert_response :success
     assert_not_nil assigns(:skill)
@@ -74,15 +81,26 @@ class SkillsControllerTest < ActionController::TestCase
   end
 
   test "should update skill" do
-    put :update, :person_id => @person.to_param,
+    put :update,
+        :person_id => @person.to_param,
         :id => Skill.make(:person => @person),
         :skill => Skill.plan(:person => @person)
     
-    assert_redirected_to person_skill_path(assigns(:person), assigns(:skill))
+    assert_redirected_to person_skill_path(assigns(:person),
+                                           assigns(:skill))
   end
 
   test "should not update skill" do
-    assert false
+    skill = Skill.make(:person => @person)
+    assert_no_difference('Skill.count') do
+      put :update,
+          :person_id => @person.to_param,
+          :id => skill.to_param,
+          :skill => Skill.plan(:person => @person,
+                               :name => nil)
+    end
+    assert_not_nil assigns(:skill)
+    assert_template :edit
   end
 
   test "should update skill on xhr" do
@@ -94,8 +112,8 @@ class SkillsControllerTest < ActionController::TestCase
   end
 
   test "should get delete confirmation" do
-    login_as users(:guy)
-    get :delete, :person_id => @person.to_param,
+    get :delete,
+        :person_id => @person.to_param,
         :id => Skill.make(:person => @person).to_param
     assert_response :success
     assert_not_nil assigns(:skill)
@@ -105,7 +123,8 @@ class SkillsControllerTest < ActionController::TestCase
   test "should destroy skill" do
     skill = Skill.make(:person => @person)
     assert_difference('Skill.count', -1) do
-      delete :destroy, :person_id => @person.to_param,
+      delete :destroy,
+             :person_id => @person.to_param,
              :id => skill.to_param
     end
 

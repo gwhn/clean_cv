@@ -92,7 +92,14 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should not update person" do
-    assert false
+    session = login_as users(:guy)
+    person = Person.make(:user => session.user)
+    assert_no_difference('Person.count') do
+      put :update, :id => person.to_param,
+          :person => Person.plan(:name => nil)
+    end
+    assert_not_nil assigns(:person)
+    assert_template :edit
   end
 
   test "should update person on xhr" do

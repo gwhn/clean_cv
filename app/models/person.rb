@@ -24,9 +24,4 @@ class Person < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
   belongs_to :user
-  
-  def to_param
-    "#{id}-#{name.parameterize}"
-  end
-
 end

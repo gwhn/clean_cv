@@ -5,14 +5,16 @@ class CompaniesControllerTest < ActionController::TestCase
   setup :make_person
 
   test "should get index" do
-    get :index, :person_id => @person.to_param
+    get :index,
+        :person_id => @person.to_param
     assert_response :success
     assert_not_nil assigns(:companies)
     assert_template :index
   end
 
   test "should get new" do
-    get :new, :person_id => @person.to_param
+    get :new,
+        :person_id => @person.to_param
     assert_response :success
     assert_not_nil assigns(:company)
     assert_template :new
@@ -24,18 +26,21 @@ class CompaniesControllerTest < ActionController::TestCase
 
   test "should create company" do
     assert_difference('Company.count') do
-      post :create, :person_id => @person.to_param,
+      post :create,
+           :person_id => @person.to_param,
            :company => Company.plan(:person => @person)
     end
 
-    assert_redirected_to person_company_path(assigns(:person), assigns(:company))
+    assert_redirected_to person_company_path(assigns(:person),
+                                             assigns(:company))
   end
 
   test "should not create company" do
-    login_as users(:guy)
     assert_no_difference('Company.count') do
-      post :create, :person_id => @person.to_param,
-           :company => Company.plan(:person => @person, :name => nil)
+      post :create,
+           :person_id => @person.to_param,
+           :company => Company.plan(:person => @person,
+                                    :name => nil)
     end
     assert_not_nil assigns(:company)
     assert_template :new
@@ -49,28 +54,13 @@ class CompaniesControllerTest < ActionController::TestCase
     assert false
   end
 
-  test "should create company with nested responsibilities" do
-    assert false
-  end
-
-  test "should create company ignoring blank nested responsibilities" do
-    assert false
-  end
-
-  test "should create company with nested projects" do
-    assert false
-  end
-
-  test "should create company ignoring blank nested project" do
-    assert false
-  end
-
   test "should associate current person with new company" do
     assert false
   end
 
   test "should show company" do
-    get :show, :person_id => @person.to_param,
+    get :show,
+        :person_id => @person.to_param,
         :id => Company.make(:person => @person).to_param
     assert_response :success
     assert_not_nil assigns(:company)
@@ -78,7 +68,8 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, :person_id => @person.to_param,
+    get :edit,
+        :person_id => @person.to_param,
         :id => Company.make(:person => @person).to_param
     assert_response :success
     assert_not_nil assigns(:company)
@@ -90,15 +81,26 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should update company" do
-    put :update, :person_id => @person.to_param,
+    put :update,
+        :person_id => @person.to_param,
         :id => Company.make(:person => @person),
-        :skill => Company.plan(:person => @person)
+        :company => Company.plan(:person => @person)
 
-    assert_redirected_to person_company_path(assigns(:person), assigns(:company))
+    assert_redirected_to person_company_path(assigns(:person),
+                                             assigns(:company))
   end
 
   test "should not update company" do
-    assert false
+    company = Company.make(:person => @person)
+    assert_no_difference('Company.count') do
+      put :update,
+          :person_id => @person.to_param,
+          :id => company.to_param,
+          :company => Company.plan(:person => @person,
+                                   :name => nil)
+    end
+    assert_not_nil assigns(:company)
+    assert_template :edit
   end
 
   test "should update company on xhr" do
@@ -109,25 +111,9 @@ class CompaniesControllerTest < ActionController::TestCase
     assert false
   end
 
-  test "should update company with nested responsibilities" do
-    assert false
-  end
-
-  test "should update company ignoring blank nested responsibilities" do
-    assert false
-  end
-
-  test "should update company with nested projects" do
-    assert false
-  end
-
-  test "should update company ignoring blank nested projects" do
-    assert false
-  end
-
   test "should get delete confirmation" do
-    login_as users(:guy)
-    get :delete, :person_id => @person.to_param,
+    get :delete,
+        :person_id => @person.to_param,
         :id => Company.make(:person => @person).to_param
     assert_response :success
     assert_not_nil assigns(:company)
@@ -137,7 +123,8 @@ class CompaniesControllerTest < ActionController::TestCase
   test "should destroy company" do
     company = Company.make(:person => @person)
     assert_difference('Company.count', -1) do
-      delete :destroy, :person_id => @person.to_param,
+      delete :destroy,
+             :person_id => @person.to_param,
              :id => company.to_param
     end
 
