@@ -46,7 +46,8 @@ class PeopleControllerTest < ActionController::TestCase
   test "should not create person" do
     login_as users(:guy)
     assert_no_difference('Person.count') do
-      post :create, :person => Person.plan(:name => nil)
+      post :create,
+           :person => Person.plan(:name => nil)
     end
     assert_not_nil assigns(:person)
     assert_template :new
@@ -65,7 +66,8 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should show person" do
-    get :show, :id => people(:homer).to_param
+    get :show,
+        :id => people(:homer).to_param
     assert_response :success
     assert_not_nil assigns(:person)
     assert_template :show
@@ -73,7 +75,8 @@ class PeopleControllerTest < ActionController::TestCase
 
   test "should get edit" do
     login_as users(:guy)
-    get :edit, :id => people(:homer).to_param
+    get :edit,
+        :id => people(:homer).to_param
     assert_response :success
     assert_not_nil assigns(:person)
     assert_template :edit
@@ -86,7 +89,9 @@ class PeopleControllerTest < ActionController::TestCase
   test "should update person" do
     session = login_as users(:guy)
     person = Person.make(:user => session.user)
-    put :update, :id => person.to_param, :person => Person.plan
+    put :update,
+        :id => person.to_param,
+        :person => Person.plan
 
     assert_redirected_to person_path(assigns(:person))
   end
@@ -95,7 +100,8 @@ class PeopleControllerTest < ActionController::TestCase
     session = login_as users(:guy)
     person = Person.make(:user => session.user)
     assert_no_difference('Person.count') do
-      put :update, :id => person.to_param,
+      put :update,
+          :id => person.to_param,
           :person => Person.plan(:name => nil)
     end
     assert_not_nil assigns(:person)
@@ -112,7 +118,8 @@ class PeopleControllerTest < ActionController::TestCase
 
   test "should get delete confirmation" do
     login_as users(:guy)
-    get :delete, :id => people(:homer).to_param
+    get :delete,
+        :id => people(:homer).to_param
     assert_response :success
     assert_not_nil assigns(:person)
     assert_template :delete
@@ -121,7 +128,8 @@ class PeopleControllerTest < ActionController::TestCase
   test "should destroy person" do
     login_as users(:guy)
     assert_difference('Person.count', -1) do
-      delete :destroy, :id => people(:marge).to_param
+      delete :destroy,
+             :id => people(:marge).to_param
     end
 
     assert_redirected_to people_path
@@ -132,6 +140,13 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should cancel destroy person" do
-    assert false
+    login_as users(:guy)
+    assert_no_difference('Person.count') do
+      delete :destroy,
+             :id => people(:homer).to_param,
+             :cancel => 'please'
+    end
+
+    assert_redirected_to person_path(assigns(:person))
   end
 end

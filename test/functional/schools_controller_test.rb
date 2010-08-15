@@ -136,6 +136,15 @@ class SchoolsControllerTest < ActionController::TestCase
   end
 
   test "should cancel destroy school" do
-    assert false
+    school = School.make(:person => @person)
+    assert_no_difference('School.count') do
+      delete :destroy,
+             :person_id => @person.to_param,
+             :id => school.to_param,
+             :cancel => 'please'
+    end
+
+    assert_redirected_to person_school_path(assigns(:person),
+                                            assigns(:school))
   end
 end

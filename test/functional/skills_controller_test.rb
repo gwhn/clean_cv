@@ -136,7 +136,16 @@ class SkillsControllerTest < ActionController::TestCase
   end
 
   test "should cancel destroy skill" do
-    assert false
+    skill = Skill.make(:person => @person)
+    assert_no_difference('Skill.count') do
+      delete :destroy,
+             :person_id => @person.to_param,
+             :id => skill.to_param,
+             :cancel => 'please'
+    end
+
+    assert_redirected_to person_skill_path(assigns(:person),
+                                           assigns(:skill))
   end
 
   test "should reposition skills" do

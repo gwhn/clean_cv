@@ -136,6 +136,15 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should cancel destroy company" do
-    assert false
+    company = Company.make(:person => @person)
+    assert_no_difference('Company.count') do
+      delete :destroy,
+             :person_id => @person.to_param,
+             :id => company.to_param,
+             :cancel => 'please'
+    end
+
+    assert_redirected_to person_company_path(assigns(:person),
+                                             assigns(:company))
   end
 end
