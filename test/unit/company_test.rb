@@ -86,11 +86,23 @@ class CompanyTest < ActiveSupport::TestCase
     assert_equal count, @company.reload.projects.count
   end
 
+  test "rejects nested attributes for projects with blank values" do
+    assert @company.save
+    attrs = @company.attributes
+    attrs[:projects_attributes] = {}
+    attrs[:projects_attributes][:blank] = Project.plan :name => nil,
+                                                       :description => nil,
+                                                       :company => nil
+    assert @company.update_attributes(attrs)
+    assert @company.reload.projects.count == 0
+  end
+
   test "rejects nested attributes for projects with invalid values" do
     assert @company.save
     attrs = @company.attributes
     attrs[:projects_attributes] = {}
-    attrs[:projects_attributes][:invalid] = Project.plan :name => nil
+    attrs[:projects_attributes][:invalid] = Project.plan :name => nil,
+                                                         :company => @company
     assert !@company.update_attributes(attrs)
     assert @company.errors.invalid?(:projects)
   end
@@ -107,11 +119,22 @@ class CompanyTest < ActiveSupport::TestCase
     assert_equal count, @company.reload.responsibilities.count
   end
 
+  test "rejects nested attributes for responsibilities with blank values" do
+    assert @company.save
+    attrs = @company.attributes
+    attrs[:responsibilities_attributes] = {}
+    attrs[:responsibilities_attributes][:blank] = Responsibility.plan :description => nil,
+                                                                      :company => nil
+    assert @company.update_attributes(attrs)
+    assert @company.reload.responsibilities.count == 0
+  end
+
   test "rejects nested attributes for responsibilities with invalid values" do
     assert @company.save
     attrs = @company.attributes
     attrs[:responsibilities_attributes] = {}
-    attrs[:responsibilities_attributes][:invalid] = Responsibility.plan :description => nil
+    attrs[:responsibilities_attributes][:invalid] = Responsibility.plan :description => nil,
+                                                                        :company => @company
     assert !@company.update_attributes(attrs)
     assert @company.errors.invalid?(:responsibilities)
   end

@@ -67,11 +67,23 @@ class ProjectTest < ActiveSupport::TestCase
     assert_equal count, @project.reload.tasks.count
   end
 
+  test "rejects nested attributes for tasks with blank values" do
+    assert @project.save
+    attrs = @project.attributes
+    attrs[:tasks_attributes] = {}
+    attrs[:tasks_attributes][:blank] = Task.plan :description => nil,
+                                                 :project => nil
+    assert @project.update_attributes(attrs)
+    assert @project.reload.tasks.count == 0
+  end
+
   test "rejects nested attributes for tasks with invalid values" do
     assert @project.save
     attrs = @project.attributes
     attrs[:tasks_attributes] = {}
-    attrs[:tasks_attributes][:invalid] = Task.plan :description => nil
+    attrs[:tasks_attributes][:invalid] = Task.plan :description => nil,
+                                                   :project => @project
+    puts attrs.to_json
     assert !@project.update_attributes(attrs)
     assert @project.errors.invalid?(:tasks)
   end
