@@ -8,12 +8,14 @@ class ProjectsControllerTest < ActionController::TestCase
     get :index, :person_id => @person.to_param, :company_id => @company.to_param
     assert_response :success
     assert_not_nil assigns(:projects)
+    assert_template :index
   end
 
   test "should get new" do
     get :new, :person_id => @person.to_param, :company_id => @company.to_param
     assert_response :success
     assert_not_nil assigns(:project)
+    assert_template :new
   end
 
   test "new form has expected form fields" do
@@ -58,6 +60,7 @@ class ProjectsControllerTest < ActionController::TestCase
         :id => Project.make(:company => @company).to_param
     assert_response :success
     assert_not_nil assigns(:project)
+    assert_template :show
   end
 
   test "should get edit" do
@@ -65,6 +68,7 @@ class ProjectsControllerTest < ActionController::TestCase
         :id => Project.make(:company => @company).to_param
     assert_response :success
     assert_not_nil assigns(:project)
+    assert_template :edit
   end
 
   test "edit form has expected form fields" do
@@ -75,6 +79,7 @@ class ProjectsControllerTest < ActionController::TestCase
     put :update, :person_id => @person.to_param, :company_id => @company.to_param,
         :id => Project.make(:company => @company),
         :project => Project.plan(:company => @company)
+    
     assert_redirected_to person_company_project_path(assigns(:person), assigns(:company), assigns(:project))
   end
 
@@ -99,7 +104,12 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should get delete confirmation" do
-    assert false
+    login_as users(:guy)
+    get :delete, :person_id => @person.to_param, :company_id => @company.to_param,
+        :id => Project.make(:company => @company).to_param
+    assert_response :success
+    assert_not_nil assigns(:project)
+    assert_template :delete
   end
 
   test "should destroy project" do

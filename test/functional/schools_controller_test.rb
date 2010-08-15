@@ -8,12 +8,14 @@ class SchoolsControllerTest < ActionController::TestCase
     get :index, :person_id => @person.to_param
     assert_response :success
     assert_not_nil assigns(:schools)
+    assert_template :index
   end
 
   test "should get new" do
     get :new, :person_id => @person.to_param
     assert_response :success
     assert_not_nil assigns(:school)
+    assert_template :new
   end
 
   test "new form has expected form fields" do
@@ -50,6 +52,7 @@ class SchoolsControllerTest < ActionController::TestCase
         :id => School.make(:person => @person).to_param
     assert_response :success
     assert_not_nil assigns(:school)
+    assert_template :show
   end
 
   test "should get edit" do
@@ -57,6 +60,7 @@ class SchoolsControllerTest < ActionController::TestCase
         :id => School.make(:person => @person).to_param
     assert_response :success
     assert_not_nil assigns(:school)
+    assert_template :edit
   end
 
   test "edit form has expected form fields" do
@@ -67,6 +71,7 @@ class SchoolsControllerTest < ActionController::TestCase
     put :update, :person_id => @person.to_param,
         :id => School.make(:person => @person),
         :school => School.plan(:person => @person)
+    
     assert_redirected_to person_school_path(assigns(:person), assigns(:school))
   end
 
@@ -83,7 +88,12 @@ class SchoolsControllerTest < ActionController::TestCase
   end
 
   test "should get delete confirmation" do
-    assert false
+    login_as users(:guy)
+    get :delete, :person_id => @person.to_param,
+        :id => School.make(:person => @person).to_param
+    assert_response :success
+    assert_not_nil assigns(:school)
+    assert_template :delete
   end
 
   test "should destroy school" do

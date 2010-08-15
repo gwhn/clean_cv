@@ -8,12 +8,14 @@ class ResponsibilitiesControllerTest < ActionController::TestCase
     get :index, :person_id => @person.to_param, :company_id => @company.to_param
     assert_response :success
     assert_not_nil assigns(:responsibilities)
+    assert_template :index
   end
 
   test "should get new" do
     get :new, :person_id => @person.to_param, :company_id => @company.to_param
     assert_response :success
     assert_not_nil assigns(:responsibility)
+    assert_template :new
   end
 
   test "new form has expected form fields" do
@@ -42,6 +44,7 @@ class ResponsibilitiesControllerTest < ActionController::TestCase
         :id => Responsibility.make(:company => @company).to_param
     assert_response :success
     assert_not_nil assigns(:responsibility)
+    assert_template :show
   end
 
   test "should get edit" do
@@ -49,6 +52,7 @@ class ResponsibilitiesControllerTest < ActionController::TestCase
         :id => Responsibility.make(:company => @company).to_param
     assert_response :success
     assert_not_nil assigns(:responsibility)
+    assert_template :edit
   end
 
   test "edit form has expected form fields" do
@@ -59,6 +63,7 @@ class ResponsibilitiesControllerTest < ActionController::TestCase
     put :update, :person_id => @person.to_param, :company_id => @company.to_param,
         :id => Responsibility.make(:company => @company),
         :responsibility => Responsibility.plan(:company => @company)
+    
     assert_redirected_to person_company_responsibility_path(assigns(:person), assigns(:company), assigns(:responsibility))
   end
 

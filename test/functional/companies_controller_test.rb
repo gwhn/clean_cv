@@ -8,12 +8,14 @@ class CompaniesControllerTest < ActionController::TestCase
     get :index, :person_id => @person.to_param
     assert_response :success
     assert_not_nil assigns(:companies)
+    assert_template :index
   end
 
   test "should get new" do
     get :new, :person_id => @person.to_param
     assert_response :success
     assert_not_nil assigns(:company)
+    assert_template :new
   end
 
   test "new form has expected form fields" do
@@ -66,6 +68,7 @@ class CompaniesControllerTest < ActionController::TestCase
         :id => Company.make(:person => @person).to_param
     assert_response :success
     assert_not_nil assigns(:company)
+    assert_template :show
   end
 
   test "should get edit" do
@@ -73,6 +76,7 @@ class CompaniesControllerTest < ActionController::TestCase
         :id => Company.make(:person => @person).to_param
     assert_response :success
     assert_not_nil assigns(:company)
+    assert_template :edit
   end
 
   test "edit form has expected form fields" do
@@ -83,6 +87,7 @@ class CompaniesControllerTest < ActionController::TestCase
     put :update, :person_id => @person.to_param,
         :id => Company.make(:person => @person),
         :skill => Company.plan(:person => @person)
+
     assert_redirected_to person_company_path(assigns(:person), assigns(:company))
   end
 
@@ -115,7 +120,12 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should get delete confirmation" do
-    assert false
+    login_as users(:guy)
+    get :delete, :person_id => @person.to_param,
+        :id => Company.make(:person => @person).to_param
+    assert_response :success
+    assert_not_nil assigns(:company)
+    assert_template :delete
   end
 
   test "should destroy company" do

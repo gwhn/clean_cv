@@ -10,6 +10,7 @@ class TasksControllerTest < ActionController::TestCase
         :project_id => @project.to_param
     assert_response :success
     assert_not_nil assigns(:tasks)
+    assert_template :index
   end
 
   test "should get new" do
@@ -18,6 +19,7 @@ class TasksControllerTest < ActionController::TestCase
         :project_id => @project.to_param
     assert_response :success
     assert_not_nil assigns(:task)
+    assert_template :new
   end
 
   test "new form has expected form fields" do
@@ -51,6 +53,7 @@ class TasksControllerTest < ActionController::TestCase
         :id => Task.make(:project => @project).to_param
     assert_response :success
     assert_not_nil assigns(:task)
+    assert_template :show
   end
 
   test "should get edit" do
@@ -60,6 +63,7 @@ class TasksControllerTest < ActionController::TestCase
         :id => Task.make(:project => @project).to_param
     assert_response :success
     assert_not_nil assigns(:task)
+    assert_template :edit
   end
 
   test "edit form has expected form fields" do
@@ -72,6 +76,7 @@ class TasksControllerTest < ActionController::TestCase
         :project_id => @project.to_param,
         :id => Task.make(:project => @project),
         :task => Task.plan(:project => @project)
+    
     assert_redirected_to person_company_project_task_path(assigns(:person), assigns(:company),
                                                           assigns(:project), assigns(:task))
   end

@@ -7,6 +7,7 @@ class PeopleControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:people)
+    assert_template :index
   end
 
   test "should get index by name in ascending order" do
@@ -26,6 +27,7 @@ class PeopleControllerTest < ActionController::TestCase
     get :new
     assert_response :success
     assert_not_nil assigns(:person)
+    assert_template :new
   end
 
   test "new form has expected form fields" do
@@ -61,6 +63,7 @@ class PeopleControllerTest < ActionController::TestCase
     get :show, :id => people(:homer).to_param
     assert_response :success
     assert_not_nil assigns(:person)
+    assert_template :show    
   end
 
   test "should get edit" do
@@ -68,6 +71,7 @@ class PeopleControllerTest < ActionController::TestCase
     get :edit, :id => people(:homer).to_param
     assert_response :success
     assert_not_nil assigns(:person)
+    assert_template :edit
   end
 
   test "edit form has expected form fields" do
@@ -78,6 +82,7 @@ class PeopleControllerTest < ActionController::TestCase
     session = login_as users(:guy)
     person = Person.make(:user => session.user)
     put :update, :id => person.to_param, :person => Person.plan
+    
     assert_redirected_to person_path(assigns(:person))
   end
 
@@ -94,7 +99,11 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should get delete confirmation" do
-    assert false
+    login_as users(:guy)
+    get :delete, :id => people(:homer).to_param
+    assert_response :success
+    assert_not_nil assigns(:person)
+    assert_template :delete
   end
 
   test "should destroy person" do
