@@ -107,6 +107,17 @@ class CompanyTest < ActiveSupport::TestCase
     assert @company.errors.invalid?(:projects)
   end
 
+  test "removes nested attributes for projects marked to be destroyed" do
+    assert @company.save
+    attrs = @company.attributes
+    project = Project.make :company => @company
+    assert @company.reload.projects.count == 1
+    attrs[:projects_attributes] = {}
+    attrs[:projects_attributes][:remove] = {:id => project.id, '_destroy' => '1'}
+    assert @company.update_attributes(attrs)
+    assert @company.reload.projects.count == 0
+  end
+
   test "accepts nested attributes for responsibilities" do
     assert @company.save
     attrs = @company.attributes
@@ -137,5 +148,16 @@ class CompanyTest < ActiveSupport::TestCase
                                                                         :company => @company
     assert !@company.update_attributes(attrs)
     assert @company.errors.invalid?(:responsibilities)
+  end
+
+  test "removes nested attributes for responsibilities marked to be destroyed" do
+    assert @company.save
+    attrs = @company.attributes
+    responsibility = Responsibility.make :company => @company
+    assert @company.reload.responsibilities.count == 1
+    attrs[:responsibilities_attributes] = {}
+    attrs[:responsibilities_attributes][:remove] = {:id => responsibility.id, '_destroy' => '1'}
+    assert @company.update_attributes(attrs)
+    assert @company.reload.responsibilities.count == 0
   end
 end

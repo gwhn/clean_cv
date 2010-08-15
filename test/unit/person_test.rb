@@ -168,6 +168,17 @@ class PersonTest < ActiveSupport::TestCase
     assert @person.errors.invalid?(:companies)
   end
 
+  test "removes nested attributes for companies marked to be destroyed" do
+    assert @person.save
+    attrs = @person.attributes
+    company = Company.make :person => @person
+    assert @person.reload.companies.count == 1
+    attrs[:companies_attributes] = {}
+    attrs[:companies_attributes][:remove] = {:id => company.id, '_destroy' => '1'}
+    assert @person.update_attributes(attrs)
+    assert @person.reload.companies.count == 0
+  end
+
   test "accepts nested attributes for skills" do
     assert @person.save
     attrs = @person.attributes
@@ -200,6 +211,17 @@ class PersonTest < ActiveSupport::TestCase
                                                      :person => @person
     assert !@person.update_attributes(attrs)
     assert @person.errors.invalid?(:skills)
+  end
+
+  test "removes nested attributes for skills marked to be destroyed" do
+    assert @person.save
+    attrs = @person.attributes
+    skill = Skill.make :person => @person
+    assert @person.reload.skills.count == 1
+    attrs[:skills_attributes] = {}
+    attrs[:skills_attributes][:remove] = {:id => skill.id, '_destroy' => '1'}
+    assert @person.update_attributes(attrs)
+    assert @person.reload.skills.count == 0
   end
 
   test "accepts nested attributes for schools" do
@@ -236,6 +258,17 @@ class PersonTest < ActiveSupport::TestCase
                                                        :person => @person
     assert !@person.update_attributes(attrs)
     assert @person.errors.invalid?(:schools)
+  end
+
+  test "removes nested attributes for schools marked to be destroyed" do
+    assert @person.save
+    attrs = @person.attributes
+    school = School.make :person => @person
+    assert @person.reload.schools.count == 1
+    attrs[:schools_attributes] = {}
+    attrs[:schools_attributes][:remove] = {:id => school.id, '_destroy' => '1'}
+    assert @person.update_attributes(attrs)
+    assert @person.reload.schools.count == 0
   end
 
   test "accepts photo file upload" do

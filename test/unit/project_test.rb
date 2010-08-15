@@ -87,4 +87,15 @@ class ProjectTest < ActiveSupport::TestCase
     assert !@project.update_attributes(attrs)
     assert @project.errors.invalid?(:tasks)
   end
+
+  test "removes nested attributes for tasks marked to be destroyed" do
+    assert @project.save
+    attrs = @project.attributes
+    task = Task.make :project => @project
+    assert @project.reload.tasks.count == 1
+    attrs[:tasks_attributes] = {}
+    attrs[:tasks_attributes][:remove] = {:id => task.id, '_destroy' => '1'}
+    assert @project.update_attributes(attrs)
+    assert @project.reload.tasks.count == 0
+  end
 end
