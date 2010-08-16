@@ -59,7 +59,15 @@ class SkillsControllerTest < ActionController::TestCase
   end
 
   test "should not create skill on xhr" do
-    assert false
+    assert_no_difference('Skill.count') do
+      xhr :post,
+          :create,
+          :person_id => @person.to_param,
+          :skill => Skill.plan(:person => @person,
+                               :name => nil)
+    end
+    assert_not_nil assigns(:skill)
+    assert_template :invalid
   end
 
   test "should associate current person with new skill" do
@@ -93,7 +101,7 @@ class SkillsControllerTest < ActionController::TestCase
         :person_id => @person.to_param,
         :id => Skill.make(:person => @person),
         :skill => Skill.plan(:person => @person)
-    
+
     assert_redirected_to person_skill_path(assigns(:person),
                                            assigns(:skill))
   end
@@ -112,7 +120,14 @@ class SkillsControllerTest < ActionController::TestCase
   end
 
   test "should update skill on xhr" do
-    assert false
+    xhr :put,
+        :update,
+        :person_id => @person.to_param,
+        :id => Skill.make(:person => @person),
+        :skill => Skill.plan(:person => @person)
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:skill)
+    assert_template :update
   end
 
   test "should not update skill on xhr" do

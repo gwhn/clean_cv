@@ -59,7 +59,15 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should not create company on xhr" do
-    assert false
+    assert_no_difference('Company.count') do
+      xhr :post,
+          :create,
+          :person_id => @person.to_param,
+          :company => Company.plan(:person => @person,
+                                   :name => nil)
+    end
+    assert_not_nil assigns(:company)
+    assert_template :invalid
   end
 
   test "should associate current person with new company" do
@@ -112,7 +120,14 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should update company on xhr" do
-    assert false
+    xhr :put,
+        :update,
+        :person_id => @person.to_param,
+        :id => Company.make(:person => @person),
+        :company => Company.plan(:person => @person)
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:company)
+    assert_template :update
   end
 
   test "should not update company on xhr" do

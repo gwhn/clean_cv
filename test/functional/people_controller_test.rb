@@ -63,7 +63,14 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should not create person on xhr" do
-    assert false
+    login_as users(:guy)
+    assert_no_difference('Person.count') do
+      xhr :post,
+          :create,
+          :person => Person.plan(:name => nil)
+    end
+    assert_not_nil assigns(:person)
+    assert_template :invalid
   end
 
   test "should associate current user with new person" do
@@ -104,21 +111,33 @@ class PeopleControllerTest < ActionController::TestCase
   test "should not update person" do
     session = login_as users(:guy)
     person = Person.make(:user => session.user)
-    assert_no_difference('Person.count') do
-      put :update,
-          :id => person.to_param,
-          :person => Person.plan(:name => nil)
-    end
+    put :update,
+        :id => person.to_param,
+        :person => Person.plan(:name => nil)
     assert_not_nil assigns(:person)
     assert_template :edit
   end
 
   test "should update person on xhr" do
-    assert false
+    session = login_as users(:guy)
+    person = Person.make(:user => session.user)
+    xhr :put,
+        :update,
+        :id => person.to_param,
+        :person => Person.plan
+    assert_not_nil assigns(:person)
+    assert_template :update
   end
 
   test "should not update person on xhr" do
-    assert false
+    session = login_as users(:guy)
+    person = Person.make(:user => session.user)
+    xhr :put,
+        :update,
+        :id => person.to_param,
+        :person => Person.plan(:name => nil)
+    assert_not_nil assigns(:person)
+    assert_template :invalid
   end
 
   test "should get delete confirmation" do

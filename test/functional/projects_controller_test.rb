@@ -66,7 +66,16 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should not create project on xhr" do
-    assert false
+    assert_no_difference('Project.count') do
+      xhr :post,
+          :create,
+          :person_id => @person.to_param,
+          :company_id => @company.to_param,
+          :project => Project.plan(:company => @company,
+                                   :name => nil)
+    end
+    assert_not_nil assigns(:project)
+    assert_template :invalid
   end
 
   test "should associate current company with new project" do
@@ -103,7 +112,7 @@ class ProjectsControllerTest < ActionController::TestCase
         :company_id => @company.to_param,
         :id => Project.make(:company => @company),
         :project => Project.plan(:company => @company)
-    
+
     assert_redirected_to person_company_project_path(assigns(:person),
                                                      assigns(:company),
                                                      assigns(:project))
@@ -124,7 +133,16 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should update project on xhr" do
-    assert false
+    xhr :put,
+        :update,
+        :person_id => @person.to_param,
+        :company_id => @company.to_param,
+        :id => Project.make(:company => @company),
+        :project => Project.plan(:company => @company)
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:company)
+    assert_not_nil assigns(:project)
+    assert_template :update
   end
 
   test "should not update project on xhr" do

@@ -59,7 +59,15 @@ class SchoolsControllerTest < ActionController::TestCase
   end
 
   test "should not create school on xhr" do
-    assert false
+    assert_no_difference('School.count') do
+      xhr :post,
+          :create,
+          :person_id => @person.to_param,
+          :school => School.plan(:person => @person,
+                                 :name => nil)
+    end
+    assert_not_nil assigns(:school)
+    assert_template :invalid
   end
 
   test "should associate current person with new school" do
@@ -93,7 +101,7 @@ class SchoolsControllerTest < ActionController::TestCase
         :person_id => @person.to_param,
         :id => School.make(:person => @person),
         :school => School.plan(:person => @person)
-    
+
     assert_redirected_to person_school_path(assigns(:person),
                                             assigns(:school))
   end
@@ -112,7 +120,14 @@ class SchoolsControllerTest < ActionController::TestCase
   end
 
   test "should update school on xhr" do
-    assert false
+    xhr :put,
+        :update,
+        :person_id => @person.to_param,
+        :id => School.make(:person => @person),
+        :school => School.plan(:person => @person)
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:school)
+    assert_template :update
   end
 
   test "should not update school on xhr" do
