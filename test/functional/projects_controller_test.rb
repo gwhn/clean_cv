@@ -173,7 +173,17 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should destroy company on xhr" do
-    assert false
+    project = Project.make(:company => @company)
+    assert_difference('Project.count', -1) do
+      xhr :delete,
+          :destroy,
+          :person_id => @person.to_param,
+          :company_id => @company.to_param,
+          :id => project.to_param
+    end
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:company)
+    assert_template :destroy
   end
 
   test "should cancel destroy company" do

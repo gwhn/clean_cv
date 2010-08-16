@@ -160,7 +160,13 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should destroy person on xhr" do
-    assert false
+    login_as users(:guy)
+    assert_difference('Person.count', -1) do
+      xhr :delete,
+          :destroy,
+          :id => people(:marge).to_param
+    end
+    assert_template :redirect
   end
 
   test "should cancel destroy person" do

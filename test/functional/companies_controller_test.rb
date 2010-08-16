@@ -155,7 +155,15 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should destroy company on xhr" do
-    assert false
+    company = Company.make(:person => @person)
+    assert_difference('Company.count', -1) do
+      xhr :delete,
+          :destroy,
+          :person_id => @person.to_param,
+          :id => company.to_param
+    end
+    assert_not_nil assigns(:person)
+    assert_template :destroy
   end
 
   test "should cancel destroy company" do

@@ -155,7 +155,15 @@ class SkillsControllerTest < ActionController::TestCase
   end
 
   test "should destroy skill on xhr" do
-    assert false
+    skill = Skill.make(:person => @person)
+    assert_difference('Skill.count', -1) do
+      xhr :delete,
+          :destroy,
+          :person_id => @person.to_param,
+          :id => skill.to_param
+    end
+    assert_not_nil assigns(:person)
+    assert_template :destroy
   end
 
   test "should cancel destroy skill" do

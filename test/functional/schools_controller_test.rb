@@ -155,7 +155,15 @@ class SchoolsControllerTest < ActionController::TestCase
   end
 
   test "should destroy school on xhr" do
-    assert false
+    school = School.make(:person => @person)
+    assert_difference('School.count', -1) do
+      xhr :delete,
+          :destroy,
+          :person_id => @person.to_param,
+          :id => school.to_param
+    end
+    assert_not_nil assigns(:person)
+    assert_template :destroy
   end
 
   test "should cancel destroy school" do
