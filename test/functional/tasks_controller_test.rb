@@ -89,7 +89,15 @@ class TasksControllerTest < ActionController::TestCase
   end
 
   test "edit form has expected form fields" do
-    assert false
+    task = Task.make(:project => @project)
+    get :edit,
+        :person_id => @person.to_param,
+        :company_id => @company.to_param,
+        :project_id => @project.to_param,
+        :id => task.to_param
+    assert_select 'form[id=?][action=?]', "edit_task_#{task.id}", person_company_project_task_path(@person, @company, @project, task) do
+      assert_select 'textarea[id=task_description][name=?]', 'task[description]'
+    end
   end
 
   test "should update task" do

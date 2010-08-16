@@ -112,7 +112,18 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "edit form has expected form fields" do
-    assert false
+    Skill.make :person => @person
+    project = Project.make(:company => @company)
+    get :edit,
+        :person_id => @person.to_param,
+        :company_id => @company.to_param,
+        :id => project.to_param
+    assert_select 'form[id=?][action=?]', "edit_project_#{project.id}", person_company_project_path(@person, @company, project) do
+      assert_select 'input[type=text][id=project_name][name=?]', 'project[name]'
+      assert_select 'textarea[id=project_description][name=?]', 'project[description]'
+      assert_select 'input[type=hidden][name=?]', 'project[skill_ids][]', :count => @person.skills.count
+      assert_select 'input[type=checkbox][name=?]', 'project[skill_ids][]', :count => @person.skills.count
+    end
   end
 
   test "should update project" do

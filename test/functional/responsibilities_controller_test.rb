@@ -81,7 +81,14 @@ class ResponsibilitiesControllerTest < ActionController::TestCase
   end
 
   test "edit form has expected form fields" do
-    assert false
+    responsibility = Responsibility.make(:company => @company)
+    get :edit,
+        :person_id => @person.to_param,
+        :company_id => @company.to_param,
+        :id => responsibility.to_param
+    assert_select 'form[id=?][action=?]', "edit_responsibility_#{responsibility.id}", person_company_responsibility_path(@person, @company, responsibility) do
+      assert_select 'textarea[id=responsibility_description][name=?]', 'responsibility[description]'
+    end
   end
 
   test "should update responsibility" do

@@ -109,7 +109,22 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "edit form has expected form fields" do
-    assert false
+    login_as users(:guy)
+    get :edit,
+        :id => people(:homer).to_param
+    assert_select 'form[id=?][action=?]', "edit_person_#{people(:homer).id}", person_path(people(:homer), :format => :js) do
+      assert_select 'input[type=text][id=person_name][name=?]', 'person[name]'
+      assert_select 'input[type=text][id=person_job_title][name=?]', 'person[job_title]'
+      assert_select 'input[type=text][id=person_email][name=?]', 'person[email]'
+      assert_select 'input[type=text][id=person_phone][name=?]', 'person[phone]'
+      assert_select 'input[type=text][id=person_mobile][name=?]', 'person[mobile]'
+      assert_select 'input[type=file][id=person_photo][name=?]', 'person[photo]'
+      assert_select 'input[type=text][id=person_flickr_url][name=?]', 'person[flickr_url]'
+      assert_select 'input[type=text][id=person_twitter_url][name=?]', 'person[twitter_url]'
+      assert_select 'input[type=text][id=person_facebook_url][name=?]', 'person[facebook_url]'
+      assert_select 'input[type=text][id=person_linked_in_url][name=?]', 'person[linked_in_url]'
+      assert_select 'textarea[id=person_profile][name=?]', 'person[profile]'
+    end
   end
 
   test "should update person" do

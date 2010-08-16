@@ -101,7 +101,17 @@ class SchoolsControllerTest < ActionController::TestCase
   end
 
   test "edit form has expected form fields" do
-    assert false
+    school = School.make(:person => @person)
+    get :edit,
+        :person_id => @person.to_param,
+        :id => school.to_param
+    assert_select 'form[id=?][action=?]', "edit_school_#{school.id}", person_school_path(@person, school) do
+      assert_select 'input[type=text][id=school_name][name=?]', 'school[name]'
+      assert_select 'input[type=text][id=school_course][name=?]', 'school[course]'
+      assert_select 'input[type=text][id=school_result][name=?]', 'school[result]'
+      assert_select 'select[id=school_date_from_1i][name=?]', 'school[date_from(1i)]'
+      assert_select 'select[id=school_date_to_1i][name=?]', 'school[date_to(1i)]'
+    end
   end
 
   test "should update school" do

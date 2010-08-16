@@ -99,7 +99,15 @@ class SkillsControllerTest < ActionController::TestCase
   end
 
   test "edit form has expected form fields" do
-    assert false
+    skill = Skill.make(:person => @person)
+    get :edit,
+        :person_id => @person.to_param,
+        :id => skill.to_param
+    assert_select 'form[id=?][action=?]', "edit_skill_#{skill.id}", person_skill_path(@person, skill) do
+      assert_select 'input[type=text][id=skill_name][name=?]', 'skill[name]'
+      assert_select 'input[type=text][id=skill_level][name=?]', 'skill[level]'
+      assert_select 'textarea[id=skill_description][name=?]', 'skill[description]'
+    end
   end
 
   test "should update skill" do

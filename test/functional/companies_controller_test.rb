@@ -103,7 +103,19 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "edit form has expected form fields" do
-    assert false
+    company = Company.make(:person => @person)
+    get :edit,
+        :person_id => @person.to_param,
+        :id => company.to_param
+    assert_select 'form[id=?][action=?]', "edit_company_#{company.id}", person_company_path(@person, company) do
+      assert_select 'input[type=text][id=company_name][name=?]', 'company[name]'
+      assert_select 'input[type=text][id=company_role][name=?]', 'company[role]'
+      assert_select 'input[type=text][id=company_business_type][name=?]', 'company[business_type]'
+      assert_select 'select[id=company_start_date_1i][name=?]', 'company[start_date(1i)]'
+      assert_select 'select[id=company_start_date_2i][name=?]', 'company[start_date(2i)]'
+      assert_select 'select[id=company_end_date_1i][name=?]', 'company[end_date(1i)]'
+      assert_select 'select[id=company_end_date_2i][name=?]', 'company[end_date(2i)]'
+    end
   end
 
   test "should update company" do
