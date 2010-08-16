@@ -58,7 +58,7 @@ class PeopleController < ApplicationController
         format.html { render :action => :new }
         format.xml { render :xml => @person.errors, :status => :unprocessable_entity }
         format.js do
-          @url = people_url(:format => :js)
+          @url = people_path(:format => :js)
           responds_to_parent { render :action => :invalid, :layout => false }
         end
       end

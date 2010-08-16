@@ -23,7 +23,12 @@ class ResponsibilitiesControllerTest < ActionController::TestCase
   end
 
   test "new form has expected form fields" do
-    assert false
+    get :new,
+        :person_id => @person.to_param,
+        :company_id => @company.to_param
+    assert_select 'form[id=new_responsibility][action=?]', person_company_responsibilities_path(@person, @company) do
+      assert_select 'textarea[id=responsibility_description][name=?]', 'responsibility[description]'
+    end
   end
 
   test "should create responsibility" do
@@ -119,6 +124,19 @@ class ResponsibilitiesControllerTest < ActionController::TestCase
   end
 
   test "should reposition responsibilities" do
-    assert false
+    first = Responsibility.make(:company => @company)
+    last = Responsibility.make(:company => @company)
+    @company.reload
+    assert first.id, @company.responsibilities.first.id
+    assert last.id, @company.responsibilities.last.id
+    put :reposition,
+        :person_id => @person.to_param,
+        :company_id => @company.to_param,
+        :responsibility => [last.id.to_s, first.id.to_s]
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:company)
+    @company.reload
+    assert last.id, @company.responsibilities.first.id
+    assert first.id, @company.responsibilities.last.id
   end
 end

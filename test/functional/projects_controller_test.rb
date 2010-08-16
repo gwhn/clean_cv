@@ -23,7 +23,16 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "new form has expected form fields" do
-    assert false
+    Skill.make :person => @person
+    get :new,
+        :person_id => @person.to_param,
+        :company_id => @company.to_param
+    assert_select 'form[id=new_project][action=?]', person_company_projects_path(@person, @company) do
+      assert_select 'input[type=text][id=project_name][name=?]', 'project[name]'
+      assert_select 'textarea[id=project_description][name=?]', 'project[description]'
+      assert_select 'input[type=hidden][name=?]', 'project[skill_ids][]', :count => @person.skills.count
+      assert_select 'input[type=checkbox][name=?]', 'project[skill_ids][]', :count => @person.skills.count
+    end
   end
 
   test "should create project" do

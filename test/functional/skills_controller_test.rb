@@ -21,7 +21,13 @@ class SkillsControllerTest < ActionController::TestCase
   end
 
   test "new form has expected form fields" do
-    assert false
+    get :new,
+        :person_id => @person.to_param
+    assert_select 'form[id=new_skill][action=?]', person_skills_path(@person) do
+      assert_select 'input[type=text][id=skill_name][name=?]', 'skill[name]'
+      assert_select 'input[type=text][id=skill_level][name=?]', 'skill[level]'
+      assert_select 'textarea[id=skill_description][name=?]', 'skill[description]'
+    end
   end
 
   test "should create skill" do
@@ -186,6 +192,17 @@ class SkillsControllerTest < ActionController::TestCase
   end
 
   test "should reposition skills" do
-    assert false
+    first = Skill.make(:person => @person)
+    last = Skill.make(:person => @person)
+    @person.reload
+    assert first.id, @person.skills.first.id
+    assert last.id, @person.skills.last.id
+    put :reposition,
+        :person_id => @person.to_param,
+        :skill => [last.id.to_s, first.id.to_s]
+    assert_not_nil assigns(:person)
+    @person.reload
+    assert last.id, @person.skills.first.id
+    assert first.id, @person.skills.last.id
   end
 end

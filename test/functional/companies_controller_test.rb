@@ -21,7 +21,17 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "new form has expected form fields" do
-    assert false
+    get :new,
+        :person_id => @person.to_param
+    assert_select 'form[id=new_company][action=?]', person_companies_path(@person) do
+      assert_select 'input[type=text][id=company_name][name=?]', 'company[name]'
+      assert_select 'input[type=text][id=company_role][name=?]', 'company[role]'
+      assert_select 'input[type=text][id=company_business_type][name=?]', 'company[business_type]'
+      assert_select 'select[id=company_start_date_1i][name=?]', 'company[start_date(1i)]'
+      assert_select 'select[id=company_start_date_2i][name=?]', 'company[start_date(2i)]'
+      assert_select 'select[id=company_end_date_1i][name=?]', 'company[end_date(1i)]'
+      assert_select 'select[id=company_end_date_2i][name=?]', 'company[end_date(2i)]'
+    end
   end
 
   test "should create company" do
