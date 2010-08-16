@@ -108,13 +108,11 @@ class SchoolsControllerTest < ActionController::TestCase
 
   test "should not update school" do
     school = School.make(:person => @person)
-    assert_no_difference('School.count') do
-      put :update,
-          :person_id => @person.to_param,
-          :id => school.to_param,
-          :school => School.plan(:person => @person,
-                                 :name => nil)
-    end
+    put :update,
+        :person_id => @person.to_param,
+        :id => school.to_param,
+        :school => School.plan(:person => @person,
+                               :name => nil)
     assert_not_nil assigns(:school)
     assert_template :edit
   end
@@ -131,7 +129,15 @@ class SchoolsControllerTest < ActionController::TestCase
   end
 
   test "should not update school on xhr" do
-    assert false
+    school = School.make(:person => @person)
+    xhr :put,
+        :update,
+        :person_id => @person.to_param,
+        :id => school.to_param,
+        :school => School.plan(:person => @person,
+                               :name => nil)
+    assert_not_nil assigns(:school)
+    assert_template :invalid
   end
 
   test "should get delete confirmation" do

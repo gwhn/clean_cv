@@ -108,13 +108,11 @@ class SkillsControllerTest < ActionController::TestCase
 
   test "should not update skill" do
     skill = Skill.make(:person => @person)
-    assert_no_difference('Skill.count') do
-      put :update,
-          :person_id => @person.to_param,
-          :id => skill.to_param,
-          :skill => Skill.plan(:person => @person,
-                               :name => nil)
-    end
+    put :update,
+        :person_id => @person.to_param,
+        :id => skill.to_param,
+        :skill => Skill.plan(:person => @person,
+                             :name => nil)
     assert_not_nil assigns(:skill)
     assert_template :edit
   end
@@ -131,7 +129,15 @@ class SkillsControllerTest < ActionController::TestCase
   end
 
   test "should not update skill on xhr" do
-    assert false
+    skill = Skill.make(:person => @person)
+    xhr :put,
+        :update,
+        :person_id => @person.to_param,
+        :id => skill.to_param,
+        :skill => Skill.plan(:person => @person,
+                             :name => nil)
+    assert_not_nil assigns(:skill)
+    assert_template :invalid
   end
 
   test "should get delete confirmation" do

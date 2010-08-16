@@ -120,14 +120,12 @@ class ProjectsControllerTest < ActionController::TestCase
 
   test "should not update project" do
     project = Project.make(:company => @company)
-    assert_no_difference('Project.count') do
-      put :update,
-          :person_id => @person.to_param,
-          :company_id => @company.to_param,
-          :id => project.to_param,
-          :project => Project.plan(:company => @company,
-                                   :name => nil)
-    end
+    put :update,
+        :person_id => @person.to_param,
+        :company_id => @company.to_param,
+        :id => project.to_param,
+        :project => Project.plan(:company => @company,
+                                 :name => nil)
     assert_not_nil assigns(:project)
     assert_template :edit
   end
@@ -146,7 +144,16 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should not update project on xhr" do
-    assert false
+    project = Project.make(:company => @company)
+    xhr :put,
+        :update,
+        :person_id => @person.to_param,
+        :company_id => @company.to_param,
+        :id => project.to_param,
+        :project => Project.plan(:company => @company,
+                                 :name => nil)
+    assert_not_nil assigns(:project)
+    assert_template :invalid
   end
 
   test "should get delete confirmation" do

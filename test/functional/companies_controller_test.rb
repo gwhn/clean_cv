@@ -108,13 +108,11 @@ class CompaniesControllerTest < ActionController::TestCase
 
   test "should not update company" do
     company = Company.make(:person => @person)
-    assert_no_difference('Company.count') do
-      put :update,
-          :person_id => @person.to_param,
-          :id => company.to_param,
-          :company => Company.plan(:person => @person,
-                                   :name => nil)
-    end
+    put :update,
+        :person_id => @person.to_param,
+        :id => company.to_param,
+        :company => Company.plan(:person => @person,
+                                 :name => nil)
     assert_not_nil assigns(:company)
     assert_template :edit
   end
@@ -131,7 +129,15 @@ class CompaniesControllerTest < ActionController::TestCase
   end
 
   test "should not update company on xhr" do
-    assert false
+    company = Company.make(:person => @person)
+    xhr :put,
+        :update,
+        :person_id => @person.to_param,
+        :id => company.to_param,
+        :company => Company.plan(:person => @person,
+                                 :name => nil)
+    assert_not_nil assigns(:company)
+    assert_template :invalid
   end
 
   test "should get delete confirmation" do
