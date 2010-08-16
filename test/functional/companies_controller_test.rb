@@ -38,7 +38,7 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_difference('Company.count') do
       post :create,
            :person_id => @person.to_param,
-           :company => Company.plan(:person => @person)
+           :company => Company.plan
     end
 
     assert_redirected_to person_company_path(assigns(:person),
@@ -49,8 +49,7 @@ class CompaniesControllerTest < ActionController::TestCase
     assert_no_difference('Company.count') do
       post :create,
            :person_id => @person.to_param,
-           :company => Company.plan(:person => @person,
-                                    :name => nil)
+           :company => Company.plan(:name => nil)
     end
     assert_not_nil assigns(:company)
     assert_template :new
@@ -61,7 +60,7 @@ class CompaniesControllerTest < ActionController::TestCase
       xhr :post,
           :create,
           :person_id => @person.to_param,
-          :company => Company.plan(:person => @person)
+          :company => Company.plan
     end
     assert_not_nil assigns(:person)
     assert_not_nil assigns(:company)
@@ -73,15 +72,20 @@ class CompaniesControllerTest < ActionController::TestCase
       xhr :post,
           :create,
           :person_id => @person.to_param,
-          :company => Company.plan(:person => @person,
-                                   :name => nil)
+          :company => Company.plan(:name => nil)
     end
     assert_not_nil assigns(:company)
     assert_template :invalid
   end
 
   test "should associate current person with new company" do
-    assert false
+    assert_difference('Company.count') do
+      post :create,
+           :person_id => @person.to_param,
+           :company => Company.plan
+    end
+    assert_not_nil company = assigns(:company)
+    assert_equal @person, company.person
   end
 
   test "should show company" do

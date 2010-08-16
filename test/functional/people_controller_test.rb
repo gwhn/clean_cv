@@ -88,7 +88,14 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   test "should associate current user with new person" do
-    assert false
+    session = login_as users(:guy)
+    current_user = session.user
+    assert_not_nil current_user
+    assert_difference('Person.count') do
+      post :create, :person => Person.plan
+    end
+    assert_not_nil person = assigns(:person)
+    assert_equal current_user, person.user
   end
 
   test "should show person" do

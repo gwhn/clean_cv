@@ -34,7 +34,7 @@ class SkillsControllerTest < ActionController::TestCase
     assert_difference('Skill.count') do
       post :create,
            :person_id => @person.to_param,
-           :skill => Skill.plan(:person => @person)
+           :skill => Skill.plan
     end
 
     assert_redirected_to person_skill_path(assigns(:person),
@@ -45,8 +45,7 @@ class SkillsControllerTest < ActionController::TestCase
     assert_no_difference('Skill.count') do
       post :create,
            :person_id => @person.to_param,
-           :skill => Skill.plan(:person => @person,
-                                :name => nil)
+           :skill => Skill.plan(:name => nil)
     end
     assert_not_nil assigns(:skill)
     assert_template :new
@@ -57,7 +56,7 @@ class SkillsControllerTest < ActionController::TestCase
       xhr :post,
           :create,
           :person_id => @person.to_param,
-          :skill => Skill.plan(:person => @person)
+          :skill => Skill.plan
     end
     assert_not_nil assigns(:person)
     assert_not_nil assigns(:skill)
@@ -69,15 +68,20 @@ class SkillsControllerTest < ActionController::TestCase
       xhr :post,
           :create,
           :person_id => @person.to_param,
-          :skill => Skill.plan(:person => @person,
-                               :name => nil)
+          :skill => Skill.plan(:name => nil)
     end
     assert_not_nil assigns(:skill)
     assert_template :invalid
   end
 
   test "should associate current person with new skill" do
-    assert false
+    assert_difference('Skill.count') do
+      post :create,
+           :person_id => @person.to_param,
+           :skill => Skill.plan
+    end
+    assert_not_nil skill = assigns(:skill)
+    assert_equal @person, skill.person
   end
 
   test "should show skill" do

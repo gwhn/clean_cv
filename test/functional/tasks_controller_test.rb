@@ -40,7 +40,7 @@ class TasksControllerTest < ActionController::TestCase
            :person_id => @person.to_param,
            :company_id => @company.to_param,
            :project_id => @project.to_param,
-           :task => Task.plan(:project => @project)
+           :task => Task.plan
     end
 
     assert_redirected_to person_company_project_task_path(assigns(:person),
@@ -55,15 +55,22 @@ class TasksControllerTest < ActionController::TestCase
            :person_id => @person.to_param,
            :company_id => @company.to_param,
            :project_id => @project.to_param,
-           :task => Task.plan(:project => @project,
-                              :description => nil)
+           :task => Task.plan(:description => nil)
     end
     assert_not_nil assigns(:task)
     assert_template :new
   end
 
   test "should associate current project with new task" do
-    assert false
+    assert_difference('Task.count') do
+      post :create,
+           :person_id => @person.to_param,
+           :company_id => @company.to_param,
+           :project_id => @project.to_param,
+           :task => Task.plan
+    end
+    assert_not_nil task = assigns(:task)
+    assert_equal @project, task.project
   end
 
   test "should show task" do

@@ -36,7 +36,7 @@ class SchoolsControllerTest < ActionController::TestCase
     assert_difference('School.count') do
       post :create,
            :person_id => @person.to_param,
-           :school => School.plan(:person => @person)
+           :school => School.plan
     end
 
     assert_redirected_to person_school_path(assigns(:person),
@@ -47,8 +47,7 @@ class SchoolsControllerTest < ActionController::TestCase
     assert_no_difference('School.count') do
       post :create,
            :person_id => @person.to_param,
-           :school => School.plan(:person => @person,
-                                  :name => nil)
+           :school => School.plan(:name => nil)
     end
     assert_not_nil assigns(:school)
     assert_template :new
@@ -59,7 +58,7 @@ class SchoolsControllerTest < ActionController::TestCase
       xhr :post,
           :create,
           :person_id => @person.to_param,
-          :school => School.plan(:person => @person)
+          :school => School.plan
     end
     assert_not_nil assigns(:person)
     assert_not_nil assigns(:school)
@@ -71,15 +70,20 @@ class SchoolsControllerTest < ActionController::TestCase
       xhr :post,
           :create,
           :person_id => @person.to_param,
-          :school => School.plan(:person => @person,
-                                 :name => nil)
+          :school => School.plan(:name => nil)
     end
     assert_not_nil assigns(:school)
     assert_template :invalid
   end
 
   test "should associate current person with new school" do
-    assert false
+    assert_difference('School.count') do
+      post :create,
+           :person_id => @person.to_param,
+           :school => School.plan
+    end
+    assert_not_nil school = assigns(:school)
+    assert_equal @person, school.person
   end
 
   test "should show school" do

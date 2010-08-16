@@ -36,7 +36,7 @@ class ResponsibilitiesControllerTest < ActionController::TestCase
       post :create,
            :person_id => @person.to_param,
            :company_id => @company.to_param,
-           :responsibility => Responsibility.plan(:company => @company)
+           :responsibility => Responsibility.plan
     end
 
     assert_redirected_to person_company_responsibility_path(assigns(:person),
@@ -49,15 +49,21 @@ class ResponsibilitiesControllerTest < ActionController::TestCase
       post :create,
            :person_id => @person.to_param,
            :company_id => @company.to_param,
-           :responsibility => Responsibility.plan(:company => @company,
-                                                  :description => nil)
+           :responsibility => Responsibility.plan(:description => nil)
     end
     assert_not_nil assigns(:responsibility)
     assert_template :new
   end
 
   test "should associate current company with new responsibility" do
-    assert false
+    assert_difference('Responsibility.count') do
+      post :create,
+           :person_id => @person.to_param,
+           :company_id => @company.to_param,
+           :responsibility => Responsibility.plan
+    end
+    assert_not_nil responsibility = assigns(:responsibility)
+    assert_equal @company, responsibility.company
   end
 
   test "should show responsibility" do

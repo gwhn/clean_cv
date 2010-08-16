@@ -40,7 +40,7 @@ class ProjectsControllerTest < ActionController::TestCase
       post :create,
            :person_id => @person.to_param,
            :company_id => @company.to_param,
-           :project => Project.plan(:company => @company)
+           :project => Project.plan
     end
 
     assert_redirected_to person_company_project_path(assigns(:person),
@@ -53,8 +53,7 @@ class ProjectsControllerTest < ActionController::TestCase
       post :create,
            :person_id => @person.to_param,
            :company_id => @company.to_param,
-           :project => Project.plan(:company => @company,
-                                    :name => nil)
+           :project => Project.plan(:name => nil)
     end
     assert_not_nil assigns(:project)
     assert_template :new
@@ -66,7 +65,7 @@ class ProjectsControllerTest < ActionController::TestCase
           :create,
           :person_id => @person.to_param,
           :company_id => @company.to_param,
-          :project => Project.plan(:company => @company)
+          :project => Project.plan
     end
     assert_not_nil assigns(:person)
     assert_not_nil assigns(:company)
@@ -80,15 +79,21 @@ class ProjectsControllerTest < ActionController::TestCase
           :create,
           :person_id => @person.to_param,
           :company_id => @company.to_param,
-          :project => Project.plan(:company => @company,
-                                   :name => nil)
+          :project => Project.plan(:name => nil)
     end
     assert_not_nil assigns(:project)
     assert_template :invalid
   end
 
   test "should associate current company with new project" do
-    assert false
+    assert_difference('Project.count') do
+      post :create,
+           :person_id => @person.to_param,
+           :company_id => @company.to_param,
+           :project => Project.plan
+    end
+    assert_not_nil project = assigns(:project)
+    assert_equal @company, project.company
   end
 
   test "should show project" do
