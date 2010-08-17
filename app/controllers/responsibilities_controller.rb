@@ -1,4 +1,6 @@
 class ResponsibilitiesController < ApplicationController
+  layout 'standard'
+
   before_filter :load_person_company
   before_filter :load_responsibility, :only => [:show, :edit, :update, :destroy]
   before_filter :new_responsibility, :only => [:new, :create, :index]

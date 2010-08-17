@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  layout 'standard'
+
   before_filter :load_person_company
   before_filter :load_project, :only => [:show, :edit, :update, :delete, :destroy]
   before_filter :new_project, :only => [:new, :create, :index]

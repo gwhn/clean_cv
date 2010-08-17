@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  layout 'standard'
+
   before_filter :load_person
   before_filter :load_company, :only => [:show, :edit, :update, :delete, :destroy]
   before_filter :new_company, :only => [:new, :create, :index]

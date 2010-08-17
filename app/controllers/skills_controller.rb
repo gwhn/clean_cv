@@ -1,4 +1,6 @@
 class SkillsController < ApplicationController
+  layout 'standard'
+
   before_filter :load_person
   before_filter :load_skill, :only => [:show, :edit, :update, :delete, :destroy]
   before_filter :new_skill, :only => [:new, :create, :index]

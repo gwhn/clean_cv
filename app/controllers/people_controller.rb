@@ -1,4 +1,6 @@
 class PeopleController < ApplicationController
+  layout 'standard'
+  
   skip_before_filter :require_user, :only => [:index, :show]
 
   before_filter :load_person, :only => [:show, :edit, :update, :delete, :destroy]

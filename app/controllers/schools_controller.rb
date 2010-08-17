@@ -1,4 +1,6 @@
 class SchoolsController < ApplicationController
+  layout 'standard'
+
   before_filter :load_person
   before_filter :load_school, :only => [:show, :edit, :update, :delete, :destroy]
   before_filter :new_school, :only => [:new, :create, :index]

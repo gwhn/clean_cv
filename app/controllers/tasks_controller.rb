@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  layout 'standard'
+
   before_filter :load_person_company_project
   before_filter :load_task, :only => [:show, :edit, :update, :destroy]
   before_filter :new_task, :only => [:new, :create, :index]
