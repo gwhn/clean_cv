@@ -1,5 +1,6 @@
 - semantic_form_for([person, company, responsibility]) do |f|
+  = f.semantic_errors :state
 
   = render :partial => 'fields', :object => f
   - f.buttons do
-    f.commit_button
+    = f.commit_button

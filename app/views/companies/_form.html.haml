@@ -1,8 +1,9 @@
 - semantic_form_for([person, company]) do |f|
+  = f.semantic_errors :state
 
   = render :partial => 'fields', :object => f
 
-  - f.semantic_fields_for :responsibilities, :name => 'Responsibilities' do |r|
+  - f.semantic_fields_for :responsibilities do |r|
     #responsibilities
       = render :partial => 'responsibility', :locals => {:f => r}
 
@@ -10,7 +11,7 @@
     %p= add_child_link 'New responsibility', :responsibilities, :class => 'add-person-company-responsibility'
     = new_child_fields_template f, :responsibilities
 
-  - f.semantic_fields_for :projects, :name => 'Projects' do |p|
+  - f.semantic_fields_for :projects do |p|
     #projects
       = render :partial => 'project', :locals => {:f => p}
 

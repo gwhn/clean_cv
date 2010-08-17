@@ -1,4 +1,5 @@
 - semantic_form_for person, :url => url, :html => {:multipart => true, :target => 'upload_frame'} do |f|
+  = f.semantic_errors :state
 
   - f.inputs do
     = f.input :name
@@ -14,7 +15,7 @@
     = f.input :linked_in_url
     = f.input :profile
 
-  - f.semantic_fields_for :companies, :name => 'Companies' do |c|
+  - f.semantic_fields_for :companies do |c|
     #companies
       = render :partial => 'company', :locals => {:f => c}
 
@@ -22,7 +23,7 @@
     %p= add_child_link 'New company', :companies, :class => 'add-person-company'
     = new_child_fields_template f, :companies
 
-  - f.semantic_fields_for :skills, :name => 'Skills' do |sk|
+  - f.semantic_fields_for :skills do |sk|
     #skills
       = render :partial => 'skill', :locals => {:f => sk}
 
@@ -30,7 +31,7 @@
     %p= add_child_link 'New skill', :skills, :class => 'add-person-skill'
     = new_child_fields_template f, :skills
 
-  - f.semantic_fields_for :schools, :name => 'Schools' do |sc|
+  - f.semantic_fields_for :schools do |sc|
     #schools
       = render :partial => 'school', :locals => {:f => sc}
 

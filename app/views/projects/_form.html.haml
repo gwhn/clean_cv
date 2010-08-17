@@ -1,11 +1,12 @@
 - semantic_form_for([person, company, project]) do |f|
+  = f.semantic_errors :state
 
   = render :partial => 'fields', :object => f
 
   - f.inputs do
     = f.input :skills, :as => :check_boxes, :collection => person.skills
 
-  - f.semantic_fields_for :tasks, :name => 'Tasks' do |t|
+  - f.semantic_fields_for :tasks do |t|
     #tasks
       = render :partial => 'task', :locals => {:f => t}
 
