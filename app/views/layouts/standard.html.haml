@@ -22,17 +22,42 @@
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
     %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}/
     / CSS : implied media="all"
-    %link{:href => "/stylesheets/style.css", :rel => "stylesheet"}/
-    %link{:href => "/stylesheets/screen.css", :rel => "stylesheet"}
-    %link{:href => "/stylesheets/print.css", :rel => "stylesheet", :media => 'print'}
-    /[if lt IE 8]>
-      %link{:href => "/stylesheets/ie.css", :rel => "stylesheet"}
-    %link{:href => "/stylesheets/buttons.css", :rel => "stylesheet"}
-    %link{:href => "/stylesheets/link_icons.css", :rel => "stylesheet"}
+
+    
+    = stylesheet_link_tag 'compiled/style.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/buttons.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/link_icons.css', :media => 'screen, projection'
     / For the less-enabled mobile browsers like Opera Mini
-    %link{:href => "/stylesheets/handheld.css", :media => "handheld", :rel => "stylesheet"}/
+    = stylesheet_link_tag 'compiled/handheld.css', :media => 'handheld'
     / All JavaScript at the bottom, except for Modernizr which enables HTML5 elements &amp; feature detects
-    %script{:src => "javascripts/modernizr-1.5.min.js"}
+    = javascript_include_tag 'modernizr-1.5.min.js', 'jquery-ui-1.8.2.custom.min.js',
+      'application', 'jquery.fancybox-1.2.6.pack.js', 'jquery.tipsy.js',
+      'jquery.scrollTo-1.4.2-min.js', 'cufon-yui.js', 'Aller.font.js'
+    = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
+    :javascript
+      $(function(){
+        replaceFonts("h1, h6, .item h2, h2.cv-section-name");
+        initFancyBox("a.lightbox");
+        initTipsy(".tip");
+        bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");
+        bindAddChildLinks("#form-dialog form a.add-person-company");
+        bindRemoveChildLinks("#form-dialog form a.remove-person-company");
+        bindAddChildLinks("#form-dialog form a.add-person-skill");
+        bindRemoveChildLinks("#form-dialog form a.remove-person-skill");
+        bindAddChildLinks("#form-dialog form a.add-person-school");
+        bindRemoveChildLinks("#form-dialog form a.remove-person-school");
+        bindAddChildLinks("#form-dialog form a.add-person-company-project");
+        bindRemoveChildLinks("#form-dialog form a.remove-person-company-project");
+        bindAddChildLinks("#form-dialog form a.add-person-company-responsibility");
+        bindRemoveChildLinks("#form-dialog form a.remove-person-company-responsibility");
+        bindAddChildLinks("#form-dialog form a.add-person-company-project-task");
+        bindRemoveChildLinks("#form-dialog form a.remove-person-company-project-task");
+      });
+    = yield :javascript
   / paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
   /[if lt IE 7 ] <body class="ie6">
   /[if IE 7 ] <body class="ie7">
@@ -44,6 +69,12 @@
     #container
       %header
       #main
+        #cv= yield
+        .authme
+          - if current_user
+            = link_to 'Logout', logout_path
+          - else
+            = link_to 'Login', login_path, :class => 'remote-link', :title => 'Log in'
       %footer
     / ! end of #container
     / Javascript at the bottom for fast page loading
@@ -54,7 +85,7 @@
     %script{:src => "javascripts/plugins.js?v=1"}
     %script{:src => "javascripts/script.js?v=1"}
     /[if lt IE 7 ]
-      <script src="javascripts/dd_belatedpng.js?v=1"></script>
+      %script{:src => "javascripts/dd_belatedpng.js?v=1"}
     / yui profiler and profileviewer - remove for production
     %script{:src => "javascripts/profiling/yahoo-profiling.min.js?v=1"}
     %script{:src => "javascripts/profiling/config.js?v=1"}
