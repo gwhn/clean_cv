@@ -20,7 +20,7 @@
       = render :partial => 'company', :locals => {:f => c}
 
   - if permitted_to? :create, :companies
-    %p= add_child_link 'New company', :companies, :class => 'add-person-company'
+    .new-child= add_child_link 'New company', :companies, :class => 'add-person-company'
     = new_child_fields_template f, :companies
 
   - f.semantic_fields_for :skills do |sk|
@@ -28,7 +28,7 @@
       = render :partial => 'skill', :locals => {:f => sk}
 
   -if permitted_to? :create, :skills
-    %p= add_child_link 'New skill', :skills, :class => 'add-person-skill'
+    .new-child= add_child_link 'New skill', :skills, :class => 'add-person-skill'
     = new_child_fields_template f, :skills
 
   - f.semantic_fields_for :schools do |sc|
@@ -36,7 +36,7 @@
       = render :partial => 'school', :locals => {:f => sc}
 
   - if permitted_to? :create, :schools
-    %p= add_child_link 'New school', :schools, :class => 'add-person-school'
+    .new-child= add_child_link 'New school', :schools, :class => 'add-person-school'
     = new_child_fields_template f, :schools
 
   - f.buttons do

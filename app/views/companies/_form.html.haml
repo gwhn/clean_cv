@@ -8,7 +8,7 @@
       = render :partial => 'responsibility', :locals => {:f => r}
 
   - if permitted_to? :create, :responsibilities
-    %p= add_child_link 'New responsibility', :responsibilities, :class => 'add-person-company-responsibility'
+    .new-child= add_child_link 'New responsibility', :responsibilities, :class => 'add-person-company-responsibility'
     = new_child_fields_template f, :responsibilities
 
   - f.semantic_fields_for :projects do |p|
@@ -16,7 +16,7 @@
       = render :partial => 'project', :locals => {:f => p}
 
   -if permitted_to? :create, :projects
-    %p= add_child_link 'New project', :projects, :class => 'add-person-company-project'
+    .new-child= add_child_link 'New project', :projects, :class => 'add-person-company-project'
     = new_child_fields_template f, :projects
 
   - f.buttons do

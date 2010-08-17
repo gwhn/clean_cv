@@ -1,8 +1,13 @@
+
+
+
+
 form
-  :background #eee
+  +stack-form
+  +float-inputs(10px, 1.4em)
   // <li> Field wrappers
   li
-    :padding 10px 0px
+    :padding 5px 0px
     // <li> Check/Radio wrappers
     li
       :padding 0
@@ -10,9 +15,10 @@ form
   // Fieldsets
   //--------------------------------------------------------
   fieldset
-    :margin-top 20px
+    :padding 0
   // Be sure to override styling for nested fieldsets
   li
+    :margin 5px 10px
     fieldset
       :padding 0
   //--------------------------------------------------------
@@ -48,12 +54,31 @@ form
     :border 1px solid #999
     :padding 6px 8px
     :line-height 100%
+    :-webkit-border-radius 5px
+    :-moz-border-radius 5px
+    :border-radius 5px
+    :-webkit-transition all 0.5s ease-in-out
+    :-moz-transition all 0.5s ease-in-out
+    :transition all 0.5s ease-in-out
+    &:focus, &:focus
+      :-webkit-box-shadow 0 0 25px #ccc
+      :-moz-box-shadow 0 0 25px #ccc
+      :box-shadow 0 0 25px #ccc
+      :-webkit-transform scale(1.05)
+      :-moz-transform scale(1.05)
+      :transform scale(1.05)
+  textarea, input, .check_boxes
+    :width 90%
+  textarea
+    :height 5em
   //--------------------------------------------------------
   // Date Time Styling
   //--------------------------------------------------------
   .date, .time, .datetime
     li
       :margin 0 0.3em 0 0
+    label
+      :display block
   //--------------------------------------------------------
   // Feedback (Requirements, Errors and Hints)
   // Add horizontal margin/padding with care as it can
@@ -93,3 +118,9 @@ form
       :padding-right 0.5em
     input
       :border 1px solid #999
+  .remove-child
+    :float right
+    :margin 8px 30px
+  .new-child
+    :padding 0 0 5px 10px
+    
