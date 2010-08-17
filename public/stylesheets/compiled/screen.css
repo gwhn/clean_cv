@@ -543,3 +543,729 @@ body.two-col #content {
 * html body.two-col #content {
   overflow-x: hidden;
 }
+
+/* =GENERAL
+--------------------- */
+/* line 20, ../../../app/stylesheets/screen.scss */
+body {
+  background-color: #222;
+  color: #333;
+  font: 12px Arial, Helvetica, sans-serif;
+  line-height: 22px;
+}
+
+/* line 27, ../../../app/stylesheets/screen.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 31, ../../../app/stylesheets/screen.scss */
+a {
+  color: #0066AA;
+}
+
+/* line 35, ../../../app/stylesheets/screen.scss */
+strong {
+  font-weight: 700;
+}
+
+/* line 39, ../../../app/stylesheets/screen.scss */
+em {
+  font-style: italic;
+}
+
+/* Clear Fix Hack - add  class="fixed"  to div's that have floated elements in them */
+/* line 44, ../../../app/stylesheets/screen.scss */
+.fixed:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* line 52, ../../../app/stylesheets/screen.scss */
+.fixed {
+  display: block;
+  min-height: 1%;
+}
+
+/* line 57, ../../../app/stylesheets/screen.scss */
+* html .fixed {
+  height: 1%;
+}
+
+/* =LAYOUT
+----------------------------------*/
+/* line 64, ../../../app/stylesheets/screen.scss */
+#cv {
+  margin: 66px auto 0 auto;
+  width: 780px;
+  padding: 0 0 40px;
+  position: relative;
+}
+
+/* line 71, ../../../app/stylesheets/screen.scss */
+.cv-section {
+  margin: 0 40px;
+  padding: 30px 0;
+  position: relative;
+}
+
+/* line 77, ../../../app/stylesheets/screen.scss */
+.first-cv-section {
+  margin: 0;
+  padding: 30px 40px;
+}
+
+/* line 82, ../../../app/stylesheets/screen.scss */
+.person {
+  float: left;
+  margin-top: 20px;
+  width: 500px;
+}
+
+/* line 88, ../../../app/stylesheets/screen.scss */
+.person img {
+  float: left;
+  margin-right: 25px;
+  padding: 10px;
+}
+
+/* line 94, ../../../app/stylesheets/screen.scss */
+.person h1 {
+  margin-top: 25px;
+}
+
+/* line 98, ../../../app/stylesheets/screen.scss */
+#contact-info {
+  float: right;
+  margin-right: 10px;
+}
+
+/* line 103, ../../../app/stylesheets/screen.scss */
+#social-media {
+  margin-bottom: 18px;
+}
+
+/* line 107, ../../../app/stylesheets/screen.scss */
+#social-media li {
+  display: inline;
+}
+
+/* line 111, ../../../app/stylesheets/screen.scss */
+.cv-section-name {
+  float: left;
+  width: 200px;
+}
+
+/* line 116, ../../../app/stylesheets/screen.scss */
+.cv-section-items {
+  float: right;
+  margin-right: 10px;
+  width: 490px;
+}
+
+/* line 122, ../../../app/stylesheets/screen.scss */
+.item {
+  margin-bottom: 20px;
+  padding-bottom: 30px;
+  position: relative;
+}
+
+/* line 128, ../../../app/stylesheets/screen.scss */
+.item h3 {
+  padding: 4px 0;
+  clear: left;
+}
+
+/* line 133, ../../../app/stylesheets/screen.scss */
+.item h4 {
+  float: right;
+  margin: 0;
+  padding: 2px 10px;
+}
+
+/* line 139, ../../../app/stylesheets/screen.scss */
+.item h5 {
+  margin: 0 0 1em;
+  float: right;
+  clear: right;
+}
+
+/* line 145, ../../../app/stylesheets/screen.scss */
+.item h6 {
+  margin: 10px 0;
+}
+
+/* line 149, ../../../app/stylesheets/screen.scss */
+.item p {
+  padding: 0 0 15px;
+}
+
+/* line 153, ../../../app/stylesheets/screen.scss */
+.item ul {
+  padding: 0 0 15px;
+}
+
+/* line 157, ../../../app/stylesheets/screen.scss */
+.last-item {
+  margin-bottom: 0;
+  padding-bottom: 30px;
+}
+
+/* line 162, ../../../app/stylesheets/screen.scss */
+#projects {
+  position: relative;
+}
+
+/* line 166, ../../../app/stylesheets/screen.scss */
+.project {
+  position: relative;
+}
+
+/* line 173, ../../../app/stylesheets/screen.scss */
+.tl-options,
+.tr-options,
+.br-options,
+.bl-options {
+  background-color: rgba(253, 176, 32, 0.2);
+  padding: 1px 5px;
+  font-size: 10px;
+  _border: 1px solid #dfdfdf;
+}
+
+/* line 180, ../../../app/stylesheets/screen.scss */
+.tr-options {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-border-top-left-radius: 0px;
+  -webkit-border-top-right-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-bottomleft: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 5px;
+  -webkit-box-shadow: -2px 2px 4px #222222;
+  -moz-box-shadow: -2px 2px 4px #222222;
+  box-shadow: -2px 2px 4px #222222;
+}
+
+/* line 201, ../../../app/stylesheets/screen.scss */
+.bl-options {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-border-top-left-radius: 0px;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  -webkit-box-shadow: 2px -2px 4px #222222;
+  -moz-box-shadow: 2px -2px 4px #222222;
+  box-shadow: 2px -2px 4px #222222;
+}
+
+/* line 222, ../../../app/stylesheets/screen.scss */
+.tl-options {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-border-top-left-radius: 0px;
+  -webkit-border-top-right-radius: 0px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 0px;
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 0px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 0px;
+  -webkit-box-shadow: 2px 2px 4px #222;
+  -moz-box-shadow: 2px 2px 4px #222;
+  box-shadow: 2px 2px 4px #222;
+}
+
+/* line 243, ../../../app/stylesheets/screen.scss */
+.br-options {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  -webkit-box-shadow: -2px -2px 4px #222222;
+  -moz-box-shadow: -2px -2px 4px #222222;
+  box-shadow: -2px -2px 4px #222222;
+}
+
+/* line 267, ../../../app/stylesheets/screen.scss */
+.tl-options:hover,
+.br-options:hover,
+.tr-options:hover,
+.bl-options:hover {
+  background-color: #FDB020;
+}
+
+/* line 271, ../../../app/stylesheets/screen.scss */
+.list-handle {
+  position: absolute;
+  margin-left: -1.6em;
+  margin-top: -1.6em;
+}
+
+/* line 277, ../../../app/stylesheets/screen.scss */
+.block-handle {
+  position: absolute;
+  margin-left: -1.6em;
+}
+
+/* =COLORS-TYPOGRAPHY
+----------------------------------*/
+/* line 285, ../../../app/stylesheets/screen.scss */
+#cv {
+  background-color: #FFF;
+  border-bottom: 15px solid #FDB020;
+  border-top: 15px solid #FDB020;
+}
+
+/* line 291, ../../../app/stylesheets/screen.scss */
+.cv-section {
+  border-bottom: 1px solid #dfdfdf;
+}
+
+/* line 295, ../../../app/stylesheets/screen.scss */
+.first-cv-section {
+  background-color: #F8F8F8;
+}
+
+/* line 299, ../../../app/stylesheets/screen.scss */
+.person img {
+  background-color: #FFF;
+  border: 1px solid #dedede;
+}
+
+/* line 304, ../../../app/stylesheets/screen.scss */
+.person h1 {
+  color: #475261;
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+/* line 311, ../../../app/stylesheets/screen.scss */
+.person h1 a {
+  text-decoration: none;
+  color: #475261;
+}
+
+/* line 316, ../../../app/stylesheets/screen.scss */
+.person h2 {
+  color: #475261;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.7px;
+  text-transform: uppercase;
+}
+
+/* line 325, ../../../app/stylesheets/screen.scss */
+#social-media {
+  list-style: none;
+}
+
+/* line 335, ../../../app/stylesheets/screen.scss */
+h2.cv-section-name {
+  color: #3C4756;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+/* line 346, ../../../app/stylesheets/screen.scss */
+.item {
+  border-bottom: 1px solid #dfdfdf;
+}
+
+/* line 350, ../../../app/stylesheets/screen.scss */
+.item h4 {
+  background-color: #eee;
+  color: #333;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+/* line 357, ../../../app/stylesheets/screen.scss */
+.item h4:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* line 362, ../../../app/stylesheets/screen.scss */
+.item h2 {
+  color: #06A;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+/* line 370, ../../../app/stylesheets/screen.scss */
+.item h3 {
+  color: #262625;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* line 378, ../../../app/stylesheets/screen.scss */
+.item h6 {
+  color: #06A;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+/* line 386, ../../../app/stylesheets/screen.scss */
+.item p {
+  text-align: justify;
+}
+
+/* line 390, ../../../app/stylesheets/screen.scss */
+.project p {
+  font-style: italic;
+}
+
+/* line 394, ../../../app/stylesheets/screen.scss */
+.item ul {
+  list-style: inside;
+  text-align: justify;
+}
+
+/* line 399, ../../../app/stylesheets/screen.scss */
+.item li {
+  list-style-type: disc;
+}
+
+/* line 403, ../../../app/stylesheets/screen.scss */
+.last-item {
+  border-bottom: none;
+}
+
+/* line 407, ../../../app/stylesheets/screen.scss */
+.last-cv-section {
+  border-bottom: none;
+}
+
+/* line 412, ../../../app/stylesheets/screen.scss */
+.item h5,
+.item .result {
+  color: #262625;
+  font-family: Georgia, serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* line 419, ../../../app/stylesheets/screen.scss */
+.authme {
+  background-color: #333;
+  border: 1px solid #444;
+  display: block;
+  left: 0;
+  padding: 12px 15px;
+  top: 66px;
+  position: fixed;
+}
+
+/* line 429, ../../../app/stylesheets/screen.scss */
+.authme a {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* line 436, ../../../app/stylesheets/screen.scss */
+.authme:hover {
+  background-color: #222;
+}
+
+/* line 440, ../../../app/stylesheets/screen.scss */
+.authme img {
+  padding: 0 0 0 5px;
+}
+
+/* line 141, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic ul, form.formtastic ol, form.formtastic legend, form.formtastic p {
+  margin: 0;
+  padding: 0;
+}
+/* line 144, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/* line 150, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic fieldset {
+  display: block;
+  *display: inline-block;
+}
+/* line 98, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic fieldset:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 154, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic abbr, form.formtastic acronym {
+  border: 0;
+  font-variant: normal;
+  font-weight: normal;
+}
+/* line 159, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic ol, form.formtastic ul {
+  list-style: none;
+}
+/* line 162, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic label {
+  display: block;
+  *display: inline-block;
+}
+/* line 98, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic label:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 166, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic input, form.formtastic textarea {
+  vertical-align: middle;
+}
+/* line 170, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .check_boxes input, form.formtastic .radio input {
+  margin: 0;
+}
+/* line 172, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .check_boxes label, form.formtastic .radio label {
+  cursor: pointer;
+}
+/* line 175, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .hidden {
+  display: none;
+}
+/* line 179, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .date li, form.formtastic .time li, form.formtastic .datetime li {
+  float: left;
+  width: auto;
+  clear: none;
+}
+/* line 183, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .date label, form.formtastic .time label, form.formtastic .datetime label {
+  display: none;
+  width: auto;
+}
+/* line 186, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .date input, form.formtastic .time input, form.formtastic .datetime input {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+/* line 191, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .errors {
+  list-style: square;
+}
+/* line 193, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .errors li {
+  padding: 0;
+  border: none;
+  display: list-item;
+  float: none;
+  clear: both;
+}
+/* line 199, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .inputs {
+  z-index: 99;
+}
+/* line 202, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .buttons li {
+  float: left;
+}
+/* line 205, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li {
+  *display: inline-block;
+  display: block;
+}
+/* line 98, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li:after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* line 208, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li fieldset {
+  border: none;
+  position: relative;
+  margin-top: 0px;
+}
+/* line 212, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li legend {
+  display: block;
+  margin-bottom: 0;
+}
+/* line 215, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li .label {
+  display: block;
+  clear: both;
+  background: transparent;
+}
+/* line 220, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li ol {
+  float: left;
+  margin: 0;
+}
+/* line 223, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li ol li {
+  padding: 0;
+  border: 0;
+  display: inline;
+}
+/* line 234, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic fieldset {
+  width: 100%;
+}
+/* line 236, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic ol {
+  padding-left: 0;
+}
+/* line 238, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic input {
+  clear: both;
+  float: none;
+}
+/* line 241, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li {
+  display: block;
+  clear: both;
+  float: none;
+  width: 100%;
+}
+/* line 244, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li ol {
+  padding: 0;
+}
+/* line 246, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li li {
+  clear: none;
+  width: auto;
+}
+/* line 250, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li fieldset legend, form.formtastic li fieldset legend .label {
+  display: block;
+  clear: both;
+}
+/* line 253, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li fieldset .label {
+  position: relative;
+}
+/* line 255, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic li fieldset label, form.formtastic li fieldset input {
+  width: auto;
+}
+/* line 258, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .date ol, form.formtastic .time ol, form.formtastic .datetime ol {
+  width: 100%;
+}
+/* line 260, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .date li, form.formtastic .time li, form.formtastic .datetime li {
+  display: inline;
+  clear: none;
+  float: left;
+  padding-right: 0;
+}
+/* line 266, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .checkbox li, form.formtastic .radio li {
+  display: block;
+}
+/* line 268, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .checkbox input, form.formtastic .radio input {
+  border: none;
+}
+/* line 270, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic label {
+  display: block;
+  clear: both;
+  float: none;
+  width: auto;
+}
+/* line 273, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic input, form.formtastic textarea {
+  width: auto;
+}
+/* line 278, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic select {
+  width: auto;
+}
+/* line 283, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .errors li {
+  display: list-item;
+}
+/* line 286, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .buttons ol {
+  padding-left: 0;
+  padding-right: 0;
+}
+/* line 289, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .buttons li {
+  float: left;
+  width: auto;
+  clear: none;
+  display: inline;
+}
+/* line 297, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .buttons input {
+  width: auto;
+}
+/* line 302, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic #errorExplanation {
+  width: 100%;
+}
+/* line 304, ../../../app/stylesheets/partials/_formtastic_base.sass */
+form.formtastic .label {
+  #left: -0.5em;
+  #position: relative;
+}

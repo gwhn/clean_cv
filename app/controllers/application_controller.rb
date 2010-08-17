@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
   before_filter :require_user
   before_filter :set_current_user
 
+  layout 'standard'
+
   protected
   def require_user
     unless current_user
