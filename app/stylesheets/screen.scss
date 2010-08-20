@@ -273,6 +273,15 @@ em {
         position: relative;
     }
 
+    .repeater {
+        display: inline;
+
+        li {
+            font-family: 'GentiumBookBasicBoldItalic', serif;
+            margin-right: 10px;
+            display: inline;
+        }
+    }
 }
 
 #projects {
