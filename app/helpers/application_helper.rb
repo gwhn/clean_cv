@@ -21,4 +21,32 @@ module ApplicationHelper
     end
   end
 
+  def sortable_javascript_for(qs, selector, item_class, url)
+    javascript_tag <<JS
+      $(function() {
+        $("#{selector}").sortable({
+          axis: "y",
+          dropOnEmpty: false,
+          handle: ".handle",
+          cursor: "move",
+          items: "#{item_class}",
+          opacity: 0.4,
+          scroll: true,
+          placeholder: "ui-state-highlight",
+          update: function() {
+            $.ajax({
+              type: "put",
+              data: $("#{selector}").sortable("serialize") + "#{qs}",
+              dataType: "script",
+              complete: function(request){
+                $("#{selector}").effect("highlight");
+              },
+              url: "#{url}"
+            });
+          }
+        });
+        $("#{selector}").disableSelection();
+      });
+JS
+  end
 end

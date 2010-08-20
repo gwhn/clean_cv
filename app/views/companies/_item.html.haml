@@ -18,31 +18,7 @@
       = render :partial => 'responsibilities/item', :collection => item.responsibilities
 
       = content_for :javascript do
-        :javascript
-          $(function() {
-            $("##{responsibilities_id}").sortable({
-              axis: "y",
-              dropOnEmpty: false,
-              handle: ".list-handle",
-              cursor: "crosshair",
-              items: ".responsibility",
-              opacity: 0.4,
-              scroll: true,
-              placeholder: "ui-state-highlight",
-              update: function() {
-                $.ajax({
-                  type: "put",
-                  data: $("##{responsibilities_id}").sortable("serialize") + "&person_id=#{item.person.id}&company_id=#{item.id}",
-                  dataType: "script",
-                  complete: function(request){
-                    $("##{responsibilities_id}").effect("highlight");
-                  },
-                  url: "#{reposition_person_company_responsibilities_url(item.person, item)}"
-                });
-              }
-            });
-            $("##{responsibilities_id}").disableSelection();
-          });
+        = sortable_javascript_for "&person_id=#{item.person.id}&company_id=#{item.id}", "##{responsibilities_id}", '.responsibility', reposition_person_company_responsibilities_url(item.person, item)
 
     - projects_id = "person_#{item.person.id}_company_#{item.id}_projects"
     %div{:id => projects_id}

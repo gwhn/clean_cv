@@ -26,31 +26,7 @@
         :locals => {:total => @person.skills.length}
 
       = content_for :javascript do
-        :javascript
-          $(function() {
-            $("##{skills_id}").sortable({
-              axis: "y",
-              dropOnEmpty: false,
-              handle: ".block-handle",
-              cursor: "crosshair",
-              items: ".skill",
-              opacity: 0.4,
-              scroll: true,
-              placeholder: "ui-state-highlight",
-              update: function() {
-                $.ajax({
-                  type: "put",
-                  data: $("##{skills_id}").sortable("serialize") + "&person_id=#{@person.id}",
-                  dataType: "script",
-                  complete: function(request){
-                    $("##{skills_id}").effect("highlight");
-                  },
-                  url: "#{reposition_person_skills_url(@person)}"
-                });
-              }
-            });
-            $("##{skills_id}").disableSelection();
-          });
+        = sortable_javascript_for "&person_id=#{@person.id}", "##{skills_id}", '.skill', reposition_person_skills_url(@person)
 
     - if permitted_to? :create, :skills
       .tl-options
