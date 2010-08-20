@@ -1,6 +1,5 @@
 <%- companies_id = "person_#{@person.id}_companies" %>
 $("#<%= companies_id %> #company_<%= @company.id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @company) %>");
 $("#<%= companies_id %> .company:last .item").addClass("last-item");
-replaceFonts("h1, h6, .item h2, h2.cv-section-name");
 bindRemoteLinks("#form-dialog", "#<%= companies_id %> #company_<%= @company.id %> .remote-link");
 $("#<%= companies_id %> #company_<%= @company.id %>").effect("highlight");

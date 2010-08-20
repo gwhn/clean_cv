@@ -1,7 +1,3 @@
-
-
-
-
 form
   +stack-form
   +float-inputs(10px, 1.4em)
@@ -34,7 +30,6 @@ form
       :color #f00
   label
     :line-height 1.4em
-    :font-size 13px
   legend
     span
       :font-size 1.4em
@@ -77,8 +72,11 @@ form
   .date, .time, .datetime
     li
       :margin 0 0.3em 0 0
-    label
-      :display block
+      label
+        :display none
+    legend
+      label
+        :display block
   //--------------------------------------------------------
   // Feedback (Requirements, Errors and Hints)
   // Add horizontal margin/padding with care as it can
@@ -123,4 +121,14 @@ form
     :margin 8px 30px
   .new-child
     :padding 0 0 5px 10px
-    
+  .nested-attributes
+    h2
+      :color #3C4756
+      :font-family 'AllerLightItalic', sans-serif
+      :font-size 24px
+      :font-weight 400
+      :letter-spacing -1px
+      :margin 20px 30px 5px 10px
+      :padding 20px 0 5px 0
+      :text-align center
+      :border-top 1px solid #dfdfdf

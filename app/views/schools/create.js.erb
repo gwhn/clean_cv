@@ -2,7 +2,6 @@
 $("#<%= schools_id %> .school:last .item").removeClass("last-item");
 $("<%= escape_javascript(render :partial => 'item', :object => @school) %>").appendTo("#<%= schools_id %>");
 $("#<%= schools_id %> .school:last .item").addClass("last-item");
-replaceFonts("h1, h6, .item h2, h2.cv-section-name");
 bindRemoteLinks("#form-dialog", "#<%= schools_id %> #school_<%= @school.id %> .remote-link");
 $.scrollTo("#<%= schools_id %> #school_<%= @school.id %>", "fast");
 $("#<%= schools_id %> #school_<%= @school.id %>").effect("highlight");

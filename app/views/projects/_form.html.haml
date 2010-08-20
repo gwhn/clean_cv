@@ -6,8 +6,9 @@
   - f.inputs do
     = f.input :skills, :as => :check_boxes, :collection => person.skills
 
-  - f.semantic_fields_for :tasks do |t|
-    #tasks
+  .nested-attributes
+    %h2 Tasks
+    - f.semantic_fields_for :tasks do |t|
       = render :partial => 'task', :locals => {:f => t}
 
   - if permitted_to? :create, :tasks    

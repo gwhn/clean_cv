@@ -2,7 +2,6 @@
 $("#<%= skills_id %> .skill:last .item").removeClass("last-item");
 $("<%= escape_javascript(render :partial => 'item', :object => @skill) %>").appendTo("#<%= skills_id %>");
 $("#<%= skills_id %> .skill:last .item").addClass("last-item");
-replaceFonts("h1, h6, .item h2, h2.cv-section-name");
 bindRemoteLinks("#form-dialog", "#<%= skills_id %> #skill_<%= @skill.id %> .remote-link");
 $.scrollTo("#<%= skills_id %> #skill_<%= @skill.id %>", "fast");
 $("#<%= skills_id %> #skill_<%= @skill.id %>").effect("highlight");

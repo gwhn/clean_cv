@@ -22,8 +22,9 @@
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}
     %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}
     / CSS : implied media="all"
-    = stylesheet_link_tag 'jquery-ui-1.8.2.custom.css', 'jquery.fancybox-1.2.6.css',
-      'tipsy.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'jquery-ui-1.8.4.custom.css', 'jquery.fancybox-1.2.6.css',
+      'tipsy.css', 'Aller.font.squirrel.css', 'Gentium.font.squirrel.css',
+      :media => 'screen, projection'
     = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
     = stylesheet_link_tag 'compiled/print.css', :media => 'print'
     /[if IE]
@@ -59,8 +60,7 @@
       !window.jQuery && document.write('<script src="javascripts/jquery-1.4.2.min.js"><\/script>')
     = javascript_include_tag 'jquery-ui-1.8.2.custom.min.js',
       'application', 'plugins', 'script', 
-      'jquery.fancybox-1.2.6.pack.js', 'jquery.tipsy.js', 'jquery.scrollTo-1.4.2-min.js',
-      'cufon-yui.js', 'Aller.font.js'
+      'jquery.fancybox-1.2.6.pack.js', 'jquery.tipsy.js', 'jquery.scrollTo-1.4.2-min.js'
     /[if lt IE 7 ]
       = javascript_include_tag 'dd_belatedpng'
     /
@@ -77,7 +77,6 @@
       })(document, 'script');
 
       $(function(){
-        replaceFonts("h1, h6, .item h2, h2.cv-section-name");
         initFancyBox("a.lightbox");
         initTipsy(".tip");
         bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");

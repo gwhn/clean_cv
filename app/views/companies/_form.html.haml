@@ -3,16 +3,18 @@
 
   = render :partial => 'fields', :object => f
 
-  - f.semantic_fields_for :responsibilities do |r|
-    #responsibilities
+  .nested-attributes
+    %h2 Responsibilities
+    - f.semantic_fields_for :responsibilities do |r|
       = render :partial => 'responsibility', :locals => {:f => r}
 
   - if permitted_to? :create, :responsibilities
     .new-child= add_child_link 'New responsibility', :responsibilities, :class => 'add-person-company-responsibility'
     = new_child_fields_template f, :responsibilities
 
-  - f.semantic_fields_for :projects do |p|
-    #projects
+  .nested-attributes
+    %h2 Projects
+    - f.semantic_fields_for :projects do |p|
       = render :partial => 'project', :locals => {:f => p}
 
   -if permitted_to? :create, :projects
