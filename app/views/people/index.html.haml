@@ -1,10 +1,14 @@
 .page-info= page_entries_info @people
 
-= render :partial => 'item', :collection => @people
+#people
+  = render :partial => 'item', :collection => @people
 
-- if current_user
-  .bl-options
-    - if permitted_to? :create, :people
-      = link_to 'New', new_person_path, :class => 'remote-link', :title => 'New person'
+  - if current_user
+    %ul.options
+      - if permitted_to? :create, :people
+        %li= link_to 'New', new_person_path, :class => 'remote-link', :title => 'New person'
+
+    - content_for :javascript do
+      = dynamic_tooltip_javascript_for '#people', 'top left'
 
 = will_paginate @people, :class => 'pager', :previous_label => '&#171;', :next_label => '&#187;', :separator => '|'

@@ -18,8 +18,8 @@
       - if permitted_to? :create, :companies
         %li= link_to 'New company', new_person_company_path(@person), :class => 'remote-link', :title => 'New company'
 
-  - content_for :javascript do
-    = dynamic_tooltip_javascript_for '.companies', 'top left'
+    - content_for :javascript do
+      = dynamic_tooltip_javascript_for '.companies', 'top left'
 
   .cv-section.fixed.skills
     %h2.cv-section-name Technical Skills
@@ -30,6 +30,7 @@
         = render :partial => 'skills/item', :collection => @person.skills,
           :locals => {:total => @person.skills.length}
 
+      - if current_user and permitted_to? :reposition, :skills
         - content_for :javascript do
           = sortable_javascript_for "&person_id=#{@person.id}", "##{skills_id}", '.skill', reposition_person_skills_url(@person)
 
@@ -38,8 +39,8 @@
       - if permitted_to? :create, :skills
         %li= link_to 'New skill', new_person_skill_path(@person), :class => 'remote-link', :title => 'New skill'
 
-  - content_for :javascript do
-    = dynamic_tooltip_javascript_for '.skills', 'top left'
+    - content_for :javascript do
+      = dynamic_tooltip_javascript_for '.skills', 'top left'
 
   .cv-section.last-cv-section.fixed.schools
     %h2.cv-section-name Education
@@ -55,6 +56,6 @@
       - if permitted_to? :create, :schools
         %li= link_to 'New school', new_person_school_path(@person), :class => 'remote-link', :title => 'New school'
 
-  - content_for :javascript do
-    = dynamic_tooltip_javascript_for '.schools', 'top left'
+    - content_for :javascript do
+      = dynamic_tooltip_javascript_for '.schools', 'top left'
 

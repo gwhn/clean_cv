@@ -11,8 +11,9 @@
     %ul{:id => responsibilities_id}
       = render :partial => 'responsibilities/item', :collection => item.responsibilities
 
-      = content_for :javascript do
-        = sortable_javascript_for "&person_id=#{item.person.id}&company_id=#{item.id}", "##{responsibilities_id}", '.responsibility', reposition_person_company_responsibilities_url(item.person, item)
+      - if current_user and permitted_to? :reposition, :responsibilities
+        - content_for :javascript do
+          = sortable_javascript_for "&person_id=#{item.person.id}&company_id=#{item.id}", "##{responsibilities_id}", '.responsibility', reposition_person_company_responsibilities_url(item.person, item)
 
     - projects_id = "person_#{item.person.id}_company_#{item.id}_projects"
     %div{:id => projects_id}
@@ -23,8 +24,8 @@
         - if permitted_to? :create, :projects
           %li= link_to 'New project', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'
 
-    - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{projects_id}", 'top left'
+      - content_for :javascript do
+        = dynamic_tooltip_javascript_for "##{projects_id}", 'top left'
 
 - if current_user
   %ul.options
@@ -33,5 +34,5 @@
     - if permitted_to? :delete, item
       %li= link_to 'Delete company', delete_person_company_path(item.person, item), :class => 'remote-link', :title => 'Delete company'
 
-- content_for :javascript do
-  = dynamic_tooltip_javascript_for "##{company_id}", 'top right'
+  - content_for :javascript do
+    = dynamic_tooltip_javascript_for "##{company_id}", 'top right'

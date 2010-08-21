@@ -16,10 +16,11 @@
       %li= link_to 'Edit person', edit_person_path(item), :class => 'remote-link', :title => 'Edit person'
     - if permitted_to? :delete, item
       %li= link_to 'Delete person', delete_person_path(item), :class => 'remote-link', :title => 'Delete person'
+
+  - content_for :javascript do
+    = dynamic_tooltip_javascript_for '#personal', 'top right'
+
 - elsif !current_page?(item) and permitted_to? :read, item
   %ul.options
     %li= link_to 'View person', item
-
-- content_for :javascript do
-  = dynamic_tooltip_javascript_for '#personal', 'top right'
 
