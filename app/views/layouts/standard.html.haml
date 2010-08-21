@@ -80,7 +80,13 @@
 
       $(function(){
         initFancyBox("a.lightbox");
-        initTipsy(".tip");
+        $(".social-media [title]").tooltip({
+          effect: "slide"
+        }).dynamic({
+          bottom: {
+            direction: "down"
+          }
+        });
         bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");
         bindAddChildLinks("#form-dialog form a.add-person-company");
         bindRemoveChildLinks("#form-dialog form a.remove-person-company");

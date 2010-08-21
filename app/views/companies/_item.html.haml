@@ -1,14 +1,8 @@
-%div{:id => ['company', item.id], :class => 'company'}
+- company_id = "company_#{item.id}"
+%div{:id => company_id, :class => 'company'}
   %div{:class => [:item, (defined?(current) && defined?(total) && current == total - 1 ? 'last-item' : '')]}
     %h4 #{h item.start_date.to_s(:month_and_year)} - #{h item.end_date.to_s(:month_and_year)}
     %h2= h item.name
-
-    - if current_user
-      .br-options
-        - if permitted_to? :update, item
-          = link_to 'Edit company', edit_person_company_path(item.person, item), :class => 'remote-link', :title => 'Edit company'
-        - if permitted_to? :delete, item
-          = link_to 'Delete company', delete_person_company_path(item.person, item), :class => 'remote-link', :title => 'Delete company'
 
     %h5= h item.role
     %h3= h item.business_type
@@ -24,7 +18,20 @@
     %div{:id => projects_id}
       = render :partial => 'projects/item', :collection => item.projects
 
-      - if current_user
-        .bl-options
-          - if permitted_to? :create, :projects
-            = link_to 'New project', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'
+    - if current_user
+      %ul.options
+        - if permitted_to? :create, :projects
+          %li= link_to 'New project', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'
+
+    - content_for :javascript do
+      = dynamic_tooltip_javascript_for "##{projects_id}", 'top left'
+
+- if current_user
+  %ul.options
+    - if permitted_to? :update, item
+      %li= link_to 'Edit company', edit_person_company_path(item.person, item), :class => 'remote-link', :title => 'Edit company'
+    - if permitted_to? :delete, item
+      %li= link_to 'Delete company', delete_person_company_path(item.person, item), :class => 'remote-link', :title => 'Delete company'
+
+- content_for :javascript do
+  = dynamic_tooltip_javascript_for "##{company_id}", 'top right'

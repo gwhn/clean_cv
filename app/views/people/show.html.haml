@@ -1,46 +1,60 @@
 - content_for(:title) do
   = h @person.name.upcase
 
-= render :partial => 'item', :object => @person
+%div{:id => ['person', @person.id]}
+  = render :partial => 'item', :object => @person
 
-.cv-section.fixed
-  %h2.cv-section-name Work Experience
-  .cv-section-items
+  .cv-section.fixed.companies
+    %h2.cv-section-name Work Experience
+    .cv-section-items
 
-    - companies_id = "person_#{@person.id}_companies"
-    %div{:id => companies_id}
-      = render :partial => 'companies/item', :collection => @person.companies,
-        :locals => {:total => @person.companies.length}
+      - companies_id = "person_#{@person.id}_companies"
+      %div{:id => companies_id}
+        = render :partial => 'companies/item', :collection => @person.companies,
+          :locals => {:total => @person.companies.length}
 
-    - if permitted_to? :create, :companies
-      .tl-options
-        = link_to 'New company', new_person_company_path(@person), :class => 'remote-link', :title => 'New company'
+  - if current_user
+    %ul.options
+      - if permitted_to? :create, :companies
+        %li= link_to 'New company', new_person_company_path(@person), :class => 'remote-link', :title => 'New company'
 
-.cv-section.fixed
-  %h2.cv-section-name Technical Skills
-  .cv-section-items
+  - content_for :javascript do
+    = dynamic_tooltip_javascript_for '.companies', 'top left'
 
-    - skills_id = "person_#{@person.id}_skills"
-    %div{:id => skills_id}
-      = render :partial => 'skills/item', :collection => @person.skills,
-        :locals => {:total => @person.skills.length}
+  .cv-section.fixed.skills
+    %h2.cv-section-name Technical Skills
+    .cv-section-items
 
-      = content_for :javascript do
-        = sortable_javascript_for "&person_id=#{@person.id}", "##{skills_id}", '.skill', reposition_person_skills_url(@person)
+      - skills_id = "person_#{@person.id}_skills"
+      %div{:id => skills_id}
+        = render :partial => 'skills/item', :collection => @person.skills,
+          :locals => {:total => @person.skills.length}
 
-    - if permitted_to? :create, :skills
-      .tl-options
-        = link_to 'New skill', new_person_skill_path(@person), :class => 'remote-link', :title => 'New skill'
+        - content_for :javascript do
+          = sortable_javascript_for "&person_id=#{@person.id}", "##{skills_id}", '.skill', reposition_person_skills_url(@person)
 
-.cv-section.last-cv-section.fixed
-  %h2.cv-section-name Education
-  .cv-section-items
+  - if current_user
+    %ul.options
+      - if permitted_to? :create, :skills
+        %li= link_to 'New skill', new_person_skill_path(@person), :class => 'remote-link', :title => 'New skill'
 
-    - schools_id = "person_#{@person.id}_schools"
-    %div{:id => schools_id}
-      = render :partial => 'schools/item', :collection => @person.schools,
-        :locals => {:total => @person.schools.length}
+  - content_for :javascript do
+    = dynamic_tooltip_javascript_for '.skills', 'top left'
 
-    - if permitted_to? :create, :schools
-      .tl-options
-        = link_to 'New school', new_person_school_path(@person), :class => 'remote-link', :title => 'New school'
+  .cv-section.last-cv-section.fixed.schools
+    %h2.cv-section-name Education
+    .cv-section-items
+
+      - schools_id = "person_#{@person.id}_schools"
+      %div{:id => schools_id}
+        = render :partial => 'schools/item', :collection => @person.schools,
+          :locals => {:total => @person.schools.length}
+
+  - if current_user
+    %ul.options
+      - if permitted_to? :create, :schools
+        %li= link_to 'New school', new_person_school_path(@person), :class => 'remote-link', :title => 'New school'
+
+  - content_for :javascript do
+    = dynamic_tooltip_javascript_for '.schools', 'top left'
+
