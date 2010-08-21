@@ -992,7 +992,7 @@ form .nested-attributes h2 {
 body {
   background-color: #222;
   color: #333;
-  font: 14px 'AllerRegular', Arial, Helvetica, sans-serif;
+  font: 14px 'AllerLightRegular', Arial, Helvetica, sans-serif;
 }
 
 /* line 27, ../../../app/stylesheets/screen.scss */
@@ -1124,7 +1124,7 @@ em {
 #cv .item h4 {
   float: right;
   margin: 0;
-  padding: 5px 10px;
+  padding: 4px 10px;
 }
 /* line 149, ../../../app/stylesheets/screen.scss */
 #cv .item h5 {
@@ -1259,43 +1259,43 @@ em {
 }
 /* line 279, ../../../app/stylesheets/screen.scss */
 #cv .repeater li {
-  font-family: 'GentiumBookBasicBoldItalic', serif;
   margin-right: 10px;
   display: inline;
 }
 
-/* line 287, ../../../app/stylesheets/screen.scss */
+/* line 286, ../../../app/stylesheets/screen.scss */
 #projects {
   position: relative;
 }
 
 /* =COLORS-TYPOGRAPHY
 ----------------------------------*/
-/* line 294, ../../../app/stylesheets/screen.scss */
+/* line 293, ../../../app/stylesheets/screen.scss */
 #cv {
   background-color: #FFF;
   border-bottom: 15px solid #FDB020;
   border-top: 15px solid #FDB020;
 }
-/* line 299, ../../../app/stylesheets/screen.scss */
+/* line 298, ../../../app/stylesheets/screen.scss */
 #cv .cv-section {
   border-bottom: 1px solid #dfdfdf;
 }
-/* line 303, ../../../app/stylesheets/screen.scss */
+/* line 302, ../../../app/stylesheets/screen.scss */
 #cv .first-cv-section {
   background-color: #F8F8F8;
 }
-/* line 307, ../../../app/stylesheets/screen.scss */
+/* line 306, ../../../app/stylesheets/screen.scss */
 #cv .person img {
   background-color: #FFF;
   border: 1px solid #dedede;
 }
-/* line 312, ../../../app/stylesheets/screen.scss */
+/* line 311, ../../../app/stylesheets/screen.scss */
 #cv .person h1 {
   color: #475261;
   font-size: 50px;
   font-weight: 400;
   letter-spacing: -1px;
+  font-family: 'AllerRegular', sans-serif;
 }
 /* line 319, ../../../app/stylesheets/screen.scss */
 #cv .person h1 a {
@@ -1305,17 +1305,16 @@ em {
 /* line 324, ../../../app/stylesheets/screen.scss */
 #cv .person h2 {
   color: #475261;
-  font-family: 'AllerLightRegular', sans-serif;
   font-size: 24px;
   font-weight: 400;
   letter-spacing: -0.7px;
   text-transform: uppercase;
 }
-/* line 333, ../../../app/stylesheets/screen.scss */
+/* line 332, ../../../app/stylesheets/screen.scss */
 #cv .social-media {
   list-style: none;
 }
-/* line 337, ../../../app/stylesheets/screen.scss */
+/* line 336, ../../../app/stylesheets/screen.scss */
 #cv h2.cv-section-name {
   color: #3C4756;
   font-family: 'AllerLightItalic', sans-serif;
@@ -1323,14 +1322,15 @@ em {
   font-weight: 400;
   letter-spacing: -1px;
 }
-/* line 345, ../../../app/stylesheets/screen.scss */
+/* line 344, ../../../app/stylesheets/screen.scss */
 #cv .item {
   border-bottom: 1px solid #dfdfdf;
 }
-/* line 349, ../../../app/stylesheets/screen.scss */
+/* line 348, ../../../app/stylesheets/screen.scss */
 #cv .item h4 {
   background-color: #eee;
   color: #333;
+  font-family: 'AllerRegular', sans-serif;
   font-size: 10px;
   text-transform: uppercase;
   line-height: 24px;
@@ -1343,10 +1343,11 @@ em {
 /* line 362, ../../../app/stylesheets/screen.scss */
 #cv .item h2 {
   color: #06A;
+  font-family: 'AllerRegular', sans-serif;
   font-size: 24px;
   letter-spacing: -1px;
 }
-/* line 370, ../../../app/stylesheets/screen.scss */
+/* line 371, ../../../app/stylesheets/screen.scss */
 #cv .item h3,
 #cv .item h5,
 #cv .item .result {
@@ -1354,40 +1355,47 @@ em {
   font-family: 'GentiumBookBasicItalic', serif;
   font-size: 20px;
 }
-/* line 376, ../../../app/stylesheets/screen.scss */
-#cv .item h5 {
+/* line 378, ../../../app/stylesheets/screen.scss */
+#cv .item h5,
+#cv .item .result {
   font-family: 'GentiumBookBasicRegular', serif;
 }
-/* line 380, ../../../app/stylesheets/screen.scss */
+/* line 382, ../../../app/stylesheets/screen.scss */
 #cv .item h6 {
   color: #06A;
+  font-family: 'AllerRegular', sans-serif;
   font-size: 20px;
   font-weight: 400;
   letter-spacing: -1px;
 }
-/* line 387, ../../../app/stylesheets/screen.scss */
+/* line 390, ../../../app/stylesheets/screen.scss */
 #cv p {
   text-align: justify;
 }
-/* line 391, ../../../app/stylesheets/screen.scss */
+/* line 394, ../../../app/stylesheets/screen.scss */
 #cv .item ul {
   list-style: inside;
   text-align: justify;
 }
-/* line 396, ../../../app/stylesheets/screen.scss */
+/* line 399, ../../../app/stylesheets/screen.scss */
 #cv .item li {
   list-style-type: disc;
 }
-/* line 400, ../../../app/stylesheets/screen.scss */
+/* line 403, ../../../app/stylesheets/screen.scss */
 #cv .last-item {
   border-bottom: none;
 }
-/* line 404, ../../../app/stylesheets/screen.scss */
+/* line 407, ../../../app/stylesheets/screen.scss */
 #cv .last-cv-section {
   border-bottom: none;
 }
+/* line 412, ../../../app/stylesheets/screen.scss */
+#cv .repeater li {
+  font-family: 'GentiumBookBasicBoldItalic', serif;
+  color: #0066aa;
+}
 
-/* line 409, ../../../app/stylesheets/screen.scss */
+/* line 419, ../../../app/stylesheets/screen.scss */
 .authme {
   background-color: #333;
   border: 1px solid #444;
@@ -1397,15 +1405,15 @@ em {
   top: 66px;
   position: fixed;
 }
-/* line 418, ../../../app/stylesheets/screen.scss */
+/* line 428, ../../../app/stylesheets/screen.scss */
 .authme:hover {
   background-color: #222;
 }
-/* line 422, ../../../app/stylesheets/screen.scss */
+/* line 432, ../../../app/stylesheets/screen.scss */
 .authme img {
   padding: 0 0 0 5px;
 }
-/* line 426, ../../../app/stylesheets/screen.scss */
+/* line 436, ../../../app/stylesheets/screen.scss */
 .authme a {
   color: #fff;
   font-size: 15px;
