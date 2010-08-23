@@ -56,7 +56,7 @@ JS
         $("#{selector}").tooltip({
           effect:"slide",
           position: "#{position}",
-          delay: 500,
+          delay: 1000,
           tipClass: 'options'
         }).dynamic({
           bottom: {

@@ -23,7 +23,7 @@
     %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}
     / CSS : implied media="all"
     = stylesheet_link_tag 'jquery-ui-1.8.4.custom.css', 'jquery.fancybox-1.2.6.css',
-      'tipsy.css', 'Aller.font.squirrel.css', 'Gentium.font.squirrel.css', 'Quicksand.font.squirrel.css',
+      'Aller.font.squirrel.css', 'Gentium.font.squirrel.css',
       :media => 'screen, projection'
     = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
     = stylesheet_link_tag 'compiled/print.css', :media => 'print'
@@ -86,6 +86,9 @@
           bottom: {
             direction: "down"
           }
+        });
+        $(".accordion").tabs(".accordion .panel", {
+          tabs: 'h6'
         });
         bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");
         bindAddChildLinks("#form-dialog form a.add-person-company");

@@ -10,8 +10,7 @@
 
       - companies_id = "person_#{@person.id}_companies"
       %div{:id => companies_id}
-        = render :partial => 'companies/item', :collection => @person.companies,
-          :locals => {:total => @person.companies.length}
+        = render :partial => 'companies/item', :collection => @person.companies
 
   - if current_user
     %ul.options
@@ -27,8 +26,7 @@
 
       - skills_id = "person_#{@person.id}_skills"
       %div{:id => skills_id}
-        = render :partial => 'skills/item', :collection => @person.skills,
-          :locals => {:total => @person.skills.length}
+        = render :partial => 'skills/item', :collection => @person.skills
 
       - if current_user and permitted_to? :reposition, :skills
         - content_for :javascript do
@@ -42,14 +40,13 @@
     - content_for :javascript do
       = dynamic_tooltip_javascript_for '.skills', 'top left'
 
-  .cv-section.last-cv-section.fixed.schools
+  .cv-section.fixed.schools
     %h2.cv-section-name Education
     .cv-section-items
 
       - schools_id = "person_#{@person.id}_schools"
       %div{:id => schools_id}
-        = render :partial => 'schools/item', :collection => @person.schools,
-          :locals => {:total => @person.schools.length}
+        = render :partial => 'schools/item', :collection => @person.schools
 
   - if current_user
     %ul.options
