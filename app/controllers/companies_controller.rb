@@ -41,7 +41,7 @@ class CompaniesController < ApplicationController
   # POST /people/1/companies.xml
   def create
     respond_to do |format|
-      if @company.save!
+      if @company.save
         flash[:notice] = 'Company was successfully created.'
         format.html { redirect_to(person_company_url(@person, @company)) }
         format.xml { render :xml => @company, :status => :created, :location => @company }
