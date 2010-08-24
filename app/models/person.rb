@@ -13,9 +13,28 @@ class Person < ActiveRecord::Base
   has_many :schools, :dependent => :destroy, :order => 'date_from DESC'
 
   validates_associated :companies, :skills, :schools
-  accepts_nested_attributes_for :companies, :skills, :schools,
+  accepts_nested_attributes_for :companies,
+                                :allow_destroy => true,
+                                :reject_if => lambda { |a|
+                                  a['name'].blank? and
+                                          a['role'].blank? and
+                                          a['business_type'].blank? and
+                                          a['start_date(3i)'] == '1' and
+                                          a['end_date(3i)'] == '1'
+                                }
+  accepts_nested_attributes_for :skills,
                                 :allow_destroy => true,
                                 :reject_if => lambda { |a| a.values.all?(& :blank?) }
+  accepts_nested_attributes_for :schools,
+                                :allow_destroy => true,
+                                :reject_if => lambda { |a|
+                                  a['name'].blank? and
+                                          a['course'].blank? and
+                                          a['date_to(2i)'] == '1' and
+                                          a['date_to(3i)'] == '1' and
+                                          a['date_from(2i)'] == '1' and
+                                          a['date_from(3i)'] == '1'
+                                }
 
   has_attached_file :photo, :styles => {:small => '100x100#'}
 

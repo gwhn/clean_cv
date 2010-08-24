@@ -27,12 +27,6 @@ class TaskTest < ActiveSupport::TestCase
     assert @task.errors.invalid?(:description)
   end
 
-  test "invalid task with missing project" do
-    @task.project = nil
-    assert !@task.valid?
-    assert @task.errors.invalid?(:project)
-  end
-
   test "invalid task with same description for project" do
     taken = Task.make :project => @project
     @task.description = taken.description

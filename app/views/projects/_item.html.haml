@@ -1,23 +1,23 @@
-%h6= h item.name
-
 - project_id = "project_#{item.id}"
-%div{:id => project_id, :class => ['project', 'panel']}
+%div{:id => project_id}
+  %h6= h item.name
 
-  %p= h item.description
+  .panel
+    %p= h item.description
 
-  - if item.tasks.count > 0
-    - tasks_id = "person_#{item.company.person.id}_company_#{item.company.id}_project_#{item.id}_tasks"
-    %ul{:id => tasks_id}
-      = render :partial => 'tasks/item', :collection => item.tasks
+    - if item.skills.count > 0
+      - skills_id = "person_#{item.company.person.id}_company_#{item.company.id}_project_#{item.id}_skills"
+      %ul.repeater{:id => skills_id}
+        = render :partial => 'projects/skill', :collection => item.skills
 
-      - if current_user and permitted_to? :reposition, :tasks
-        - content_for :javascript do
-          = sortable_javascript_for "&person_id=#{item.company.person.id}&company_id=#{item.company.id}&project_id=#{item.id}", "##{tasks_id}", '.task', reposition_person_company_project_tasks_url(item.company.person, item.company, item)
+    - if item.tasks.count > 0
+      - tasks_id = "person_#{item.company.person.id}_company_#{item.company.id}_project_#{item.id}_tasks"
+      %ul.list{:id => tasks_id}
+        = render :partial => 'tasks/item', :collection => item.tasks
 
-  - if item.skills.count > 0
-    - skills_id = "person_#{item.company.person.id}_company_#{item.company.id}_project_#{item.id}_skills"
-    %ul{:id => skills_id, :class => 'repeater'}
-      = render :partial => 'projects/skill', :collection => item.skills
+        - if current_user and permitted_to? :reposition, :tasks
+          - content_for :javascript do
+            = sortable_javascript_for "&person_id=#{item.company.person.id}&company_id=#{item.company.id}&project_id=#{item.id}", "##{tasks_id}", '.task', reposition_person_company_project_tasks_url(item.company.person, item.company, item)
 
 - if current_user
   %ul.options
@@ -28,3 +28,4 @@
 
   - content_for :javascript do
     = dynamic_tooltip_javascript_for "##{project_id}"
+

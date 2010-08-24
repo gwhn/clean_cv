@@ -1,6 +1,6 @@
-- company_id = "company_#{item.id}"
-%div{:id => company_id, :class => 'company'}
-  %div{:class => :item}
+%li.item
+  - company_id = "company_#{item.id}"
+  %div{:id => company_id}
     %h4 #{h item.start_date.to_s(:month_and_year)} - #{h item.end_date.to_s(:month_and_year)}
     %h2= h item.name
 
@@ -9,7 +9,7 @@
 
     - if item.responsibilities.count > 0
       - responsibilities_id = "person_#{item.person.id}_company_#{item.id}_responsiblities"
-      %ul{:id => responsibilities_id}
+      %ul.list{:id => responsibilities_id}
         = render :partial => 'responsibilities/item', :collection => item.responsibilities
 
         - if current_user and permitted_to? :reposition, :responsibilities
@@ -30,12 +30,12 @@
         - content_for :javascript do
           = dynamic_tooltip_javascript_for "##{projects_id}", 'top left'
 
-- if current_user
-  %ul.options
-    - if permitted_to? :update, item
-      %li= link_to 'Edit company', edit_person_company_path(item.person, item), :class => 'remote-link', :title => 'Edit company'
-    - if permitted_to? :delete, item
-      %li= link_to 'Delete company', delete_person_company_path(item.person, item), :class => 'remote-link', :title => 'Delete company'
+  - if current_user
+    %ul.options
+      - if permitted_to? :update, item
+        %li= link_to 'Edit company', edit_person_company_path(item.person, item), :class => 'remote-link', :title => 'Edit company'
+      - if permitted_to? :delete, item
+        %li= link_to 'Delete company', delete_person_company_path(item.person, item), :class => 'remote-link', :title => 'Delete company'
 
-  - content_for :javascript do
-    = dynamic_tooltip_javascript_for "##{company_id}", 'top right'
+    - content_for :javascript do
+      = dynamic_tooltip_javascript_for "##{company_id}", 'top right'

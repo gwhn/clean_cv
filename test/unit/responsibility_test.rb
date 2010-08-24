@@ -26,12 +26,6 @@ class ResponsibilityTest < ActiveSupport::TestCase
     assert @responsibility.errors.invalid?(:description)
   end
 
-  test "invalid responsibility with missing company" do
-    @responsibility.company = nil
-    assert !@responsibility.valid?
-    assert @responsibility.errors.invalid?(:company)
-  end
-
   test "invalid responsibility with same description for company" do
     taken = Responsibility.make :company => @company
     @responsibility.description = taken.description

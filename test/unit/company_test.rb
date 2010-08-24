@@ -46,12 +46,6 @@ class CompanyTest < ActiveSupport::TestCase
     assert @company.errors.invalid?(:start_date)
   end
 
-  test "invalid company with missing person" do
-    @company.person = nil
-    assert !@company.valid?
-    assert @company.errors.invalid?(:person)
-  end
-
   test "invalid company with same name for person" do
     taken = Company.make :person => @person
     @company.name = taken.name

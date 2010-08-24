@@ -1,5 +1,21 @@
 <%- projects_id = "person_#{@person.id}_company_#{@company.id}_projects" %>
-$("<%= escape_javascript(render :partial => 'item', :object => @project) %>").appendTo("#<%= projects_id %>");
-bindRemoteLinks("#form-dialog", "#<%= projects_id %> #project_<%= @project.id %> .remote-link");
-$.scrollTo("#<%= projects_id %> #project_<%= @project.id %>", "fast");
-$("#<%= projects_id %> #project_<%= @project.id %>").effect("highlight");
+var last_panel = $("#<%= projects_id %>").data("tabs").getPanes().length;
+$("#<%= projects_id %>").append("<%= escape_javascript(render :partial => 'item', :object => @project) %>")
+    .tabs("destroy")
+    .tabs(".accordion .panel", {tabs: "h6", initialIndex: last_panel});
+bindRemoteLinks("#form-dialog", "#<%= projects_id %> .remote-link");
+$.scrollTo("#project_<%= @project.id %>", "fast");
+$("#project_<%= @project.id %>").effect("highlight");
+$("#project_<%= @project.id %>")
+    .tooltip("destroy")
+    .tooltip({
+        effect:"slide",
+        position: "top center",
+        delay: 1000,
+        tipClass: "options"
+    })
+    .dynamic({
+        bottom: {
+            direction: "down"
+        }
+    });

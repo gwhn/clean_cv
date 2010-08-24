@@ -39,12 +39,6 @@ class SkillTest < ActiveSupport::TestCase
     assert @skill.errors.invalid?(:description)
   end
 
-  test "invalid skill with missing person" do
-    @skill.person = nil
-    assert !@skill.valid?
-    assert @skill.errors.invalid?(:person)
-  end
-
   test "invalid skill with same name for person" do
     taken = Skill.make :person => @person
     @skill.name = taken.name

@@ -121,54 +121,64 @@ em {
         float: right;
         margin-right: 10px;
         width: 490px;
+        ul {
+            li {
+                list-style-type: none;
+            }
+        }
     }
 
     .item {
         margin-bottom: 20px;
         padding-bottom: 30px;
-    }
 
-    .item h3, .item h5 {
-        margin: 10px 0;
-    }
+        h3, h5 {
+            margin: 10px 0;
+        }
 
-    .item h3 {
-        padding: 4px 0;
-        clear: left;
-    }
+        h3 {
+            padding: 4px 0;
+            clear: left;
+        }
 
-    .item h4 {
-        float: right;
-        margin: 0;
-        padding: 4px 10px;
-    }
+        h4 {
+            float: right;
+            margin: 0;
+            padding: 4px 10px;
+        }
 
-    .item h5 {
-        float: right;
-        clear: right;
-    }
+        h5 {
+            float: right;
+            clear: right;
+        }
 
-    .item h6 {
-        margin: 10px 0;
-    }
+        h6 {
+            margin: 10px 0;
+        }
 
-    .item p {
-        padding: 0 0 15px;
-    }
+        p {
+            padding: 0 0 15px;
+        }
 
-    .item ul {
-        margin-bottom: 15px;
-    }
+        ul {
+            margin-bottom: 15px;
+        }
 
-    .last-item {
-        margin-bottom: 0;
-        padding-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+            padding-bottom: 30px;
+        }
+
+        .list {
+            li {
+                list-style: disc;
+            }
+        }
     }
 
     .repeater {
-        display: inline;
         li {
-            margin-right: 10px;
+            margin-right: 15px;
             display: inline;
         }
     }
@@ -189,7 +199,7 @@ em {
     padding: 15px 20px;
 }
 
-ul.options {
+.options {
     font-family: 'AllerBold', sans-serif;
     font-size: 16px;
     display: none;
@@ -199,25 +209,27 @@ ul.options {
     padding: 20px 20px;
 }
 
-ul.options.bottom {
+.options.bottom {
     background: transparent url(/images/tooltip/white_arrow_bottom.png);
     height: 66px;
     padding: 30px 20px;
 }
 
-ul.options li {
-    list-style-type: none;
-    margin: 5px 0;
+.options {
+    li {
+        list-style-type: none;
+        margin: 5px 0;
+    }
 }
 
 /* root element for accordion. decorated with rounded borders and gradient background image */
 .accordion {
     /* accordion header */
     h6 {
-        margin:0;
-        padding:5px 0;
-        border-bottom:1px solid #dfdfdf;
-        cursor:pointer;
+        margin: 0;
+        padding: 15px 0 5px 0;
+        border-top: 1px solid #dfdfdf;
+        cursor: pointer;
         &:hover {
             text-decoration: underline;
         }
@@ -225,7 +237,7 @@ ul.options li {
 
     /* currently active header */
     h6.current {
-        cursor:default;
+        cursor: default;
         &:hover {
             text-decoration: none;
         }
@@ -233,9 +245,8 @@ ul.options li {
 
     /* accordion panel */
     .panel {
-        border:1px solid #fff;
-        border-width:0 2px;
-        display:none;
+        border-width: 0 2px;
+        display: none;
         padding: 5px 0;
     }
 }
@@ -287,7 +298,7 @@ ul.options li {
     }
 
     h2.cv-section-name {
-        color: #3C4756;
+        color: #333333;
         font-family: 'AllerLightItalic', sans-serif;
         font-size: 24px;
         font-weight: 400;
@@ -296,60 +307,58 @@ ul.options li {
 
     .item {
         border-bottom: 1px solid #dfdfdf;
-    }
+        h4 {
+            background-color: #eee;
+            color: #333;
+            font-family: 'AllerRegular', sans-serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            line-height: 24px;
+        }
 
-    .item h4 {
-        background-color: #eee;
-        color: #333;
-        font-family: 'AllerRegular', sans-serif;
-        font-size: 10px;
-        text-transform: uppercase;
-        line-height: 24px;
-    }
+        h4:hover {
+            background-color: #000;
+            color: #fff;
+        }
 
-    .item h4:hover {
-        background-color: #000;
-        color: #fff;
-    }
+        h2 {
+            color: #06A;
+            font-family: 'AllerRegular', sans-serif;
+            font-size: 24px;
+            letter-spacing: -1px;
+        }
 
-    .item h2 {
-        color: #06A;
-        font-family: 'AllerRegular', sans-serif;
-        font-size: 24px;
-        letter-spacing: -1px;
-    }
+        h3,
+        h5,
+        .result {
+            color: #475261;
+            font-family: 'GentiumBookBasicItalic', serif;
+            font-size: 20px;
+        }
 
-    .item h3,
-    .item h5,
-    .item .result {
-        color: #262625;
-        font-family: 'GentiumBookBasicItalic', serif;
-        font-size: 20px;
-    }
+        h5,
+        .result {
+            font-family: 'GentiumBookBasicRegular', serif;
+        }
 
-    .item h5,
-    .item .result {
-        font-family: 'GentiumBookBasicRegular', serif;
-    }
+        h6 {
+            color: #06A;
+            font-family: 'AllerRegular', sans-serif;
+            font-size: 16px;
+            letter-spacing: -1px;
+        }
 
-    .item h6 {
-        color: #06A;
-        font-family: 'AllerRegular', sans-serif;
-        font-size: 20px;
-        font-weight: 400;
-        letter-spacing: -1px;
-    }
+        p {
+            text-align: justify;
+        }
 
-    p {
-        text-align: justify;
-    }
+        ul {
+            text-align: justify;
+        }
 
-    .item ul {
-        text-align: justify;
-    }
-
-    .last-item {
-        border-bottom: none;
+        &:last-child {
+            border-bottom: none;
+        }
     }
 
     .last-cv-section {
@@ -361,6 +370,10 @@ ul.options li {
             font-family: 'GentiumBookBasicBoldItalic', serif;
             color: #0066aa;
         }
+    }
+
+    .handle {
+        cursor: move;
     }
 }
 

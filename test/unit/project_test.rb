@@ -33,12 +33,6 @@ class ProjectTest < ActiveSupport::TestCase
     assert @project.errors.invalid?(:description)
   end
 
-  test "invalid project with missing company" do
-    @project.company = nil
-    assert !@project.valid?
-    assert @project.errors.invalid?(:company)
-  end
-
   test "invalid project with same name for company" do
     taken = Project.make :company => @company
     @project.name = taken.name

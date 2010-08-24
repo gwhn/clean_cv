@@ -57,7 +57,7 @@ JS
           effect:"slide",
           position: "#{position}",
           delay: 1000,
-          tipClass: 'options'
+          tipClass: "options"
         }).dynamic({
           bottom: {
             direction: "down"

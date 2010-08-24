@@ -1,19 +1,19 @@
-- skill_id = "skill_#{item.id}"
-%div{:id => ['skill', item.id], :class => ['skill']}
-  %div{:class => :item}
+%li.item
+  - skill_id = "skill_#{item.id}"
+  %div{:id => ['skill', item.id], :class => ['skill']}
     %h4= item.level
     %h2= item.name
 
     %br
     %p= item.description
 
-- if current_user
-  %ul.options
-    - if permitted_to? :update, item
-      %li= link_to 'Edit skill', edit_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Edit skill'
-    - if permitted_to? :delete, item
-      %li= link_to 'Delete skill', delete_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Delete skill'
+  - if current_user
+    %ul.options
+      - if permitted_to? :update, item
+        %li= link_to 'Edit skill', edit_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Edit skill'
+      - if permitted_to? :delete, item
+        %li= link_to 'Delete skill', delete_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Delete skill'
 
-  - content_for :javascript do
-    = dynamic_tooltip_javascript_for "##{skill_id}", 'top right'
+    - content_for :javascript do
+      = dynamic_tooltip_javascript_for "##{skill_id}", 'top right'
 

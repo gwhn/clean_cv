@@ -1,18 +1,18 @@
-- school_id = "school_#{item.id}"
-%div{:id => school_id, :class => 'school'}
-  %div{:class => :item}
+%li.item
+  - school_id = "school_#{item.id}"
+  %div{:id => school_id, :class => 'school'}
     %h4 #{h item.date_from.to_s(:year_only)} - #{h item.date_to.to_s(:year_only)}
     %h2= h item.name
 
     %h3= h item.course
     .result= h item.result
+  
+  - if current_user
+    %ul.options
+      - if permitted_to? :update, item
+        %li= link_to 'Edit school', edit_person_school_path(item.person, item), :class => 'remote-link', :title => 'Edit school'
+      - if permitted_to? :delete, item
+        %li= link_to 'Delete school', delete_person_school_path(item.person, item), :class => 'remote-link', :title => 'Delete school'
 
-- if current_user
-  %ul.options
-    - if permitted_to? :update, item
-      %li= link_to 'Edit school', edit_person_school_path(item.person, item), :class => 'remote-link', :title => 'Edit school'
-    - if permitted_to? :delete, item
-      %li= link_to 'Delete school', delete_person_school_path(item.person, item), :class => 'remote-link', :title => 'Delete school'
-
-  - content_for :javascript do
-    = dynamic_tooltip_javascript_for "##{school_id}", 'top right'
+    - content_for :javascript do
+      = dynamic_tooltip_javascript_for "##{school_id}", 'top right'

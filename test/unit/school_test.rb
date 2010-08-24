@@ -39,12 +39,6 @@ class SchoolTest < ActiveSupport::TestCase
     assert @school.errors.invalid?(:date_from)
   end
 
-  test "invalid school with missing person" do
-    @school.person = nil
-    assert !@school.valid?
-    assert @school.errors.invalid?(:person)
-  end
-
   test "invalid school with same name for person" do
     taken = School.make :person => @person
     @school.name = taken.name

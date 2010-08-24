@@ -1,7 +1,7 @@
 class Skill < ActiveRecord::Base
   using_access_control
 
-  validates_presence_of :name, :level, :description, :person
+  validates_presence_of :name, :level, :description
   validates_uniqueness_of :name, :scope => :person_id
 
   belongs_to :person
