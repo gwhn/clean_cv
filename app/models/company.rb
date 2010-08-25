@@ -6,7 +6,7 @@ class Company < ActiveRecord::Base
   validate :start_date_prior_to_end_date
 
   belongs_to :person
-  has_many :projects, :dependent => :destroy
+  has_many :projects, :dependent => :destroy, :order => :position
   has_many :responsibilities, :dependent => :destroy, :order => :position
 
   validates_associated :projects, :responsibilities

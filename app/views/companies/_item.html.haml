@@ -20,7 +20,7 @@
       - projects_id = "person_#{item.person.id}_company_#{item.id}_projects"
       %div{:id => projects_id, :class => 'accordion'}
 
-        = render :partial => 'projects/item', :collection => item.projects
+        = render :partial => 'projects/item', :collection => item.projects, :locals => {:project_count => item.projects.count}
 
       - if current_user
         %ul.options
@@ -29,6 +29,10 @@
 
         - content_for :javascript do
           = dynamic_tooltip_javascript_for "##{projects_id}", 'top left'
+
+        - if permitted_to? :reposition, :projects
+          - content_for :javascript do
+            = sortable_javascript_for "&person_id=#{item.person.id}&company_id=#{item.id}", "##{projects_id}", 'div', reposition_person_company_projects_url(item.person, item), 'h6'
 
   - if current_user
     %ul.options

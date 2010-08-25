@@ -12,4 +12,8 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :tasks,
                                 :allow_destroy => true,
                                 :reject_if => lambda { |a| a.values.all?(& :blank?) }
+
+  acts_as_list :scope => :company
+
+  default_scope :order => :position
 end

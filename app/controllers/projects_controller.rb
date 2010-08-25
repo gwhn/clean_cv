@@ -1,8 +1,10 @@
 class ProjectsController < ApplicationController
   before_filter :load_person_company
-  before_filter :load_project, :only => [:show, :edit, :update, :delete, :destroy]
+  before_filter :load_project, :only => [:show, :edit, :update, :delete, :destroy,
+                                         :move_top, :move_up, :move_down, :move_bottom]
   before_filter :new_project, :only => [:new, :create, :index]
   filter_access_to :all, :attribute_check => true
+  filter_access_to [:reposition, :move_top, :move_up, :move_down, :move_bottom], :require => :update
 
   # GET /people/1/company/1/projects
   # GET /people/1/company/1/projects.xml
@@ -88,6 +90,60 @@ class ProjectsController < ApplicationController
       format.html { redirect_to(person_company_projects_url(@person, @company)) }
       format.xml { head :ok }
       format.js
+    end
+  end
+
+  # PUT /people/1/company/1/projects/reposition
+  def reposition
+    @company.projects.each do |project|
+      project.position = params[:project].index(project.id.to_s) + 1
+      project.save
+    end
+
+    render :nothing => true
+  end
+
+  # GET /people/1/company/1/project/1/move_top
+  def move_top
+    @project.move_to_top
+    @project.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
+  end
+
+  # GET /people/1/company/1/project/1/move_up
+  def move_up
+    @project.move_higher
+    @project.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
+  end
+
+  # GET /people/1/company/1/project/1/move_down
+  def move_down
+    @project.move_lower
+    @project.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
+  end
+
+  # GET /people/1/company/1/project/1/move_bottom
+  def move_bottom
+    @project.move_to_bottom
+    @project.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
     end
   end
 

@@ -21,13 +21,13 @@ module ApplicationHelper
     end
   end
 
-  def sortable_javascript_for(qs, selector, item_class, url)
+  def sortable_javascript_for(qs, selector, item_class, url, handle_class = '.handle')
     javascript_tag <<JS
       $(function() {
         $("#{selector}").sortable({
           axis: "y",
           dropOnEmpty: false,
-          handle: ".handle",
+          handle: "#{handle_class}",
           cursor: "move",
           items: "#{item_class}",
           opacity: 0.4,
