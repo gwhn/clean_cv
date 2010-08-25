@@ -1,2 +1,9 @@
 %li{:id => ['task', item.id]}
   %span.handle= h item.description
+  %span.move-actions
+    - if item_counter > 0
+      %span.move-top= link_to 'Move top', move_top_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'list-link'
+      %span.move-up= link_to 'Move up', move_up_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'list-link'
+    - if item_counter < task_count - 1
+      %span.move-down= link_to 'Move down', move_down_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'list-link'
+      %span.move-bottom= link_to 'Move bottom', move_bottom_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'list-link'

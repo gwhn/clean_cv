@@ -10,7 +10,7 @@
     - if item.responsibilities.count > 0
       - responsibilities_id = "person_#{item.person.id}_company_#{item.id}_responsiblities"
       %ul.list{:id => responsibilities_id}
-        = render :partial => 'responsibilities/item', :collection => item.responsibilities
+        = render :partial => 'responsibilities/item', :collection => item.responsibilities, :locals => {:responsibility_count => item.responsibilities.count}
 
         - if current_user and permitted_to? :reposition, :responsibilities
           - content_for :javascript do

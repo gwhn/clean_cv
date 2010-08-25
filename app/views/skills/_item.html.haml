@@ -8,13 +8,21 @@
     %br
     %p= item.description
 
+    .move-actions
+      - if item_counter > 0
+        %span.move-top= link_to 'Move top', move_top_person_skill_path(item.person, item), :class => 'list-link'
+        %span.move-up= link_to 'Move up', move_up_person_skill_path(item.person, item), :class => 'list-link'
+      - if item_counter < skill_count - 1
+        %span.move-down= link_to 'Move down', move_down_person_skill_path(item.person, item), :class => 'list-link'
+        %span.move-bottom= link_to 'Move bottom', move_bottom_person_skill_path(item.person, item), :class => 'list-link'
+
   - if current_user
     %ul.options
       - if permitted_to? :update, item
         %li= link_to 'Edit skill', edit_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Edit skill'
       - if permitted_to? :delete, item
         %li= link_to 'Delete skill', delete_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Delete skill'
-
+                                                                                            
     - content_for :javascript do
       = dynamic_tooltip_javascript_for "##{skill_id}", 'top right'
 

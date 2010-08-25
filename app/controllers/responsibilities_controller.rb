@@ -1,9 +1,10 @@
 class ResponsibilitiesController < ApplicationController
   before_filter :load_person_company
-  before_filter :load_responsibility, :only => [:show, :edit, :update, :destroy]
+  before_filter :load_responsibility, :only => [:show, :edit, :update, :destroy,
+                                                :move_top, :move_up, :move_down, :move_bottom]
   before_filter :new_responsibility, :only => [:new, :create, :index]
   filter_access_to :all, :attribute_check => true
-  filter_access_to :reposition, :require => :update
+  filter_access_to [:reposition, :move_top, :move_up, :move_down, :move_bottom], :require => :update
 
   # GET /people/1/company/1/responsibilities
   # GET /people/1/company/1/responsibilities.xml
@@ -87,6 +88,50 @@ class ResponsibilitiesController < ApplicationController
     end
 
     render :nothing => true
+  end
+
+  # GET /people/1/company/1/responsibility/1/move_top
+  def move_top
+    @responsibility.move_to_top
+    @responsibility.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
+  end
+
+  # GET /people/1/company/1/responsibility/1/move_up
+  def move_up
+    @responsibility.move_higher
+    @responsibility.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
+  end
+
+  # GET /people/1/company/1/responsibility/1/move_down
+  def move_down
+    @responsibility.move_lower
+    @responsibility.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
+  end
+
+  # GET /people/1/company/1/responsibility/1/move_bottom
+  def move_bottom
+    @responsibility.move_to_bottom
+    @responsibility.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
   end
 
   protected

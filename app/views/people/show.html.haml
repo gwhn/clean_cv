@@ -26,7 +26,7 @@
 
       - skills_id = "person_#{@person.id}_skills"
       %ul{:id => skills_id}
-        = render :partial => 'skills/item', :collection => @person.skills
+        = render :partial => 'skills/item', :collection => @person.skills, :locals => {:skill_count => @person.skills.count}
 
       - if current_user and permitted_to? :reposition, :skills
         - content_for :javascript do

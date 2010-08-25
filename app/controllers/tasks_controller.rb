@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
   before_filter :load_person_company_project
-  before_filter :load_task, :only => [:show, :edit, :update, :destroy]
+  before_filter :load_task, :only => [:show, :edit, :update, :destroy,
+                                      :move_top, :move_up, :move_down, :move_bottom]
   before_filter :new_task, :only => [:new, :create, :index]
   filter_access_to :all, :attribute_check => true
-  filter_access_to :reposition, :require => :update
+  filter_access_to [:reposition, :move_top, :move_up, :move_down, :move_bottom], :require => :update
 
   # GET people/1/company/1/project/1/tasks
   # GET people/1/company/1/project/1/tasks.xml
@@ -88,6 +89,50 @@ class TasksController < ApplicationController
     end
 
     render :nothing => true
+  end
+
+  # GET /people/1/company/1/project/1/task/1/move_top
+  def move_top
+    @task.move_to_top
+    @task.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
+  end
+
+  # GET /people/1/company/1/project/1/task/1/move_up
+  def move_up
+    @task.move_higher
+    @task.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
+  end
+
+  # GET /people/1/company/1/project/1/task/1/move_down
+  def move_down
+    @task.move_lower
+    @task.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
+  end
+
+  # GET /people/1/company/1/project/1/task/1/move_bottom
+  def move_bottom
+    @task.move_to_bottom
+    @task.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
   end
 
   protected

@@ -1,9 +1,10 @@
 class SkillsController < ApplicationController
   before_filter :load_person
-  before_filter :load_skill, :only => [:show, :edit, :update, :delete, :destroy]
+  before_filter :load_skill, :only => [:show, :edit, :update, :delete, :destroy,
+                                       :move_top, :move_up, :move_down, :move_bottom]
   before_filter :new_skill, :only => [:new, :create, :index]
   filter_access_to :all, :attribute_check => true
-  filter_access_to :reposition, :require => :update
+  filter_access_to [:reposition, :move_top, :move_up, :move_down, :move_bottom], :require => :update
 
   # GET /people/1/skills
   # GET /people/1/skills.xml
@@ -100,6 +101,50 @@ class SkillsController < ApplicationController
     end
 
     render :nothing => true
+  end
+
+  # GET /people/1/skill/1/move_top
+  def move_top
+    @skill.move_to_top
+    @skill.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
+  end
+
+  # GET /people/1/skill/1/move_up
+  def move_up
+    @skill.move_higher
+    @skill.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
+  end
+
+  # GET /people/1/skill/1/move_down
+  def move_down
+    @skill.move_lower
+    @skill.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
+  end
+
+  # GET /people/1/skill/1/move_bottom
+  def move_bottom
+    @skill.move_to_bottom
+    @skill.save
+
+    respond_to do |format|
+      format.html { redirect_to(@person) }
+      format.xml { head :ok }
+    end
   end
 
   protected

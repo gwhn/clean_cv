@@ -9,11 +9,27 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :people, :member => {:delete => :get} do |person|
     person.resources :companies, :member => {:delete => :get} do |company|
       company.resources :projects, :member => {:delete => :get} do |project|
-        project.resources :tasks, :collection => {:reposition => :put}
+        project.resources :tasks,
+                          :member => {:move_top => :get,
+                                      :move_up => :get,
+                                      :move_down => :get,
+                                      :move_bottom => :get},
+                          :collection => {:reposition => :put}
       end
-      company.resources :responsibilities, :collection => {:reposition => :put}
+      company.resources :responsibilities,
+                        :member => {:move_top => :get,
+                                    :move_up => :get,
+                                    :move_down => :get,
+                                    :move_bottom => :get},
+                        :collection => {:reposition => :put}
     end
-    person.resources :skills, :member => {:delete => :get}, :collection => {:reposition => :put}
+    person.resources :skills,
+                     :member => {:delete => :get,
+                                 :move_top => :get,
+                                 :move_up => :get,
+                                 :move_down => :get,
+                                 :move_bottom => :get},
+                     :collection => {:reposition => :put}
     person.resources :schools, :member => {:delete => :get}
   end
 
