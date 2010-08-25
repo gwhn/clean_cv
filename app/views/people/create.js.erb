@@ -1,2 +1,2 @@
-$("<%= escape_javascript(render :partial => 'item', :object => @person) %>").appendTo("#cv");
+$("<%= escape_javascript(render :partial => 'item', :object => @person) %>").appendTo("#people");
 bindRemoteLinks("#form-dialog", "#cv #person_<%= @person.id %> .remote-link");

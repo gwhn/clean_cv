@@ -2,7 +2,8 @@
   - skill_id = "skill_#{item.id}"
   %div{:id => ['skill', item.id], :class => ['skill']}
     %h4= item.level
-    %h2= item.name
+    %h2
+      %a{:name => "#{item.name}"}= item.name
 
     %br
     %p= item.description

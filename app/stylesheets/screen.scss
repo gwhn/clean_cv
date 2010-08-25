@@ -251,6 +251,34 @@ em {
     }
 }
 
+.pager {
+    font-size: 16px;
+    font-family: 'AllerRegular', sans-serif;
+    margin: 30px 0 0 0;
+    text-align: center;
+    color: #475261;
+
+    .disabled {
+        color: #dfdfdf;
+    }
+
+    a,
+    .disabled,
+    .current {
+        padding: 5px;
+        border: 1px solid #dfdfdf;
+    }
+
+    .current {
+        font-weight: 700;
+        background-color: #fdb020;
+    }
+
+    .gap {
+        padding: 5px 10px;
+
+    }
+}
 /* =COLORS-TYPOGRAPHY
 ----------------------------------*/
 
@@ -269,7 +297,7 @@ em {
 
     .person img {
         background-color: #FFF;
-        border: 1px solid #dedede;
+        border: 1px solid #dfdfdf;
     }
 
     .person h1 {

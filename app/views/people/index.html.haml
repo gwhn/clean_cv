@@ -1,5 +1,3 @@
-.page-info= page_entries_info @people
-
 #people
   = render :partial => 'item', :collection => @people
 
@@ -11,4 +9,4 @@
   - content_for :javascript do
     = dynamic_tooltip_javascript_for '#people', 'top left'
 
-= will_paginate @people, :class => 'pager', :previous_label => '&#171;', :next_label => '&#187;', :separator => '|'
+= will_paginate @people, :class => 'pager', :previous_label => '&#171;', :next_label => '&#187;'
