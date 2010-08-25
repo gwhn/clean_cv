@@ -17,7 +17,7 @@
 
         - if current_user and permitted_to? :reposition, :tasks
           - content_for :javascript do
-            = sortable_javascript_for "&person_id=#{item.company.person.id}&company_id=#{item.company.id}&project_id=#{item.id}", "##{tasks_id}", '.task', reposition_person_company_project_tasks_url(item.company.person, item.company, item)
+            = sortable_javascript_for "&person_id=#{item.company.person.id}&company_id=#{item.company.id}&project_id=#{item.id}", "##{tasks_id}", 'li', reposition_person_company_project_tasks_url(item.company.person, item.company, item)
 
 - if current_user
   %ul.options

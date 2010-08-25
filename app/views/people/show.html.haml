@@ -30,7 +30,7 @@
 
       - if current_user and permitted_to? :reposition, :skills
         - content_for :javascript do
-          = sortable_javascript_for "&person_id=#{@person.id}", "##{skills_id}", '.skill', reposition_person_skills_url(@person)
+          = sortable_javascript_for "&person_id=#{@person.id}", "##{skills_id}", 'li', reposition_person_skills_url(@person)
 
   - if current_user
     %ul.options

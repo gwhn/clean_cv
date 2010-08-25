@@ -56,11 +56,19 @@ JS
         $("#{selector}").tooltip({
           effect:"slide",
           position: "#{position}",
-          delay: 1000,
+          delay: 750,
           tipClass: "options"
         }).dynamic({
           bottom: {
             direction: "down"
+          }
+        }).dynamic({
+          left: {
+            direction: "left"
+          }
+        }).dynamic({
+          right: {
+            direction: "right"
           }
         });
       });

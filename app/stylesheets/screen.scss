@@ -192,41 +192,39 @@ em {
     display: inline-block;
 }
 
-.tooltip {
-    font-family: 'AllerBold', sans-serif;
-    display: none;
-    background: transparent url(/images/tooltip/white_arrow_small.png);
-    height: 41px;
-	width: 65px;
-    padding: 10px 20px;
-}
-
-.tooltip.bottom {
-	background: url(/images/tooltip/white_arrow_small_bottom.png);
-    height: 30px;
-    padding: 15px 20px;
-}
-
+.tooltip,
 .options {
+    padding: 5px;    
     font-family: 'AllerBold', sans-serif;
     font-size: 16px;
     display: none;
-    background: transparent url(/images/tooltip/white_arrow.png);
-    height: 82px;
-	width: 169px;
-    padding: 20px 20px;
-}
-
-.options.bottom {
-    background: transparent url(/images/tooltip/white_arrow_bottom.png);
-    height: 66px;
-    padding: 30px 20px;
+    border: 1px solid #dfdfdf;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 2px 2px 5px #475261;
+    -moz-box-shadow: 2px 2px 5px #475261;
+    box-shadow: 2px 2px 5px #475261;
+    background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, rgba(223,223,223,0.8)),
+        color-stop(1, rgba(248,248,248,0.8)),
+        color-stop(1, rgba(223,223,223,0.8))
+    );
+    background: -moz-linear-gradient(
+        center top,
+        rgba(223,223,223,0.8) 0%,
+        rgba(248,248,248,0.8) 100%,
+        rgba(223,223,223,0.8) 100%
+    );
 }
 
 .options {
     li {
         list-style-type: none;
-        margin: 5px 0;
+        padding: 5px;
     }
 }
 

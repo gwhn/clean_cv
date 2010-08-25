@@ -1,10 +1,11 @@
 %li{:id => ['task', item.id]}
   %span.handle= h item.description
+
   - if current_user and permitted_to? :reposition, item
     %span.move-actions
       - if item_counter > 0
-        %span.move-top= link_to 'Move top', move_top_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'ui-icon ui-icon-arrowstop-1-n'
-        %span.move-up= link_to 'Move up', move_up_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'ui-icon ui-icon-arrow-1-n'
+        %span= link_to 'Move top', move_top_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'ui-icon ui-icon-arrowstop-1-n'
+        %span= link_to 'Move up', move_up_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'ui-icon ui-icon-arrow-1-n'
       - if item_counter < task_count - 1
-        %span.move-down= link_to 'Move down', move_down_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'ui-icon ui-icon-arrow-1-s'
-        %span.move-bottom= link_to 'Move bottom', move_bottom_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'ui-icon ui-icon-arrowstop-1-s'
+        %span= link_to 'Move down', move_down_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'ui-icon ui-icon-arrow-1-s'
+        %span= link_to 'Move bottom', move_bottom_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'ui-icon ui-icon-arrowstop-1-s'

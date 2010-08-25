@@ -1,22 +1,22 @@
 %li.item
   - skill_id = "skill_#{item.id}"
-  %div{:id => ['skill', item.id], :class => ['skill']}
+  .handle{:id => skill_id}
     %h4= item.level
     %h2
       %a{:name => "#{item.name}"}= item.name
-
     %br
     %p= item.description
 
-  - if current_user and permitted_to? :reposition, item
-    .move-actions
-      - if item_counter > 0
-        %span.move-top= link_to 'Move top', move_top_person_skill_path(item.person, item), :class => 'ui-icon ui-icon-arrowstop-1-n'
-        %span.move-up= link_to 'Move up', move_up_person_skill_path(item.person, item), :class => 'ui-icon ui-icon-arrow-1-n'
-      - if item_counter < skill_count - 1
-        %span.move-down= link_to 'Move down', move_down_person_skill_path(item.person, item), :class => 'ui-icon ui-icon-arrow-1-s'
-        %span.move-bottom= link_to 'Move bottom', move_bottom_person_skill_path(item.person, item), :class => 'ui-icon ui-icon-arrowstop-1-s'
+    - if current_user and permitted_to? :reposition, item
+      .move-actions
+        - if item_counter > 0
+          %span= link_to 'Move top', move_top_person_skill_path(item.person, item), :class => 'ui-icon ui-icon-arrowstop-1-n'
+          %span= link_to 'Move up', move_up_person_skill_path(item.person, item), :class => 'ui-icon ui-icon-arrow-1-n'
+        - if item_counter < skill_count - 1
+          %span= link_to 'Move down', move_down_person_skill_path(item.person, item), :class => 'ui-icon ui-icon-arrow-1-s'
+          %span= link_to 'Move bottom', move_bottom_person_skill_path(item.person, item), :class => 'ui-icon ui-icon-arrowstop-1-s'
 
+  - if current_user and permitted_to? :reposition, item
     %ul.options
       - if permitted_to? :update, item
         %li= link_to 'Edit skill', edit_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Edit skill'
