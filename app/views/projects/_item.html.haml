@@ -1,40 +1,45 @@
-- project_id = "project_#{item.id}"
-%div{:id => project_id}
-  %h6= h item.name
+- if !defined?(project_count)
+  - project_count = 0
+  - item_counter = 0
 
-  - if current_user and permitted_to? :reposition, item
-    %span.move-actions
-      - if item_counter > 0
-        %span= link_to 'Move top', move_top_person_company_project_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-arrowstop-1-n'
-        %span= link_to 'Move up', move_up_person_company_project_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-arrow-1-n'
-      - if item_counter < project_count - 1
-        %span= link_to 'Move down', move_down_person_company_project_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-arrow-1-s'
-        %span= link_to 'Move bottom', move_bottom_person_company_project_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-arrowstop-1-s'
+%li
+  - project_id = "project_#{item.id}"
+  %div{:id => project_id}
+    %h6.handle= h item.name
 
-  .panel
-    %p= h item.description
+    - if current_user and permitted_to? :reposition, item
+      %span.move-actions
+        - if item_counter > 0
+          %span= link_to 'Move top', move_top_person_company_project_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-arrowstop-1-n'
+          %span= link_to 'Move up', move_up_person_company_project_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-arrow-1-n'
+        - if item_counter < project_count - 1
+          %span= link_to 'Move down', move_down_person_company_project_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-arrow-1-s'
+          %span= link_to 'Move bottom', move_bottom_person_company_project_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-arrowstop-1-s'
 
-    - if item.skills.count > 0
-      - skills_id = "person_#{item.company.person.id}_company_#{item.company.id}_project_#{item.id}_skills"
-      %ul.repeater{:id => skills_id}
-        = render :partial => 'projects/skill', :collection => item.skills
+    .panel
+      %p= h item.description
 
-    - if item.tasks.count > 0
-      - tasks_id = "person_#{item.company.person.id}_company_#{item.company.id}_project_#{item.id}_tasks"
-      %ul.list{:id => tasks_id}
-        = render :partial => 'tasks/item', :collection => item.tasks, :locals => {:task_count => item.tasks.count}
+      - if item.skills.count > 0
+        - skills_id = "person_#{item.company.person.id}_company_#{item.company.id}_project_#{item.id}_skills"
+        %ul.repeater{:id => skills_id}
+          = render :partial => 'projects/skill', :collection => item.skills
 
-        - if current_user and permitted_to? :reposition, :tasks
-          - content_for :javascript do
-            = sortable_javascript_for "&person_id=#{item.company.person.id}&company_id=#{item.company.id}&project_id=#{item.id}", "##{tasks_id}", 'li', reposition_person_company_project_tasks_url(item.company.person, item.company, item)
+      - if item.tasks.count > 0
+        - tasks_id = "person_#{item.company.person.id}_company_#{item.company.id}_project_#{item.id}_tasks"
+        %ul.list{:id => tasks_id}
+          = render :partial => 'tasks/item', :collection => item.tasks, :locals => {:task_count => item.tasks.count}
 
-- if current_user
-  %ul.options
-    - if permitted_to? :update, item
-      %li= link_to 'Edit project', edit_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Edit project'
-    - if permitted_to? :delete, item
-      %li= link_to 'Delete project', delete_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Delete project'
+          - if current_user and permitted_to? :reposition, :tasks
+            - content_for :javascript do
+              = sortable_javascript_for "&person_id=#{item.company.person.id}&company_id=#{item.company.id}&project_id=#{item.id}", "##{tasks_id}", 'li', reposition_person_company_project_tasks_url(item.company.person, item.company, item)
 
-  - content_for :javascript do
-    = dynamic_tooltip_javascript_for "##{project_id}"
+  - if current_user
+    %ul.options
+      - if permitted_to? :update, item
+        %li= link_to 'Edit project', edit_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Edit project'
+      - if permitted_to? :delete, item
+        %li= link_to 'Delete project', delete_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Delete project'
+
+    - content_for :javascript do
+      = dynamic_tooltip_javascript_for "##{project_id}"
 
