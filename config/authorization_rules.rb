@@ -4,6 +4,8 @@ privileges do
   privilege :create, :includes => :new
   privilege :update, :includes => :edit
   privilege :delete, :includes => :destroy
+  privilege :reposition, :includes => [:move_top, :move_up, :move_down, :move_bottom]
+
 end
 
 authorization do
