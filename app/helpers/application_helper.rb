@@ -62,14 +62,6 @@ JS
           bottom: {
             direction: "down"
           }
-        }).dynamic({
-          left: {
-            direction: "left"
-          }
-        }).dynamic({
-          right: {
-            direction: "right"
-          }
         });
       });
 JS
