@@ -1,5 +1,4 @@
-#people
-  = render :partial => 'item', :collection => @people
+%ul#people= render :partial => 'item', :collection => @people, :locals => {:summarize => true}
 
 - if current_user
   %ul.options
@@ -10,3 +9,4 @@
     = dynamic_tooltip_javascript_for '#people', 'top left'
 
 = will_paginate @people, :class => 'pager', :previous_label => '&#171;', :next_label => '&#187;'
+            

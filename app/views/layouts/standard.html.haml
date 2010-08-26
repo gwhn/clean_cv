@@ -8,7 +8,7 @@
       Always force latest IE rendering engine (even in intranet) &amp; Chrome Frame
       Remove this if you use the .htaccess
     /[if IE] <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    %title
+    %title= yield :title
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
     /

@@ -20,7 +20,7 @@ module ApplicationHelper
       end
     end
   end
-
+  
   def sortable_javascript_for(selector, item_class, qs, url, handle_class = '.handle')
     javascript_tag <<JS
       $(function() {

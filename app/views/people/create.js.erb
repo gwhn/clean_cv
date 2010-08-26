@@ -1,3 +1,16 @@
+<%- company_id = "#company_#{@company.id}" %>
 $("<%= escape_javascript(render :partial => 'item', :object => @person) %>")
         .appendTo("#people");
+$("<%= company_id %>")
+    .tooltip({
+        effect:"slide",
+        position: "top right",
+        delay: 750,
+        tipClass: "options"
+    })
+    .dynamic({
+        bottom: {
+            direction: "down"
+        }
+    });
 bindRemoteLinks("#form-dialog", ".remote-link");
