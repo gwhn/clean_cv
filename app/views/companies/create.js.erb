@@ -1,7 +1,37 @@
-<%- companies_id = "person_#{@person.id}_companies" %>
-$("#<%= companies_id %> .company:last .item").removeClass("last-item");
-$("<%= escape_javascript(render :partial => 'item', :object => @company) %>").appendTo("#<%= companies_id %>");
-$("#<%= companies_id %> .company:last .item").addClass("last-item");
-bindRemoteLinks("#form-dialog", "#<%= companies_id %> #company_<%= @company.id %> .remote-link");
-$.scrollTo("#<%= companies_id %> #company_<%= @company.id %>", "fast");
-$("#<%= companies_id %> #company_<%= @company.id %>").effect("highlight");
+<%- companies_id = "#person_#{@person.id}_companies" %>
+<%- company_id = "#company_#{@company.id}" %>
+<%- projects_id = "#person_#{@person.id}_company_#{@company.id}_projects" %>
+$("<%= escape_javascript(render :partial => 'item', :object => @company) %>")
+        .appendTo("<%= companies_id %>");
+$("<%= projects_id %>")
+        .tabs("<%= projects_id %>.accordion .panel", {tabs: "h6"});
+$("<%= company_id %>")
+    .tooltip({
+        effect:"slide",
+        position: "top right",
+        delay: 750,
+        tipClass: "options"
+    })
+    .dynamic({
+        bottom: {
+            direction: "down"
+        }
+    });
+<%- @company.projects.each do |project| -%>
+$("#project_<%= project.id %> > .project")
+    .tooltip({
+        effect:"slide",
+        position: "top center",
+        delay: 750,
+        tipClass: "options"
+    })
+    .dynamic({
+        bottom: {
+            direction: "down"
+        }
+    });
+<%- end -%>
+bindRemoteLinks("#form-dialog", ".remote-link");
+$(".move-actions").hide();
+$.scrollTo("<%= company_id %>", "fast");
+$("<%= company_id %>").effect("highlight");

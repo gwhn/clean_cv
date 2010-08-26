@@ -1,7 +1,6 @@
-<%- skills_id = "person_#{@person.id}_skills" %>
-$("#<%= skills_id %> .skill:last .item").removeClass("last-item");
-$("<%= escape_javascript(render :partial => 'item', :object => @skill) %>").appendTo("#<%= skills_id %>");
-$("#<%= skills_id %> .skill:last .item").addClass("last-item");
-bindRemoteLinks("#form-dialog", "#<%= skills_id %> #skill_<%= @skill.id %> .remote-link");
-$.scrollTo("#<%= skills_id %> #skill_<%= @skill.id %>", "fast");
-$("#<%= skills_id %> #skill_<%= @skill.id %>").effect("highlight");
+<%- skill_id = "#skill_#{@skill.id}" %>
+$("<%= escape_javascript(render :partial => 'item', :object => @skill) %>")
+        .appendTo("#person_<%= @person.id %>_skills");
+bindRemoteLinks("#form-dialog", ".remote-link");
+$.scrollTo("<%= skill_id %>", "fast");
+$("<%= skill_id %>").effect("highlight");

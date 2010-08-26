@@ -1,7 +1,6 @@
-<%- schools_id = "person_#{@person.id}_schools" %>
-$("#<%= schools_id %> .school:last .item").removeClass("last-item");
-$("<%= escape_javascript(render :partial => 'item', :object => @school) %>").appendTo("#<%= schools_id %>");
-$("#<%= schools_id %> .school:last .item").addClass("last-item");
-bindRemoteLinks("#form-dialog", "#<%= schools_id %> #school_<%= @school.id %> .remote-link");
-$.scrollTo("#<%= schools_id %> #school_<%= @school.id %>", "fast");
-$("#<%= schools_id %> #school_<%= @school.id %>").effect("highlight");
+<%- school_id = "#school_#{@school.id}" %>
+$("<%= escape_javascript(render :partial => 'item', :object => @school) %>")
+        .appendTo("#person_<%= @person.id %>_schools");
+bindRemoteLinks("#form-dialog", ".remote-link");
+$.scrollTo("<%= school_id %>", "fast");
+$("<%= school_id %>").effect("highlight");

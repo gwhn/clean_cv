@@ -1,5 +1,4 @@
-<%- companies_id = "person_#{@person.id}_companies" %>
-$("#<%= companies_id %> #company_<%= @company.id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @company) %>");
-$("#<%= companies_id %> .company:last .item").addClass("last-item");
-bindRemoteLinks("#form-dialog", "#<%= companies_id %> #company_<%= @company.id %> .remote-link");
-$("#<%= companies_id %> #company_<%= @company.id %>").effect("highlight");
+<%- company_id = "#company_#{@company.id}" %>
+$("<%= company_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @company) %>");
+bindRemoteLinks("#form-dialog", ".remote-link");
+$("<%= company_id %>").effect("highlight");

@@ -4,9 +4,6 @@ var currentTabIndex = $("<%= projects_id %>").data("tabs").getIndex();
 $("<%= project_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @project) %>");
 $("<%= projects_id %>").tabs("destroy")
     .tabs("<%= projects_id %>.accordion .panel", {tabs: "h6", initialIndex: currentTabIndex});
-bindRemoteLinks("#form-dialog", "<%= projects_id %> .remote-link");
-$(".move-actions").hide();
-$("<%= project_id %>").effect("highlight");
 $("<%= project_id %> > .project")
     .tooltip("destroy")
     .tooltip({
@@ -20,3 +17,6 @@ $("<%= project_id %> > .project")
             direction: "down"
         }
     });
+bindRemoteLinks("#form-dialog", ".remote-link");
+$(".move-actions").hide();
+$("<%= project_id %>").effect("highlight");

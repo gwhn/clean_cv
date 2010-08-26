@@ -1,3 +1,2 @@
-<%- companies_id = "person_#{@person.id}_companies" %>
-$("#<%= companies_id %> #company_<%= @company.id %>").remove();
-$("#<%= companies_id %>").effect("highlight");
+$("#company_<%= @company.id %>").remove();
+$("#person_<%= @person.id %>_companies").effect("highlight");

@@ -1,5 +1,4 @@
-<%- skills_id = "person_#{@person.id}_skills" %>
-$("#<%= skills_id %> #skill_<%= @skill.id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @skill) %>");
-$("#<%= skills_id %> .skill:last .item").addClass("last-item");
-bindRemoteLinks("#form-dialog", "#<%= skills_id %> #skill_<%= @skill.id %> .remote-link");
-$("#<%= skills_id %> #skill_<%= @skill.id %>").effect("highlight");
+<%- skill_id = "#skill_#{@skill.id}" %>
+$("<%= skill_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @skill) %>");
+bindRemoteLinks("#form-dialog", ".remote-link");
+$("<%= skill_id %>").effect("highlight");
