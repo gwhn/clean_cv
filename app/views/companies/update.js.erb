@@ -1,4 +1,28 @@
 <%- company_id = "#company_#{@company.id}" %>
+<%- projects_id = "#person_#{@person.id}_company_#{@company.id}_projects" %>
 $("<%= company_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @company) %>");
+$("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {tabs: "h6"});
+$("<%= company_id %> > .company").tooltip({
+    effect:"slide",
+    position: "top right",
+    delay: 750,
+    tipClass: "options"
+});
+$("<%= company_id %> > .company").dynamic({
+    bottom: {direction: "down"}
+});
+<%- @company.projects.each do |project| -%>
+    <%- project_id = "#project_#{project.id} > .project" -%>
+    $("<%= project_id %>").tooltip({
+        effect:"slide",
+        position: "top center",
+        delay: 750,
+        tipClass: "options"
+    });
+    $("<%= project_id %>").dynamic({
+        bottom: {direction: "down"}
+    });
+<%- end -%>
 bindRemoteLinks("#form-dialog", ".remote-link");
+$(".move-actions").hide();
 $("<%= company_id %>").effect("highlight");

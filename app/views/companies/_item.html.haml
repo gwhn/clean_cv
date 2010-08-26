@@ -1,6 +1,6 @@
-%li.item
-  - company_id = "company_#{item.id}"
-  %div{:id => company_id}
+- company_id = "company_#{item.id}"
+%li.item{:id => company_id}
+  .company
     %h4 #{h item.start_date.to_s(:month_and_year)} - #{h item.end_date.to_s(:month_and_year)}
     %h2= h item.name
 
@@ -18,7 +18,7 @@
 
     - if item.projects.count > 0
       - projects_id = "person_#{item.person.id}_company_#{item.id}_projects"
-      %ul{:id => projects_id, :class => 'accordion'}
+      %ul.accordion{:id => projects_id}
 
         = render :partial => 'projects/item', :collection => item.projects, :locals => {:project_count => item.projects.count}
 
@@ -42,4 +42,4 @@
         %li= link_to 'Delete company', delete_person_company_path(item.person, item), :class => 'remote-link', :title => 'Delete company'
 
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{company_id}", 'top right'
+      = dynamic_tooltip_javascript_for "##{company_id} > .company", 'top right'

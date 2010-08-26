@@ -2,21 +2,19 @@
 <%- project_id = "#project_#{@project.id}" %>
 var currentTabIndex = $("<%= projects_id %>").data("tabs").getIndex();
 $("<%= project_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @project) %>");
-$("<%= projects_id %>").tabs("destroy")
-    .tabs("<%= projects_id %>.accordion .panel", {tabs: "h6", initialIndex: currentTabIndex});
-$("<%= project_id %> > .project")
-    .tooltip("destroy")
-    .tooltip({
-        effect:"slide",
-        position: "top center",
-        delay: 750,
-        tipClass: "options"
-    })
-    .dynamic({
-        bottom: {
-            direction: "down"
-        }
-    });
+$("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {
+    tabs: "h6",
+    initialIndex: currentTabIndex
+});
+$("<%= project_id %> > .project").tooltip({
+    effect:"slide",
+    position: "top center",
+    delay: 750,
+    tipClass: "options"
+});
+$("<%= project_id %> > .project").dynamic({
+    bottom: {direction: "down"}
+});
 bindRemoteLinks("#form-dialog", ".remote-link");
 $(".move-actions").hide();
 $("<%= project_id %>").effect("highlight");

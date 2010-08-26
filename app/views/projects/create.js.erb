@@ -1,22 +1,17 @@
 <%- projects_id = "#person_#{@person.id}_company_#{@company.id}_projects" %>
 <%- project_id = "#project_#{@project.id}" %>
 var lastTabIndex = $("<%= projects_id %>").data("tabs").getTabs().length;
-$("<%= projects_id %>").append("<%= escape_javascript(render :partial => 'item', :object => @project) %>")
-    .tabs("destroy")
-    .tabs("<%= projects_id %>.accordion .panel", {tabs: "h6", initialIndex: lastTabIndex});
-$("<%= project_id %> > .project")
-    .tooltip("destroy")
-    .tooltip({
-        effect:"slide",
-        position: "top center",
-        delay: 750,
-        tipClass: "options"
-    })
-    .dynamic({
-        bottom: {
-            direction: "down"
-        }
-    });
+$("<%= projects_id %>").append("<%= escape_javascript(render :partial => 'item', :object => @project) %>");
+$("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {tabs: "h6", initialIndex: lastTabIndex});
+$("<%= project_id %> > .project").tooltip({
+    effect:"slide",
+    position: "top center",
+    delay: 750,
+    tipClass: "options"
+});
+$("<%= project_id %> > .project").dynamic({
+    bottom: {direction: "down"}
+});
 bindRemoteLinks("#form-dialog", ".remote-link");
 $(".move-actions").hide();
 $.scrollTo("<%= project_id %>", "fast");

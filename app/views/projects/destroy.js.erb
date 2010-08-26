@@ -1,6 +1,6 @@
 <%- projects_id = "#person_#{@person.id}_company_#{@company.id}_projects" %>
 $("#project_<%= @project.id %>").remove();
-$("<%= projects_id %>").tabs("destroy")
-    .tabs("<%= projects_id %>.accordion .panel", {tabs: "h6"});
+$("<%= projects_id %>").tabs("destroy");
+$("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {tabs: "h6"});
 bindRemoteLinks("#form-dialog", ".remote-link");
 $("<%= projects_id %>").effect("highlight");

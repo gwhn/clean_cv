@@ -1,6 +1,5 @@
 <%- skill_id = "#skill_#{@skill.id}" %>
-$("<%= escape_javascript(render :partial => 'item', :object => @skill) %>")
-        .appendTo("#person_<%= @person.id %>_skills");
+$("<%= escape_javascript(render :partial => 'item', :object => @skill) %>").appendTo("#person_<%= @person.id %>_skills");
 bindRemoteLinks("#form-dialog", ".remote-link");
 $.scrollTo("<%= skill_id %>", "fast");
 $("<%= skill_id %>").effect("highlight");

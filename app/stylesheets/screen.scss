@@ -234,8 +234,8 @@ em {
     /* accordion header */
     h6 {
         margin: 0;
-        padding: 15px 0 5px 0;
-        border-top: 1px solid #dfdfdf;
+        padding: 5px;
+        border: 1px solid #dfdfdf;
         cursor: pointer;
         &:hover {
             text-decoration: underline;
@@ -244,6 +244,7 @@ em {
 
     /* currently active header */
     h6.current {
+        background-color: #f8f8f8;
         cursor: default;
         &:hover {
             text-decoration: none;
