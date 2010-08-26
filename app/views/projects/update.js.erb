@@ -1,13 +1,13 @@
-<%- projects_id = "person_#{@project.company.person.id}_company_#{@project.company.id}_projects" %>
-var last_panel = $("#<%= projects_id %>").data("tabs").getPanes().length - 1;
-$("#project_<%= @project.id %> + .options").remove();
-$("#project_<%= @project.id %>").remove();
-$("#<%= projects_id %>").append("<%= escape_javascript(render :partial => 'item', :object => @project) %>")
-    .tabs("destroy")
-    .tabs(".accordion .panel", {tabs: "h6", initialIndex: last_panel});
-bindRemoteLinks("#form-dialog", "#<%= projects_id %> .remote-link");
-$("#project_<%= @project.id %>").effect("highlight");
-$("#project_<%= @project.id %>")
+<%- projects_id = "#person_#{@project.company.person.id}_company_#{@project.company.id}_projects" %>
+<%- project_id = "#project_#{@project.id}" %>
+var currentTabIndex = $("<%= projects_id %>").data("tabs").getIndex();
+$("<%= project_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @project) %>");
+$("<%= projects_id %>").tabs("destroy")
+    .tabs("<%= projects_id %>.accordion .panel", {tabs: "h6", initialIndex: currentTabIndex});
+bindRemoteLinks("#form-dialog", "<%= projects_id %> .remote-link");
+$(".move-actions").hide();
+$("<%= project_id %>").effect("highlight");
+$("<%= project_id %> > .project")
     .tooltip("destroy")
     .tooltip({
         effect:"slide",
