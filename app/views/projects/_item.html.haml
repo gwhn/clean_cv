@@ -2,9 +2,9 @@
   - project_count = 0
   - item_counter = 0
 
-%li
-  - project_id = "project_#{item.id}"
-  %div{:id => project_id}
+- project_id = "project_#{item.id}"
+%li{:id => project_id}
+  .project
     %h6.handle= h item.name
 
     - if current_user and permitted_to? :reposition, item
@@ -31,7 +31,7 @@
 
           - if current_user and permitted_to? :reposition, :tasks
             - content_for :javascript do
-              = sortable_javascript_for "&person_id=#{item.company.person.id}&company_id=#{item.company.id}&project_id=#{item.id}", "##{tasks_id}", 'li', reposition_person_company_project_tasks_url(item.company.person, item.company, item)
+              = sortable_javascript_for "##{tasks_id}", 'li', "&person_id=#{item.company.person.id}&company_id=#{item.company.id}&project_id=#{item.id}", reposition_person_company_project_tasks_url(item.company.person, item.company, item)
 
   - if current_user
     %ul.options
@@ -41,5 +41,5 @@
         %li= link_to 'Delete project', delete_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Delete project'
 
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{project_id}"
+      = dynamic_tooltip_javascript_for "##{project_id} > .project"
 

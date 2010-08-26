@@ -21,7 +21,7 @@ module ApplicationHelper
     end
   end
 
-  def sortable_javascript_for(qs, selector, item_class, url, handle_class = '.handle')
+  def sortable_javascript_for(selector, item_class, qs, url, handle_class = '.handle')
     javascript_tag <<JS
       $(function() {
         $("#{selector}").sortable({

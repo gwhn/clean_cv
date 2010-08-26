@@ -14,7 +14,7 @@
 
         - if current_user and permitted_to? :reposition, :responsibilities
           - content_for :javascript do
-            = sortable_javascript_for "&person_id=#{item.person.id}&company_id=#{item.id}", "##{responsibilities_id}", 'li', reposition_person_company_responsibilities_url(item.person, item)
+            = sortable_javascript_for "##{responsibilities_id}", 'li', "&person_id=#{item.person.id}&company_id=#{item.id}", reposition_person_company_responsibilities_url(item.person, item)
 
     - if item.projects.count > 0
       - projects_id = "person_#{item.person.id}_company_#{item.id}_projects"
@@ -32,7 +32,7 @@
 
         - if permitted_to? :reposition, :projects
           - content_for :javascript do
-            = sortable_javascript_for "&person_id=#{item.person.id}&company_id=#{item.id}", "##{projects_id}", 'div', reposition_person_company_projects_url(item.person, item)
+            = sortable_javascript_for "##{projects_id}", 'li', "&person_id=#{item.person.id}&company_id=#{item.id}", reposition_person_company_projects_url(item.person, item)
 
   - if current_user
     %ul.options
