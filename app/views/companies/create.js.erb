@@ -1,12 +1,19 @@
 <%- companies_id = "#person_#{@person.id}_companies" %>
 <%- company_id = "#company_#{@company.id}" %>
 <%- projects_id = "#person_#{@person.id}_company_#{@company.id}_projects" %>
+<%- responsibilities_id = "#person_#{@person.id}_company_#{@company.id}_responsiblities" -%>
 $("<%= escape_javascript(render :partial => 'item', :object => @company) %>").appendTo("<%= companies_id %>");
 $("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {tabs: "h6"});
 <%= dynamic_tooltip_javascript_for "#{company_id} > .company", :position => 'top right', :on_ready_wrapper => false %>
+<%= dynamic_tooltip_javascript_for projects_id, :position => 'top left', :on_ready_wrapper => false %>
 <%- @company.projects.each do |project| -%>
     <%= dynamic_tooltip_javascript_for "#project_#{project.id} > .project", :on_ready_wrapper => false %>
 <%- end -%>
+<%= sortable_javascript_for "#{projects_id}", 'li', "&person_id=#{@person.id}&company_id=#{@company.id}", reposition_person_company_projects_url(@person, @company), :on_ready_wrapper => false %>
+<%- @company.projects.each do |project| -%>
+    <%= sortable_javascript_for "#person_#{project.company.person.id}_company_#{project.company.id}_project_#{project.id}_tasks", 'li', "&person_id=#{project.company.person.id}&company_id=#{project.company.id}&project_id=#{project.id}", reposition_person_company_project_tasks_url(project.company.person, project.company, project), :on_ready_wrapper => false  %>
+<%- end -%>
+<%= sortable_javascript_for "#{responsibilities_id}", 'li', "&person_id=#{@person.id}&company_id=#{@company.id}", reposition_person_company_responsibilities_url(@person, @company), :on_ready_wrapper => false %>
 bindRemoteLinks("#form-dialog", ".remote-link");
 $(".move-actions").hide();
 $.scrollTo("<%= company_id %>", "fast");

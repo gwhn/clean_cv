@@ -53,20 +53,19 @@ JS
   end
 
   def dynamic_tooltip_javascript_for(selector, options = {})
-    options = {:position => 'top center',
+    options = {:effect => 'slide',
+               :position => 'top center',
+               :delay => 750,
+               :tip_class => 'options',
                :on_ready_wrapper => true}.merge(options)
     script = <<JS
 $("#{selector}").tooltip({
-  effect:"slide",
+  effect:"#{options[:effect]}",
   position: "#{options[:position]}",
-  delay: 750,
-  tipClass: "options"
+  delay: #{options[:delay]},
+  tipClass: "#{options[:tip_class]}"
 });
-$("#{selector}").dynamic({
-  bottom: {
-    direction: "down"
-  }
-});
+$("#{selector}").dynamic({bottom: {direction: "down"}});
 JS
     script = jquery_on_ready(script) if options[:on_ready_wrapper]
     script
