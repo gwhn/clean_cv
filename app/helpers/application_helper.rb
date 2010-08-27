@@ -25,36 +25,30 @@ module ApplicationHelper
     options = {:handle_class => '.handle',
                :on_ready_wrapper => true}.merge(options)
     script = <<JS
-      $("#{selector}").sortable({
-        axis: "y",
-        dropOnEmpty: false,
-        handle: "#{options[:handle_class]}",
-        cursor: "move",
-        items: "#{item_class}",
-        opacity: 0.4,
-        scroll: true,
-        placeholder: "ui-state-highlight",
-        update: function() {
-          $.ajax({
-            type: "put",
-            data: $("#{selector}").sortable("serialize") + "#{qs}",
-            dataType: "script",
-            complete: function(request){
-              $("#{selector}").effect("highlight");
-            },
-            url: "#{url}"
-          });
-        }
-      });
-      $("#{selector}").disableSelection();
+$("#{selector}").sortable({
+  axis: "y",
+  dropOnEmpty: false,
+  handle: "#{options[:handle_class]}",
+  cursor: "move",
+  items: "#{item_class}",
+  opacity: 0.4,
+  scroll: true,
+  placeholder: "ui-state-highlight",
+  update: function() {
+    $.ajax({
+      type: "put",
+      data: $("#{selector}").sortable("serialize") + "#{qs}",
+      dataType: "script",
+      complete: function(request){
+        $("#{selector}").effect("highlight");
+      },
+      url: "#{url}"
+    });
+  }
+});
+$("#{selector}").disableSelection();
 JS
-    if options[:on_ready_wrapper]
-      script = javascript_tag <<JS
-        $(function(){
-          #{script}
-        });
-JS
-    end
+    script = jquery_on_ready(script) if options[:on_ready_wrapper]
     script
   end
 
@@ -62,25 +56,23 @@ JS
     options = {:position => 'top center',
                :on_ready_wrapper => true}.merge(options)
     script = <<JS
-      $("#{selector}").tooltip({
-        effect:"slide",
-        position: "#{options[:position]}",
-        delay: 750,
-        tipClass: "options"
-      });
-      $("#{selector}").dynamic({
-        bottom: {
-          direction: "down"
-        }
-      });
+$("#{selector}").tooltip({
+  effect:"slide",
+  position: "#{options[:position]}",
+  delay: 750,
+  tipClass: "options"
+});
+$("#{selector}").dynamic({
+  bottom: {
+    direction: "down"
+  }
+});
 JS
-    if options[:on_ready_wrapper]
-      script = javascript_tag <<JS
-        $(function(){
-          #{script}
-        });
-JS
-    end
+    script = jquery_on_ready(script) if options[:on_ready_wrapper]
     script
+  end
+
+  def jquery_on_ready(script)
+    javascript_tag "$(function(){#{script}});"
   end
 end

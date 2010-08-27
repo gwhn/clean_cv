@@ -52,7 +52,8 @@ class PeopleController < ApplicationController
         format.html { redirect_to(@person) }
         format.xml { render :xml => @person, :status => :created, :location => @person }
         format.js do
-          responds_to_parent { render :layout => false }
+#          responds_to_parent { render :layout => false }
+          responds_to_parent { render :action => :show }
         end
       else
         format.html { render :action => :new }
@@ -75,7 +76,8 @@ class PeopleController < ApplicationController
         format.html { redirect_to(@person) }
         format.xml { head :ok }
         format.js do
-          responds_to_parent { render :layout => false }
+#          responds_to_parent { render :layout => false }
+          responds_to_parent { render :action => :show }
         end
       else
         format.html { render :action => :edit }
@@ -105,7 +107,7 @@ class PeopleController < ApplicationController
     respond_to do |format|
       format.html { redirect_to people_url }
       format.xml { head :ok }
-      format.js { render :action => :redirect }
+      format.js { render :action => :index }
     end
   end
 
