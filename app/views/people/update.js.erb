@@ -1,6 +1,6 @@
 <%- person_id = "#person_#{@person.id}" -%>
 $("<%= person_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @person) %>");
-<%= dynamic_tooltip_javascript_for "#{person_id} > .personal", 'top right' %>
+<%= dynamic_tooltip_javascript_for "#{person_id} > .personal", 'top right', :on_ready_wrapper => false %>
 initFancyBox("a.lightbox");
 bindRemoteLinks("#form-dialog", ".remote-link");
 $("<%= person_id %>").effect("highlight");

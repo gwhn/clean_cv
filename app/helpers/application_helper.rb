@@ -21,40 +21,50 @@ module ApplicationHelper
     end
   end
   
-  def sortable_javascript_for(selector, item_class, qs, url, handle_class = '.handle')
-    javascript_tag <<JS
-      $(function() {
-        $("#{selector}").sortable({
-          axis: "y",
-          dropOnEmpty: false,
-          handle: "#{handle_class}",
-          cursor: "move",
-          items: "#{item_class}",
-          opacity: 0.4,
-          scroll: true,
-          placeholder: "ui-state-highlight",
-          update: function() {
-            $.ajax({
-              type: "put",
-              data: $("#{selector}").sortable("serialize") + "#{qs}",
-              dataType: "script",
-              complete: function(request){
-                $("#{selector}").effect("highlight");
-              },
-              url: "#{url}"
-            });
-          }
-        });
-        $("#{selector}").disableSelection();
+  def sortable_javascript_for(selector, item_class, qs, url, options = {})
+    options = {:handle_class => '.handle',
+               :on_ready_wrapper => true}.merge(options)
+    script = <<JS
+      $("#{selector}").sortable({
+        axis: "y",
+        dropOnEmpty: false,
+        handle: "#{options[:handle_class]}",
+        cursor: "move",
+        items: "#{item_class}",
+        opacity: 0.4,
+        scroll: true,
+        placeholder: "ui-state-highlight",
+        update: function() {
+          $.ajax({
+            type: "put",
+            data: $("#{selector}").sortable("serialize") + "#{qs}",
+            dataType: "script",
+            complete: function(request){
+              $("#{selector}").effect("highlight");
+            },
+            url: "#{url}"
+          });
+        }
       });
+      $("#{selector}").disableSelection();
 JS
+    if options[:on_ready_wrapper]
+      script = javascript_tag <<JS
+        $(function(){
+          #{script}
+        });
+JS
+    end
+    script
   end
 
-  def dynamic_tooltip_javascript_for(selector, position = 'top center')
-    <<JS
+  def dynamic_tooltip_javascript_for(selector, options = {})
+    options = {:position => 'top center',
+               :on_ready_wrapper => true}.merge(options)
+    script = <<JS
       $("#{selector}").tooltip({
         effect:"slide",
-        position: "#{position}",
+        position: "#{options[:position]}",
         delay: 750,
         tipClass: "options"
       });
@@ -64,13 +74,13 @@ JS
         }
       });
 JS
-  end
-
-  def dynamic_on_ready_tooltip_javascript_for(selector, position = 'top center')
-    javascript_tag <<JS
-      $(function(){
-        #{dynamic_tooltip_javascript_for selector, position}
-      });
+    if options[:on_ready_wrapper]
+      script = javascript_tag <<JS
+        $(function(){
+          #{script}
+        });
 JS
+    end
+    script
   end
 end

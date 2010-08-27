@@ -22,7 +22,7 @@
         %li= link_to 'Delete person', delete_person_path(item), :class => 'remote-link', :title => 'Delete person'
 
     - content_for :javascript do
-      = dynamic_on_ready_tooltip_javascript_for "##{person_id} > .personal", 'top right'
+      = dynamic_tooltip_javascript_for "##{person_id} > .personal", :position => 'top right'
 
   - elsif !current_page?(item) and permitted_to? :read, item
     %ul.options
@@ -43,7 +43,7 @@
           %li= link_to 'New company', new_person_company_path(item), :class => 'remote-link', :title => 'New company'
 
       - content_for :javascript do
-        = dynamic_on_ready_tooltip_javascript_for '.companies', 'top left'
+        = dynamic_tooltip_javascript_for '.companies', :position => 'top left'
 
     .cv-section.fixed.skills
       %h2.cv-section-name Technical Skills
@@ -63,7 +63,7 @@
           %li= link_to 'New skill', new_person_skill_path(item), :class => 'remote-link', :title => 'New skill'
 
       - content_for :javascript do
-        = dynamic_on_ready_tooltip_javascript_for '.skills', 'top left'
+        = dynamic_tooltip_javascript_for '.skills', :position => 'top left'
 
     .cv-section.last-cv-section.fixed.schools
       %h2.cv-section-name Education
@@ -79,5 +79,5 @@
           %li= link_to 'New school', new_person_school_path(item), :class => 'remote-link', :title => 'New school'
 
       - content_for :javascript do
-        = dynamic_on_ready_tooltip_javascript_for '.schools', 'top left'
+        = dynamic_tooltip_javascript_for '.schools', :position => 'top left'
 

@@ -15,4 +15,4 @@
         %li= link_to 'Delete school', delete_person_school_path(item.person, item), :class => 'remote-link', :title => 'Delete school'
 
     - content_for :javascript do
-      = dynamic_on_ready_tooltip_javascript_for "##{school_id} > .school", 'top right'
+      = dynamic_tooltip_javascript_for "##{school_id} > .school", :position => 'top right'

@@ -6,7 +6,7 @@ $("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {
     tabs: "h6",
     initialIndex: currentTabIndex
 });
-<%= dynamic_tooltip_javascript_for "#{project_id} > .project" %>
+<%= dynamic_tooltip_javascript_for "#{project_id} > .project", :on_ready_wrapper => false %>
 bindRemoteLinks("#form-dialog", ".remote-link");
 $(".move-actions").hide();
 $("<%= project_id %>").effect("highlight");

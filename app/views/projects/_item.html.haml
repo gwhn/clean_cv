@@ -39,5 +39,5 @@
         %li= link_to 'Delete project', delete_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Delete project'
 
     - content_for :javascript do
-      = dynamic_on_ready_tooltip_javascript_for "##{project_id} > .project"
+      = dynamic_tooltip_javascript_for "##{project_id} > .project"
 
