@@ -1,6 +1,0 @@
-<%- person_id = "#person_#{@person.id}" -%>
-$("<%= escape_javascript(render :partial => 'item', :object => @person) %>").appendTo("#people");
-<%= dynamic_tooltip_javascript_for "#{person_id} > .personal", :position => 'top right', :on_ready_wrapper => false %>
-initFancyBox("a.lightbox");
-bindRemoteLinks("#form-dialog", ".remote-link");
-$("<%= person_id %>").effect("highlight");
