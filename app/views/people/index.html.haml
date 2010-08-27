@@ -6,7 +6,7 @@
       %li= link_to 'New', new_person_path, :class => 'remote-link', :title => 'New person'
 
   - content_for :javascript do
-    = dynamic_tooltip_javascript_for '#people', 'top left'
+    = dynamic_tooltip_javascript_for '#people', :position => 'top left'
 
 = will_paginate @people, :class => 'pager', :previous_label => '&#171;', :next_label => '&#187;'
             

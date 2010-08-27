@@ -1,6 +1,6 @@
 <%- skill_id = "#skill_#{@skill.id}" -%>
 $("<%= skill_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @skill) %>");
-<%= dynamic_tooltip_javascript_for "#{skill_id} > .skill", 'top right', :on_ready_wrapper => false %>
+<%= dynamic_tooltip_javascript_for "#{skill_id} > .skill", :position => 'top right', :on_ready_wrapper => false %>
 bindRemoteLinks("#form-dialog", ".remote-link");
 $(".move-actions").hide();
 $("<%= skill_id %>").effect("highlight");

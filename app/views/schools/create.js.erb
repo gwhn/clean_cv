@@ -1,6 +1,6 @@
 <%- school_id = "#school_#{@school.id}" -%>
 $("<%= escape_javascript(render :partial => 'item', :object => @school) %>").appendTo("#person_<%= @person.id %>_schools");
-<%= dynamic_tooltip_javascript_for "#{school_id} > .school", 'top right', :on_ready_wrapper => false %>
+<%= dynamic_tooltip_javascript_for "#{school_id} > .school", :position => 'top right', :on_ready_wrapper => false %>
 bindRemoteLinks("#form-dialog", ".remote-link");
 $.scrollTo("<%= school_id %>", "fast");
 $("<%= school_id %>").effect("highlight");

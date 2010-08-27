@@ -1,5 +1,5 @@
 <%- school_id = "#school_#{@school.id}" -%>
 $("<%= school_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @school) %>");
-<%= dynamic_tooltip_javascript_for "#{school_id} > .school", 'top right', :on_ready_wrapper => false %>
+<%= dynamic_tooltip_javascript_for "#{school_id} > .school", :position => 'top right', :on_ready_wrapper => false %>
 bindRemoteLinks("#form-dialog", ".remote-link");
 $("<%= school_id %>").effect("highlight");
