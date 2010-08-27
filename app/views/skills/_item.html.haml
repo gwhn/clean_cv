@@ -1,9 +1,8 @@
-- if !defined?(skill_count)
-  - skill_count = 0
-  - item_count = 0
-%li.item
-  - skill_id = "skill_#{item.id}"
-  .handle{:id => skill_id}
+- item_counter = skill_count = 0 if skill_count.nil?
+
+- skill_id = "skill_#{item.id}"
+%li.item{:id => skill_id}
+  .skill.handle
     %h4= item.level
     %h2
       %a{:name => "#{item.name}"}= item.name
@@ -19,7 +18,7 @@
           %span= link_to 'Move down', move_down_person_skill_path(item.person, item), :class => 'ui-icon ui-icon-arrow-1-s'
           %span= link_to 'Move bottom', move_bottom_person_skill_path(item.person, item), :class => 'ui-icon ui-icon-arrowstop-1-s'
 
-  - if current_user and permitted_to? :reposition, item
+  - if current_user
     %ul.options
       - if permitted_to? :update, item
         %li= link_to 'Edit skill', edit_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Edit skill'
@@ -27,5 +26,5 @@
         %li= link_to 'Delete skill', delete_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Delete skill'
                                                                                             
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{skill_id}", 'top right'
+      = dynamic_on_ready_tooltip_javascript_for "##{skill_id} > .skill", 'top right'
 

@@ -51,18 +51,25 @@ JS
   end
 
   def dynamic_tooltip_javascript_for(selector, position = 'top center')
+    <<JS
+      $("#{selector}").tooltip({
+        effect:"slide",
+        position: "#{position}",
+        delay: 750,
+        tipClass: "options"
+      });
+      $("#{selector}").dynamic({
+        bottom: {
+          direction: "down"
+        }
+      });
+JS
+  end
+
+  def dynamic_on_ready_tooltip_javascript_for(selector, position = 'top center')
     javascript_tag <<JS
       $(function(){
-        $("#{selector}").tooltip({
-          effect:"slide",
-          position: "#{position}",
-          delay: 750,
-          tipClass: "options"
-        }).dynamic({
-          bottom: {
-            direction: "down"
-          }
-        });
+        #{dynamic_tooltip_javascript_for selector, position}
       });
 JS
   end

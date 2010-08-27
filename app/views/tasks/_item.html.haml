@@ -1,6 +1,4 @@
-- if !defined?(task_count)
-  - task_count = 0
-  - item_counter = 0
+- item_counter = task_count = 0 if task_count.nil?
 
 %li{:id => ['task', item.id]}
   %span.handle= h item.description

@@ -1,6 +1,6 @@
-%li.item
-  - school_id = "school_#{item.id}"
-  %div{:id => school_id, :class => 'school'}
+- school_id = "school_#{item.id}"
+%li.item{:id => school_id}
+  .school
     %h4 #{h item.date_from.to_s(:year_only)} - #{h item.date_to.to_s(:year_only)}
     %h2= h item.name
 
@@ -15,4 +15,4 @@
         %li= link_to 'Delete school', delete_person_school_path(item.person, item), :class => 'remote-link', :title => 'Delete school'
 
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{school_id}", 'top right'
+      = dynamic_on_ready_tooltip_javascript_for "##{school_id} > .school", 'top right'

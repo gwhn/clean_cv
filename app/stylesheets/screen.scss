@@ -154,7 +154,8 @@ em {
         }
 
         h6 {
-            margin: 10px 0;
+            padding: 5px;
+            margin: 1px 0 1px 0;
         }
 
         p {
@@ -233,8 +234,6 @@ em {
 .accordion {
     /* accordion header */
     h6 {
-        margin: 0;
-        padding: 5px;
         border: 1px solid #dfdfdf;
         cursor: pointer;
         &:hover {
@@ -255,8 +254,13 @@ em {
     .panel {
         border-width: 0 2px;
         display: none;
-        padding: 5px 0;
+        padding: 5px;
+
+        li {
+            list-style-position: inside !important;
+        }
     }
+
 }
 
 .pager {
@@ -303,30 +307,34 @@ em {
         background-color: #F8F8F8;
     }
 
-    .person img {
-        background-color: #FFF;
-        border: 1px solid #dfdfdf;
-    }
+    .person {
 
-    .person h1 {
-        color: #475261;
-        font-size: 48px;
-        font-weight: 400;
-        letter-spacing: -2px;
-        font-family: 'AllerRegular', sans-serif;
-    }
+        img {
+            background-color: #FFF;
+            border: 1px solid #dfdfdf;
+        }
 
-    .person h1 a {
-        text-decoration: none;
-        color: #475261;
-    }
+        h1 {
+            color: #475261;
+            font-size: 36px;
+            font-weight: 400;
+            letter-spacing: -1.4px;
+            font-family: 'AllerRegular', sans-serif;
 
-    .person h2 {
-        color: #475261;
-        font-size: 24px;
-        font-weight: 400;
-        letter-spacing: -.7px;
-        text-transform: uppercase;
+            a {
+                text-decoration: none;
+                color: #475261;
+            }
+
+        }
+
+        h2 {
+            color: #475261;
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: -.7px;
+            text-transform: uppercase;
+        }
     }
 
     .social-media {
@@ -342,10 +350,11 @@ em {
     }
 
     .item {
+
         border-bottom: 1px solid #dfdfdf;
+
         h4 {
-            background-color: #eee;
-            color: #333;
+            background-color: #f8f8f8;
             font-family: 'AllerRegular', sans-serif;
             font-size: 10px;
             text-transform: uppercase;
@@ -353,7 +362,7 @@ em {
         }
 
         h4:hover {
-            background-color: #000;
+            background-color: #333;
             color: #fff;
         }
 

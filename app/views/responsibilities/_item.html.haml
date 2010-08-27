@@ -1,6 +1,4 @@
-- if !defined?(responsibility_count)
-  - responsibility_count = 0
-  - item_counter = 0
+- item_counter = responsibility_count = 0 if responsibility_count.nil?
 
 %li{:id => ['responsibility', item.id]}
   %span.handle= h item.description

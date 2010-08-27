@@ -1,20 +1,12 @@
-<%- projects_id = "#person_#{@project.company.person.id}_company_#{@project.company.id}_projects" %>
-<%- project_id = "#project_#{@project.id}" %>
+<%- projects_id = "#person_#{@project.company.person.id}_company_#{@project.company.id}_projects" -%>
+<%- project_id = "#project_#{@project.id}" -%>
 var currentTabIndex = $("<%= projects_id %>").data("tabs").getIndex();
 $("<%= project_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @project) %>");
 $("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {
     tabs: "h6",
     initialIndex: currentTabIndex
 });
-$("<%= project_id %> > .project").tooltip({
-    effect:"slide",
-    position: "top center",
-    delay: 750,
-    tipClass: "options"
-});
-$("<%= project_id %> > .project").dynamic({
-    bottom: {direction: "down"}
-});
+<%= dynamic_tooltip_javascript_for "#{project_id} > .project" %>
 bindRemoteLinks("#form-dialog", ".remote-link");
 $(".move-actions").hide();
 $("<%= project_id %>").effect("highlight");

@@ -1,6 +1,4 @@
-- if !defined?(project_count)
-  - project_count = 0
-  - item_counter = 0
+- item_counter = project_count = 0 if project_count.nil?
 
 - project_id = "project_#{item.id}"
 %li{:id => project_id}
@@ -41,5 +39,5 @@
         %li= link_to 'Delete project', delete_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Delete project'
 
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{project_id} > .project"
+      = dynamic_on_ready_tooltip_javascript_for "##{project_id} > .project"
 

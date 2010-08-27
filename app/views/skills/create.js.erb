@@ -1,5 +1,7 @@
-<%- skill_id = "#skill_#{@skill.id}" %>
+<%- skill_id = "#skill_#{@skill.id}" -%>
 $("<%= escape_javascript(render :partial => 'item', :object => @skill) %>").appendTo("#person_<%= @person.id %>_skills");
+<%= dynamic_tooltip_javascript_for "#{skill_id} > .skill", 'top right' %>
 bindRemoteLinks("#form-dialog", ".remote-link");
+$(".move-actions").hide();
 $.scrollTo("<%= skill_id %>", "fast");
 $("<%= skill_id %>").effect("highlight");

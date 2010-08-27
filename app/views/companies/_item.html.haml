@@ -28,7 +28,7 @@
             %li= link_to 'New project', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'
 
         - content_for :javascript do
-          = dynamic_tooltip_javascript_for "##{projects_id}", 'top left'
+          = dynamic_on_ready_tooltip_javascript_for "##{projects_id}", 'top left'
 
         - if permitted_to? :reposition, :projects
           - content_for :javascript do
@@ -42,4 +42,4 @@
         %li= link_to 'Delete company', delete_person_company_path(item.person, item), :class => 'remote-link', :title => 'Delete company'
 
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{company_id} > .company", 'top right'
+      = dynamic_on_ready_tooltip_javascript_for "##{company_id} > .company", 'top right'

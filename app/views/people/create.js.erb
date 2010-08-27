@@ -1,12 +1,6 @@
-<%- company_id = "#company_#{@company.id}" %>
+<%- person_id = "#person_#{@person.id}" -%>
 $("<%= escape_javascript(render :partial => 'item', :object => @person) %>").appendTo("#people");
-$("<%= company_id %>").tooltip({
-    effect:"slide",
-    position: "top right",
-    delay: 750,
-    tipClass: "options"
-});
-$("<%= company_id %>").dynamic({
-    bottom: {direction: "down"}
-});
+<%= dynamic_tooltip_javascript_for "#{person_id} > .personal", 'top right' %>
+initFancyBox("a.lightbox");
 bindRemoteLinks("#form-dialog", ".remote-link");
+$("<%= person_id %>").effect("highlight");

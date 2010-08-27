@@ -3,26 +3,9 @@
 <%- projects_id = "#person_#{@person.id}_company_#{@company.id}_projects" %>
 $("<%= escape_javascript(render :partial => 'item', :object => @company) %>").appendTo("<%= companies_id %>");
 $("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {tabs: "h6"});
-$("<%= company_id %>").tooltip({
-    effect:"slide",
-    position: "top right",
-    delay: 750,
-    tipClass: "options"
-});
-$("<%= company_id %>").dynamic({
-    bottom: {direction: "down"}
-});
+<%= dynamic_tooltip_javascript_for "#{company_id} > .company", 'top right' %>
 <%- @company.projects.each do |project| -%>
-    <%- project_id = "#project_#{project.id} > .project" -%>
-    $("<%= project_id %>").tooltip({
-        effect:"slide",
-        position: "top center",
-        delay: 750,
-        tipClass: "options"
-    });
-    $("<%= project_id %>").dynamic({
-        bottom: {direction: "down"}
-    });
+    <%= dynamic_tooltip_javascript_for "#project_#{project.id} > .project" %>
 <%- end -%>
 bindRemoteLinks("#form-dialog", ".remote-link");
 $(".move-actions").hide();

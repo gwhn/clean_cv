@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.xml
   def index
-    sort_by = %w{ name email }.detect { |f| f == params[:order] } || 'id'
+    sort_by = %w{  name email  }.detect { |f| f == params[:order] } || 'id'
     direction = params[:direction] =~ %r(desc)i ? 'DESC' : 'ASC'
     @people = Person.paginate :page => params[:page], :per_page => 1, :order => "#{sort_by} #{direction}"
 
@@ -58,8 +58,9 @@ class PeopleController < ApplicationController
         format.html { render :action => :new }
         format.xml { render :xml => @person.errors, :status => :unprocessable_entity }
         format.js do
-          @url = people_path(:format => :js)
-          responds_to_parent { render :action => :invalid, :layout => false }
+          responds_to_parent { render :template => 'people/invalid', :layout => false,
+                                      :locals => {:person => @person,
+                                                  :url => people_path(:format => :js)} }
         end
       end
     end
@@ -80,8 +81,9 @@ class PeopleController < ApplicationController
         format.html { render :action => :edit }
         format.xml { render :xml => @person.errors, :status => :unprocessable_entity }
         format.js do
-          @url = person_path(@person, :format => :js)
-          responds_to_parent { render :action => :invalid, :layout => false }
+          responds_to_parent { render :template => 'people/invalid', :layout => false,
+                                      :locals => {:person => @person,
+                                                  :url => person_path(@person, :format => :js)} }
         end
       end
     end
