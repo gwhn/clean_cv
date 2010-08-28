@@ -1180,9 +1180,9 @@ em {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  -webkit-box-shadow: 2px 2px 5px #475261;
-  -moz-box-shadow: 2px 2px 5px #475261;
-  box-shadow: 2px 2px 5px #475261;
+  -webkit-box-shadow: 0 0 10px #fdb020;
+  -moz-box-shadow: 0 0 10px #fdb020;
+  box-shadow: 0 0 10px #fdb020;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(223, 223, 223, 0.8)), color-stop(1, rgba(248, 248, 248, 0.8)), color-stop(1, rgba(223, 223, 223, 0.8)));
   background: -moz-linear-gradient(center top, rgba(223, 223, 223, 0.8) 0%, rgba(248, 248, 248, 0.8) 100%, rgba(223, 223, 223, 0.8) 100%);
 }
