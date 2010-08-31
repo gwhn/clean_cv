@@ -52,7 +52,6 @@ class PeopleController < ApplicationController
         format.html { redirect_to(@person) }
         format.xml { render :xml => @person, :status => :created, :location => @person }
         format.js do
-#          responds_to_parent { render :layout => false }
           responds_to_parent { render :action => :show }
         end
       else
@@ -76,7 +75,6 @@ class PeopleController < ApplicationController
         format.html { redirect_to(@person) }
         format.xml { head :ok }
         format.js do
-#          responds_to_parent { render :layout => false }
           responds_to_parent { render :action => :show }
         end
       else

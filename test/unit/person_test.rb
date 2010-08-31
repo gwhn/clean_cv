@@ -148,12 +148,14 @@ class PersonTest < ActiveSupport::TestCase
     assert @person.save
     attrs = @person.attributes
     attrs[:companies_attributes] = {}
-    attrs[:companies_attributes][:blank] = Company.plan :name => nil,
-                                                        :role => nil,
-                                                        :business_type => nil,
-                                                        :start_date => nil,
-                                                        :end_date => nil,
-                                                        :person => nil
+    plan = Company.plan :name => nil,
+                        :role => nil,
+                        :business_type => nil,
+                        :start_date => nil,
+                        :end_date => nil
+    plan['start_date(3i)'] = '1'
+    plan['end_date(3i)'] = '1'
+    attrs[:companies_attributes][:blank] = plan
     assert @person.update_attributes(attrs)
     assert @person.reload.companies.count == 0
   end
@@ -162,8 +164,7 @@ class PersonTest < ActiveSupport::TestCase
     assert @person.save
     attrs = @person.attributes
     attrs[:companies_attributes] = {}
-    attrs[:companies_attributes][:invalid] = Company.plan :name => nil,
-                                                          :person => @person
+    attrs[:companies_attributes][:invalid] = Company.plan :name => nil
     assert !@person.update_attributes(attrs)
     assert @person.errors.invalid?(:companies)
   end
@@ -197,8 +198,7 @@ class PersonTest < ActiveSupport::TestCase
     attrs[:skills_attributes] = {}
     attrs[:skills_attributes][:blank] = Skill.plan :name => nil,
                                                    :level => nil,
-                                                   :description => nil,
-                                                   :person => nil
+                                                   :description => nil
     assert @person.update_attributes(attrs)
     assert @person.reload.skills.count == 0
   end
@@ -207,8 +207,7 @@ class PersonTest < ActiveSupport::TestCase
     assert @person.save
     attrs = @person.attributes
     attrs[:skills_attributes] = {}
-    attrs[:skills_attributes][:invalid] = Skill.plan :name => nil,
-                                                     :person => @person
+    attrs[:skills_attributes][:invalid] = Skill.plan :name => nil
     assert !@person.update_attributes(attrs)
     assert @person.errors.invalid?(:skills)
   end
@@ -240,12 +239,16 @@ class PersonTest < ActiveSupport::TestCase
     assert @person.save
     attrs = @person.attributes
     attrs[:schools_attributes] = {}
-    attrs[:schools_attributes][:blank] = School.plan :name => nil,
-                                                     :course => nil,
-                                                     :result => nil,
-                                                     :date_from => nil,
-                                                     :date_to => nil,
-                                                     :person => nil
+    plan = School.plan :name => nil,
+                       :course => nil,
+                       :result => nil,
+                       :date_from => nil,
+                       :date_to => nil
+    plan['date_from(2i)'] = '1'
+    plan['date_from(3i)'] = '1'
+    plan['date_to(2i)'] = '1'
+    plan['date_to(3i)'] = '1'
+    attrs[:schools_attributes][:blank] = plan
     assert @person.update_attributes(attrs)
     assert @person.reload.schools.count == 0
   end
@@ -254,8 +257,7 @@ class PersonTest < ActiveSupport::TestCase
     assert @person.save
     attrs = @person.attributes
     attrs[:schools_attributes] = {}
-    attrs[:schools_attributes][:invalid] = School.plan :name => nil,
-                                                       :person => @person
+    attrs[:schools_attributes][:invalid] = School.plan :name => nil
     assert !@person.update_attributes(attrs)
     assert @person.errors.invalid?(:schools)
   end

@@ -73,7 +73,7 @@ class PeopleControllerTest < ActionController::TestCase
       xhr :post, :create, :person => Person.plan
     end
     assert_not_nil assigns(:person)
-    assert_template :create
+    assert_template :show
   end
 
   test "should not create person on xhr" do
@@ -162,19 +162,18 @@ class PeopleControllerTest < ActionController::TestCase
         :id => person.to_param,
         :person => Person.plan
     assert_not_nil assigns(:person)
-    assert_template :update
+    assert_template :show
   end
 
   test "should not update person on xhr" do
-    flunk
-#    session = login_as users(:guy)
-#    person = Person.make(:user => session.user)
-#    xhr :put,
-#        :update,
-#        :id => person.to_param,
-#        :person => Person.plan(:name => nil)
-#    assert_not_nil assigns(:person)
-#    assert_template :invalid
+    session = login_as users(:guy)
+    person = Person.make(:user => session.user)
+    xhr :put,
+        :update,
+        :id => person.to_param,
+        :person => Person.plan(:name => nil)
+    assert_not_nil assigns(:person)
+    assert_template :invalid
   end
 
   test "should get delete confirmation" do
@@ -203,7 +202,7 @@ class PeopleControllerTest < ActionController::TestCase
           :destroy,
           :id => people(:marge).to_param
     end
-    assert_template :redirect
+    assert_template :index
   end
 
   test "should cancel destroy person" do
