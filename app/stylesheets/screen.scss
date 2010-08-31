@@ -204,9 +204,9 @@ em {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    -webkit-box-shadow: 0 0 10px #fdb020;
-    -moz-box-shadow: 0 0 10px #fdb020;
-    box-shadow: 0 0 10px #fdb020;
+    -webkit-box-shadow: 0 0 15px #fdb020;
+    -moz-box-shadow: 0 0 15px #fdb020;
+    box-shadow: 0 0 15px #fdb020;
     background: -webkit-gradient(
         linear,
         left top,
@@ -334,6 +334,11 @@ em {
             font-weight: 400;
             letter-spacing: -.7px;
             text-transform: uppercase;
+        }
+
+        h1, h2 {
+            text-shadow: 1px 1px 0 #fff;
+            filter: dropshadow(color=#fff, offx=1, offy=1);
         }
     }
 

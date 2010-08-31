@@ -886,94 +886,95 @@ form textarea, form input {
 }
 /* line 58, ../../../app/stylesheets/partials/_skintastic.sass */
 form textarea:focus, form textarea:focus, form input:focus, form input:focus {
-  -webkit-box-shadow: 0 0 25px #cccccc;
-  -moz-box-shadow: 0 0 25px #cccccc;
-  box-shadow: 0 0 25px #cccccc;
+  border-color: #fdb020;
+  -webkit-box-shadow: 0 0 15px #fdb020;
+  -moz-box-shadow: 0 0 15px #fdb020;
+  box-shadow: 0 0 15px #fdb020;
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
   transform: scale(1.05);
 }
-/* line 65, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 66, ../../../app/stylesheets/partials/_skintastic.sass */
 form textarea, form input, form .check_boxes {
   width: 90%;
 }
-/* line 67, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 68, ../../../app/stylesheets/partials/_skintastic.sass */
 form textarea {
   height: 5em;
 }
-/* line 73, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 74, ../../../app/stylesheets/partials/_skintastic.sass */
 form .date li, form .time li, form .datetime li {
   margin: 0 0.3em 0 0;
 }
-/* line 75, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 76, ../../../app/stylesheets/partials/_skintastic.sass */
 form .date li label, form .time li label, form .datetime li label {
   display: none;
 }
-/* line 78, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 79, ../../../app/stylesheets/partials/_skintastic.sass */
 form .date legend label, form .time legend label, form .datetime legend label {
   display: block;
 }
-/* line 86, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 87, ../../../app/stylesheets/partials/_skintastic.sass */
 form #errorExplanation li {
   margin-left: 15px;
 }
-/* line 88, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 89, ../../../app/stylesheets/partials/_skintastic.sass */
 form form p, form .errors {
   padding: 3px 0px;
 }
-/* line 91, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 92, ../../../app/stylesheets/partials/_skintastic.sass */
 form .required input, form .required textarea, form .required select {
   background-color: white;
 }
-/* line 94, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 95, ../../../app/stylesheets/partials/_skintastic.sass */
 form .error input, form .error textarea, form .error select {
   background-color: #ffcccc;
   border: 1px solid #ff6666;
 }
-/* line 98, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 99, ../../../app/stylesheets/partials/_skintastic.sass */
 form .optional input, form .optional textarea, form .optional select {
   background-color: white;
 }
-/* line 100, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 101, ../../../app/stylesheets/partials/_skintastic.sass */
 form .errors {
   color: #aa0000;
 }
-/* line 102, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 103, ../../../app/stylesheets/partials/_skintastic.sass */
 form .errors li {
   margin-left: 1.2em;
 }
-/* line 104, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 105, ../../../app/stylesheets/partials/_skintastic.sass */
 form p.inline-errors {
   color: red;
 }
-/* line 106, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 107, ../../../app/stylesheets/partials/_skintastic.sass */
 form p.inline-hints {
   color: #777777;
 }
-/* line 111, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 112, ../../../app/stylesheets/partials/_skintastic.sass */
 form .buttons {
   padding-top: 8px;
   padding-bottom: 8px;
   margin-top: 8px;
 }
-/* line 115, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 116, ../../../app/stylesheets/partials/_skintastic.sass */
 form .buttons li {
   padding-right: 0.5em;
 }
-/* line 117, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 118, ../../../app/stylesheets/partials/_skintastic.sass */
 form .buttons input {
   border: 1px solid #999999;
 }
-/* line 119, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 120, ../../../app/stylesheets/partials/_skintastic.sass */
 form .remove-child {
   float: right;
   margin: 8px 30px;
 }
-/* line 122, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 123, ../../../app/stylesheets/partials/_skintastic.sass */
 form .new-child {
   padding: 0 0 5px 10px;
 }
-/* line 125, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 126, ../../../app/stylesheets/partials/_skintastic.sass */
 form .nested-attributes h2 {
   color: #3c4756;
   font-family: "AllerLightItalic", sans-serif;
@@ -1180,9 +1181,9 @@ em {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  -webkit-box-shadow: 0 0 10px #fdb020;
-  -moz-box-shadow: 0 0 10px #fdb020;
-  box-shadow: 0 0 10px #fdb020;
+  -webkit-box-shadow: 0 0 15px #fdb020;
+  -moz-box-shadow: 0 0 15px #fdb020;
+  box-shadow: 0 0 15px #fdb020;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(223, 223, 223, 0.8)), color-stop(1, rgba(248, 248, 248, 0.8)), color-stop(1, rgba(223, 223, 223, 0.8)));
   background: -moz-linear-gradient(center top, rgba(223, 223, 223, 0.8) 0%, rgba(248, 248, 248, 0.8) 100%, rgba(223, 223, 223, 0.8) 100%);
 }
@@ -1300,11 +1301,16 @@ em {
   letter-spacing: -0.7px;
   text-transform: uppercase;
 }
-/* line 340, ../../../app/stylesheets/screen.scss */
+/* line 339, ../../../app/stylesheets/screen.scss */
+#cv .person h1, #cv .person h2 {
+  text-shadow: 1px 1px 0 #fff;
+  filter: dropshadow(color=white, offx=1, offy=1);
+}
+/* line 345, ../../../app/stylesheets/screen.scss */
 #cv .social-media {
   list-style: none;
 }
-/* line 344, ../../../app/stylesheets/screen.scss */
+/* line 349, ../../../app/stylesheets/screen.scss */
 #cv h2.cv-section-name {
   color: #333333;
   font-family: 'AllerLightItalic', sans-serif;
@@ -1312,11 +1318,11 @@ em {
   font-weight: 400;
   letter-spacing: -1px;
 }
-/* line 352, ../../../app/stylesheets/screen.scss */
+/* line 357, ../../../app/stylesheets/screen.scss */
 #cv .item {
   border-bottom: 1px solid #dfdfdf;
 }
-/* line 356, ../../../app/stylesheets/screen.scss */
+/* line 361, ../../../app/stylesheets/screen.scss */
 #cv .item h4 {
   background-color: #f8f8f8;
   font-family: 'AllerRegular', sans-serif;
@@ -1324,19 +1330,19 @@ em {
   text-transform: uppercase;
   line-height: 24px;
 }
-/* line 364, ../../../app/stylesheets/screen.scss */
+/* line 369, ../../../app/stylesheets/screen.scss */
 #cv .item h4:hover {
   background-color: #333;
   color: #fff;
 }
-/* line 369, ../../../app/stylesheets/screen.scss */
+/* line 374, ../../../app/stylesheets/screen.scss */
 #cv .item h2 {
   color: #06A;
   font-family: 'AllerRegular', sans-serif;
   font-size: 24px;
   letter-spacing: -1px;
 }
-/* line 378, ../../../app/stylesheets/screen.scss */
+/* line 383, ../../../app/stylesheets/screen.scss */
 #cv .item h3,
 #cv .item h5,
 #cv .item .result {
@@ -1344,45 +1350,45 @@ em {
   font-family: 'GentiumBookBasicItalic', serif;
   font-size: 20px;
 }
-/* line 385, ../../../app/stylesheets/screen.scss */
+/* line 390, ../../../app/stylesheets/screen.scss */
 #cv .item h5,
 #cv .item .result {
   font-family: 'GentiumBookBasicRegular', serif;
 }
-/* line 389, ../../../app/stylesheets/screen.scss */
+/* line 394, ../../../app/stylesheets/screen.scss */
 #cv .item h6 {
   color: #06A;
   font-family: 'AllerRegular', sans-serif;
   font-size: 16px;
   letter-spacing: -1px;
 }
-/* line 396, ../../../app/stylesheets/screen.scss */
+/* line 401, ../../../app/stylesheets/screen.scss */
 #cv .item p {
   text-align: justify;
 }
-/* line 400, ../../../app/stylesheets/screen.scss */
+/* line 405, ../../../app/stylesheets/screen.scss */
 #cv .item ul {
   text-align: justify;
 }
-/* line 404, ../../../app/stylesheets/screen.scss */
+/* line 409, ../../../app/stylesheets/screen.scss */
 #cv .item:last-child {
   border-bottom: none;
 }
-/* line 409, ../../../app/stylesheets/screen.scss */
+/* line 414, ../../../app/stylesheets/screen.scss */
 #cv .last-cv-section {
   border-bottom: none;
 }
-/* line 414, ../../../app/stylesheets/screen.scss */
+/* line 419, ../../../app/stylesheets/screen.scss */
 #cv .repeater li {
   font-family: 'GentiumBookBasicBoldItalic', serif;
   color: #0066aa;
 }
-/* line 420, ../../../app/stylesheets/screen.scss */
+/* line 425, ../../../app/stylesheets/screen.scss */
 #cv .handle {
   cursor: move;
 }
 
-/* line 425, ../../../app/stylesheets/screen.scss */
+/* line 430, ../../../app/stylesheets/screen.scss */
 .authme {
   background-color: #333;
   border: 1px solid #444;
@@ -1392,15 +1398,15 @@ em {
   top: 66px;
   position: fixed;
 }
-/* line 434, ../../../app/stylesheets/screen.scss */
+/* line 439, ../../../app/stylesheets/screen.scss */
 .authme:hover {
   background-color: #222;
 }
-/* line 438, ../../../app/stylesheets/screen.scss */
+/* line 443, ../../../app/stylesheets/screen.scss */
 .authme img {
   padding: 0 0 0 5px;
 }
-/* line 442, ../../../app/stylesheets/screen.scss */
+/* line 447, ../../../app/stylesheets/screen.scss */
 .authme a {
   color: #fff;
   font-size: 15px;
