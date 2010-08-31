@@ -84,7 +84,7 @@ module ActionView
   # specified globally for the entire action, but they work in a similar fashion. Imagine a list with two types
   # of users:
   #
-  #   <%# app/views/users/show.html.haml &>
+  #   <%# app/views/users/index.html.erb &>
   #   Here's the administrator:
   #   <%= render :partial => "user", :layout => "administrator", :locals => { :user => administrator } %>
   #
@@ -145,7 +145,7 @@ module ActionView
   #     <%= yield user %>
   #   </div>
   #
-  #   <%# app/views/users/show.html.haml &>
+  #   <%# app/views/users/index.html.erb &>
   #   <% render :layout => @users do |user| %>
   #     Title: <%= user.title %>
   #   <% end %>
@@ -161,7 +161,7 @@ module ActionView
   #     <%= yield user, :footer %>
   #   </div>
   #
-  #   <%# app/views/users/show.html.haml &>
+  #   <%# app/views/users/index.html.erb &>
   #   <% render :layout => @users do |user, section| %>
   #     <%- case section when :header -%>
   #       Title: <%= user.title %>
@@ -218,10 +218,11 @@ module ActionView
             ActionController::RecordIdentifier.partial_path(object, controller.class.controller_path)
           template = _pick_partial_template(_partial_path)
           local_assigns[template.counter_name] = index
+          local_assigns["#{as.to_s}_counter".to_sym] = local_assigns[template.counter_name] if as
           result = template.render_partial(self, object, local_assigns.dup, as)
           index += 1
           result
-        end.join(spacer).html_safe!
+        end.join(spacer).html_safe
       end
 
       def _pick_partial_template(partial_path) #:nodoc:

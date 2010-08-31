@@ -5,7 +5,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     @<%= table_name %> = <%= class_name %>.all
 
     respond_to do |format|
-      format.html # show.html.haml
+      format.html # index.html.erb
       format.xml  { render :xml => @<%= table_name %> }
     end
   end
@@ -16,7 +16,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     @<%= file_name %> = <%= class_name %>.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.haml
+      format.html # show.html.erb
       format.xml  { render :xml => @<%= file_name %> }
     end
   end
@@ -27,7 +27,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     @<%= file_name %> = <%= class_name %>.new
 
     respond_to do |format|
-      format.html # new.html.haml
+      format.html # new.html.erb
       format.xml  { render :xml => @<%= file_name %> }
     end
   end
@@ -44,8 +44,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
     respond_to do |format|
       if @<%= file_name %>.save
-        flash[:notice] = '<%= class_name %> was successfully created.'
-        format.html { redirect_to(@<%= file_name %>) }
+        format.html { redirect_to(@<%= file_name %>, :notice => '<%= class_name %> was successfully created.') }
         format.xml  { render :xml => @<%= file_name %>, :status => :created, :location => @<%= file_name %> }
       else
         format.html { render :action => "new" }
@@ -61,8 +60,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
     respond_to do |format|
       if @<%= file_name %>.update_attributes(params[:<%= file_name %>])
-        flash[:notice] = '<%= class_name %> was successfully updated.'
-        format.html { redirect_to(@<%= file_name %>) }
+        format.html { redirect_to(@<%= file_name %>, :notice => '<%= class_name %> was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
