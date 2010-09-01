@@ -1,6 +1,8 @@
 class Person < ActiveRecord::Base
   using_access_control
 
+  has_friendly_id :name, :use_slug => true
+  
   validates_presence_of :name, :job_title, :email, :phone, :mobile, :profile, :user
   validates_uniqueness_of :name, :email
   validates_format_of :flickr_url, :twitter_url, :facebook_url, :linked_in_url,
