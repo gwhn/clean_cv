@@ -2,12 +2,7 @@
   %a.lightbox{:rel => "mypics", :href => "#{h person.photo.url}", :title => "#{h person.name}"}
     %img{:src => "#{h person.photo.url(:small)}", :width => "100", :height => "100", :alt => "#{h person.name}"}
 
-  - if current_page?(:action => :show)
-    %h1= person.name
-  - else
-    %h1
-      = link_to person.name, person
+  %h1= link_to_unless_current person.name, person
 
-    
   %h2= h person.job_title
 

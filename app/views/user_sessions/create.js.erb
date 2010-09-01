@@ -1,2 +1,3 @@
 $(".ui-dialog-content").html("<%= escape_javascript(render :partial => 'form', :locals => {:user_session => @user_session}) %>");
-bindFormSubmit(".ui-dialog");
+openForm("#form-dialog", "Invalid credentials");
+        
