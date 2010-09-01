@@ -12,6 +12,8 @@
     %li
       %a{:href =>"#{h contact.linked_in_url}", :title => "Linked In Profile"}
         %img{:src => "/images/social-icons/linkedin.png", :alt => "linkedin icon"}
+    %li.pdf= link_to image_tag('/images/link_icons/pdf.png'), person_url(contact, :format => :pdf), :title => "Download PDF copy"
+
   %table
     %tr
       %td e:

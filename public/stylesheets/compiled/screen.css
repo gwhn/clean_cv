@@ -999,20 +999,25 @@ body {
 /* line 27, ../../../app/stylesheets/screen.scss */
 a {
   color: #0066AA;
+  text-decoration: none;
+}
+/* line 31, ../../../app/stylesheets/screen.scss */
+a:hover {
+  text-decoration: underline;
 }
 
-/* line 31, ../../../app/stylesheets/screen.scss */
+/* line 36, ../../../app/stylesheets/screen.scss */
 strong {
   font-weight: 700;
 }
 
-/* line 35, ../../../app/stylesheets/screen.scss */
+/* line 40, ../../../app/stylesheets/screen.scss */
 em {
   font-style: italic;
 }
 
 /* Clear Fix Hack - add  class="fixed"  to div's that have floated elements in them */
-/* line 40, ../../../app/stylesheets/screen.scss */
+/* line 45, ../../../app/stylesheets/screen.scss */
 .fixed:after {
   content: ".";
   display: block;
@@ -1021,18 +1026,18 @@ em {
   visibility: hidden;
 }
 
-/* line 48, ../../../app/stylesheets/screen.scss */
+/* line 53, ../../../app/stylesheets/screen.scss */
 .fixed {
   display: block;
   min-height: 1%;
 }
 
-/* line 53, ../../../app/stylesheets/screen.scss */
+/* line 58, ../../../app/stylesheets/screen.scss */
 * html .fixed {
   height: 1%;
 }
 
-/* line 57, ../../../app/stylesheets/screen.scss */
+/* line 62, ../../../app/stylesheets/screen.scss */
 *:focus {
   outline: none;
   /* Prevents blue border in Webkit */
@@ -1040,137 +1045,142 @@ em {
 
 /* =LAYOUT
 ----------------------------------*/
-/* line 64, ../../../app/stylesheets/screen.scss */
+/* line 69, ../../../app/stylesheets/screen.scss */
 #cv {
   margin: 66px auto 0 auto;
   width: 780px;
   padding: 0 0 40px;
 }
-/* line 69, ../../../app/stylesheets/screen.scss */
+/* line 74, ../../../app/stylesheets/screen.scss */
 #cv .cv-section {
   margin: 0 40px;
   padding: 30px 0;
 }
-/* line 74, ../../../app/stylesheets/screen.scss */
+/* line 79, ../../../app/stylesheets/screen.scss */
 #cv .first-cv-section {
   margin: 0;
   padding: 30px 40px;
 }
-/* line 79, ../../../app/stylesheets/screen.scss */
+/* line 84, ../../../app/stylesheets/screen.scss */
 #cv .person {
   float: left;
   margin-top: 20px;
   width: 500px;
 }
-/* line 85, ../../../app/stylesheets/screen.scss */
+/* line 89, ../../../app/stylesheets/screen.scss */
 #cv .person img {
   float: left;
   margin-right: 25px;
   padding: 10px;
 }
-/* line 91, ../../../app/stylesheets/screen.scss */
+/* line 95, ../../../app/stylesheets/screen.scss */
 #cv .person h1 {
   margin-top: 25px;
 }
-/* line 95, ../../../app/stylesheets/screen.scss */
+/* line 101, ../../../app/stylesheets/screen.scss */
 #cv .contact-info {
   float: right;
   margin-right: 10px;
 }
-/* line 100, ../../../app/stylesheets/screen.scss */
+/* line 106, ../../../app/stylesheets/screen.scss */
 #cv .contact-info table {
   margin-top: 10px;
 }
-/* line 103, ../../../app/stylesheets/screen.scss */
+/* line 110, ../../../app/stylesheets/screen.scss */
 #cv .contact-info tr {
   line-height: 24px;
 }
-/* line 107, ../../../app/stylesheets/screen.scss */
+/* line 114, ../../../app/stylesheets/screen.scss */
 #cv .social-media {
   margin-bottom: 18px;
 }
-/* line 111, ../../../app/stylesheets/screen.scss */
+/* line 118, ../../../app/stylesheets/screen.scss */
 #cv .social-media li {
   display: inline;
 }
-/* line 115, ../../../app/stylesheets/screen.scss */
+/* line 122, ../../../app/stylesheets/screen.scss */
+#cv .social-media li.pdf {
+  margin: 0 0 0 30px;
+  display: inline;
+}
+/* line 127, ../../../app/stylesheets/screen.scss */
 #cv .cv-section-name {
   float: left;
   width: 200px;
 }
-/* line 120, ../../../app/stylesheets/screen.scss */
+/* line 132, ../../../app/stylesheets/screen.scss */
 #cv .cv-section-items {
   float: right;
   margin-right: 10px;
   width: 490px;
 }
-/* line 127, ../../../app/stylesheets/screen.scss */
+/* line 139, ../../../app/stylesheets/screen.scss */
 #cv ul li {
   list-style-type: none;
 }
-/* line 132, ../../../app/stylesheets/screen.scss */
+/* line 144, ../../../app/stylesheets/screen.scss */
 #cv .item {
   margin-bottom: 20px;
   padding-bottom: 30px;
 }
-/* line 136, ../../../app/stylesheets/screen.scss */
+/* line 148, ../../../app/stylesheets/screen.scss */
 #cv .item h3, #cv .item h5 {
   margin: 10px 0;
 }
-/* line 140, ../../../app/stylesheets/screen.scss */
+/* line 152, ../../../app/stylesheets/screen.scss */
 #cv .item h3 {
   padding: 4px 0;
   clear: left;
 }
-/* line 145, ../../../app/stylesheets/screen.scss */
+/* line 157, ../../../app/stylesheets/screen.scss */
 #cv .item h4 {
   float: right;
   margin: 0;
   padding: 4px 10px;
 }
-/* line 151, ../../../app/stylesheets/screen.scss */
+/* line 163, ../../../app/stylesheets/screen.scss */
 #cv .item h5 {
   float: right;
   clear: right;
 }
-/* line 156, ../../../app/stylesheets/screen.scss */
+/* line 168, ../../../app/stylesheets/screen.scss */
 #cv .item h6 {
   padding: 5px;
   margin: 1px 0 1px 0;
 }
-/* line 161, ../../../app/stylesheets/screen.scss */
+/* line 173, ../../../app/stylesheets/screen.scss */
 #cv .item p {
   padding: 0 0 15px;
 }
-/* line 165, ../../../app/stylesheets/screen.scss */
+/* line 177, ../../../app/stylesheets/screen.scss */
 #cv .item ul {
   margin-bottom: 15px;
 }
-/* line 169, ../../../app/stylesheets/screen.scss */
+/* line 181, ../../../app/stylesheets/screen.scss */
 #cv .item:last-child {
   margin-bottom: 0;
   padding-bottom: 30px;
 }
-/* line 175, ../../../app/stylesheets/screen.scss */
+/* line 187, ../../../app/stylesheets/screen.scss */
 #cv .item .list li {
   list-style: disc;
 }
-/* line 182, ../../../app/stylesheets/screen.scss */
+/* line 194, ../../../app/stylesheets/screen.scss */
 #cv .repeater li {
   margin-right: 15px;
   display: inline;
 }
-/* line 188, ../../../app/stylesheets/screen.scss */
+/* line 200, ../../../app/stylesheets/screen.scss */
 #cv .move-actions {
   font-size: 10px;
 }
 
-/* line 193, ../../../app/stylesheets/screen.scss */
+/* line 205, ../../../app/stylesheets/screen.scss */
 .ui-icon {
   display: inline-block;
 }
 
-/* line 198, ../../../app/stylesheets/screen.scss */
+/* line 210, ../../../app/stylesheets/screen.scss */
 .tooltip,
 .options {
   padding: 5px;
@@ -1188,49 +1198,49 @@ em {
   background: -moz-linear-gradient(center top, rgba(223, 223, 223, 0.8) 0%, rgba(248, 248, 248, 0.8) 100%, rgba(223, 223, 223, 0.8) 100%);
 }
 
-/* line 227, ../../../app/stylesheets/screen.scss */
+/* line 239, ../../../app/stylesheets/screen.scss */
 .options li {
   list-style-type: none;
   padding: 5px;
 }
 
 /* root element for accordion. decorated with rounded borders and gradient background image */
-/* line 234, ../../../app/stylesheets/screen.scss */
+/* line 246, ../../../app/stylesheets/screen.scss */
 .accordion {
   /* accordion header */
   /* currently active header */
   /* accordion panel */
 }
-/* line 236, ../../../app/stylesheets/screen.scss */
+/* line 248, ../../../app/stylesheets/screen.scss */
 .accordion h6 {
   border: 1px solid #dfdfdf;
   cursor: pointer;
 }
-/* line 239, ../../../app/stylesheets/screen.scss */
+/* line 251, ../../../app/stylesheets/screen.scss */
 .accordion h6:hover {
   text-decoration: underline;
 }
-/* line 245, ../../../app/stylesheets/screen.scss */
+/* line 257, ../../../app/stylesheets/screen.scss */
 .accordion h6.current {
   background-color: #f8f8f8;
   cursor: default;
 }
-/* line 248, ../../../app/stylesheets/screen.scss */
+/* line 260, ../../../app/stylesheets/screen.scss */
 .accordion h6.current:hover {
   text-decoration: none;
 }
-/* line 254, ../../../app/stylesheets/screen.scss */
+/* line 266, ../../../app/stylesheets/screen.scss */
 .accordion .panel {
   border-width: 0 2px;
   display: none;
   padding: 5px;
 }
-/* line 259, ../../../app/stylesheets/screen.scss */
+/* line 271, ../../../app/stylesheets/screen.scss */
 .accordion .panel li {
   list-style-position: inside !important;
 }
 
-/* line 266, ../../../app/stylesheets/screen.scss */
+/* line 278, ../../../app/stylesheets/screen.scss */
 .pager {
   font-size: 16px;
   font-family: 'AllerRegular', sans-serif;
@@ -1238,49 +1248,53 @@ em {
   text-align: center;
   color: #475261;
 }
-/* line 273, ../../../app/stylesheets/screen.scss */
+/* line 285, ../../../app/stylesheets/screen.scss */
 .pager .disabled {
   color: #dfdfdf;
 }
-/* line 279, ../../../app/stylesheets/screen.scss */
+/* line 291, ../../../app/stylesheets/screen.scss */
 .pager a,
 .pager .disabled,
 .pager .current {
   padding: 5px;
   border: 1px solid #dfdfdf;
 }
-/* line 284, ../../../app/stylesheets/screen.scss */
+/* line 296, ../../../app/stylesheets/screen.scss */
 .pager .current {
   font-weight: 700;
   background-color: #fdb020;
 }
-/* line 289, ../../../app/stylesheets/screen.scss */
+/* line 301, ../../../app/stylesheets/screen.scss */
 .pager .gap {
   padding: 5px 10px;
 }
 
 /* =COLORS-TYPOGRAPHY
 ----------------------------------*/
-/* line 297, ../../../app/stylesheets/screen.scss */
+/* line 309, ../../../app/stylesheets/screen.scss */
 #cv {
   background-color: #FFF;
   border-bottom: 15px solid #FDB020;
   border-top: 15px solid #FDB020;
 }
-/* line 302, ../../../app/stylesheets/screen.scss */
+/* line 314, ../../../app/stylesheets/screen.scss */
 #cv .cv-section {
   border-bottom: 1px solid #dfdfdf;
 }
-/* line 306, ../../../app/stylesheets/screen.scss */
+/* line 317, ../../../app/stylesheets/screen.scss */
+#cv .cv-section p {
+  text-align: justify;
+}
+/* line 322, ../../../app/stylesheets/screen.scss */
 #cv .first-cv-section {
   background-color: #F8F8F8;
 }
-/* line 312, ../../../app/stylesheets/screen.scss */
+/* line 328, ../../../app/stylesheets/screen.scss */
 #cv .person img {
   background-color: #FFF;
   border: 1px solid #dfdfdf;
 }
-/* line 317, ../../../app/stylesheets/screen.scss */
+/* line 333, ../../../app/stylesheets/screen.scss */
 #cv .person h1 {
   color: #475261;
   font-size: 36px;
@@ -1288,12 +1302,12 @@ em {
   letter-spacing: -1.4px;
   font-family: 'AllerRegular', sans-serif;
 }
-/* line 324, ../../../app/stylesheets/screen.scss */
+/* line 340, ../../../app/stylesheets/screen.scss */
 #cv .person h1 a {
   text-decoration: none;
   color: #475261;
 }
-/* line 331, ../../../app/stylesheets/screen.scss */
+/* line 347, ../../../app/stylesheets/screen.scss */
 #cv .person h2 {
   color: #475261;
   font-size: 24px;
@@ -1301,16 +1315,16 @@ em {
   letter-spacing: -0.7px;
   text-transform: uppercase;
 }
-/* line 339, ../../../app/stylesheets/screen.scss */
+/* line 355, ../../../app/stylesheets/screen.scss */
 #cv .person h1, #cv .person h2 {
   text-shadow: 1px 1px 0 #fff;
   filter: dropshadow(color=white, offx=1, offy=1);
 }
-/* line 345, ../../../app/stylesheets/screen.scss */
+/* line 361, ../../../app/stylesheets/screen.scss */
 #cv .social-media {
   list-style: none;
 }
-/* line 349, ../../../app/stylesheets/screen.scss */
+/* line 365, ../../../app/stylesheets/screen.scss */
 #cv h2.cv-section-name {
   color: #333333;
   font-family: 'AllerLightItalic', sans-serif;
@@ -1318,11 +1332,11 @@ em {
   font-weight: 400;
   letter-spacing: -1px;
 }
-/* line 357, ../../../app/stylesheets/screen.scss */
+/* line 373, ../../../app/stylesheets/screen.scss */
 #cv .item {
   border-bottom: 1px solid #dfdfdf;
 }
-/* line 361, ../../../app/stylesheets/screen.scss */
+/* line 377, ../../../app/stylesheets/screen.scss */
 #cv .item h4 {
   background-color: #f8f8f8;
   font-family: 'AllerRegular', sans-serif;
@@ -1330,19 +1344,19 @@ em {
   text-transform: uppercase;
   line-height: 24px;
 }
-/* line 369, ../../../app/stylesheets/screen.scss */
+/* line 385, ../../../app/stylesheets/screen.scss */
 #cv .item h4:hover {
   background-color: #333;
   color: #fff;
 }
-/* line 374, ../../../app/stylesheets/screen.scss */
+/* line 390, ../../../app/stylesheets/screen.scss */
 #cv .item h2 {
   color: #06A;
   font-family: 'AllerRegular', sans-serif;
   font-size: 24px;
   letter-spacing: -1px;
 }
-/* line 383, ../../../app/stylesheets/screen.scss */
+/* line 399, ../../../app/stylesheets/screen.scss */
 #cv .item h3,
 #cv .item h5,
 #cv .item .result {
@@ -1350,45 +1364,45 @@ em {
   font-family: 'GentiumBookBasicItalic', serif;
   font-size: 20px;
 }
-/* line 390, ../../../app/stylesheets/screen.scss */
+/* line 406, ../../../app/stylesheets/screen.scss */
 #cv .item h5,
 #cv .item .result {
   font-family: 'GentiumBookBasicRegular', serif;
 }
-/* line 394, ../../../app/stylesheets/screen.scss */
+/* line 410, ../../../app/stylesheets/screen.scss */
 #cv .item h6 {
   color: #06A;
   font-family: 'AllerRegular', sans-serif;
   font-size: 16px;
   letter-spacing: -1px;
 }
-/* line 401, ../../../app/stylesheets/screen.scss */
+/* line 417, ../../../app/stylesheets/screen.scss */
 #cv .item p {
   text-align: justify;
 }
-/* line 405, ../../../app/stylesheets/screen.scss */
+/* line 421, ../../../app/stylesheets/screen.scss */
 #cv .item ul {
   text-align: justify;
 }
-/* line 409, ../../../app/stylesheets/screen.scss */
+/* line 425, ../../../app/stylesheets/screen.scss */
 #cv .item:last-child {
   border-bottom: none;
 }
-/* line 414, ../../../app/stylesheets/screen.scss */
+/* line 430, ../../../app/stylesheets/screen.scss */
 #cv .last-cv-section {
   border-bottom: none;
 }
-/* line 419, ../../../app/stylesheets/screen.scss */
+/* line 435, ../../../app/stylesheets/screen.scss */
 #cv .repeater li {
   font-family: 'GentiumBookBasicBoldItalic', serif;
   color: #0066aa;
 }
-/* line 425, ../../../app/stylesheets/screen.scss */
+/* line 441, ../../../app/stylesheets/screen.scss */
 #cv .handle {
   cursor: move;
 }
 
-/* line 430, ../../../app/stylesheets/screen.scss */
+/* line 446, ../../../app/stylesheets/screen.scss */
 .authme {
   background-color: #333;
   border: 1px solid #444;
@@ -1398,15 +1412,15 @@ em {
   top: 66px;
   position: fixed;
 }
-/* line 439, ../../../app/stylesheets/screen.scss */
+/* line 455, ../../../app/stylesheets/screen.scss */
 .authme:hover {
   background-color: #222;
 }
-/* line 443, ../../../app/stylesheets/screen.scss */
+/* line 459, ../../../app/stylesheets/screen.scss */
 .authme img {
   padding: 0 0 0 5px;
 }
-/* line 447, ../../../app/stylesheets/screen.scss */
+/* line 463, ../../../app/stylesheets/screen.scss */
 .authme a {
   color: #fff;
   font-size: 15px;

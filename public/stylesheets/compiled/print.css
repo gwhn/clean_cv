@@ -6,11 +6,11 @@ body.bp {
   background: none;
   font-size: 10pt;
 }
-/* line 52, ../../../vendor/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+/* line 52, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
 body.bp .container {
   background: none;
 }
-/* line 54, ../../../vendor/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+/* line 54, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
 body.bp hr {
   background: #cccccc;
   color: #cccccc;
@@ -20,54 +20,309 @@ body.bp hr {
   padding: 0;
   border: none;
 }
-/* line 62, ../../../vendor/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+/* line 62, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
 body.bp hr.space {
   background: white;
   color: white;
 }
-/* line 65, ../../../vendor/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+/* line 65, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
 body.bp h1, body.bp h2, body.bp h3, body.bp h4, body.bp h5, body.bp h6 {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
-/* line 67, ../../../vendor/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+/* line 67, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
 body.bp code {
   font-size: 0.9em;
   font-family: "andale mono", "lucida console", monospace;
 }
-/* line 72, ../../../vendor/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+/* line 72, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
 body.bp a img {
   border: none;
 }
-/* line 75, ../../../vendor/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+/* line 75, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
 body.bp a:link, body.bp a:visited {
   background: transparent;
   font-weight: 700;
   text-decoration: underline;
 }
-/* line 79, ../../../vendor/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+/* line 79, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
 body.bp p img.top {
   margin-top: 0;
 }
-/* line 81, ../../../vendor/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+/* line 81, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
 body.bp blockquote {
   margin: 1.5em;
   padding: 1em;
   font-style: italic;
   font-size: 0.9em;
 }
-/* line 86, ../../../vendor/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+/* line 86, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
 body.bp .small {
   font-size: 0.9em;
 }
-/* line 88, ../../../vendor/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+/* line 88, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
 body.bp .large {
   font-size: 1.1em;
 }
-/* line 90, ../../../vendor/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+/* line 90, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
 body.bp .quiet {
   color: #999999;
 }
-/* line 92, ../../../vendor/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
+/* line 92, ../../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.10.4/frameworks/blueprint/stylesheets/blueprint/_print.scss */
 body.bp .hide {
   display: none;
+}
+
+/* line 13, ../../../app/stylesheets/print.scss */
+.pdf,
+.authme,
+.move-actions,
+.ui-icon,
+.tooltip,
+.options,
+.pager {
+  display: none;
+}
+
+/* line 17, ../../../app/stylesheets/print.scss */
+#cv {
+  margin: 66px auto 0 auto;
+  padding: 0 0 40px;
+}
+/* line 21, ../../../app/stylesheets/print.scss */
+#cv .cv-section {
+  margin: 0 40px;
+  padding: 30px 0;
+}
+/* line 26, ../../../app/stylesheets/print.scss */
+#cv .first-cv-section {
+  margin: 0;
+  padding: 30px 40px;
+}
+/* line 31, ../../../app/stylesheets/print.scss */
+#cv .person {
+  float: left;
+  margin-top: 20px;
+  width: 500px;
+}
+/* line 36, ../../../app/stylesheets/print.scss */
+#cv .person img {
+  float: left;
+  margin-right: 25px;
+  padding: 10px;
+}
+/* line 42, ../../../app/stylesheets/print.scss */
+#cv .person h1 {
+  margin-top: 25px;
+}
+/* line 46, ../../../app/stylesheets/print.scss */
+#cv .person .pdf {
+  display: block;
+}
+/* line 51, ../../../app/stylesheets/print.scss */
+#cv .contact-info {
+  float: right;
+  margin-right: 10px;
+}
+/* line 56, ../../../app/stylesheets/print.scss */
+#cv .contact-info table {
+  margin-top: 10px;
+}
+/* line 60, ../../../app/stylesheets/print.scss */
+#cv .contact-info tr {
+  line-height: 24px;
+}
+/* line 64, ../../../app/stylesheets/print.scss */
+#cv .social-media {
+  margin-bottom: 18px;
+}
+/* line 68, ../../../app/stylesheets/print.scss */
+#cv .social-media li {
+  display: inline;
+}
+/* line 72, ../../../app/stylesheets/print.scss */
+#cv .cv-section-name {
+  float: left;
+  width: 200px;
+}
+/* line 77, ../../../app/stylesheets/print.scss */
+#cv .cv-section-items {
+  float: right;
+  margin-right: 10px;
+  width: 490px;
+}
+/* line 84, ../../../app/stylesheets/print.scss */
+#cv ul li {
+  list-style-type: none;
+}
+/* line 89, ../../../app/stylesheets/print.scss */
+#cv .item {
+  margin-bottom: 20px;
+  padding-bottom: 30px;
+}
+/* line 93, ../../../app/stylesheets/print.scss */
+#cv .item h3, #cv .item h5 {
+  margin: 10px 0;
+}
+/* line 97, ../../../app/stylesheets/print.scss */
+#cv .item h3 {
+  padding: 4px 0;
+  clear: left;
+}
+/* line 102, ../../../app/stylesheets/print.scss */
+#cv .item h4 {
+  float: right;
+  margin: 0;
+  padding: 4px 10px;
+}
+/* line 108, ../../../app/stylesheets/print.scss */
+#cv .item h5 {
+  float: right;
+  clear: right;
+}
+/* line 113, ../../../app/stylesheets/print.scss */
+#cv .item h6 {
+  padding: 5px;
+  margin: 1px 0 1px 0;
+}
+/* line 118, ../../../app/stylesheets/print.scss */
+#cv .item p {
+  padding: 0 0 15px;
+}
+/* line 122, ../../../app/stylesheets/print.scss */
+#cv .item ul {
+  margin-bottom: 15px;
+}
+/* line 126, ../../../app/stylesheets/print.scss */
+#cv .item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 30px;
+}
+/* line 132, ../../../app/stylesheets/print.scss */
+#cv .item .list li {
+  list-style: disc;
+}
+/* line 139, ../../../app/stylesheets/print.scss */
+#cv .repeater li {
+  margin-right: 15px;
+  display: inline;
+}
+
+/* root element for accordion. decorated with rounded borders and gradient background image */
+/* line 148, ../../../app/stylesheets/print.scss */
+.accordion {
+  /* accordion header */
+  /* accordion panel */
+}
+/* line 150, ../../../app/stylesheets/print.scss */
+.accordion h6 {
+  background-color: #f8f8f8;
+}
+/* line 155, ../../../app/stylesheets/print.scss */
+.accordion .panel {
+  border-width: 0 2px;
+  padding: 5px;
+  display: block !important;
+}
+/* line 160, ../../../app/stylesheets/print.scss */
+.accordion .panel li {
+  list-style-position: inside !important;
+}
+
+/* =COLORS-TYPOGRAPHY
+----------------------------------*/
+/* line 172, ../../../app/stylesheets/print.scss */
+#cv .cv-section p {
+  text-align: justify;
+}
+/* line 179, ../../../app/stylesheets/print.scss */
+#cv .person img {
+  background-color: #FFF;
+  border: 1px solid #dfdfdf;
+}
+/* line 184, ../../../app/stylesheets/print.scss */
+#cv .person h1 {
+  color: #475261;
+  font-size: 36px;
+  font-weight: 400;
+  font-family: 'AllerRegular', sans-serif;
+}
+/* line 190, ../../../app/stylesheets/print.scss */
+#cv .person h1 a {
+  color: #475261;
+}
+/* line 196, ../../../app/stylesheets/print.scss */
+#cv .person h2 {
+  color: #475261;
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+/* line 205, ../../../app/stylesheets/print.scss */
+#cv .social-media {
+  list-style: none;
+}
+/* line 209, ../../../app/stylesheets/print.scss */
+#cv h2.cv-section-name {
+  color: #333333;
+  font-family: 'AllerLightItalic', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+/* line 216, ../../../app/stylesheets/print.scss */
+#cv .item {
+  border-bottom: 1px solid #dfdfdf;
+}
+/* line 220, ../../../app/stylesheets/print.scss */
+#cv .item h4 {
+  background-color: #f8f8f8;
+  font-family: 'AllerRegular', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: 24px;
+}
+/* line 228, ../../../app/stylesheets/print.scss */
+#cv .item h4:hover {
+  background-color: #333;
+  color: #fff;
+}
+/* line 233, ../../../app/stylesheets/print.scss */
+#cv .item h2 {
+  color: #06A;
+  font-family: 'AllerRegular', sans-serif;
+  font-size: 24px;
+}
+/* line 241, ../../../app/stylesheets/print.scss */
+#cv .item h3,
+#cv .item h5,
+#cv .item .result {
+  color: #475261;
+  font-family: 'GentiumBookBasicItalic', serif;
+  font-size: 20px;
+}
+/* line 248, ../../../app/stylesheets/print.scss */
+#cv .item h5,
+#cv .item .result {
+  font-family: 'GentiumBookBasicRegular', serif;
+}
+/* line 252, ../../../app/stylesheets/print.scss */
+#cv .item h6 {
+  color: #06A;
+  font-family: 'AllerRegular', sans-serif;
+  font-size: 16px;
+}
+/* line 258, ../../../app/stylesheets/print.scss */
+#cv .item p {
+  text-align: justify;
+}
+/* line 262, ../../../app/stylesheets/print.scss */
+#cv .item ul {
+  text-align: justify;
+}
+/* line 266, ../../../app/stylesheets/print.scss */
+#cv .item:last-child {
+  border-bottom: none;
+}
+/* line 272, ../../../app/stylesheets/print.scss */
+#cv .repeater li {
+  font-family: 'GentiumBookBasicBoldItalic', serif;
 }
