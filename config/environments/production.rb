@@ -27,4 +27,4 @@ config.log_level = :debug
 # Enable threaded mode
 # config.threadsafe!
 
-PDFKit.configuration.wkhtmltopdf = '/usr/local/bin/wkhtmltopdf'
+PDFKit.configuration.wkhtmltopdf = '/usr/local/bin/wkhtmltopdf '
