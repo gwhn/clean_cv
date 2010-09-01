@@ -59,5 +59,4 @@ Rails::Initializer.run do |config|
   require 'pdfkit'
   config.middleware.use PDFKit::Middleware
 
-
 end

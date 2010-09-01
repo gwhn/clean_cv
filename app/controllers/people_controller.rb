@@ -6,7 +6,7 @@ class PeopleController < ApplicationController
   filter_access_to :all, :attribute_check => true
   filter_access_to :index, :attribute_check => false
 
-  caches_action :index, :show
+#  caches_action :index, :show
 
   # GET /people
   # GET /people.xml
