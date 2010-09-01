@@ -20,4 +20,4 @@ config.action_mailer.raise_delivery_errors = false
 
 Paperclip.options[:command_path] = "/opt/local/bin"
 
-PDFKit.configuration.wkhtmltopdf = '/opt/local/bin/wkhtmltopdf '
+PDFKit.configuration.wkhtmltopdf = '/opt/local/bin/wkhtmltopdf'
