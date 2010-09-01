@@ -28,3 +28,5 @@ config.action_mailer.delivery_method = :test
 # config.active_record.schema_format = :sql
 
 Paperclip.options[:command_path] = "/opt/local/bin"
+
+PDFKit.configuration.wkhtmltopdf = '/opt/local/bin/wkhtmltopdf'
