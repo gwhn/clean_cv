@@ -57,7 +57,7 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 
   require 'pdfkit'
-  config.middleware.use PDFKit::Middleware, :wkhtmltopdf => '/usr/local/bin/wkhtmltopdf '
+  config.middleware.use PDFKit::Middleware
 
 
 end
