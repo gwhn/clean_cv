@@ -1,7 +1,7 @@
 class Person < ActiveRecord::Base
   using_access_control
 
-  has_friendly_id :name, :use_slug => true
+  has_friendly_id :name, :use_slug => true, :max_length => 140
   
   validates_presence_of :name, :job_title, :email, :phone, :mobile, :profile, :user
   validates_uniqueness_of :name, :email
