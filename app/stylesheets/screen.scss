@@ -443,6 +443,13 @@ em {
 
 }
 
+.no-js {
+    .options,
+    .accordion .panel {
+        display: block !important;
+    }
+}
+
 .authme {
     background-color: #333;
     border: 1px solid #444;

@@ -1399,7 +1399,13 @@ em {
   border: 1px solid #dfdfdf;
 }
 
-/* line 446, ../../../app/stylesheets/screen.scss */
+/* line 448, ../../../app/stylesheets/screen.scss */
+.no-js .options,
+.no-js .accordion .panel {
+  display: block !important;
+}
+
+/* line 453, ../../../app/stylesheets/screen.scss */
 .authme {
   background-color: #333;
   border: 1px solid #444;
@@ -1409,15 +1415,15 @@ em {
   top: 66px;
   position: fixed;
 }
-/* line 455, ../../../app/stylesheets/screen.scss */
+/* line 462, ../../../app/stylesheets/screen.scss */
 .authme:hover {
   background-color: #222;
 }
-/* line 459, ../../../app/stylesheets/screen.scss */
+/* line 466, ../../../app/stylesheets/screen.scss */
 .authme img {
   padding: 0 0 0 5px;
 }
-/* line 463, ../../../app/stylesheets/screen.scss */
+/* line 470, ../../../app/stylesheets/screen.scss */
 .authme a {
   color: #fff;
   font-size: 15px;
