@@ -61,4 +61,5 @@ Rails::Initializer.run do |config|
   require 'pdfkit'
   config.middleware.use PDFKit::Middleware
 
+  require 'selectable_date'
 end
