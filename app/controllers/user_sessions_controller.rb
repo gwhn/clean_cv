@@ -22,7 +22,6 @@ class UserSessionsController < ApplicationController
         format.html { render :action => :new }
         format.js
       end
-
     end
   end
 

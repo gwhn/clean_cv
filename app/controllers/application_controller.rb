@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   before_filter :require_user
   before_filter :set_current_user
 
-  layout 'standard'
+  layout :choose_layout
 
   protected
   def require_user
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def permission_denied
-    flash[:error] = "Permission denied!"
+    flash[:error] = 'Permission denied!'
     respond_to do |format|
       format.html { redirect_to(:back) rescue redirect_to root_url }
       format.xml { head :unauthorized }
@@ -33,6 +33,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  def choose_layout
+    request.xhr? ? nil : 'standard'
+  end
+
   def set_current_user
     Authorization.current_user = current_user
   end

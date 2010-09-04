@@ -17,7 +17,10 @@ function initModalDialog(id) {
         modal     : true,
         height    : 400,
         width     : 600,
-        show      : "blind"
+        show      : "blind",
+        open      : function() {
+            $(this).find(":input:visible:enabled:first").focus();            
+        }
     });
 }
 
@@ -35,7 +38,6 @@ function bindRemoteLinks(dialog, selector) {
 function openForm(dialog, title) {
     bindFormSubmit(dialog);
     $(dialog).dialog("option", "title", title);
-    $(dialog).find(":text:first").focus();
     $(dialog).dialog("open");
 }
 
@@ -70,7 +72,6 @@ function formSubmitHandler(dialog) {
         $(dialog).dialog("close");
     };
 }
-
 
 function bindAddChildLinks(selector) {
     $(selector).live("click", function() {
