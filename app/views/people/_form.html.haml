@@ -4,11 +4,11 @@
   - f.inputs do
     = f.input :name
     = f.input :job_title
+    %li.person= image_tag person.photo.url(:small)
+    = f.input :photo, :as => :file
     = f.input :email
     = f.input :phone
     = f.input :mobile
-    = image_tag person.photo.url(:small)
-    = f.input :photo, :as => :file
     = f.input :flickr_url
     = f.input :twitter_url
     = f.input :facebook_url

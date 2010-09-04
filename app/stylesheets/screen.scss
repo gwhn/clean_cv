@@ -86,12 +86,6 @@ em {
         margin-top: 20px;
         width: 500px;
 
-        img {
-            float: left;
-            margin-right: 25px;
-            padding: 10px;
-        }
-
         h1 {
             margin-top: 25px;
         }
@@ -325,11 +319,6 @@ em {
 
     .person {
 
-        img {
-            background-color: #FFF;
-            border: 1px solid #dfdfdf;
-        }
-
         h1 {
             color: #475261;
             font-size: 36px;
@@ -440,6 +429,18 @@ em {
     .handle {
         cursor: move;
     }
+}
+
+.person {
+
+    img {
+        float: left;
+        margin-right: 25px;
+        padding: 10px;
+        background-color: #FFF;
+        border: 1px solid #dfdfdf;
+    }
+
 }
 
 .authme {
