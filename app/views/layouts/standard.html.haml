@@ -44,19 +44,7 @@
     / <![endif]>
     #container
       %header
-        #flash.ui-widget
-          - if flash[:notice]
-            .notice.ui-state-highlight.ui-corner-all
-              %span.ui-icon.ui-icon-info
-              = flash[:notice]
-          - if flash[:alert]
-            .alert.ui-state-alert.ui-corner-all
-              %span.ui-icon.ui-icon-info
-              = flash[:alert]
-          - if flash[:error]
-            .error.ui-state-error.ui-corner-all
-              %span.ui-icon.ui-icon-alert
-              = flash[:error]
+        = render :partial => 'shared/flash', :object => flash
       #main
         #cv= yield
         .authme

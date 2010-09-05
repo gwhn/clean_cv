@@ -1,0 +1,13 @@
+#flash
+  - if flash[:notice]
+    .ui-state-highlight
+      %span.ui-icon.ui-icon-info
+      = flash[:notice]
+  - if flash[:alert]
+    .ui-state-error
+      %span.ui-icon.ui-icon-alert
+      = flash[:alert]
+  - if flash[:error]
+    .ui-state-error
+      %span.ui-icon.ui-icon-alert
+      = flash[:error]
