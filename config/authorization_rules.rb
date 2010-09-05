@@ -15,7 +15,7 @@ authorization do
 #    has_permission_on [:people, :companies, :responsibilities, :projects, :tasks, :skills, :schools], :to => :manage
   end
 
-  role :author do
+  role :user do
     includes :guest
     has_permission_on :people, :to => :create
     has_permission_on :people, :to => [:update, :delete] do
