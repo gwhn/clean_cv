@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  skip_before_filter :require_user, :only => [:index, :show]
+  skip_before_filter :authenticate_user!, :only => [:index, :show]
 
   before_filter :load_person, :only => [:show, :edit, :update, :delete, :destroy]
   before_filter :new_person_from_params, :only => [:new, :create]

@@ -7,7 +7,7 @@
     %h3= h item.course
     .result= h item.result
   
-  - if current_user
+  - if user_signed_in?
     %ul.options
       - if permitted_to? :update, item
         %li= link_to 'Edit school', edit_person_school_path(item.person, item), :class => 'remote-link', :title => 'Edit school'

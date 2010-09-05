@@ -18,7 +18,7 @@ function initModalDialog(id) {
         height    : 400,
         width     : 600,
         show      : "blind",
-        open      : function() {
+        focus     : function() {
             $(this).find(":input:visible:enabled:first").focus();            
         }
     });

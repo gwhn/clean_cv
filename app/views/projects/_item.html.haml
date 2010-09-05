@@ -6,7 +6,7 @@
     %h6.handle
       = h item.name
 
-      - if current_user and permitted_to? :reposition, item
+      - if user_signed_in? and permitted_to? :reposition, item
         %span.move-actions
           - if item_counter > 0
             %span= link_to 'Move top', move_top_person_company_project_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-arrowstop-1-n'
@@ -28,11 +28,11 @@
         %ul.list{:id => tasks_id}
           = render :partial => 'tasks/item', :collection => item.tasks, :locals => {:task_count => item.tasks.count}
 
-          - if current_user and permitted_to? :reposition, :tasks
+          - if user_signed_in? and permitted_to? :reposition, :tasks
             - content_for :javascript do
               = sortable_javascript_for "##{tasks_id}", 'li', "&person_id=#{item.company.person.id}&company_id=#{item.company.id}&project_id=#{item.id}", reposition_person_company_project_tasks_url(item.company.person, item.company, item)
 
-  - if current_user
+  - if user_signed_in?
     %ul.options
       - if permitted_to? :update, item
         %li= link_to 'Edit project', edit_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => 'Edit project'

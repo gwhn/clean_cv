@@ -49,6 +49,10 @@
             .notice.ui-state-highlight.ui-corner-all
               %span.ui-icon.ui-icon-info
               = flash[:notice]
+          - if flash[:alert]
+            .alert.ui-state-alert.ui-corner-all
+              %span.ui-icon.ui-icon-info
+              = flash[:alert]
           - if flash[:error]
             .error.ui-state-error.ui-corner-all
               %span.ui-icon.ui-icon-alert
@@ -56,10 +60,10 @@
       #main
         #cv= yield
         .authme
-          - if current_user
-            = link_to 'Logout', logout_path
+          - if user_signed_in?
+            = link_to 'Sign out', destroy_user_session_path
           - else
-            = link_to 'Login', login_path, :class => 'remote-link', :title => 'Log in'
+            = link_to 'Sign in', new_user_session_path
       %footer
     / ! end of #container
     / Javascript at the bottom for fast page loading

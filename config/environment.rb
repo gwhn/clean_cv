@@ -20,7 +20,8 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-  config.gem "authlogic"
+  config.gem "warden"
+  config.gem "devise", :version => "~> 1.0.8"
   config.gem "haml"
   config.gem "formtastic"
   config.gem "validation_reflection"
@@ -57,7 +58,7 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
-
+  
   require 'pdfkit'
   config.middleware.use PDFKit::Middleware
 

@@ -3,7 +3,7 @@
 %li{:id => ['responsibility', item.id]}
   %span.handle= h item.description
 
-  - if current_user and permitted_to? :reposition, item
+  - if user_signed_in? and permitted_to? :reposition, item
     %span.move-actions
       - if item_counter > 0
         %span= link_to 'Move top', move_top_person_company_responsibility_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-arrowstop-1-n'

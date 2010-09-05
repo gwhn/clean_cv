@@ -6,23 +6,15 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  helper_method :current_user
-
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
 
-  before_filter :require_user
-  before_filter :set_current_user
+  before_filter :authenticate_user!
+  before_filter :authorize_current_user
 
   layout :choose_layout
 
   protected
-  def require_user
-    unless current_user
-      redirect_to login_path
-    end
-  end
-
   def permission_denied
     flash[:error] = 'Permission denied!'
     respond_to do |format|
@@ -37,18 +29,8 @@ class ApplicationController < ActionController::Base
     request.xhr? ? nil : 'standard'
   end
 
-  def set_current_user
+  def authorize_current_user
     Authorization.current_user = current_user
-  end
-
-  def current_user_session
-    return @current_user_session if defined?(@current_user_session)
-    @current_user_session = UserSession.find
-  end
-
-  def current_user
-    return @current_user if defined?(@current_user)
-    @current_user = current_user_session && current_user_session.record
   end
 
   def load_person
