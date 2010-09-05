@@ -19,15 +19,6 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = false
 config.action_mailer.default_url_options = {:host => 'localhost:3000'}
 
-config.action_mailer.smtp_settings = {
-        :address => 'mail.weblitz.co.uk',
-        :port  => 25,
-        :domain  => 'weblitz.co.uk',
-        :authentication => :login,
-        :user_name => "cv@weblitz.co.uk",
-        :password => 'banarama'
-}
-
 Paperclip.options[:command_path] = "/opt/local/bin"
 
 PDFKit.configuration.wkhtmltopdf = '/opt/local/bin/wkhtmltopdf'

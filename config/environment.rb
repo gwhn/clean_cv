@@ -13,7 +13,7 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
-  config.load_paths += %W( #{RAILS_ROOT}/app/sweepers )
+  config.load_paths += %W( #{RAILS_ROOT} /app/sweepers  )
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
@@ -58,7 +58,16 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
-  
+
+  config.action_mailer.smtp_settings = {
+          :address => 'mail.weblitz.co.uk',
+          :port  => 25,
+          :domain  => 'weblitz.co.uk',
+          :authentication => :login,
+          :user_name => "cv@weblitz.co.uk",
+          :password => 'banarama'
+  }
+
   require 'pdfkit'
   config.middleware.use PDFKit::Middleware
 
