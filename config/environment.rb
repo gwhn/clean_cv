@@ -13,7 +13,7 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
-  config.load_paths += %W( #{RAILS_ROOT} /app/sweepers  )
+  config.load_paths += %W(#{RAILS_ROOT}/app/sweepers)
 
   # Specify gems that this application depends on and have them installed with rake gems:install
   # config.gem "bj"
@@ -64,7 +64,7 @@ Rails::Initializer.run do |config|
           :port  => 25,
           :domain  => 'weblitz.co.uk',
           :authentication => :login,
-          :user_name => "cv@weblitz.co.uk",
+          :user_name => 'cv@weblitz.co.uk',
           :password => 'banarama'
   }
 
