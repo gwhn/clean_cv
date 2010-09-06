@@ -3,5 +3,5 @@
   .cv-section-items
     = render :partial => 'form', :locals => {:person => @person, :company => @company, :project => @project}
 
-    - if permitted_to? :read, @project
-      = link_to 'Back', person_company_projects_path(@person, @company)
+    - if permitted_to? :read, @person
+      = link_to 'Back', @person

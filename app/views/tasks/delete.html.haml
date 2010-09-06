@@ -5,3 +5,6 @@
       %p Are you sure you want to delete #{@task.description}?
       - f.buttons do
         = f.commit_button 'Yes'
+
+    - if permitted_to? :read, @person
+      = link_to 'Back', @person

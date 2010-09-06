@@ -4,5 +4,4 @@
     = render :partial => 'form', :locals => {:person => @person, :url => person_path(@person, :format => :js)}
 
     - if permitted_to? :read, @person
-      = link_to 'Show', @person
-      = link_to 'Back', people_path
+      = link_to 'Back', @person

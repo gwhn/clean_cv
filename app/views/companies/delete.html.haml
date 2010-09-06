@@ -1,7 +1,10 @@
 .cv-section.last-cv-section.fixed
-  %h2.cv-section-name Delete person
+  %h2.cv-section-name Delete company
   .cv-section-items
     - semantic_form_for [@person, @company], :html => { :method => 'delete' } do |f|
       %p Are you sure you want to delete #{@company.name}?
       - f.buttons do
         = f.commit_button 'Yes'
+
+    - if permitted_to? :read, @person
+      = link_to 'Back', @person

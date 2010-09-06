@@ -49,7 +49,7 @@ class PeopleController < ApplicationController
     respond_to do |format|
       if @person.save
         flash[:notice] = 'Person was successfully created.'
-        format.html { redirect_to(@person) }
+        format.html { redirect_to @person }
         format.xml { render :xml => @person, :status => :created, :location => @person }
         format.js do
           responds_to_parent { render :action => :show }
@@ -72,7 +72,7 @@ class PeopleController < ApplicationController
     respond_to do |format|
       if @person.update_attributes(params[:person])
         flash[:notice] = 'Person was successfully updated.'
-        format.html { redirect_to(@person) }
+        format.html { redirect_to @person }
         format.xml { head :ok }
         format.js do
           responds_to_parent { render :action => :show }
@@ -99,7 +99,7 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   # DELETE /people/1.xml
   def destroy
-    redirect_to(@person) and return if params[:cancel]
+    redirect_to @person and return if params[:cancel]
     @person.destroy
 
     respond_to do |format|

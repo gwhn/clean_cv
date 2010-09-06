@@ -43,7 +43,7 @@ class SchoolsController < ApplicationController
     respond_to do |format|
       if @school.save
         flash[:notice] = 'School was successfully created.'
-        format.html { redirect_to(person_school_url(@person, @school)) }
+        format.html { redirect_to @person }
         format.xml { render :xml => @school, :status => :created, :location => @school }
         format.js { render :layout => false }
       else
@@ -60,7 +60,7 @@ class SchoolsController < ApplicationController
     respond_to do |format|
       if @school.update_attributes(params[:school])
         flash[:notice] = 'School was successfully updated.'
-        format.html { redirect_to(person_school_url(@person, @school)) }
+        format.html { redirect_to @person }
         format.xml { head :ok }
         format.js { render :layout => false }
       else
@@ -81,11 +81,11 @@ class SchoolsController < ApplicationController
   # DELETE /people/1/schools/1
   # DELETE /people/1/schools/1.xml
   def destroy
-    redirect_to(person_school_url(@person, @school)) and return if params[:cancel]
+    redirect_to @person and return if params[:cancel]
     @school.destroy
 
     respond_to do |format|
-      format.html { redirect_to(person_schools_url(@person)) }
+      format.html { redirect_to @person }
       format.xml { head :ok }
       format.js
     end

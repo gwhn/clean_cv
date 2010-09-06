@@ -45,7 +45,7 @@ class SkillsController < ApplicationController
     respond_to do |format|
       if @skill.save
         flash[:notice] = 'Skill was successfully created.'
-        format.html { redirect_to(person_skill_url(@person, @skill)) }
+        format.html { redirect_to @person }
         format.xml { render :xml => @skill, :status => :created, :location => @skill }
         format.js { render :layout => false }
       else
@@ -62,7 +62,7 @@ class SkillsController < ApplicationController
     respond_to do |format|
       if @skill.update_attributes(params[:skill])
         flash[:notice] = 'Skill was successfully updated.'
-        format.html { redirect_to(person_skill_url(@person, @skill)) }
+        format.html { redirect_to @person }
         format.xml { head :ok }
         format.js { render :layout => false }
       else
@@ -83,11 +83,11 @@ class SkillsController < ApplicationController
   # DELETE /people/1/skills/1
   # DELETE /people/1/skills/1.xml
   def destroy
-    redirect_to(person_skill_url(@person, @skill)) and return if params[:cancel]
+    redirect_to @person and return if params[:cancel]
     @skill.destroy
 
     respond_to do |format|
-      format.html { redirect_to(person_skills_url(@person)) }
+      format.html { redirect_to @person }
       format.xml { head :ok }
       format.js
     end
