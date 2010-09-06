@@ -1,6 +1,8 @@
-%h1 Editing company
-= render :partial => 'form', :locals => {:person => @person, :company => @company}
+.cv-section.fixed
+  %h2.cv-section-name Edit company
+  .cv-section-items
+    = render :partial => 'form', :locals => {:person => @person, :company => @company}
 
-- if permitted_to? :read, @company
-  = link_to 'Show', person_company_path(@person, @company)
-  = link_to 'Back', person_companies_path(@person)
+    - if permitted_to? :read, @company
+      = link_to 'Show', person_company_path(@person, @company)
+      = link_to 'Back', person_companies_path(@person)
