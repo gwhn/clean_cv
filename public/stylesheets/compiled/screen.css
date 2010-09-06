@@ -1194,7 +1194,7 @@ ul li {
 .options {
   padding: 5px;
   display: none;
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
 }
 
 /* line 211, ../../../app/stylesheets/screen.scss */
@@ -1230,7 +1230,7 @@ ul li {
 }
 /* line 238, ../../../app/stylesheets/screen.scss */
 .accordion h6.current {
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
   cursor: default;
 }
 /* line 244, ../../../app/stylesheets/screen.scss */
@@ -1293,7 +1293,7 @@ ul li {
 
 /* line 301, ../../../app/stylesheets/screen.scss */
 .first-cv-section {
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
 }
 
 /* line 307, ../../../app/stylesheets/screen.scss */
@@ -1342,7 +1342,7 @@ h2.cv-section-name {
 }
 /* line 350, ../../../app/stylesheets/screen.scss */
 .item h4 {
-  background-color: #f5f5f5;
+  background-color: #f8f8f8;
   font-family: 'AllerRegular', sans-serif;
   font-size: 10px;
   text-transform: uppercase;
