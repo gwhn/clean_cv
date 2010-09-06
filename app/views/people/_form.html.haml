@@ -20,7 +20,7 @@
     - f.semantic_fields_for :companies do |c|
       = render :partial => 'company', :locals => {:f => c}
 
-  - if permitted_to? :create, :companies
+  - if permitted_to? :create, Company.new(:person => person)
     .new-child= add_child_link 'New company', :companies, :class => 'add-person-company'
     = new_child_fields_template f, :companies
 
@@ -29,7 +29,7 @@
     - f.semantic_fields_for :skills do |sk|
       = render :partial => 'skill', :locals => {:f => sk}
 
-  -if permitted_to? :create, :skills
+  -if permitted_to? :create, Skill.new(:person => person)
     .new-child= add_child_link 'New skill', :skills, :class => 'add-person-skill'
     = new_child_fields_template f, :skills
 
@@ -38,7 +38,7 @@
     - f.semantic_fields_for :schools do |sc|
       = render :partial => 'school', :locals => {:f => sc}
 
-  - if permitted_to? :create, :schools
+  - if permitted_to? :create, School.new(:person => person)
     .new-child= add_child_link 'New school', :schools, :class => 'add-person-school'
     = new_child_fields_template f, :schools
 

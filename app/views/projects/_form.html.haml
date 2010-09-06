@@ -11,7 +11,7 @@
     - f.semantic_fields_for :tasks do |t|
       = render :partial => 'task', :locals => {:f => t}
 
-  - if permitted_to? :create, :tasks    
+  - if permitted_to? :create, Task.new(:project => project)    
     .new-child= add_child_link 'New task', :tasks, :class => 'add-person-company-project-task'
     = new_child_fields_template f, :tasks
 

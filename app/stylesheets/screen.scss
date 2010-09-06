@@ -448,6 +448,10 @@ em {
     .accordion .panel {
         display: block !important;
     }
+    .nested-attributes,
+    .new-child {
+        display: none;
+    }
 }
 
 .authme {

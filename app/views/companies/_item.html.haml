@@ -1,7 +1,7 @@
 - company_id = "company_#{item.id}"
 %li.item{:id => company_id}
   .company
-    %h4 #{h item.start_date.to_s(:month_and_year)} - #{h item.end_date.to_s(:month_and_year)}
+    %h4= formatted_date_range item.start_date, item.end_date, :format => :month_and_year
     %h2= h item.name
 
     %h5= h item.role

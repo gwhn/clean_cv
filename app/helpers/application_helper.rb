@@ -74,4 +74,14 @@ JS
   def jquery_on_ready(script)
     javascript_tag "$(function(){#{script}});"
   end
+
+  def formatted_date_range(start_date, end_date, options = {})
+    options = {:date_format => :month_and_year}.merge(options)
+    formatted_start_date = h start_date.to_date.to_s(options[:date_format])
+    if end_date.to_date.selected?
+      "#{formatted_start_date} - #{h end_date.to_date.to_s(options[:date_format])}"
+    else
+      "#{formatted_start_date} - present"
+    end
+  end
 end

@@ -1,7 +1,7 @@
 - school_id = "school_#{item.id}"
 %li.item{:id => school_id}
   .school
-    %h4 #{h item.date_from.to_s(:year_only)} - #{h item.date_to.to_s(:year_only)}
+    %h4= formatted_date_range item.date_from, item.date_to, :format => :year_only
     %h2= h item.name
 
     %h3= h item.course
