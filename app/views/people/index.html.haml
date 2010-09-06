@@ -3,7 +3,7 @@
 - if user_signed_in?
   %ul.options
     - if permitted_to? :create, :people
-      %li= link_to 'New', new_person_path, :class => 'remote-link', :title => 'New person'
+      %li= link_to 'New person', new_person_path, :class => 'remote-link', :title => 'New person'
 
   - content_for :javascript do
     = dynamic_tooltip_javascript_for '#people', :position => 'top left'

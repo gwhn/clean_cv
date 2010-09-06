@@ -1,6 +1,8 @@
-%h1 Editing skill
-= render :partial => 'form', :locals => {:person => @person, :skill => @skill}
+.cv-section.last-cv-section.fixed
+  %h2.cv-section-name Edit skill
+  .cv-section-items
+    = render :partial => 'form', :locals => {:person => @person, :skill => @skill}
 
-- if permitted_to? :read, @skill
-  = link_to 'Show', person_skill_path(@person, @skill)
-  = link_to 'Back', person_skills_path(@person)
+    - if permitted_to? :read, @skill
+      = link_to 'Show', person_skill_path(@person, @skill)
+      = link_to 'Back', person_skills_path(@person)
