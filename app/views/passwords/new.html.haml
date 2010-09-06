@@ -1,0 +1,11 @@
+.cv-section.fixed
+  %h2.cv-section-name Forgot your password?
+  .cv-section-items
+    - semantic_form_for resource_name, resource, :url => password_path(resource_name) do |f|
+      - f.inputs do
+        = f.input :email
+
+      - f.buttons do
+        = f.commit_button 'Send me reset password instructions'
+
+= render :partial => 'shared/options'

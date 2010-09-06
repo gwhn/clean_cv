@@ -1,0 +1,17 @@
+.cv-section.fixed
+  %h2.cv-section-name= "Edit #{resource_name.to_s.humanize}"
+  .cv-section-items
+    - semantic_form_for resource_name, resource, :url => registration_path(resource_name), :html => {:method => :put} do |f|
+      - f.inputs do
+        = f.input :email
+        = f.input :password, :as => :password, :hint => "leave blank if you don't want to change it"
+        = f.input :password_confirmation, :as => :password
+        = f.input :current_password, :as => :password, :hint => 'we need your current password to confirm your changes'
+
+      - f.buttons do
+        = f.commit_button
+
+- content_for :devise_options do
+  %p= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete
+
+= render :partial => 'shared/options'

@@ -1,0 +1,13 @@
+.cv-section.fixed
+  %h2.cv-section-name Sign up
+  .cv-section-items
+    - semantic_form_for resource_name, resource, :url => registration_path(resource_name) do |f|
+      - f.inputs do
+        = f.input :email
+        = f.input :password, :as => :password
+        = f.input :password_confirmation, :as => :password
+
+      - f.buttons do
+        = f.commit_button 'Sign up'
+
+= render :partial => 'shared/options'
