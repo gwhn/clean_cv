@@ -17,4 +17,4 @@
         :confirm => 'Are you sure?', :method => :delete if permitted_to? :delete, task
 %br
 - if permitted_to? :create, :tasks
-  = link_to 'New responsibility', new_person_company_project_task_path(@person, @company, @project)
+  = link_to 'New task', new_person_company_project_task_path(@person, @company, @project)

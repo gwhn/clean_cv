@@ -1,7 +1,8 @@
-%h1 Editing task
-= render :partial => 'form', :locals => {:person => @person, :company => @company,
-  :project => @project, :task => @task}
+.cv-section.last-cv-section.fixed
+  %h2.cv-section-name Edit task
+  .cv-section-items
+    = render :partial => 'form', :locals => {:person => @person, :company => @company, :project => @project, :task => @task}
 
-- if permitted_to? :read, @task
-  = link_to 'Show', person_company_project_task_path(@person, @company, @project, @task)
-  = link_to 'Back', person_company_project_tasks_path(@person, @company, @project)
+    - if permitted_to? :read, @task
+      = link_to 'Show', person_company_project_task_path(@person, @company, @project, @task)
+      = link_to 'Back', person_company_project_tasks_path(@person, @company, @project)
