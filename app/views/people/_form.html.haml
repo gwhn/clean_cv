@@ -1,4 +1,4 @@
-- semantic_form_for person, :url => url, :html => {:multipart => true, :target => 'upload_frame'} do |f|
+- semantic_form_for person, :url => action_path, :html => {:multipart => true, :target => target_name} do |f|
   = f.semantic_errors :state
 
   - f.inputs do

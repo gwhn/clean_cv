@@ -6,6 +6,9 @@ class PeopleController < ApplicationController
   filter_access_to :all, :attribute_check => true
   filter_access_to :index, :attribute_check => false
 
+  before_filter :choose_form_target, :only => [:new, :create, :edit, :update]
+
+  # Waiting for fix of PDFKit.
 #  caches_action :index, :show
 
   # GET /people
@@ -58,9 +61,13 @@ class PeopleController < ApplicationController
         format.html { render :action => :new }
         format.xml { render :xml => @person.errors, :status => :unprocessable_entity }
         format.js do
-          responds_to_parent { render :template => 'people/invalid', :layout => false,
-                                      :locals => {:person => @person,
-                                                  :url => people_path(:format => :js)} }
+          responds_to_parent do
+            render :template => 'people/invalid', :layout => false,
+                   :locals => {:person => @person,
+                               :action_path => people_path(:format => :js),
+                               :target_name => @target_name}
+
+          end
         end
       end
     end
@@ -81,9 +88,12 @@ class PeopleController < ApplicationController
         format.html { render :action => :edit }
         format.xml { render :xml => @person.errors, :status => :unprocessable_entity }
         format.js do
-          responds_to_parent { render :template => 'people/invalid', :layout => false,
-                                      :locals => {:person => @person,
-                                                  :url => person_path(@person, :format => :js)} }
+          responds_to_parent do
+            render :template => 'people/invalid', :layout => false,
+                   :locals => {:person => @person,
+                               :action_path => person_path(@person, :format => :js),
+                               :target_name => @target_name}
+          end
         end
       end
     end
@@ -117,5 +127,10 @@ class PeopleController < ApplicationController
 
   def load_person
     @person = Person.find params[:id]
+  end
+
+  # Enable ajax file uploads using iframe target 
+  def choose_form_target
+    @target_name = (request.xhr? or request.format == :js) ? 'upload_frame' : nil
   end
 end

@@ -1,7 +1,7 @@
 .cv-section.last-cv-section.fixed
   %h2.cv-section-name New person
   .cv-section-items
-    = render :partial => 'form', :locals => {:person => @person, :url => people_path(:format => :js)}
+    = render :partial => 'form', :locals => {:person => @person, :action_path => (request.xhr? ? people_path(:format => :js) : people_path), :target_name => @target_name}
 
     - if permitted_to? :read, @person
       = link_to 'Back', people_path

@@ -1,2 +1,2 @@
-$(".ui-dialog-content").html("<%= escape_javascript(render :partial => 'form', :locals => {:person => person, :url => url }) %>");
+$(".ui-dialog-content").html("<%= escape_javascript(render :partial => 'form', :locals => {:person => person, :action_path => action_path, :target_name => target_name}) %>");
 openForm("#form-dialog", "Invalid person");

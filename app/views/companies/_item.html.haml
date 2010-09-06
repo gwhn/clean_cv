@@ -27,17 +27,17 @@
 
         = render :partial => 'projects/item', :collection => item.projects, :locals => {:project_count => item.projects.count}
 
-      - if user_signed_in?
-        %ul.options
-          - if permitted_to? :create, Project.new(:company => item)
-            %li= link_to 'New project', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'
-
         - content_for :javascript do
           = dynamic_tooltip_javascript_for "##{projects_id}", :position => 'top left'
 
         - if permitted_to? :reposition, :projects
           - content_for :javascript do
             = sortable_javascript_for "##{projects_id}", 'li', "&person_id=#{item.person.id}&company_id=#{item.id}", reposition_person_company_projects_url(item.person, item)
+
+    - if user_signed_in?
+      %ul.options
+        - if permitted_to? :create, Project.new(:company => item)
+          %li= link_to 'New project', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'
 
   - if user_signed_in?
     %ul.options
