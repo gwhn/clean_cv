@@ -11,14 +11,16 @@ ActionController::Routing::Routes.draw do |map|
                                     :move_bottom => :get},
                         :collection => {:reposition => :put} do |project|
         project.resources :tasks,
-                          :member => {:move_top => :get,
+                          :member => {:delete => :get,
+                                      :move_top => :get,
                                       :move_up => :get,
                                       :move_down => :get,
                                       :move_bottom => :get},
                           :collection => {:reposition => :put}
       end
       company.resources :responsibilities,
-                        :member => {:move_top => :get,
+                        :member => {:delete => :get,
+                                    :move_top => :get,
                                     :move_up => :get,
                                     :move_down => :get,
                                     :move_bottom => :get},

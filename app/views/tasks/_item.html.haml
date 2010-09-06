@@ -3,6 +3,13 @@
 %li{:id => ['task', item.id]}
   %span.handle= h item.description
 
+  - if user_signed_in?
+    %span.update-actions
+      - if permitted_to? :edit, item
+        %span= link_to 'Edit', edit_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'ui-icon ui-icon-pencil'
+      - if permitted_to? :delete, item
+        %span= link_to 'Delete', delete_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :method => :delete, :class => 'ui-icon ui-icon-close'
+
   - if user_signed_in? and permitted_to? :reposition, item
     %span.move-actions
       - if item_counter > 0

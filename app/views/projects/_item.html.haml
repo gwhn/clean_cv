@@ -32,6 +32,11 @@
             - content_for :javascript do
               = sortable_javascript_for "##{tasks_id}", 'li', "&person_id=#{item.company.person.id}&company_id=#{item.company.id}&project_id=#{item.id}", reposition_person_company_project_tasks_url(item.company.person, item.company, item)
 
+      - if user_signed_in?
+        .update-actions
+          - if permitted_to? :create, :tasks
+            = link_to 'New task', new_person_company_project_task_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-plus'
+
   - if user_signed_in?
     %ul.options
       - if permitted_to? :update, item
