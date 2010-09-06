@@ -1,5 +1,7 @@
-%h1 New school
-= render :partial => 'form', :locals => {:person => @person, :school => @school}
+.cv-section.last-cv-section.fixed
+  %h2.cv-section-name New school
+  .cv-section-items
+    = render :partial => 'form', :locals => {:person => @person, :school => @school}
 
-- if permitted_to? :read, @school
-  = link_to 'Back', person_schools_path(@person)
+    - if permitted_to? :read, @school
+      = link_to 'Back', person_schools_path(@person)
