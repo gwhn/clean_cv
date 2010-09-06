@@ -35,7 +35,7 @@
 
     - if user_signed_in?
       %ul.options
-        - if permitted_to? :create, :companies
+        - if permitted_to? :create, Company.new(:person => item)
           %li= link_to 'New company', new_person_company_path(item), :class => 'remote-link', :title => 'New company'
 
       - content_for :javascript do
@@ -55,7 +55,7 @@
 
     - if user_signed_in?
       %ul.options
-        - if permitted_to? :create, :skills
+        - if permitted_to? :create, Skill.new(:person => item)
           %li= link_to 'New skill', new_person_skill_path(item), :class => 'remote-link', :title => 'New skill'
 
       - content_for :javascript do
@@ -71,7 +71,7 @@
 
     - if user_signed_in?
       %ul.options
-        - if permitted_to? :create, :schools
+        - if permitted_to? :create, School.new(:person => item)
           %li= link_to 'New school', new_person_school_path(item), :class => 'remote-link', :title => 'New school'
 
       - content_for :javascript do

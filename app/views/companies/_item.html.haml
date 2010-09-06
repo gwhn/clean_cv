@@ -18,7 +18,7 @@
 
     - if user_signed_in?
       .update-actions
-        - if permitted_to? :create, :responsibilities
+        - if permitted_to? :create, Responsibility.new(:company => item)
           = link_to 'New responsibility', new_person_company_responsibility_path(item.person, item), :class => 'ui-icon ui-icon-plus'
 
     - if item.projects.count > 0
@@ -29,7 +29,7 @@
 
       - if user_signed_in?
         %ul.options
-          - if permitted_to? :create, :projects
+          - if permitted_to? :create, Project.new(:company => item)
             %li= link_to 'New project', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'
 
         - content_for :javascript do

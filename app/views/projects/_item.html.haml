@@ -34,7 +34,7 @@
 
       - if user_signed_in?
         .update-actions
-          - if permitted_to? :create, :tasks
+          - if permitted_to? :create, Task.new(:project => item)
             = link_to 'New task', new_person_company_project_task_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-plus'
 
   - if user_signed_in?
