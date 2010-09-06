@@ -1,5 +1,7 @@
-%h1 New person
-= render :partial => 'form', :locals => {:person => @person, :url => people_path(:format => :js)}
+.cv-section.fixed
+  %h2.cv-section-name New person
+  .cv-section-items
+    = render :partial => 'form', :locals => {:person => @person, :url => people_path(:format => :js)}
 
-- if permitted_to? :read, @person
-  = link_to 'Back', people_path
+    - if permitted_to? :read, @person
+      = link_to 'Back', people_path
