@@ -1,7 +1,8 @@
-%h1 Editing project
-= render :partial => 'form',
-  :locals => {:person => @person, :company => @company, :project => @project}
+.cv-section.last-cv-section.fixed
+  %h2.cv-section-name Edit project
+  .cv-section-items
+    = render :partial => 'form', :locals => {:person => @person, :company => @company, :project => @project}
 
-- if permitted_to? :read, @project
-  = link_to 'Show', person_company_project_path(@person, @company, @project)
-  = link_to 'Back', person_company_projects_path(@person, @company)
+    - if permitted_to? :read, @project
+      = link_to 'Show', person_company_project_path(@person, @company, @project)
+      = link_to 'Back', person_company_projects_path(@person, @company)
