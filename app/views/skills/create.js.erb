@@ -4,6 +4,6 @@ $("<%= escape_javascript(render :partial => 'item', :object => @skill) %>").appe
 <%= dynamic_tooltip_javascript_for "#{skill_id} > .skill", :position => 'top right', :on_ready_wrapper => false %>
 <%= sortable_javascript_for "#{skills_id}", 'li', "&person_id=#{@person.id}", reposition_person_skills_url(@person), :on_ready_wrapper => false %>
 bindRemoteLinks("#form-dialog", ".remote-link");
-$(".move-actions").hide();
+$(".move-actions, .update-actions").hide();
 $.scrollTo("<%= skill_id %>", "fast");
 $("<%= skill_id %>").effect("highlight");

@@ -106,7 +106,6 @@
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-    font-family: 'AllerRegular', Verdana, Arial, sans-serif;
     font-size: 1.1em;
 }
 
@@ -115,7 +114,7 @@
 }
 
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
-    font-family: 'AllerRegular', Verdana, Arial, sans-serif;
+
     font-size: 1em;
 }
 

@@ -14,5 +14,5 @@ $("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {tabs: "h6"}
 <%- end -%>
 <%= sortable_javascript_for "#{responsibilities_id}", 'li', "&person_id=#{@person.id}&company_id=#{@company.id}", reposition_person_company_responsibilities_url(@person, @company), :on_ready_wrapper => false %>
 bindRemoteLinks("#form-dialog", ".remote-link");
-$(".move-actions").hide();
+$(".move-actions, .update-actions").hide();
 $("<%= company_id %>").effect("highlight");

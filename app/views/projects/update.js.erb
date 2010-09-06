@@ -8,5 +8,5 @@ $("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {
 });
 <%= dynamic_tooltip_javascript_for "#{project_id} > .project", :on_ready_wrapper => false %>
 bindRemoteLinks("#form-dialog", ".remote-link");
-$(".move-actions").hide();
+$(".move-actions, .update-actions").hide();
 $("<%= project_id %>").effect("highlight");
