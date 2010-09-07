@@ -50,7 +50,6 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.xml
   def create
-    @person.user = current_user    
     respond_to do |format|
       if @person.save
         flash[:notice] = 'Person was successfully created.'
@@ -124,6 +123,7 @@ class PeopleController < ApplicationController
   protected
   def new_person_from_params
     @person = Person.new params[:person]
+    @person.user = current_user    
   end
 
   def load_person
