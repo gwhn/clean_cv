@@ -51,7 +51,7 @@ class PeopleController < ApplicationController
   # POST /people.xml
   def create
     respond_to do |format|
-      if @person.save
+      if @person.save!
         flash[:notice] = 'Person was successfully created.'
         format.html { redirect_to @person }
         format.xml { render :xml => @person, :status => :created, :location => @person }
@@ -78,7 +78,7 @@ class PeopleController < ApplicationController
   # PUT /people/1.xml
   def update
     respond_to do |format|
-      if @person.update_attributes(params[:person])
+      if @person.update_attributes!(params[:person])
         flash[:notice] = 'Person was successfully updated.'
         format.html { redirect_to @person }
         format.xml { head :ok }
