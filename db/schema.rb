@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100905161842) do
+ActiveRecord::Schema.define(:version => 20100907071050) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -31,10 +31,6 @@ ActiveRecord::Schema.define(:version => 20100905161842) do
     t.text     "profile"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "flickr_url"
-    t.string   "twitter_url"
-    t.string   "facebook_url"
-    t.string   "linked_in_url"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
@@ -117,6 +113,16 @@ ActiveRecord::Schema.define(:version => 20100905161842) do
 
   add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
+
+  create_table "social_medias", :force => true do |t|
+    t.integer  "person_id",     :null => false
+    t.string   "linked_in_url"
+    t.string   "facebook_url"
+    t.string   "twitter_url"
+    t.string   "flickr_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tasks", :force => true do |t|
     t.text     "description"

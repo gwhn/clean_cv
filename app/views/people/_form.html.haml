@@ -4,16 +4,20 @@
   - f.inputs do
     = f.input :name
     = f.input :job_title
+    = f.input :profile
     %li.person= image_tag person.photo.url(:small)
     = f.input :photo, :as => :file
     = f.input :email
     = f.input :phone
     = f.input :mobile
-    = f.input :flickr_url
-    = f.input :twitter_url
-    = f.input :facebook_url
-    = f.input :linked_in_url
-    = f.input :profile
+    
+  %h2 Social Media
+  - f.semantic_fields_for :social_media do |sm|
+    - sm.inputs do
+      = sm.input :flickr_url
+      = sm.input :twitter_url
+      = sm.input :facebook_url
+      = sm.input :linked_in_url
 
   .nested-attributes
     %h2 Work Experience

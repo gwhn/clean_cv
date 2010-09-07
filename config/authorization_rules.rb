@@ -21,6 +21,9 @@ authorization do
     has_permission_on :people, :to => [:update, :delete] do
       if_attribute :user => is { user }
     end
+    has_permission_on :social_medias, :to => [:manage] do
+      if_attribute :person => {:user => is { user }}
+    end
     has_permission_on [:companies, :skills, :schools], :to => :manage do
       if_attribute :person => {:user => is { user }}
     end
@@ -33,7 +36,7 @@ authorization do
   end
 
   role :admin do
-    has_permission_on [:people, :companies, :skills, :schools, :projects, :responsibilities, :tasks],
+    has_permission_on [:people, :social_medias, :companies, :skills, :schools, :projects, :responsibilities, :tasks],
                       :to => :manage
     has_permission_on :authorization_rules, :to => :read
     has_permission_on :authorization_usages, :to => :read

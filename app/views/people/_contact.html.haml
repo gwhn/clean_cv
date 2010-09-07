@@ -1,16 +1,16 @@
 .contact-info
   %ul.social-media
     %li
-      %a{:href => "#{h contact.flickr_url}", :title => "Flickr Profile"}
+      %a{:href => "#{h contact.social_media.flickr_url}", :title => "Flickr Profile"}
         %img{:src => "/images/social-icons/flickr.png", :alt => "flickr icon"}
     %li
-      %a{:href => "#{h contact.twitter_url}", :title => "Twitter Profile"}
+      %a{:href => "#{h contact.social_media.twitter_url}", :title => "Twitter Profile"}
         %img{:src => "/images/social-icons/twitter.png", :alt => "twitter icon"}
     %li
-      %a{:href => "#{h contact.facebook_url}", :title => "Facebook Profile"}
+      %a{:href => "#{h contact.social_media.facebook_url}", :title => "Facebook Profile"}
         %img{:src => "/images/social-icons/facebook.png", :alt => "facebook icon"}
     %li
-      %a{:href =>"#{h contact.linked_in_url}", :title => "Linked In Profile"}
+      %a{:href =>"#{h contact.social_media.linked_in_url}", :title => "Linked In Profile"}
         %img{:src => "/images/social-icons/linkedin.png", :alt => "linkedin icon"}
     %li.pdf= link_to image_tag('/images/link_icons/pdf.png'), person_url(contact, :format => :pdf), :title => "Download PDF copy"
 

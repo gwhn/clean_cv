@@ -974,8 +974,8 @@ form .remove-child {
 form .new-child {
   padding: 0 0 5px 10px;
 }
-/* line 126, ../../../app/stylesheets/partials/_skintastic.sass */
-form .nested-attributes h2 {
+/* line 125, ../../../app/stylesheets/partials/_skintastic.sass */
+form h2 {
   color: #3c4756;
   font-family: "AllerLightItalic", sans-serif;
   font-size: 24px;
