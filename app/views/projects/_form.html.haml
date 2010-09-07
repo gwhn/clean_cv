@@ -3,8 +3,9 @@
 
   = render :partial => 'fields', :object => f
 
-  - f.inputs do
-    = f.input :skills, :as => :check_boxes, :collection => person.skills
+  - if person.skills.count > 0
+    - f.inputs do
+      = f.input :skills, :as => :check_boxes, :collection => person.skills
 
   .nested-attributes
     %h2 Tasks
