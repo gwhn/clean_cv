@@ -21,23 +21,23 @@
         - if permitted_to? :create, Responsibility.new(:company => item)
           = link_to 'New responsibility', new_person_company_responsibility_path(item.person, item), :class => 'ui-icon ui-icon-plus'
 
+    - projects_id = "person_#{item.person.id}_company_#{item.id}_projects"
     - if item.projects.count > 0
-      - projects_id = "person_#{item.person.id}_company_#{item.id}_projects"
       %ul.accordion{:id => projects_id}
 
         = render :partial => 'projects/item', :collection => item.projects, :locals => {:project_count => item.projects.count}
 
-      - if user_signed_in?
-        %ul.options
-          - if permitted_to? :create, Project.new(:company => item)
-            %li= link_to 'New project', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'
-
-        - content_for :javascript do
-          = dynamic_tooltip_javascript_for "##{projects_id}", :position => 'top left'
-
         - if permitted_to? :reposition, :projects
           - content_for :javascript do
             = sortable_javascript_for "##{projects_id}", 'li', "&person_id=#{item.person.id}&company_id=#{item.id}", reposition_person_company_projects_url(item.person, item)
+
+    - if user_signed_in?
+      %ul.options
+        - if permitted_to? :create, Project.new(:company => item)
+          %li= link_to 'New project', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'
+
+      - content_for :javascript do
+        = dynamic_tooltip_javascript_for "##{projects_id}", :position => 'top left'
 
   - if user_signed_in?
     %ul.options
