@@ -12,7 +12,7 @@ authorization do
   role :guest do
     has_permission_on :people, :to => :read
     # Temporarily uncomment below to run rake tasks and comment above
-#    has_permission_on [:people, :companies, :responsibilities, :projects, :tasks, :skills, :schools], :to => :manage
+    has_permission_on [:people, :social_medias, :companies, :responsibilities, :projects, :tasks, :skills, :schools], :to => :manage
   end
 
   role :user do
