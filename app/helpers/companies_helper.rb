@@ -1,7 +1,5 @@
 module CompaniesHelper
   def visualize_work_timeline(companies, target)
-    series = companies.map { |c| c.stats }
-
     Seer::visualize(
             companies,
             :as => :line_chart,
@@ -10,7 +8,7 @@ module CompaniesHelper
                     :series_label => 'name',
                     :data_label => 'year',
                     :data_method => 'months',
-                    :data_series => series
+                    :data_series => companies.map { |c| c.stats }
             },
             :chart_options => {
                     :height => 350,

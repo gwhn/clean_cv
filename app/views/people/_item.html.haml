@@ -30,12 +30,13 @@
       .cv-section-name
         %h2 Work Experience
 
-        = image_tag('/images/chart_icon.png', :id => 'work_timeline_icon')
-        #work_timeline
-        = visualize_work_timeline(item.companies, 'work_timeline')
+        - if item.companies.count > 0
+          = image_tag('/images/chart_icon.png', :id => 'work_timeline_icon')
+          #work_timeline
+          = visualize_work_timeline(item.companies, 'work_timeline')
 
-        - content_for :javascript do
-          = dynamic_tooltip_javascript_for '#work_timeline_icon', :position => 'bottom right'
+          - content_for :javascript do
+            = dynamic_tooltip_javascript_for '#work_timeline_icon', :position => 'bottom right'
 
       .cv-section-items
 
@@ -55,11 +56,12 @@
       .cv-section-name
         %h2 Technical Skills
 
-        = image_tag('/images/category_icon.gif', :id => 'skills_summary_icon')
-        #skills_summary= summarize_skills_by_category(item.skills_by_category)
+        - if item.skills_by_category.count > 0
+          = image_tag('/images/category_icon.gif', :id => 'skills_summary_icon')
+          #skills_summary= summarize_skills_by_category(item.skills_by_category)
 
-        - content_for :javascript do
-          = dynamic_tooltip_javascript_for '#skills_summary_icon', :position => 'bottom right'
+          - content_for :javascript do
+            = dynamic_tooltip_javascript_for '#skills_summary_icon', :position => 'bottom right'
 
       .cv-section-items
         - skills_id = "person_#{item.id}_skills"
