@@ -128,8 +128,15 @@ em {
     }
 
     .skills-summary {
-        table {
+        background-color: #ffffff;
 
+        table {
+            caption {
+                font-family: 'AllerLightItalic';
+                text-align: center;
+                margin: 5px 0;
+                padding: 5px;
+            }
             th, td {
                 padding: 5px;
                 border-right: 1px solid #dfdfdf;
@@ -138,9 +145,11 @@ em {
                 }
             }
             thead {
+                background-color: #f8f8f8;
                 th {
                     border-bottom: 1px solid #dfdfdf;
-                    font-weight: bold;
+                    border-top: 1px solid #dfdfdf;
+                    font-family: 'AllerBoldItalic';
                 }
             }
             tbody {

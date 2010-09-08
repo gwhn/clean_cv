@@ -1,6 +1,7 @@
 module SkillsHelper
   def summarize_skills_by_category(categories)
     content_tag :table do
+      caption = content_tag :caption, 'Technical Skills by Category'
       thead = content_tag :thead do
         content_tag :tr do
           categories.keys.inject('') do |r, k|
@@ -19,7 +20,7 @@ module SkillsHelper
           end
         end
       end
-      thead + tbody
+      caption + thead + tbody
     end
   end
 end
