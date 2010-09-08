@@ -59,4 +59,8 @@ class Person < ActiveRecord::Base
   def first_company
     companies.sort{|a, b| a.start_date <=> b.start_date}.first
   end
+
+  def first_school
+    schools.sort{|a, b| a.date_from <=> b.date_from}.first
+  end
 end

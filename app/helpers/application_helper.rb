@@ -84,4 +84,29 @@ JS
       "#{formatted_start_date} - present"
     end
   end
+
+  def visualize_timeline(data, target)
+    Seer::visualize(
+            data,
+            :as => :line_chart,
+            :in_element => target,
+            :series => {
+                    :series_label => 'name',
+                    :data_label => 'year',
+                    :data_method => 'months',
+                    :data_series => data.map { |model| model.stats }
+            },
+            :chart_options => {
+                    :height => 350,
+                    :width => 600,
+                    :colors => ['#0066aa', '#fdb020', '#222222'],
+                    :title => 'Timeline',
+                    :point_size => 3,
+                    :axis_font_size => 8,
+                    :legend_font_size => 8,
+                    :title_font_size => 14
+            }
+    )
+  end
+
 end

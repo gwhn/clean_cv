@@ -33,7 +33,7 @@
         - if item.companies.count > 0
           = image_tag('/images/chart_icon.png', :id => 'work_timeline_icon')
           #work_timeline
-          = visualize_work_timeline(item.companies, 'work_timeline')
+          = visualize_timeline(item.companies, 'work_timeline')
 
           - content_for :javascript do
             = dynamic_tooltip_javascript_for '#work_timeline_icon', :position => 'bottom right'
@@ -83,6 +83,15 @@
     .cv-section.last-cv-section.fixed.schools
       .cv-section-name
         %h2 Education
+
+        - if item.schools.count > 0
+          = image_tag('/images/chart_icon.png', :id => 'education_timeline_icon')
+          #education_timeline
+          = visualize_timeline(item.schools, 'education_timeline')
+
+          - content_for :javascript do
+            = dynamic_tooltip_javascript_for '#education_timeline_icon', :position => 'bottom right'
+
       .cv-section-items
         - schools_id = "person_#{item.id}_schools"
         %ul{:id => schools_id}

@@ -161,6 +161,8 @@ em {
 }
 
 .no-js {
+    #education_timeline_icon,
+    #education_timeline,
     #work_timeline_icon,
     #work_timeline,
     #skills_summary_icon,
@@ -246,6 +248,7 @@ ul {
     display: inline-block;
 }
 
+#education_timeline,
 #work_timeline,
 #skills_summary,
 .tooltip,
@@ -258,6 +261,7 @@ ul {
 
 
 .js {
+    #education_timeline,
     #work_timeline,
     #skills_summary,
     .tooltip,
