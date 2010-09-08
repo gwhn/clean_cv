@@ -34,6 +34,7 @@
     / All JavaScript at the bottom, except for Modernizr which enables HTML5 elements &amp; feature detects
     = javascript_include_tag 'modernizr-1.5.min.js'
     = javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery?
+    = Seer::init_visualization
   / paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
   /[if lt IE 7 ] <body class="ie6">
   /[if IE 7 ] <body class="ie7">

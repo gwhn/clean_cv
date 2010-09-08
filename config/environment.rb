@@ -39,6 +39,7 @@ Rails::Initializer.run do |config|
   config.gem "pdfkit"
   config.gem "babosa", :version => "~> 0.2.0"
   config.gem "friendly_id", :version => "~> 3.1.3"
+  config.gem "seer"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
