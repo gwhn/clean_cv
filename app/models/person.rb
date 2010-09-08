@@ -55,4 +55,8 @@ class Person < ActiveRecord::Base
     skills.each { |s| categories[s.category.name] << s }
     categories
   end
+
+  def first_company
+    companies.sort{|a, b| a.start_date <=> b.start_date}.first
+  end
 end

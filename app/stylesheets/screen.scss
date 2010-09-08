@@ -126,43 +126,45 @@ em {
     img {
         padding: 30px 0;
     }
+}
 
-    .skills-summary {
-        background-color: #ffffff;
-
-        table {
-            caption {
-                font-family: 'AllerLightItalic';
-                text-align: center;
-                margin: 5px 0;
-                padding: 5px;
+#skills_summary {
+    table {
+        caption {
+            font-family: 'AllerLightItalic';
+            text-align: center;
+            margin: 5px 0;
+            padding: 5px;
+        }
+        th, td {
+            padding: 5px;
+            border-right: 1px solid #dfdfdf;
+            &:last-child {
+                border-right: none;
             }
-            th, td {
-                padding: 5px;
-                border-right: 1px solid #dfdfdf;
-                &:last-child {
-                    border-right: none;
-                }
+        }
+        thead {
+            background-color: #f8f8f8;
+            th {
+                border-bottom: 1px solid #dfdfdf;
+                border-top: 1px solid #dfdfdf;
+                font-family: 'AllerBoldItalic';
             }
-            thead {
-                background-color: #f8f8f8;
-                th {
-                    border-bottom: 1px solid #dfdfdf;
-                    border-top: 1px solid #dfdfdf;
-                    font-family: 'AllerBoldItalic';
-                }
-            }
-            tbody {
-                td {
-                    vertical-align: baseline;
-                }
+        }
+        tbody {
+            background-color: #ffffff;
+            td {
+                vertical-align: baseline;
             }
         }
     }
 }
 
-.no-js .cv-section-name {
-    img, .skills-summary {
+.no-js {
+    #work_timeline_icon,
+    #work_timeline,
+    #skills_summary_icon,
+    #skills_summary {
         display: none !important;
     }
 }
@@ -244,7 +246,8 @@ ul {
     display: inline-block;
 }
 
-.skills-summary,
+#work_timeline,
+#skills_summary,
 .tooltip,
 .options {
     padding: 5px;
@@ -252,17 +255,22 @@ ul {
     background-color: #f8f8f8;
 }
 
-.js .skills-summary,
-.js .tooltip,
-.js .options {
-    margin: 5px 0;
-    border: 1px solid #dfdfdf;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 0 15px #fdb020;
-    -moz-box-shadow: 0 0 15px #fdb020;
-    box-shadow: 0 0 15px #fdb020;
+
+
+.js {
+    #work_timeline,
+    #skills_summary,
+    .tooltip,
+    .options {
+        margin: 5px 0;
+        border: 1px solid #dfdfdf;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0 0 15px #fdb020;
+        -moz-box-shadow: 0 0 15px #fdb020;
+        box-shadow: 0 0 15px #fdb020;
+    }
 }
 
 .options {
