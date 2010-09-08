@@ -46,7 +46,7 @@
       .cv-section-name
         %h2 Technical Skills
         = image_tag('/images/category_icon.gif')
-        .options.skills-summary= summarize_skills_by_category(item.skills_by_category)
+        .skills-summary= summarize_skills_by_category(item.skills_by_category)
 
         - content_for :javascript do
           = dynamic_tooltip_javascript_for '.cv-section-name > img', :position => 'bottom right'

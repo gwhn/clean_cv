@@ -235,6 +235,7 @@ ul {
     display: inline-block;
 }
 
+.skills-summary,
 .tooltip,
 .options {
     padding: 5px;
@@ -242,6 +243,7 @@ ul {
     background-color: #f8f8f8;
 }
 
+.js .skills-summary,
 .js .tooltip,
 .js .options {
     margin: 5px 0;
