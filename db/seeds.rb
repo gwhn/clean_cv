@@ -5,3 +5,6 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+['Systems', 'Languages', 'Frameworks', 'Databases', 'Tools', 'Applications'].each do |name|
+  Category.create :name => name
+end

@@ -1,5 +1,6 @@
 .cv-section.fixed
-  %h2.cv-section-name Sign in
+  .cv-section-name
+    %h2 Sign in
   .cv-section-items= render :partial => 'form', :locals => {:resource_name => resource_name, :resource => resource}
 
 = render :partial => 'shared/options'

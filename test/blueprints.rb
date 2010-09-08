@@ -1,15 +1,16 @@
 require 'machinist/active_record'
 require 'sham'
+require 'faker'
 
 Sham.define do
   role_name { Faker::Lorem.words(1) }
   username { Faker::Name.name }
   email { Faker::Internet.email }
   password { Faker::Lorem.sentence.underscore }
-  salt = Authlogic::Random.hex_token
-  password_salt { salt }
-  crypted_password { Authlogic::CryptoProviders::Sha512.encrypt("password_#{salt}") }
-  persistence_token { Authlogic::Random.hex_token }
+#  salt = Authlogic::Random.hex_token
+#  password_salt { salt }
+#  crypted_password { Authlogic::CryptoProviders::Sha512.encrypt("password_#{salt}") }
+#  persistence_token { Authlogic::Random.hex_token }
   person_name { Faker::Name.name }
   job_title { Faker::Lorem.words(2) }
   phone { Faker::PhoneNumber.phone_number }
@@ -40,8 +41,8 @@ Role.blueprint :admin do
   name { 'Admin' }
 end
 
-Role.blueprint :author do
-  name { 'Author' }
+Role.blueprint :user do
+  name { 'User' }
 end
 
 User.blueprint do

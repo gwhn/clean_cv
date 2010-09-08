@@ -1,5 +1,6 @@
 .cv-section.fixed
-  %h2.cv-section-name Resend unlock instructions
+  .cv-section-name
+    %h2 Resend unlock instructions
   .cv-section-items
     - semantic_form_for resource_name, resource, :url => unlock_path(resource_name) do |f|
       - f.inputs do

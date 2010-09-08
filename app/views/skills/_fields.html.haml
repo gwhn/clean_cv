@@ -1,4 +1,5 @@
 - fields.inputs do
   = fields.input :name
+  = fields.input :category, :as => :select, :collection => Category.all
   = fields.input :level
   = fields.input :description

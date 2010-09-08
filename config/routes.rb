@@ -1,8 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
   map.devise_for :users
 
-  map.resources :people, :member => {:delete => :get} do |person|
-    person.resources :companies, :member => {:delete => :get} do |company|
+  map.resources :people,
+                :member => {:delete => :get} do |person|
+    person.resources :companies,
+                     :member => {:delete => :get} do |company|
       company.resources :projects,
                         :member => {:delete => :get,
                                     :move_top => :get,
@@ -33,7 +35,8 @@ ActionController::Routing::Routes.draw do |map|
                                  :move_down => :get,
                                  :move_bottom => :get},
                      :collection => {:reposition => :put}
-    person.resources :schools, :member => {:delete => :get}
+    person.resources :schools,
+                     :member => {:delete => :get}
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -67,10 +70,10 @@ ActionController::Routing::Routes.draw do |map|
   #     admin.resources :products
   #   end
 
-  map.connect ":name", :controller => "people", :action => "show", :conditions => {:method => :get}
+  map.connect ':name', :controller => 'people', :action => 'show', :conditions => {:method => :get}
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  map.root :controller => "people", :action => "index"
+  map.root :controller => 'people', :action => 'index'
 
   # See how all your routes lay out with "rake routes"
 

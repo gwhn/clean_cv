@@ -1,5 +1,6 @@
 .cv-section.fixed
-  %h2.cv-section-name= "Edit #{resource_name.to_s.humanize}"
+  .cv-section-name
+    %h2= "Edit #{resource_name.to_s.humanize}"
   .cv-section-items
     - semantic_form_for resource_name, resource, :url => registration_path(resource_name), :html => {:method => :put} do |f|
       - f.inputs do

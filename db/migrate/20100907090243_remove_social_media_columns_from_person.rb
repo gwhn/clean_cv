@@ -7,7 +7,7 @@ class RemoveSocialMediaColumnsFromPerson < ActiveRecord::Migration
                          :twitter_url => p.twitter_url,
                          :flickr_url => p.flickr_url
     end
-    
+
     remove_column :people, :linked_in_url
     remove_column :people, :facebook_url
     remove_column :people, :twitter_url

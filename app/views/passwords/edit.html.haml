@@ -1,5 +1,6 @@
 .cv-section.fixed
-  %h2.cv-section-name Change your password
+  .cv-section-name
+    %h2 Change your password
   .cv-section-items
     - semantic_form_for resource_name, resource, :url => password_path(resource_name), :html => {:method => :put} do |f|
       - f.inputs do

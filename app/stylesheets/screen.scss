@@ -120,7 +120,42 @@ em {
 
 .cv-section-name {
     float: left;
+    clear: left;
     width: 200px;
+
+    img {
+        padding: 30px 0;
+    }
+
+    .skills-summary {
+        table {
+
+            th, td {
+                padding: 5px;
+                border-right: 1px solid #dfdfdf;
+                &:last-child {
+                    border-right: none;
+                }
+            }
+            thead {
+                th {
+                    border-bottom: 1px solid #dfdfdf;
+                    font-weight: bold;
+                }
+            }
+            tbody {
+                td {
+                    vertical-align: baseline;
+                }
+            }
+        }
+    }
+}
+
+.no-js .cv-section-name {
+    img, .skills-summary {
+        display: none !important;
+    }
 }
 
 .cv-section-items {
@@ -335,7 +370,7 @@ ul {
     list-style: none;
 }
 
-h2.cv-section-name {
+.cv-section-name h2 {
     color: #333333;
     font-family: 'AllerLightItalic', sans-serif;
     font-size: 24px;

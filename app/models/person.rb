@@ -4,7 +4,7 @@ class Person < ActiveRecord::Base
   belongs_to :user
 
   has_friendly_id :name, :use_slug => true
-  
+
   validates_presence_of :name, :job_title, :email, :phone, :mobile, :profile, :user
   validates_uniqueness_of :name, :email
   validates_format_of :email, :with => %r{\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z}i
@@ -16,7 +16,7 @@ class Person < ActiveRecord::Base
   has_one :social_media, :dependent => :destroy
 
   validates_associated :companies, :skills, :schools, :social_media
-  
+
   accepts_nested_attributes_for :social_media
 
   accepts_nested_attributes_for :companies,
@@ -49,4 +49,10 @@ class Person < ActiveRecord::Base
   validates_attachment_presence :photo
   validates_attachment_size :photo, :less_than => 10.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
+
+  def skills_by_category
+    categories = Hash.new { |h, k| h[k] = [] }
+    skills.each { |s| categories[s.category.name] << s }
+    categories
+  end
 end

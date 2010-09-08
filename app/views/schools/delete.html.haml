@@ -1,5 +1,6 @@
 .cv-section.last-cv-section.fixed
-  %h2.cv-section-name Delete school
+  .cv-section-name
+    %h2 Delete school
   .cv-section-items
     - semantic_form_for [@person, @school], :html => { :method => 'delete' } do |f|
       %p Are you sure you want to delete #{@school.name}?

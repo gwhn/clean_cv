@@ -1,5 +1,6 @@
 .cv-section.fixed
-  %h2.cv-section-name Sign up
+  .cv-section-name
+    %h2 Sign up
   .cv-section-items
     - semantic_form_for resource_name, resource, :url => registration_path(resource_name) do |f|
       - f.inputs do

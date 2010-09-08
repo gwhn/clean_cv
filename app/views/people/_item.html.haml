@@ -8,7 +8,8 @@
       = render :partial => 'contact', :object => item
 
     .cv-section.fixed
-      %h2.cv-section-name Professional Profile
+      .cv-section-name
+        %h2 Professional Profile
       .cv-section-items
         = render :partial => 'profile', :object => item
 
@@ -26,9 +27,9 @@
 
   - unless summarize
     .cv-section.fixed.companies
-      %h2.cv-section-name Work Experience
+      .cv-section-name
+        %h2 Work Experience
       .cv-section-items
-
         - companies_id = "person_#{item.id}_companies"
         %ul{:id => companies_id}
           = render :partial => 'companies/item', :collection => item.companies
@@ -42,9 +43,15 @@
         = dynamic_tooltip_javascript_for '.companies', :position => 'top left'
 
     .cv-section.fixed.skills
-      %h2.cv-section-name Technical Skills
-      .cv-section-items
+      .cv-section-name
+        %h2 Technical Skills
+        = image_tag('/images/category_icon.gif')
+        .options.skills-summary= summarize_skills_by_category(item.skills_by_category)
 
+        - content_for :javascript do
+          = dynamic_tooltip_javascript_for '.cv-section-name > img', :position => 'bottom right'
+
+      .cv-section-items
         - skills_id = "person_#{item.id}_skills"
         %ul{:id => skills_id}
           = render :partial => 'skills/item', :collection => item.skills, :locals => {:skill_count => item.skills.count}
@@ -62,9 +69,9 @@
         = dynamic_tooltip_javascript_for '.skills', :position => 'top left'
 
     .cv-section.last-cv-section.fixed.schools
-      %h2.cv-section-name Education
+      .cv-section-name
+        %h2 Education
       .cv-section-items
-
         - schools_id = "person_#{item.id}_schools"
         %ul{:id => schools_id}
           = render :partial => 'schools/item', :collection => item.schools

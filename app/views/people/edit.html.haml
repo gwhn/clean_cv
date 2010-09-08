@@ -1,5 +1,6 @@
 .cv-section.last-cv-section.fixed
-  %h2.cv-section-name Edit person
+  .cv-section-name
+    %h2 Edit person
   .cv-section-items
     = render :partial => 'form', :locals => {:person => @person, :action_path => (request.xhr? ? person_path(@person, :format => :js) : person_path(@person)), :target_name => @target_name}
 

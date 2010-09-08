@@ -1,7 +1,7 @@
 privileges do
   privilege :manage, :includes => [:create, :read, :update, :delete, :reposition]
   privilege :read, :includes => [:index, :show]
-  privilege :create, :includes => :new
+  privilege :create, :includes => [:new, :fake]
   privilege :update, :includes => :edit
   privilege :delete, :includes => :destroy
   privilege :reposition, :includes => [:move_top, :move_up, :move_down, :move_bottom]

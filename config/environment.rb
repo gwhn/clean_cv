@@ -28,6 +28,7 @@ Rails::Initializer.run do |config|
   config.gem "paperclip"
   config.gem "responds_to_parent"
   config.gem "acts_as_list"
+  config.gem "acts_as_tree"
   config.gem "will_paginate"
   config.gem "declarative_authorization"
   config.gem "machinist"
@@ -72,4 +73,5 @@ Rails::Initializer.run do |config|
   config.middleware.use PDFKit::Middleware
 
   require 'selectable_date'
+
 end

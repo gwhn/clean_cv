@@ -1,5 +1,6 @@
 .cv-section.last-cv-section.fixed
-  %h2.cv-section-name Edit school
+  .cv-section-name
+    %h2 Edit school
   .cv-section-items
     = render :partial => 'form', :locals => {:person => @person, :school => @school}
 
