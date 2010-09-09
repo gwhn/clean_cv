@@ -14,7 +14,7 @@ module SkillsHelper
           categories.keys.inject('') do |r, k|
             r + content_tag(:td, nil) do
               categories[k].inject('') do |r2, s|
-                r2 + s.name + content_tag(:br)
+                r2 + link_to(s.name, "##{s.name}") + content_tag(:br)
               end
             end
           end
