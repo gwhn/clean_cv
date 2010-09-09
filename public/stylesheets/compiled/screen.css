@@ -1526,6 +1526,13 @@ ul li {
 }
 
 /* line 534, ../../../app/stylesheets/screen.scss */
+.hint {
+  background-color: #f8f8f8;
+  border: 1px solid #dfdfdf;
+  padding: 10px;
+}
+
+/* line 540, ../../../app/stylesheets/screen.scss */
 #flash > div {
   padding: 15px;
 }
