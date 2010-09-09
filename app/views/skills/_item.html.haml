@@ -18,7 +18,7 @@
           %span= link_to 'Move down', move_down_person_skill_path(item.person, item), :class => 'ui-icon ui-icon-arrow-1-s'
           %span= link_to 'Move bottom', move_bottom_person_skill_path(item.person, item), :class => 'ui-icon ui-icon-arrowstop-1-s'
 
-  - if user_signed_in?
+  - if user_signed_in? and permitted_to? :manage, item
     %ul.options
       - if permitted_to? :update, item
         %li= link_to 'Edit skill', edit_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Edit skill'

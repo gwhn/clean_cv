@@ -13,7 +13,7 @@
       .cv-section-items
         = render :partial => 'profile', :object => item
 
-  - if user_signed_in?
+  - if user_signed_in? and ((!current_page?(item) and permitted_to? :read, item) or permitted_to? :manage, item)
     %ul.options
       - if !current_page?(item) and permitted_to? :read, item
         %li= link_to 'View person', item
@@ -44,10 +44,9 @@
         %ul{:id => companies_id}
           = render :partial => 'companies/item', :collection => item.companies
 
-    - if user_signed_in?
+    - if user_signed_in? and permitted_to? :create, Company.new(:person => item)
       %ul.options
-        - if permitted_to? :create, Company.new(:person => item)
-          %li= link_to 'New company', new_person_company_path(item), :class => 'remote-link', :title => 'New company'
+        %li= link_to 'New company', new_person_company_path(item), :class => 'remote-link', :title => 'New company'
 
       - content_for :javascript do
         = dynamic_tooltip_javascript_for '.companies', :position => 'top left'
@@ -72,10 +71,9 @@
           - content_for :javascript do
             = sortable_javascript_for "##{skills_id}", 'li', "&person_id=#{item.id}", reposition_person_skills_url(item)
 
-    - if user_signed_in?
+    - if user_signed_in? and permitted_to? :create, Skill.new(:person => item)
       %ul.options
-        - if permitted_to? :create, Skill.new(:person => item)
-          %li= link_to 'New skill', new_person_skill_path(item), :class => 'remote-link', :title => 'New skill'
+        %li= link_to 'New skill', new_person_skill_path(item), :class => 'remote-link', :title => 'New skill'
 
       - content_for :javascript do
         = dynamic_tooltip_javascript_for '.skills', :position => 'top left'
@@ -97,10 +95,9 @@
         %ul{:id => schools_id}
           = render :partial => 'schools/item', :collection => item.schools
 
-    - if user_signed_in?
+    - if user_signed_in? and permitted_to? :create, School.new(:person => item)
       %ul.options
-        - if permitted_to? :create, School.new(:person => item)
-          %li= link_to 'New school', new_person_school_path(item), :class => 'remote-link', :title => 'New school'
+        %li= link_to 'New school', new_person_school_path(item), :class => 'remote-link', :title => 'New school'
 
       - content_for :javascript do
         = dynamic_tooltip_javascript_for '.schools', :position => 'top left'

@@ -999,27 +999,33 @@ body {
 }
 
 /* line 27, ../../../app/stylesheets/screen.scss */
+h1, h2, h3, h6 {
+  text-shadow: 1px 1px 0 #dfdfdf;
+  filter: dropshadow(color=#dfdfdf, offx=1, offy=1);
+}
+
+/* line 32, ../../../app/stylesheets/screen.scss */
 a {
   color: #0066AA;
   text-decoration: none;
 }
-/* line 31, ../../../app/stylesheets/screen.scss */
+/* line 36, ../../../app/stylesheets/screen.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 36, ../../../app/stylesheets/screen.scss */
+/* line 41, ../../../app/stylesheets/screen.scss */
 strong {
   font-weight: 700;
 }
 
-/* line 40, ../../../app/stylesheets/screen.scss */
+/* line 45, ../../../app/stylesheets/screen.scss */
 em {
   font-style: italic;
 }
 
 /* Clear Fix Hack - add  class="fixed"  to div's that have floated elements in them */
-/* line 45, ../../../app/stylesheets/screen.scss */
+/* line 50, ../../../app/stylesheets/screen.scss */
 .fixed:after {
   content: ".";
   display: block;
@@ -1028,18 +1034,18 @@ em {
   visibility: hidden;
 }
 
-/* line 53, ../../../app/stylesheets/screen.scss */
+/* line 58, ../../../app/stylesheets/screen.scss */
 .fixed {
   display: block;
   min-height: 1%;
 }
 
-/* line 58, ../../../app/stylesheets/screen.scss */
+/* line 63, ../../../app/stylesheets/screen.scss */
 * html .fixed {
   height: 1%;
 }
 
-/* line 62, ../../../app/stylesheets/screen.scss */
+/* line 67, ../../../app/stylesheets/screen.scss */
 *:focus {
   outline: none;
   /* Prevents blue border in Webkit */
@@ -1047,114 +1053,114 @@ em {
 
 /* =LAYOUT
 ----------------------------------*/
-/* line 69, ../../../app/stylesheets/screen.scss */
+/* line 74, ../../../app/stylesheets/screen.scss */
 #cv {
   margin: 66px auto 0 auto;
   width: 780px;
   padding: 0 0 40px;
 }
 
-/* line 75, ../../../app/stylesheets/screen.scss */
+/* line 80, ../../../app/stylesheets/screen.scss */
 .cv-section {
   margin: 0 40px;
   padding: 30px 0;
 }
 
-/* line 80, ../../../app/stylesheets/screen.scss */
+/* line 85, ../../../app/stylesheets/screen.scss */
 .first-cv-section {
   margin: 0;
   padding: 30px 40px;
 }
 
-/* line 85, ../../../app/stylesheets/screen.scss */
+/* line 90, ../../../app/stylesheets/screen.scss */
 .person {
   float: left;
   width: 500px;
 }
-/* line 89, ../../../app/stylesheets/screen.scss */
+/* line 94, ../../../app/stylesheets/screen.scss */
 .person h1 {
   margin-top: 25px;
 }
 
-/* line 95, ../../../app/stylesheets/screen.scss */
+/* line 100, ../../../app/stylesheets/screen.scss */
 .contact-info {
   float: right;
   margin-right: 10px;
 }
 
-/* line 100, ../../../app/stylesheets/screen.scss */
+/* line 105, ../../../app/stylesheets/screen.scss */
 .contact-info table {
   margin-top: 10px;
 }
 
-/* line 104, ../../../app/stylesheets/screen.scss */
+/* line 109, ../../../app/stylesheets/screen.scss */
 .contact-info tr {
   line-height: 24px;
 }
 
-/* line 108, ../../../app/stylesheets/screen.scss */
+/* line 113, ../../../app/stylesheets/screen.scss */
 .social-media {
   margin-bottom: 18px;
 }
 
-/* line 112, ../../../app/stylesheets/screen.scss */
+/* line 117, ../../../app/stylesheets/screen.scss */
 .social-media li {
   display: inline;
 }
 
-/* line 116, ../../../app/stylesheets/screen.scss */
+/* line 121, ../../../app/stylesheets/screen.scss */
 .social-media li.pdf {
   margin: 0 30px 0 0;
   display: inline;
 }
 
-/* line 121, ../../../app/stylesheets/screen.scss */
+/* line 126, ../../../app/stylesheets/screen.scss */
 .cv-section-name {
   float: left;
   clear: left;
   width: 200px;
 }
-/* line 126, ../../../app/stylesheets/screen.scss */
+/* line 131, ../../../app/stylesheets/screen.scss */
 .cv-section-name img {
   padding: 30px 0;
 }
 
-/* line 133, ../../../app/stylesheets/screen.scss */
+/* line 138, ../../../app/stylesheets/screen.scss */
 #skills_summary table caption {
   font-family: 'AllerLightItalic';
   text-align: center;
   margin: 5px 0;
   padding: 5px;
 }
-/* line 139, ../../../app/stylesheets/screen.scss */
+/* line 144, ../../../app/stylesheets/screen.scss */
 #skills_summary table th, #skills_summary table td {
   padding: 5px;
   border-right: 1px solid #dfdfdf;
 }
-/* line 142, ../../../app/stylesheets/screen.scss */
+/* line 147, ../../../app/stylesheets/screen.scss */
 #skills_summary table th:last-child, #skills_summary table td:last-child {
   border-right: none;
 }
-/* line 146, ../../../app/stylesheets/screen.scss */
+/* line 151, ../../../app/stylesheets/screen.scss */
 #skills_summary table thead {
   background-color: #f8f8f8;
 }
-/* line 148, ../../../app/stylesheets/screen.scss */
+/* line 153, ../../../app/stylesheets/screen.scss */
 #skills_summary table thead th {
   border-bottom: 1px solid #dfdfdf;
   border-top: 1px solid #dfdfdf;
   font-family: 'AllerBoldItalic';
 }
-/* line 154, ../../../app/stylesheets/screen.scss */
+/* line 159, ../../../app/stylesheets/screen.scss */
 #skills_summary table tbody {
   background-color: #ffffff;
 }
-/* line 156, ../../../app/stylesheets/screen.scss */
+/* line 161, ../../../app/stylesheets/screen.scss */
 #skills_summary table tbody td {
   vertical-align: baseline;
 }
 
-/* line 169, ../../../app/stylesheets/screen.scss */
+/* line 174, ../../../app/stylesheets/screen.scss */
 .no-js #education_timeline_icon,
 .no-js #education_timeline,
 .no-js #work_timeline_icon,
@@ -1164,84 +1170,84 @@ em {
   display: none !important;
 }
 
-/* line 174, ../../../app/stylesheets/screen.scss */
+/* line 179, ../../../app/stylesheets/screen.scss */
 .cv-section-items {
   float: right;
   margin-right: 10px;
   width: 490px;
 }
 
-/* line 181, ../../../app/stylesheets/screen.scss */
+/* line 186, ../../../app/stylesheets/screen.scss */
 ul li {
   list-style-type: none;
 }
 
-/* line 186, ../../../app/stylesheets/screen.scss */
+/* line 191, ../../../app/stylesheets/screen.scss */
 .item {
   margin-bottom: 20px;
   padding-bottom: 30px;
 }
-/* line 190, ../../../app/stylesheets/screen.scss */
+/* line 195, ../../../app/stylesheets/screen.scss */
 .item h3, .item h5 {
   margin: 10px 0;
 }
-/* line 194, ../../../app/stylesheets/screen.scss */
+/* line 199, ../../../app/stylesheets/screen.scss */
 .item h3 {
   padding: 4px 0;
   clear: left;
 }
-/* line 199, ../../../app/stylesheets/screen.scss */
+/* line 204, ../../../app/stylesheets/screen.scss */
 .item h4 {
   float: right;
   margin: 0;
   padding: 4px 10px;
 }
-/* line 205, ../../../app/stylesheets/screen.scss */
+/* line 210, ../../../app/stylesheets/screen.scss */
 .item h5 {
   float: right;
   clear: right;
 }
-/* line 210, ../../../app/stylesheets/screen.scss */
+/* line 215, ../../../app/stylesheets/screen.scss */
 .item h6 {
   padding: 5px;
   margin: 1px 0 1px 0;
 }
-/* line 215, ../../../app/stylesheets/screen.scss */
+/* line 220, ../../../app/stylesheets/screen.scss */
 .item p {
   padding: 0 0 15px;
 }
-/* line 219, ../../../app/stylesheets/screen.scss */
+/* line 224, ../../../app/stylesheets/screen.scss */
 .item ul {
   margin-bottom: 15px;
 }
-/* line 223, ../../../app/stylesheets/screen.scss */
+/* line 228, ../../../app/stylesheets/screen.scss */
 .item:last-child {
   margin-bottom: 0;
   padding-bottom: 30px;
 }
-/* line 229, ../../../app/stylesheets/screen.scss */
+/* line 234, ../../../app/stylesheets/screen.scss */
 .item .list li {
   list-style: disc;
 }
 
-/* line 236, ../../../app/stylesheets/screen.scss */
+/* line 241, ../../../app/stylesheets/screen.scss */
 .repeater li {
   margin-right: 15px;
   display: inline;
 }
 
-/* line 243, ../../../app/stylesheets/screen.scss */
+/* line 248, ../../../app/stylesheets/screen.scss */
 .update-actions,
 .move-actions {
   font-size: 10px;
 }
 
-/* line 247, ../../../app/stylesheets/screen.scss */
+/* line 252, ../../../app/stylesheets/screen.scss */
 .ui-icon {
   display: inline-block;
 }
 
-/* line 255, ../../../app/stylesheets/screen.scss */
+/* line 260, ../../../app/stylesheets/screen.scss */
 #education_timeline,
 #work_timeline,
 #skills_summary,
@@ -1252,7 +1258,7 @@ ul li {
   background-color: #f8f8f8;
 }
 
-/* line 268, ../../../app/stylesheets/screen.scss */
+/* line 273, ../../../app/stylesheets/screen.scss */
 .js #education_timeline,
 .js #work_timeline,
 .js #skills_summary,
@@ -1268,41 +1274,41 @@ ul li {
   box-shadow: 0 0 15px #fdb020;
 }
 
-/* line 281, ../../../app/stylesheets/screen.scss */
+/* line 286, ../../../app/stylesheets/screen.scss */
 .options li {
   list-style-type: none;
   padding: 5px;
 }
 
 /* root element for accordion. decorated with rounded borders and gradient background image */
-/* line 288, ../../../app/stylesheets/screen.scss */
+/* line 293, ../../../app/stylesheets/screen.scss */
 .accordion {
   /* accordion header */
   /* currently active header */
   /* accordion panel */
 }
-/* line 290, ../../../app/stylesheets/screen.scss */
+/* line 295, ../../../app/stylesheets/screen.scss */
 .accordion h6 {
   border: 1px solid #dfdfdf;
   cursor: pointer;
 }
-/* line 296, ../../../app/stylesheets/screen.scss */
+/* line 301, ../../../app/stylesheets/screen.scss */
 .accordion h6.current {
   background-color: #f8f8f8;
   cursor: default;
 }
-/* line 302, ../../../app/stylesheets/screen.scss */
+/* line 307, ../../../app/stylesheets/screen.scss */
 .accordion .panel {
   border-width: 0 2px;
   display: none;
   padding: 5px;
 }
-/* line 307, ../../../app/stylesheets/screen.scss */
+/* line 312, ../../../app/stylesheets/screen.scss */
 .accordion .panel li {
   list-style-position: inside !important;
 }
 
-/* line 314, ../../../app/stylesheets/screen.scss */
+/* line 319, ../../../app/stylesheets/screen.scss */
 .pager {
   font-size: 16px;
   font-family: 'AllerRegular', sans-serif;
@@ -1310,51 +1316,51 @@ ul li {
   text-align: center;
   color: #475261;
 }
-/* line 321, ../../../app/stylesheets/screen.scss */
+/* line 326, ../../../app/stylesheets/screen.scss */
 .pager .disabled {
   color: #dfdfdf;
 }
-/* line 327, ../../../app/stylesheets/screen.scss */
+/* line 332, ../../../app/stylesheets/screen.scss */
 .pager a,
 .pager .disabled,
 .pager .current {
   padding: 5px;
   border: 1px solid #dfdfdf;
 }
-/* line 332, ../../../app/stylesheets/screen.scss */
+/* line 337, ../../../app/stylesheets/screen.scss */
 .pager .current {
   font-weight: 700;
   background-color: #fdb020;
 }
-/* line 337, ../../../app/stylesheets/screen.scss */
+/* line 342, ../../../app/stylesheets/screen.scss */
 .pager .gap {
   padding: 5px 10px;
 }
 
 /* =COLORS-TYPOGRAPHY
 ----------------------------------*/
-/* line 345, ../../../app/stylesheets/screen.scss */
+/* line 350, ../../../app/stylesheets/screen.scss */
 #cv {
   background-color: #FFF;
   border-bottom: 15px solid #FDB020;
   border-top: 15px solid #FDB020;
 }
 
-/* line 351, ../../../app/stylesheets/screen.scss */
+/* line 356, ../../../app/stylesheets/screen.scss */
 .cv-section {
   border-bottom: 1px solid #dfdfdf;
 }
-/* line 354, ../../../app/stylesheets/screen.scss */
+/* line 359, ../../../app/stylesheets/screen.scss */
 .cv-section p {
   text-align: justify;
 }
 
-/* line 359, ../../../app/stylesheets/screen.scss */
+/* line 364, ../../../app/stylesheets/screen.scss */
 .first-cv-section {
   background-color: #f8f8f8;
 }
 
-/* line 365, ../../../app/stylesheets/screen.scss */
+/* line 370, ../../../app/stylesheets/screen.scss */
 .person h1 {
   color: #475261;
   font-size: 36px;
@@ -1362,11 +1368,11 @@ ul li {
   letter-spacing: -1.4px;
   font-family: 'AllerRegular', sans-serif;
 }
-/* line 372, ../../../app/stylesheets/screen.scss */
+/* line 377, ../../../app/stylesheets/screen.scss */
 .person h1 a {
   color: #475261;
 }
-/* line 378, ../../../app/stylesheets/screen.scss */
+/* line 383, ../../../app/stylesheets/screen.scss */
 .person h2 {
   color: #475261;
   font-size: 24px;
@@ -1374,18 +1380,18 @@ ul li {
   letter-spacing: -0.7px;
   text-transform: uppercase;
 }
-/* line 386, ../../../app/stylesheets/screen.scss */
+/* line 391, ../../../app/stylesheets/screen.scss */
 .person h1, .person h2 {
   text-shadow: 1px 1px 0 #fff;
   filter: dropshadow(color=white, offx=1, offy=1);
 }
 
-/* line 392, ../../../app/stylesheets/screen.scss */
+/* line 397, ../../../app/stylesheets/screen.scss */
 .social-media {
   list-style: none;
 }
 
-/* line 396, ../../../app/stylesheets/screen.scss */
+/* line 401, ../../../app/stylesheets/screen.scss */
 .cv-section-name h2 {
   color: #333333;
   font-family: 'AllerLightItalic', sans-serif;
@@ -1394,11 +1400,11 @@ ul li {
   letter-spacing: -1px;
 }
 
-/* line 404, ../../../app/stylesheets/screen.scss */
+/* line 409, ../../../app/stylesheets/screen.scss */
 .item {
   border-bottom: 1px solid #dfdfdf;
 }
-/* line 408, ../../../app/stylesheets/screen.scss */
+/* line 413, ../../../app/stylesheets/screen.scss */
 .item h4 {
   background-color: #f8f8f8;
   font-family: 'AllerRegular', sans-serif;
@@ -1406,19 +1412,19 @@ ul li {
   text-transform: uppercase;
   line-height: 24px;
 }
-/* line 416, ../../../app/stylesheets/screen.scss */
+/* line 421, ../../../app/stylesheets/screen.scss */
 .item h4:hover {
   background-color: #333;
   color: #fff;
 }
-/* line 421, ../../../app/stylesheets/screen.scss */
+/* line 426, ../../../app/stylesheets/screen.scss */
 .item h2 {
   color: #06A;
   font-family: 'AllerRegular', sans-serif;
   font-size: 24px;
   letter-spacing: -1px;
 }
-/* line 430, ../../../app/stylesheets/screen.scss */
+/* line 435, ../../../app/stylesheets/screen.scss */
 .item h3,
 .item h5,
 .item .result {
@@ -1426,48 +1432,48 @@ ul li {
   font-family: 'GentiumBookBasicItalic', serif;
   font-size: 20px;
 }
-/* line 437, ../../../app/stylesheets/screen.scss */
+/* line 442, ../../../app/stylesheets/screen.scss */
 .item h5,
 .item .result {
   font-family: 'GentiumBookBasicRegular', serif;
 }
-/* line 441, ../../../app/stylesheets/screen.scss */
+/* line 446, ../../../app/stylesheets/screen.scss */
 .item h6 {
   color: #06A;
   font-family: 'AllerRegular', sans-serif;
   font-size: 16px;
   letter-spacing: -1px;
 }
-/* line 448, ../../../app/stylesheets/screen.scss */
+/* line 453, ../../../app/stylesheets/screen.scss */
 .item p {
   text-align: justify;
 }
-/* line 452, ../../../app/stylesheets/screen.scss */
+/* line 457, ../../../app/stylesheets/screen.scss */
 .item ul {
   text-align: justify;
 }
-/* line 456, ../../../app/stylesheets/screen.scss */
+/* line 461, ../../../app/stylesheets/screen.scss */
 .item:last-child {
   border-bottom: none;
 }
 
-/* line 461, ../../../app/stylesheets/screen.scss */
+/* line 466, ../../../app/stylesheets/screen.scss */
 .last-cv-section {
   border-bottom: none;
 }
 
-/* line 466, ../../../app/stylesheets/screen.scss */
+/* line 471, ../../../app/stylesheets/screen.scss */
 .repeater li {
   font-family: 'GentiumBookBasicBoldItalic', serif;
   color: #0066aa;
 }
 
-/* line 472, ../../../app/stylesheets/screen.scss */
+/* line 477, ../../../app/stylesheets/screen.scss */
 .handle {
   cursor: move;
 }
 
-/* line 478, ../../../app/stylesheets/screen.scss */
+/* line 483, ../../../app/stylesheets/screen.scss */
 .person img {
   float: left;
   margin-right: 25px;
@@ -1476,18 +1482,18 @@ ul li {
   border: 1px solid #dfdfdf;
 }
 
-/* line 490, ../../../app/stylesheets/screen.scss */
+/* line 495, ../../../app/stylesheets/screen.scss */
 .no-js .options,
 .no-js .accordion .panel {
   display: block !important;
 }
-/* line 494, ../../../app/stylesheets/screen.scss */
+/* line 499, ../../../app/stylesheets/screen.scss */
 .no-js .nested-attributes,
 .no-js .new-child {
   display: none;
 }
 
-/* line 499, ../../../app/stylesheets/screen.scss */
+/* line 504, ../../../app/stylesheets/screen.scss */
 .authme {
   background-color: #333;
   border: 1px solid #444;
@@ -1497,18 +1503,23 @@ ul li {
   top: 66px;
   position: fixed;
 }
-/* line 508, ../../../app/stylesheets/screen.scss */
+/* line 513, ../../../app/stylesheets/screen.scss */
 .authme:hover {
   background-color: #222;
 }
-/* line 512, ../../../app/stylesheets/screen.scss */
+/* line 517, ../../../app/stylesheets/screen.scss */
 .authme img {
   padding: 0 0 0 5px;
 }
-/* line 516, ../../../app/stylesheets/screen.scss */
+/* line 521, ../../../app/stylesheets/screen.scss */
 .authme a {
   color: #fff;
   font-size: 15px;
   font-weight: 700;
   text-decoration: none;
+}
+
+/* line 529, ../../../app/stylesheets/screen.scss */
+#flash > div {
+  padding: 15px;
 }

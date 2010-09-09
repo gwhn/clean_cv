@@ -24,6 +24,11 @@ body {
     font: 14px 'AllerLightRegular', Arial, Helvetica, sans-serif;
 }
 
+h1, h2, h3, h6 {
+    text-shadow: 1px 1px 0 #dfdfdf;
+    filter: dropshadow(color=#dfdfdf, offx=1, offy=1);
+}
+
 a {
     color: #0066AA;
     text-decoration: none;
@@ -521,3 +526,6 @@ ul {
     }
 }
 
+#flash > div {
+    padding: 15px;
+}

@@ -3,7 +3,7 @@
 %li{:id => ['responsibility', item.id]}
   %span.handle= h item.description
 
-  - if user_signed_in?
+  - if user_signed_in? and permitted_to? :manage, item
     %span.update-actions
       - if permitted_to? :edit, item
         %span= link_to 'Edit', edit_person_company_responsibility_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-pencil'
