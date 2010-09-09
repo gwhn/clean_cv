@@ -13,7 +13,7 @@
       .cv-section-items
         = render :partial => 'profile', :object => item
 
-  - if user_signed_in? and (permitted_to? :manage, item or permitted_to? :read, item)
+  - if user_signed_in? and permitted_to? [:manage, :read], item 
     %ul.options
       - if !current_page?(item) and permitted_to? :read, item
         %li= link_to 'View person', item

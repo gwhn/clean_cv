@@ -22,12 +22,15 @@
     %tr
       %td e:
       %td
-        %a{:href => "mailto:#{h contact.email}"}= h contact.email
+        .limited-width-cell
+          %a{:href => "mailto:#{h contact.email}"}= h contact.email
     %tr
       %td t:
       %td
-        %strong= h contact.phone
+        .limited-width-cell
+          %strong= h contact.phone
     %tr
       %td m:
       %td
-        %strong= h contact.mobile 
+        .limited-width-cell
+          %strong= h contact.mobile 
