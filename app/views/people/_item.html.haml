@@ -31,7 +31,7 @@
         %h2 Work Experience
 
         - if item.companies.count > 0
-          = image_tag('/images/chart_icon.png', :id => 'work_timeline_icon')
+          = image_tag('/images/statistics_32.png', :id => 'work_timeline_icon')
           #work_timeline
           = visualize_timeline(item.companies, 'work_timeline')
 
@@ -57,7 +57,7 @@
         %h2 Technical Skills
 
         - if item.skills_by_category.count > 0
-          = image_tag('/images/category_icon.gif', :id => 'skills_summary_icon')
+          = image_tag('/images/category_32.png', :id => 'skills_summary_icon')
           #skills_summary= summarize_skills_by_category(item.skills_by_category)
 
           - content_for :javascript do
@@ -85,7 +85,7 @@
         %h2 Education
 
         - if item.schools.count > 0
-          = image_tag('/images/chart_icon.png', :id => 'education_timeline_icon')
+          = image_tag('/images/statistics_32.png', :id => 'education_timeline_icon')
           #education_timeline
           = visualize_timeline(item.schools, 'education_timeline')
 

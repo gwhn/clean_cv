@@ -103,7 +103,7 @@ JS
                     :title => 'Timeline',
                     :point_size => 3,
                     :axis_font_size => 8,
-                    :legend_font_size => 8,
+                    :legend_font_size => 10,
                     :title_font_size => 14
             }
     )
