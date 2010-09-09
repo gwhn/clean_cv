@@ -999,7 +999,7 @@ body {
 }
 
 /* line 27, ../../../app/stylesheets/screen.scss */
-h1, h2, h3, h6 {
+h1, h2, h3, h5, h6, .result {
   text-shadow: 1px 1px 0 #dfdfdf;
   filter: dropshadow(color=#dfdfdf, offx=1, offy=1);
 }

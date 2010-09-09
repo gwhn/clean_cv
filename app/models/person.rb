@@ -38,9 +38,7 @@ class Person < ActiveRecord::Base
                                 :reject_if => lambda { |a|
                                   a['name'].blank? and
                                           a['course'].blank? and
-                                          a['date_to(2i)'] == '1' and
                                           a['date_to(3i)'] == '1' and
-                                          a['date_from(2i)'] == '1' and
                                           a['date_from(3i)'] == '1'
                                 }
 
