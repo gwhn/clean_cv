@@ -45,6 +45,7 @@
     / <![endif]>
     #container
       %header
+        = render :partial => 'shared/test_drive'
         = render :partial => 'shared/flash', :object => flash
       #main
         #cv= yield
@@ -63,8 +64,7 @@
       !window.jQuery && document.write('<script src="javascripts/jquery-1.4.2.min.js"><\/script>')
     %script{:src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"}
     %script{:src => "http://cdn.jquerytools.org/1.2.4/all/jquery.tools.min.js"}
-    = javascript_include_tag 'application', 'plugins', 'script',
-      'jquery.fancybox-1.2.6.pack.js', 'jquery.scrollTo-1.4.2-min.js'
+    = javascript_include_tag 'application', 'plugins', 'script', 'jquery.fancybox-1.2.6.pack.js', 'jquery.scrollTo-1.4.2-min.js', 'jquery.cookies.2.2.0.min.js'
     /[if lt IE 7 ]
       = javascript_include_tag 'dd_belatedpng'
     /
@@ -81,6 +81,10 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
       $(function(){
+        if ($.cookies.test() && !$.cookies.get('beenHereBefore')) {
+          $.cookies.set('beenHereBefore', true);
+          $("#test_drive").dialog({modal:true, title: $("#test_drive").attr("class").toUpperCase()});
+        }
         initFancyBox("a.lightbox");
         $(".social-media [title]").tooltip({effect: "slide"}).dynamic({bottom: {direction: "down"}});
         $(".accordion").tabs(".accordion .panel", {tabs: 'h6'});

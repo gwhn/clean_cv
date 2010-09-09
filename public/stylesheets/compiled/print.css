@@ -72,7 +72,9 @@ body.bp .hide {
   display: none;
 }
 
-/* line 15, ../../../app/stylesheets/print.scss */
+/* line 17, ../../../app/stylesheets/print.scss */
+caption,
+.hint,
 .pdf,
 .authme,
 .update-actions,
@@ -85,196 +87,196 @@ body.bp .hide {
   display: none;
 }
 
-/* line 19, ../../../app/stylesheets/print.scss */
+/* line 21, ../../../app/stylesheets/print.scss */
 #cv {
   margin: 66px auto 0 auto;
   padding: 0 0 40px;
 }
-/* line 23, ../../../app/stylesheets/print.scss */
+/* line 25, ../../../app/stylesheets/print.scss */
 #cv .cv-section {
   margin: 0 40px;
   padding: 30px 0;
 }
-/* line 28, ../../../app/stylesheets/print.scss */
+/* line 30, ../../../app/stylesheets/print.scss */
 #cv .first-cv-section {
   margin: 0;
   padding: 30px 40px;
 }
-/* line 33, ../../../app/stylesheets/print.scss */
+/* line 35, ../../../app/stylesheets/print.scss */
 #cv .person {
   float: left;
   margin-top: 20px;
   width: 500px;
 }
-/* line 38, ../../../app/stylesheets/print.scss */
+/* line 40, ../../../app/stylesheets/print.scss */
 #cv .person img {
   float: left;
   margin-right: 25px;
   padding: 10px;
 }
-/* line 44, ../../../app/stylesheets/print.scss */
+/* line 46, ../../../app/stylesheets/print.scss */
 #cv .person h1 {
   margin-top: 25px;
 }
-/* line 48, ../../../app/stylesheets/print.scss */
+/* line 50, ../../../app/stylesheets/print.scss */
 #cv .person .pdf {
   display: block;
 }
-/* line 53, ../../../app/stylesheets/print.scss */
+/* line 55, ../../../app/stylesheets/print.scss */
 #cv .contact-info {
   float: right;
   margin-right: 10px;
 }
-/* line 58, ../../../app/stylesheets/print.scss */
+/* line 60, ../../../app/stylesheets/print.scss */
 #cv .contact-info table {
   margin-top: 10px;
 }
-/* line 62, ../../../app/stylesheets/print.scss */
+/* line 64, ../../../app/stylesheets/print.scss */
 #cv .contact-info tr {
   line-height: 24px;
 }
-/* line 66, ../../../app/stylesheets/print.scss */
+/* line 68, ../../../app/stylesheets/print.scss */
 #cv .social-media {
   margin-bottom: 18px;
 }
-/* line 70, ../../../app/stylesheets/print.scss */
+/* line 72, ../../../app/stylesheets/print.scss */
 #cv .social-media li {
   display: inline;
 }
-/* line 74, ../../../app/stylesheets/print.scss */
+/* line 76, ../../../app/stylesheets/print.scss */
 #cv .cv-section-name {
   float: left;
   width: 200px;
 }
-/* line 79, ../../../app/stylesheets/print.scss */
+/* line 81, ../../../app/stylesheets/print.scss */
 #cv .cv-section-items {
   float: right;
   margin-right: 10px;
   width: 490px;
 }
-/* line 86, ../../../app/stylesheets/print.scss */
+/* line 88, ../../../app/stylesheets/print.scss */
 #cv ul li {
   list-style-type: none;
 }
-/* line 91, ../../../app/stylesheets/print.scss */
+/* line 93, ../../../app/stylesheets/print.scss */
 #cv .item {
   margin-bottom: 20px;
   padding-bottom: 30px;
 }
-/* line 95, ../../../app/stylesheets/print.scss */
+/* line 97, ../../../app/stylesheets/print.scss */
 #cv .item h3, #cv .item h5 {
   margin: 10px 0;
 }
-/* line 99, ../../../app/stylesheets/print.scss */
+/* line 101, ../../../app/stylesheets/print.scss */
 #cv .item h3 {
   padding: 4px 0;
   clear: left;
 }
-/* line 104, ../../../app/stylesheets/print.scss */
+/* line 106, ../../../app/stylesheets/print.scss */
 #cv .item h4 {
   float: right;
   margin: 0;
   padding: 4px 10px;
 }
-/* line 110, ../../../app/stylesheets/print.scss */
+/* line 112, ../../../app/stylesheets/print.scss */
 #cv .item h5 {
   float: right;
   clear: right;
 }
-/* line 115, ../../../app/stylesheets/print.scss */
+/* line 117, ../../../app/stylesheets/print.scss */
 #cv .item h6 {
   padding: 5px;
   margin: 1px 0 1px 0;
 }
-/* line 120, ../../../app/stylesheets/print.scss */
+/* line 122, ../../../app/stylesheets/print.scss */
 #cv .item p {
   padding: 0 0 15px;
 }
-/* line 124, ../../../app/stylesheets/print.scss */
+/* line 126, ../../../app/stylesheets/print.scss */
 #cv .item ul {
   margin-bottom: 15px;
 }
-/* line 128, ../../../app/stylesheets/print.scss */
+/* line 130, ../../../app/stylesheets/print.scss */
 #cv .item:last-child {
   margin-bottom: 0;
   padding-bottom: 30px;
 }
-/* line 134, ../../../app/stylesheets/print.scss */
+/* line 136, ../../../app/stylesheets/print.scss */
 #cv .item .list li {
   list-style: disc;
 }
-/* line 141, ../../../app/stylesheets/print.scss */
+/* line 143, ../../../app/stylesheets/print.scss */
 #cv .repeater li {
   margin-right: 15px;
   display: inline;
 }
 
 /* root element for accordion. decorated with rounded borders and gradient background image */
-/* line 150, ../../../app/stylesheets/print.scss */
+/* line 152, ../../../app/stylesheets/print.scss */
 .accordion {
   /* accordion header */
   /* accordion panel */
 }
-/* line 152, ../../../app/stylesheets/print.scss */
+/* line 154, ../../../app/stylesheets/print.scss */
 .accordion h6 {
   background-color: #f8f8f8;
 }
-/* line 157, ../../../app/stylesheets/print.scss */
+/* line 159, ../../../app/stylesheets/print.scss */
 .accordion .panel {
   border-width: 0 2px;
   padding: 5px;
   display: block !important;
 }
-/* line 162, ../../../app/stylesheets/print.scss */
+/* line 164, ../../../app/stylesheets/print.scss */
 .accordion .panel li {
   list-style-position: inside !important;
 }
 
 /* =COLORS-TYPOGRAPHY
 ----------------------------------*/
-/* line 174, ../../../app/stylesheets/print.scss */
+/* line 176, ../../../app/stylesheets/print.scss */
 #cv .cv-section p {
   text-align: justify;
 }
-/* line 181, ../../../app/stylesheets/print.scss */
+/* line 183, ../../../app/stylesheets/print.scss */
 #cv .person img {
   background-color: #FFF;
   border: 1px solid #dfdfdf;
 }
-/* line 186, ../../../app/stylesheets/print.scss */
+/* line 188, ../../../app/stylesheets/print.scss */
 #cv .person h1 {
   color: #475261;
   font-size: 36px;
   font-weight: 400;
   font-family: 'AllerRegular', sans-serif;
 }
-/* line 192, ../../../app/stylesheets/print.scss */
+/* line 194, ../../../app/stylesheets/print.scss */
 #cv .person h1 a {
   color: #475261;
 }
-/* line 198, ../../../app/stylesheets/print.scss */
+/* line 200, ../../../app/stylesheets/print.scss */
 #cv .person h2 {
   color: #475261;
   font-size: 24px;
   font-weight: 400;
   text-transform: uppercase;
 }
-/* line 207, ../../../app/stylesheets/print.scss */
+/* line 209, ../../../app/stylesheets/print.scss */
 #cv .social-media {
   list-style: none;
 }
-/* line 211, ../../../app/stylesheets/print.scss */
+/* line 213, ../../../app/stylesheets/print.scss */
 #cv h2.cv-section-name {
   color: #333333;
   font-family: 'AllerLightItalic', sans-serif;
   font-size: 24px;
   font-weight: 400;
 }
-/* line 218, ../../../app/stylesheets/print.scss */
+/* line 220, ../../../app/stylesheets/print.scss */
 #cv .item {
   border-bottom: 1px solid #dfdfdf;
 }
-/* line 222, ../../../app/stylesheets/print.scss */
+/* line 224, ../../../app/stylesheets/print.scss */
 #cv .item h4 {
   background-color: #f8f8f8;
   font-family: 'AllerRegular', sans-serif;
@@ -282,18 +284,18 @@ body.bp .hide {
   text-transform: uppercase;
   line-height: 24px;
 }
-/* line 230, ../../../app/stylesheets/print.scss */
+/* line 232, ../../../app/stylesheets/print.scss */
 #cv .item h4:hover {
   background-color: #333;
   color: #fff;
 }
-/* line 235, ../../../app/stylesheets/print.scss */
+/* line 237, ../../../app/stylesheets/print.scss */
 #cv .item h2 {
   color: #06A;
   font-family: 'AllerRegular', sans-serif;
   font-size: 24px;
 }
-/* line 243, ../../../app/stylesheets/print.scss */
+/* line 245, ../../../app/stylesheets/print.scss */
 #cv .item h3,
 #cv .item h5,
 #cv .item .result {
@@ -301,30 +303,30 @@ body.bp .hide {
   font-family: 'GentiumBookBasicItalic', serif;
   font-size: 20px;
 }
-/* line 250, ../../../app/stylesheets/print.scss */
+/* line 252, ../../../app/stylesheets/print.scss */
 #cv .item h5,
 #cv .item .result {
   font-family: 'GentiumBookBasicRegular', serif;
 }
-/* line 254, ../../../app/stylesheets/print.scss */
+/* line 256, ../../../app/stylesheets/print.scss */
 #cv .item h6 {
   color: #06A;
   font-family: 'AllerRegular', sans-serif;
   font-size: 16px;
 }
-/* line 260, ../../../app/stylesheets/print.scss */
+/* line 262, ../../../app/stylesheets/print.scss */
 #cv .item p {
   text-align: justify;
 }
-/* line 264, ../../../app/stylesheets/print.scss */
+/* line 266, ../../../app/stylesheets/print.scss */
 #cv .item ul {
   text-align: justify;
 }
-/* line 268, ../../../app/stylesheets/print.scss */
+/* line 270, ../../../app/stylesheets/print.scss */
 #cv .item:last-child {
   border-bottom: none;
 }
-/* line 274, ../../../app/stylesheets/print.scss */
+/* line 276, ../../../app/stylesheets/print.scss */
 #cv .repeater li {
   font-family: 'GentiumBookBasicBoldItalic', serif;
 }

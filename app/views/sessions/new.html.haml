@@ -2,14 +2,6 @@
   .cv-section-name
     %h2 Sign in
   .cv-section-items
-    .hint
-      If you'd like to take this application for a test drive but don't want to sign up,
-      log in with the email: <strong>cv@weblitz.me.uk</strong> and password: <strong>password</strong>.
-      A fake CV for Homer Simpson was created by this user,
-      so you have permissions to manage it.
-      Alternatively, feel free to create your own but
-      remember that other users will be able to edit them with these credentials.
-
     = render :partial => 'form', :locals => {:resource_name => resource_name, :resource => resource}
 
 = render :partial => 'shared/options'

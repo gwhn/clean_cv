@@ -532,11 +532,17 @@ ul {
 }
 
 .hint {
+    display: none;
     background-color: #f8f8f8;
     border: 1px solid #dfdfdf;
     padding: 10px;
 
 }
+
+.no-js .hint {
+    display: block !important;
+}
+
 #flash > div {
     padding: 15px;
 }
