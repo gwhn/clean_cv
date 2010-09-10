@@ -36,7 +36,7 @@
           = visualize_timeline(item.companies, 'work_timeline')
 
           - content_for :javascript do
-            = dynamic_tooltip_javascript_for '#work_timeline_icon', :position => 'bottom right'
+            = dynamic_tooltip_javascript_for '#work_timeline_icon', :position => 'center right'
 
       .cv-section-items
 
@@ -60,7 +60,7 @@
           #skills_summary= summarize_skills_by_category(item.skills_by_category)
 
           - content_for :javascript do
-            = dynamic_tooltip_javascript_for '#skills_summary_icon', :position => 'bottom right'
+            = dynamic_tooltip_javascript_for '#skills_summary_icon', :position => 'center right'
 
       .cv-section-items
         - skills_id = "person_#{item.id}_skills"
@@ -88,7 +88,7 @@
           = visualize_timeline(item.schools, 'education_timeline')
 
           - content_for :javascript do
-            = dynamic_tooltip_javascript_for '#education_timeline_icon', :position => 'bottom right'
+            = dynamic_tooltip_javascript_for '#education_timeline_icon', :position => 'center right'
 
       .cv-section-items
         - schools_id = "person_#{item.id}_schools"

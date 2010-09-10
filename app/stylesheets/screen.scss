@@ -26,7 +26,6 @@ body {
 
 h1, h2, h3, h5, h6, .result {
     text-shadow: 1px 1px 0 #dfdfdf;
-    filter: dropshadow(color=#dfdfdf, offx=1, offy=1);
 }
 
 a {
@@ -100,27 +99,24 @@ em {
 .contact-info {
     float: right;
     margin-right: 10px;
+    table {
+        margin-top: 10px;
+    }
+    tr {
+        line-height: 24px
+    }
+    .limited-width-cell {
+        overflow: auto;
+        width: 150px;
+    }
 }
 
-.contact-info table {
-    margin-top: 10px;
-}
-
-.contact-info tr {
-    line-height: 24px
-}
-
-.contact-info .limited-width-cell {
-    overflow: auto;
-    width: 150px;
-}
 
 .social-media {
     margin-bottom: 18px;
-}
-
-.social-media li {
-    display: inline;
+    li {
+        display: inline;
+    }
 }
 
 .cv-section-name {
@@ -274,7 +270,7 @@ ul {
     .tooltip,
     .options {
         margin: 5px 0;
-        border: 1px solid #dfdfdf;
+        border: 1px solid #fdb020;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
