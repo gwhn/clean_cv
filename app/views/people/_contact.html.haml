@@ -5,7 +5,7 @@
     - unless contact.social_media.google_map_url.blank?
       %li.map
         = image_tag('/images/map.png', :class => 'location-map-icon')
-        %img{:class => 'location-map', :src => "#{h contact.social_media.google_map_url}", :alt => 'Locate on map'}
+        %img{:class => 'location-map', :src => "#{h contact.social_media.google_map_url}", :alt => 'Invalid Google Maps URL'}
 
         - content_for :javascript do
           = dynamic_tooltip_javascript_for '.location-map-icon', :position => 'bottom left'
