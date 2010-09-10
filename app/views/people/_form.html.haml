@@ -14,6 +14,7 @@
   %h2 Social Media
   - f.semantic_fields_for :social_media do |sm|
     - sm.inputs do
+      = sm.input :google_map_url
       = sm.input :flickr_url
       = sm.input :twitter_url
       = sm.input :facebook_url

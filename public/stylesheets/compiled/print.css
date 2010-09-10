@@ -72,10 +72,12 @@ body.bp .hide {
   display: none;
 }
 
-/* line 17, ../../../app/stylesheets/print.scss */
+/* line 19, ../../../app/stylesheets/print.scss */
 caption,
 .hint,
 .pdf,
+.location-map,
+.search,
 .authme,
 .update-actions,
 .move-actions,
@@ -87,196 +89,196 @@ caption,
   display: none;
 }
 
-/* line 21, ../../../app/stylesheets/print.scss */
+/* line 23, ../../../app/stylesheets/print.scss */
 #cv {
   margin: 66px auto 0 auto;
   padding: 0 0 40px;
 }
-/* line 25, ../../../app/stylesheets/print.scss */
+/* line 27, ../../../app/stylesheets/print.scss */
 #cv .cv-section {
   margin: 0 40px;
   padding: 30px 0;
 }
-/* line 30, ../../../app/stylesheets/print.scss */
+/* line 32, ../../../app/stylesheets/print.scss */
 #cv .first-cv-section {
   margin: 0;
   padding: 30px 40px;
 }
-/* line 35, ../../../app/stylesheets/print.scss */
+/* line 37, ../../../app/stylesheets/print.scss */
 #cv .person {
   float: left;
   margin-top: 20px;
   width: 500px;
 }
-/* line 40, ../../../app/stylesheets/print.scss */
+/* line 42, ../../../app/stylesheets/print.scss */
 #cv .person img {
   float: left;
   margin-right: 25px;
   padding: 10px;
 }
-/* line 46, ../../../app/stylesheets/print.scss */
+/* line 48, ../../../app/stylesheets/print.scss */
 #cv .person h1 {
   margin-top: 25px;
 }
-/* line 50, ../../../app/stylesheets/print.scss */
+/* line 52, ../../../app/stylesheets/print.scss */
 #cv .person .pdf {
   display: block;
 }
-/* line 55, ../../../app/stylesheets/print.scss */
+/* line 57, ../../../app/stylesheets/print.scss */
 #cv .contact-info {
   float: right;
   margin-right: 10px;
 }
-/* line 60, ../../../app/stylesheets/print.scss */
+/* line 62, ../../../app/stylesheets/print.scss */
 #cv .contact-info table {
   margin-top: 10px;
 }
-/* line 64, ../../../app/stylesheets/print.scss */
+/* line 66, ../../../app/stylesheets/print.scss */
 #cv .contact-info tr {
   line-height: 24px;
 }
-/* line 68, ../../../app/stylesheets/print.scss */
+/* line 70, ../../../app/stylesheets/print.scss */
 #cv .social-media {
   margin-bottom: 18px;
 }
-/* line 72, ../../../app/stylesheets/print.scss */
+/* line 74, ../../../app/stylesheets/print.scss */
 #cv .social-media li {
   display: inline;
 }
-/* line 76, ../../../app/stylesheets/print.scss */
+/* line 78, ../../../app/stylesheets/print.scss */
 #cv .cv-section-name {
   float: left;
   width: 200px;
 }
-/* line 81, ../../../app/stylesheets/print.scss */
+/* line 83, ../../../app/stylesheets/print.scss */
 #cv .cv-section-items {
   float: right;
   margin-right: 10px;
   width: 490px;
 }
-/* line 88, ../../../app/stylesheets/print.scss */
+/* line 90, ../../../app/stylesheets/print.scss */
 #cv ul li {
   list-style-type: none;
 }
-/* line 93, ../../../app/stylesheets/print.scss */
+/* line 95, ../../../app/stylesheets/print.scss */
 #cv .item {
   margin-bottom: 20px;
   padding-bottom: 30px;
 }
-/* line 97, ../../../app/stylesheets/print.scss */
+/* line 99, ../../../app/stylesheets/print.scss */
 #cv .item h3, #cv .item h5 {
   margin: 10px 0;
 }
-/* line 101, ../../../app/stylesheets/print.scss */
+/* line 103, ../../../app/stylesheets/print.scss */
 #cv .item h3 {
   padding: 4px 0;
   clear: left;
 }
-/* line 106, ../../../app/stylesheets/print.scss */
+/* line 108, ../../../app/stylesheets/print.scss */
 #cv .item h4 {
   float: right;
   margin: 0;
   padding: 4px 10px;
 }
-/* line 112, ../../../app/stylesheets/print.scss */
+/* line 114, ../../../app/stylesheets/print.scss */
 #cv .item h5 {
   float: right;
   clear: right;
 }
-/* line 117, ../../../app/stylesheets/print.scss */
+/* line 119, ../../../app/stylesheets/print.scss */
 #cv .item h6 {
   padding: 5px;
   margin: 1px 0 1px 0;
 }
-/* line 122, ../../../app/stylesheets/print.scss */
+/* line 124, ../../../app/stylesheets/print.scss */
 #cv .item p {
   padding: 0 0 15px;
 }
-/* line 126, ../../../app/stylesheets/print.scss */
+/* line 128, ../../../app/stylesheets/print.scss */
 #cv .item ul {
   margin-bottom: 15px;
 }
-/* line 130, ../../../app/stylesheets/print.scss */
+/* line 132, ../../../app/stylesheets/print.scss */
 #cv .item:last-child {
   margin-bottom: 0;
   padding-bottom: 30px;
 }
-/* line 136, ../../../app/stylesheets/print.scss */
+/* line 138, ../../../app/stylesheets/print.scss */
 #cv .item .list li {
   list-style: disc;
 }
-/* line 143, ../../../app/stylesheets/print.scss */
+/* line 145, ../../../app/stylesheets/print.scss */
 #cv .repeater li {
   margin-right: 15px;
   display: inline;
 }
 
 /* root element for accordion. decorated with rounded borders and gradient background image */
-/* line 152, ../../../app/stylesheets/print.scss */
+/* line 154, ../../../app/stylesheets/print.scss */
 .accordion {
   /* accordion header */
   /* accordion panel */
 }
-/* line 154, ../../../app/stylesheets/print.scss */
+/* line 156, ../../../app/stylesheets/print.scss */
 .accordion h6 {
   background-color: #f8f8f8;
 }
-/* line 159, ../../../app/stylesheets/print.scss */
+/* line 161, ../../../app/stylesheets/print.scss */
 .accordion .panel {
   border-width: 0 2px;
   padding: 5px;
   display: block !important;
 }
-/* line 164, ../../../app/stylesheets/print.scss */
+/* line 166, ../../../app/stylesheets/print.scss */
 .accordion .panel li {
   list-style-position: inside !important;
 }
 
 /* =COLORS-TYPOGRAPHY
 ----------------------------------*/
-/* line 176, ../../../app/stylesheets/print.scss */
+/* line 178, ../../../app/stylesheets/print.scss */
 #cv .cv-section p {
   text-align: justify;
 }
-/* line 183, ../../../app/stylesheets/print.scss */
+/* line 185, ../../../app/stylesheets/print.scss */
 #cv .person img {
   background-color: #FFF;
   border: 1px solid #dfdfdf;
 }
-/* line 188, ../../../app/stylesheets/print.scss */
+/* line 190, ../../../app/stylesheets/print.scss */
 #cv .person h1 {
   color: #475261;
   font-size: 36px;
   font-weight: 400;
   font-family: 'AllerRegular', sans-serif;
 }
-/* line 194, ../../../app/stylesheets/print.scss */
+/* line 196, ../../../app/stylesheets/print.scss */
 #cv .person h1 a {
   color: #475261;
 }
-/* line 200, ../../../app/stylesheets/print.scss */
+/* line 202, ../../../app/stylesheets/print.scss */
 #cv .person h2 {
   color: #475261;
   font-size: 24px;
   font-weight: 400;
   text-transform: uppercase;
 }
-/* line 209, ../../../app/stylesheets/print.scss */
+/* line 211, ../../../app/stylesheets/print.scss */
 #cv .social-media {
   list-style: none;
 }
-/* line 213, ../../../app/stylesheets/print.scss */
+/* line 215, ../../../app/stylesheets/print.scss */
 #cv h2.cv-section-name {
   color: #333333;
   font-family: 'AllerLightItalic', sans-serif;
   font-size: 24px;
   font-weight: 400;
 }
-/* line 220, ../../../app/stylesheets/print.scss */
+/* line 222, ../../../app/stylesheets/print.scss */
 #cv .item {
   border-bottom: 1px solid #dfdfdf;
 }
-/* line 224, ../../../app/stylesheets/print.scss */
+/* line 226, ../../../app/stylesheets/print.scss */
 #cv .item h4 {
   background-color: #f8f8f8;
   font-family: 'AllerRegular', sans-serif;
@@ -284,18 +286,18 @@ caption,
   text-transform: uppercase;
   line-height: 24px;
 }
-/* line 232, ../../../app/stylesheets/print.scss */
+/* line 234, ../../../app/stylesheets/print.scss */
 #cv .item h4:hover {
   background-color: #333;
   color: #fff;
 }
-/* line 237, ../../../app/stylesheets/print.scss */
+/* line 239, ../../../app/stylesheets/print.scss */
 #cv .item h2 {
   color: #06A;
   font-family: 'AllerRegular', sans-serif;
   font-size: 24px;
 }
-/* line 245, ../../../app/stylesheets/print.scss */
+/* line 247, ../../../app/stylesheets/print.scss */
 #cv .item h3,
 #cv .item h5,
 #cv .item .result {
@@ -303,30 +305,30 @@ caption,
   font-family: 'GentiumBookBasicItalic', serif;
   font-size: 20px;
 }
-/* line 252, ../../../app/stylesheets/print.scss */
+/* line 254, ../../../app/stylesheets/print.scss */
 #cv .item h5,
 #cv .item .result {
   font-family: 'GentiumBookBasicRegular', serif;
 }
-/* line 256, ../../../app/stylesheets/print.scss */
+/* line 258, ../../../app/stylesheets/print.scss */
 #cv .item h6 {
   color: #06A;
   font-family: 'AllerRegular', sans-serif;
   font-size: 16px;
 }
-/* line 262, ../../../app/stylesheets/print.scss */
+/* line 264, ../../../app/stylesheets/print.scss */
 #cv .item p {
   text-align: justify;
 }
-/* line 266, ../../../app/stylesheets/print.scss */
+/* line 268, ../../../app/stylesheets/print.scss */
 #cv .item ul {
   text-align: justify;
 }
-/* line 270, ../../../app/stylesheets/print.scss */
+/* line 272, ../../../app/stylesheets/print.scss */
 #cv .item:last-child {
   border-bottom: none;
 }
-/* line 276, ../../../app/stylesheets/print.scss */
+/* line 278, ../../../app/stylesheets/print.scss */
 #cv .repeater li {
   font-family: 'GentiumBookBasicBoldItalic', serif;
 }

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100907172334) do
+ActiveRecord::Schema.define(:version => 20100910152209) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -123,13 +123,14 @@ ActiveRecord::Schema.define(:version => 20100907172334) do
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
   create_table "social_medias", :force => true do |t|
-    t.integer  "person_id",     :null => false
+    t.integer  "person_id",      :null => false
     t.string   "linked_in_url"
     t.string   "facebook_url"
     t.string   "twitter_url"
     t.string   "flickr_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "google_map_url"
   end
 
   create_table "tasks", :force => true do |t|
