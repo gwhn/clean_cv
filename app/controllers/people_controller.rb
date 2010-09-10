@@ -1,22 +1,26 @@
 class PeopleController < ApplicationController
-  skip_before_filter :authenticate_user!, :only => [:index, :show]
+  skip_before_filter :authenticate_user!, :only => [:index, :show, :search]
 
   before_filter :load_person, :only => [:show, :edit, :update, :delete, :destroy]
   before_filter :new_person_from_params, :only => [:new, :create]
   filter_access_to :all, :attribute_check => true
-  filter_access_to :index, :attribute_check => false
+  filter_access_to [:index, :search], :attribute_check => false
 
   before_filter :choose_form_target, :only => [:new, :create, :edit, :update]
+
+  before_filter :build_search_query, :only => [:search, :index]
 
   # Waiting for fix of PDFKit.
 #  caches_action :index, :show
 
+  # GET /people/search
+  def search
+  end
+
   # GET /people
   # GET /people.xml
   def index
-    sort_by = %w{name email}.detect { |f| f == params[:order] } || 'id'
-    direction = params[:direction] =~ %r(desc)i ? 'DESC' : 'ASC'
-    @people = Person.paginate :page => params[:page], :per_page => 5, :order => "#{sort_by} #{direction}"
+    @people = Person.filter(@search_query.filter_options).paginate(:page => params[:page], :per_page => 5)
 
     respond_to do |format|
       format.html # index.html.haml
@@ -120,6 +124,10 @@ class PeopleController < ApplicationController
     end
   end
 
+  # GET /people/search
+  def search
+  end
+
   protected
   def new_person_from_params
     @person = Person.new params[:person]
@@ -133,5 +141,13 @@ class PeopleController < ApplicationController
   # Enable ajax file uploads using iframe target 
   def choose_form_target
     @target_name = (request.xhr? or request.format == :js) ? 'upload_frame' : nil
+  end
+
+  private
+  def build_search_query
+    @search_query = SearchQuery.new :sorted_by => 'ascending_name'
+    Person.filter_options.each do |name|
+      @search_query.filter_options[name] = params[:search_query][name] unless params[:search_query].nil? or params[:search_query][name].blank?
+    end
   end
 end

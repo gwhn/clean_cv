@@ -506,11 +506,11 @@ ul {
     }
 }
 
+.search,
 .authme {
     background-color: #333;
     border: 1px solid #444;
     display: block;
-    left: 0;
     padding: 12px 15px;
     top: 66px;
     position: fixed;
@@ -529,6 +529,14 @@ ul {
         font-weight: 700;
         text-decoration: none;
     }
+}
+
+.authme {
+    left: 0;
+}
+
+.search {
+    right: 0;
 }
 
 .hint {

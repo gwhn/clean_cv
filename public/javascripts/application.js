@@ -107,5 +107,4 @@ $(function() {
         settings.data = settings.data || "";
         settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
     });
-
 });

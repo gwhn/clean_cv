@@ -1,0 +1,12 @@
+.cv-section.last-cv-section.fixed
+  .cv-section-name
+    %h2 Search People
+  .cv-section-items
+    - semantic_form_for @search_query, :url => people_path, :html => {:method => :get} do |f|
+      - f.inputs do
+        = f.input :search
+        = f.input :sorted_by, :as => :select, :collection => sorted_by_options
+      - f.buttons do
+        = f.commit_button 'Search'
+
+    = link_to 'Cancel', people_path

@@ -2,7 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.devise_for :users
 
   map.resources :people,
-                :member => {:delete => :get} do |person|
+                :member => {:delete => :get},
+                :collection => {:search => :get} do |person|
     person.resources :companies,
                      :member => {:delete => :get} do |company|
       company.resources :projects,

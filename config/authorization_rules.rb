@@ -1,7 +1,7 @@
 privileges do
   privilege :manage, :includes => [:create, :read, :update, :delete, :reposition]
-  privilege :read, :includes => [:index, :show]
-  privilege :create, :includes => [:new, :fake]
+  privilege :read, :includes => [:index, :show, :search]
+  privilege :create, :includes => :new
   privilege :update, :includes => :edit
   privilege :delete, :includes => :destroy
   privilege :reposition, :includes => [:move_top, :move_up, :move_down, :move_bottom]
@@ -21,7 +21,7 @@ authorization do
     has_permission_on :people, :to => [:update, :delete] do
       if_attribute :user => is { user }
     end
-    has_permission_on :social_medias, :to => [:manage] do
+    has_permission_on :social_medias, :to => :manage do
       if_attribute :person => {:user => is { user }}
     end
     has_permission_on [:companies, :skills, :schools], :to => :manage do

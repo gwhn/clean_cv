@@ -1499,25 +1499,28 @@ ul li {
   display: none;
 }
 
-/* line 509, ../../../app/stylesheets/screen.scss */
+/* line 510, ../../../app/stylesheets/screen.scss */
+.search,
 .authme {
   background-color: #333;
   border: 1px solid #444;
   display: block;
-  left: 0;
   padding: 12px 15px;
   top: 66px;
   position: fixed;
 }
 /* line 518, ../../../app/stylesheets/screen.scss */
+.search:hover,
 .authme:hover {
   background-color: #222;
 }
 /* line 522, ../../../app/stylesheets/screen.scss */
+.search img,
 .authme img {
   padding: 0 0 0 5px;
 }
 /* line 526, ../../../app/stylesheets/screen.scss */
+.search a,
 .authme a {
   color: #fff;
   font-size: 15px;
@@ -1526,6 +1529,16 @@ ul li {
 }
 
 /* line 534, ../../../app/stylesheets/screen.scss */
+.authme {
+  left: 0;
+}
+
+/* line 538, ../../../app/stylesheets/screen.scss */
+.search {
+  right: 0;
+}
+
+/* line 542, ../../../app/stylesheets/screen.scss */
 .hint {
   display: none;
   background-color: #f8f8f8;
@@ -1533,12 +1546,12 @@ ul li {
   padding: 10px;
 }
 
-/* line 542, ../../../app/stylesheets/screen.scss */
+/* line 550, ../../../app/stylesheets/screen.scss */
 .no-js .hint {
   display: block !important;
 }
 
-/* line 546, ../../../app/stylesheets/screen.scss */
+/* line 554, ../../../app/stylesheets/screen.scss */
 #flash > div {
   padding: 15px;
 }

@@ -48,6 +48,49 @@ class Person < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 10.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
+  named_scope :search, lambda { |query|
+    {
+            :conditions => ['(lower(people.name) LIKE :query OR lower(people.email) LIKE :query OR lower(people.job_title) LIKE :query)',
+                            {:query => "%#{query.downcase}%"}]
+    }
+  }
+
+  named_scope :sorted_by, lambda { |option|
+    case option.to_s
+      when 'ascending_name'
+        {:order => 'lower(people.name) ASC'}
+      when 'descending_name'
+        {:order => 'lower(people.name) DESC'}
+      when 'ascending_email'
+        {:order => 'lower(people.email) ASC'}
+      when 'descending_email'
+        {:order => 'lower(people.email) DESC'}
+      when 'ascending_job_title'
+        {:order => 'lower(people.job_title) ASC'}
+      when 'descending_job_title'
+        {:order => 'lower(people.job_title) DESC'}
+      else
+        raise ArgumentError, "Invalid sort option: #{option.inspect}"
+    end
+  }
+
+  def self.filter(options)
+    # chain together all the conditions
+    raise(ArgumentError, "Expected Hash, got #{options.inspect}") unless options.is_a?(Hash)
+    ar_proxy = Person
+    options.each do |key, value|
+      next unless self.filter_options.include?(key) # only consider the filter options
+      next if value.blank? # ignore blank list options
+      ar_proxy = ar_proxy.send(key, value) # compose this option
+    end
+    ar_proxy # return the ActiveRecord proxy object
+  end
+
+  def self.filter_options
+    # add any named scopes that should be excluded from search options 
+    self.scopes.map { |s| s.first } - [:named_scope_that_is_not_a_filter_option]
+  end
+
   def skills_by_category
     categories = Hash.new { |h, k| h[k] = [] }
     skills.each { |s| categories[s.category.name] << s }
@@ -55,10 +98,10 @@ class Person < ActiveRecord::Base
   end
 
   def first_company
-    companies.sort{|a, b| a.start_date <=> b.start_date}.first
+    companies.sort { |a, b| a.start_date <=> b.start_date }.first
   end
 
   def first_school
-    schools.sort{|a, b| a.date_from <=> b.date_from}.first
+    schools.sort { |a, b| a.date_from <=> b.date_from }.first
   end
 end

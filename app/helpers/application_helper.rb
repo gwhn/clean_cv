@@ -20,7 +20,7 @@ module ApplicationHelper
       end
     end
   end
-  
+
   def sortable_javascript_for(selector, item_class, qs, url, options = {})
     options = {:handle_class => '.handle',
                :on_ready_wrapper => true}.merge(options)
@@ -65,7 +65,7 @@ $("#{selector}").tooltip({
   delay: #{options[:delay]},
   tipClass: "#{options[:tip_class]}"
 });
-$("#{selector}").dynamic({bottom: {direction: "down"}});
+$(" #{selector} ").dynamic({bottom: {direction: "down"}});
 JS
     script = jquery_on_ready(script) if options[:on_ready_wrapper]
     script
@@ -109,4 +109,14 @@ JS
     )
   end
 
+  def sorted_by_options
+    [
+            ['Ascending Name', 'ascending_name'],
+            ['Descending Name', 'descending_name'],
+            ['Ascending Email', 'ascending_email'],
+            ['Descending Email', 'descending_email'],
+            ['Ascending Job Title', 'ascending_job_title'],
+            ['Descending Job Title', 'descending_job_title']
+    ]
+  end
 end
