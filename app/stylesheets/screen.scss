@@ -260,6 +260,8 @@ ul {
     padding: 5px;
     display: none;
     background-color: #f8f8f8;
+    border-top: 2px solid #fdb020;
+    border-bottom: 2px solid #fdb020;
 }
 
 .js {
@@ -270,7 +272,6 @@ ul {
     .tooltip,
     .options {
         margin: 5px 0;
-        border: 1px solid #fdb020;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;

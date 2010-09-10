@@ -21,9 +21,9 @@
   - if user_signed_in? and permitted_to? :manage, item
     %ul.options
       - if permitted_to? :update, item
-        %li= link_to 'Edit skill', edit_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Edit skill'
+        %li= link_to "Edit #{item.name}", edit_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Edit skill'
       - if permitted_to? :delete, item
-        %li= link_to 'Delete skill', delete_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Delete skill'
+        %li= link_to "Delete #{item.name}", delete_person_skill_path(item.person, item), :class => 'remote-link', :title => 'Delete skill'
                                                                                             
     - content_for :javascript do
       = dynamic_tooltip_javascript_for "##{skill_id} > .skill", :position => 'top right'

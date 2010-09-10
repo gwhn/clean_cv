@@ -16,11 +16,11 @@
   - if user_signed_in? and permitted_to? [:manage, :read], item 
     %ul.options
       - if !current_page?(item) and permitted_to? :read, item
-        %li= link_to 'View person', item
+        %li= link_to "View #{item.name}", item
       - if permitted_to? :update, item
-        %li= link_to 'Edit person', edit_person_path(item), :class => 'remote-link', :title => 'Edit person'
+        %li= link_to "Edit #{item.name}", edit_person_path(item), :class => 'remote-link', :title => 'Edit person'
       - if permitted_to? :delete, item
-        %li= link_to 'Delete person', delete_person_path(item), :class => 'remote-link', :title => 'Delete person'
+        %li= link_to "Delete #{item.name}", delete_person_path(item), :class => 'remote-link', :title => 'Delete person'
 
     - content_for :javascript do
       = dynamic_tooltip_javascript_for "##{person_id} > .personal", :position => 'top right'
