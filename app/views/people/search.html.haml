@@ -1,4 +1,4 @@
-.cv-section.last-cv-section.fixed
+.cv-section.fixed
   .cv-section-name
     %h2 Search People
   .cv-section-items
@@ -9,4 +9,8 @@
       - f.buttons do
         = f.commit_button 'Search'
 
+.cv-section.last-cv-section.fixed
+  .cv-section-name
+    %h2 Options
+  .cv-section-items
     = link_to 'Cancel', people_path
