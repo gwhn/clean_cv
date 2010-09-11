@@ -2,17 +2,17 @@ en:
   devise:
     sessions:
       link: 'Sign in'
-      signed_in: 'Signed in successfully.'
-      signed_out: 'Signed out successfully.'
+      signed_in: 'Signed in.'
+      signed_out: 'Signed out.'
       unauthenticated: 'You need to sign in or sign up before continuing.'
       unconfirmed: 'You have to confirm your account before continuing.'
       locked: 'Your account is locked.'
       invalid: 'Invalid email or password.'
       invalid_token: 'Invalid authentication token.'
       timeout: 'Your session expired, please sign in again to continue.'
-      inactive: 'Your account was not activated yet.'
+      inactive: 'Your account is not activated yet.'
     passwords:
-      link: 'Forgot password?'
+      link: 'Forgotten your password?'
       send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
       updated: 'Your password was changed successfully. You are now signed in.'
     confirmations:
@@ -21,7 +21,7 @@ en:
       confirmed: 'Your account was successfully confirmed. You are now signed in.'
     registrations:
       link: 'Sign up'
-      signed_up: 'You have signed up successfully. If enabled, a confirmation was sent to your e-mail.'
+      signed_up: 'You have signed up successfully. A confirmation was sent to your email.'
       updated: 'You updated your account successfully.'
       destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
     unlocks:

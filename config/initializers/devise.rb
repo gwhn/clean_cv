@@ -39,7 +39,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
-  # config.remember_for = 2.weeks
+  config.remember_for = 2.weeks
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
@@ -52,7 +52,7 @@ Devise.setup do |config|
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
-  # :time  = Reanables login after a certain ammount of time (see :unlock_in below)
+  # :time  = Re-anables login after a certain amount of time (see :unlock_in below)
   # :both  = enables both strategies
   # config.unlock_strategy = :both
 

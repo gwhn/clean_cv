@@ -23,7 +23,7 @@
         %li= link_to "Delete #{item.name}", delete_person_path(item), :class => 'remote-link', :title => "Delete #{item.name}"
 
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{person_id} > .personal", :position => 'top right'
+      = dynamic_tooltip_javascript_for "##{person_id} > .personal", :position => 'center right'
 
   - unless summarize
     .cv-section.fixed.companies

@@ -22,10 +22,15 @@ class PeopleController < ApplicationController
   def index
     @people = Person.filter(@search_query.filter_options).paginate(:page => params[:page], :per_page => 5)
 
+    flash[:notice] = "#{@people.count} records matching #{@search_query.search}" if
+            !@search_query.search.blank? and @people.count > 0
+
+    flash[:notice] = 'No records matched your search query by name, email or job title' and 
+            redirect_to search_people_path params and return unless @people.count > 0
+
     respond_to do |format|
       format.html # index.html.haml
       format.xml { render :xml => @people }
-      format.js      
     end
   end
 
@@ -148,7 +153,8 @@ class PeopleController < ApplicationController
   def build_search_query
     @search_query = SearchQuery.new :sorted_by => 'ascending_name'
     Person.filter_options.each do |name|
-      @search_query.filter_options[name] = params[:search_query][name] unless params[:search_query].nil? or params[:search_query][name].blank?
+      @search_query.filter_options[name] = params[:search_query][name] unless
+              params[:search_query].nil? or params[:search_query][name].blank?
     end
   end
 end
