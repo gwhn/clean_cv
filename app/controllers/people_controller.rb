@@ -25,7 +25,7 @@ class PeopleController < ApplicationController
     respond_to do |format|
       format.html # index.html.haml
       format.xml { render :xml => @people }
-      format.js { render :action => :index }      
+      format.js      
     end
   end
 
