@@ -17,7 +17,6 @@ function initModalDialog(id) {
         modal     : true,
         height    : 400,
         width     : 600,
-        show      : "blind",
         open      : function() {
             $(this).find(":input:visible:enabled:first").focus();
         }
@@ -107,4 +106,14 @@ $(function() {
         settings.data = settings.data || "";
         settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
     });
+
+//    $(document).ajaxError(flashMessage);
+//    $(document).ajaxSuccess(flashMessage);
+//
+//    function flashMessage(event, request) {
+//        var msg = request.getResponseHeader('X-Message');
+//        if (msg) {
+//            alert(msg);
+//        }
+//    }
 });
