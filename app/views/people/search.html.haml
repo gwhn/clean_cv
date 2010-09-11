@@ -4,8 +4,8 @@
   .cv-section-items
     - semantic_form_for @search_query, :url => people_path, :html => {:method => :get} do |f|
       - f.inputs do
-        = f.input :search, :label => 'Search for name, email or job title'
-        = f.input :sorted_by, :as => :select, :collection => sorted_by_options
+        = f.input :search, :label => 'Search for name, email or job title', :required => false
+        = f.input :sorted_by, :as => :select, :collection => sorted_by_options, :required => false
       - f.buttons do
         = f.commit_button 'Search'
 

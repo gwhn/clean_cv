@@ -20,10 +20,8 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.xml
   def index
-    @people = Person.filter(@search_query.filter_options).paginate(:page => params[:page], :per_page => 5)
-
-    flash[:notice] = "#{@people.count} records matching #{@search_query.search}" if
-            !@search_query.search.blank? and @people.count > 0
+    @people = Person.filter(@search_query.filter_options).
+            paginate(:page => params[:page], :per_page => 5)
 
     flash[:notice] = 'No records matched your search query by name, email or job title' and 
             redirect_to search_people_path params and return unless @people.count > 0
