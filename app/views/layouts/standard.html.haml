@@ -50,7 +50,7 @@
       #main
         #cv= yield
         .search
-          = link_to 'Search', search_people_path
+          = link_to 'Search', search_people_path, :class => 'remote-link', :title => 'Search people'
         .authme
           - if user_signed_in?
             = link_to 'Sign out', destroy_user_session_path
