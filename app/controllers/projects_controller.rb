@@ -44,7 +44,7 @@ class ProjectsController < ApplicationController
   def create
     respond_to do |format|
       if @project.save
-        flash[:notice] = 'Project was successfully created.'
+        flash[:notice] = "#{@project.name} was successfully created."
         format.html { redirect_to @person }
         format.xml { render :xml => @project, :status => :created, :location => @project }
         format.js { render :layout => false }
@@ -61,7 +61,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        flash[:notice] = 'Project was successfully updated.'
+        flash[:notice] = "#{@project.name} was successfully updated."
         format.html { redirect_to @person }
         format.xml { head :ok }
         format.js { render :layout => false }
@@ -84,7 +84,7 @@ class ProjectsController < ApplicationController
   # DELETE /people/1/company/1/projects/1.xml
   def destroy
     redirect_to @person and return if params[:cancel]
-    @project.destroy
+    flash[:notice] = "#{@project.name} was successfully deleted." if @project.destroy
 
     respond_to do |format|
       format.html { redirect_to @person }

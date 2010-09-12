@@ -42,7 +42,7 @@ class CompaniesController < ApplicationController
   def create
     respond_to do |format|
       if @company.save
-        flash[:notice] = 'Company was successfully created.'
+        flash[:notice] = "#{@company.name} was successfully created."
         format.html { redirect_to @person }
         format.xml { render :xml => @company, :status => :created, :location => @company }
         format.js { render :layout => false }
@@ -59,7 +59,7 @@ class CompaniesController < ApplicationController
   def update
     respond_to do |format|
       if @company.update_attributes(params[:company])
-        flash[:notice] = 'Company was successfully updated.'
+        flash[:notice] = "#{@company.name} was successfully updated."
         format.html { redirect_to @person }
         format.xml { head :ok }
         format.js { render :layout => false }
@@ -82,7 +82,8 @@ class CompaniesController < ApplicationController
   # DELETE /people/1/companies/1.xml
   def destroy
     redirect_to @person and return if params[:cancel]
-    @company.destroy
+    
+    flash[:notice] = "#{@company.name} was successfully deleted." if @company.destroy
 
     respond_to do |format|
       format.html { redirect_to @person }

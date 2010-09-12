@@ -44,7 +44,7 @@ class ResponsibilitiesController < ApplicationController
   def create
     respond_to do |format|
       if @responsibility.save
-        flash[:notice] = 'Responsibility was successfully created.'
+        flash[:notice] = "#{@responsibility.description} was successfully created."
         format.html { redirect_to @person }
         format.xml { render :xml => @responsibility, :status => :created, :location => @responsibility }
       else
@@ -59,7 +59,7 @@ class ResponsibilitiesController < ApplicationController
   def update
     respond_to do |format|
       if @responsibility.update_attributes(params[:responsibility])
-        flash[:notice] = 'Responsibility was successfully updated.'
+        flash[:notice] = "#{@responsibility.description} was successfully updated."
         format.html { redirect_to @person }
         format.xml { head :ok }
       else
@@ -72,7 +72,7 @@ class ResponsibilitiesController < ApplicationController
   # DELETE /people/1/company/1/responsibilities/1
   # DELETE /people/1/company/1/responsibilities/1.xml
   def destroy
-    @responsibility.destroy
+    flash[:notice] = "#{@responsibility.description} was successfully deleted." if @responsibility.destroy
 
     respond_to do |format|
       format.html { redirect_to @person }

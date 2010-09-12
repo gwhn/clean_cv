@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
 
   def flash_to_headers
     return unless request.xhr?
+    response.headers['X-Message-Info'] = 'error' unless flash[:error].blank? or flash[:notice].blank?
     response.headers['X-Message'] = flash[:error] unless flash[:error].blank?
     response.headers['X-Message'] = flash[:notice] unless flash[:notice].blank?
     response.headers['X-Message'] = flash[:alert] unless flash[:alert].blank?

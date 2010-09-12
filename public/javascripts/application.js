@@ -114,7 +114,8 @@ $(function() {
         var msg = request.getResponseHeader('X-Message');
         if (msg) {
             $.pnotify({
-                pnotify_title: msg
+                pnotify_title: msg,
+                pnotify_type: request.getResponseHeader('X-Message-Info')
             });
         }
     }

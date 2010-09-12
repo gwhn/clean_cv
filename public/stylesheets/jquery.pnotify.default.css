@@ -10,69 +10,81 @@
 /* Notice
 ----------------------------------*/
 .ui-pnotify {
-	top: 18px;
-	right: 18px;
-	position: absolute;
-	height: auto;
-	/* Ensure that the notices are on top of everything else. */
-	z-index: 9999;
+    top: 18px;
+    right: 18px;
+    position: absolute;
+    height: auto; /* Ensure that the notices are on top of everything else. */
+    z-index: 9999;
 }
+
 /* This hides position: fixed from IE6, which doesn't understand it. */
 html > body .ui-pnotify {
-	position: fixed;
+    position: fixed;
 }
+
 .ui-pnotify .ui-pnotify-shadow {
-	margin: 0;
-	position: absolute;
-	top: .1em;
-	left: .1em;
-	bottom: -.2em;
-	right: -.2em;
-	z-index: -1;
+    margin: 0;
+    position: absolute;
+    top: .1em;
+    left: .1em;
+    bottom: -.2em;
+    right: -.2em;
+    z-index: -1;
 }
+
 .ui-pnotify-container {
-	background-position: 0 0;
-	padding: .8em;
-	height: 100%;
+    background-position: 0 0;
+    padding: .8em;
+    height: 100%;
 }
+
 .ui-pnotify-closer {
-	float: right;
-	margin-left: .2em;
+    float: right;
+    margin-left: .2em;
 }
+
 .ui-pnotify-title {
-	display: block;
-	font-size: 1.2em;
-	font-weight: bold;
-	margin-bottom: .4em;
+    display: block;
 }
+
 .ui-pnotify-text {
-	display: block;
+    display: block;
 }
+
 .ui-pnotify-icon, .ui-pnotify-icon span {
-	display: block;
-	float: left;
-	margin-right: .2em;
+    display: block;
+    float: left;
+    margin-right: .2em;
 }
+
 /* History Pulldown
 ----------------------------------*/
 .ui-pnotify-history-container {
-	position: absolute;
-	top: 0;
-	right: 18px;
-	width: 70px;
-	border-top: none;
-	/* Ensure that the history container is on top of the notices. */
-	z-index: 10000;
+    position: absolute;
+    top: 0;
+    right: 18px;
+    width: 70px;
+    border-top: none; /* Ensure that the history container is on top of the notices. */
+    z-index: 10000;
 }
+
 .ui-pnotify-history-container .ui-pnotify-history-header {
-	padding: 2px;
+    padding: 2px;
 }
+
 .ui-pnotify-history-container button {
-	cursor: pointer;
-	display: block;
-	width: 100%;
+    cursor: pointer;
+    display: block;
+    width: 100%;
 }
+
 .ui-pnotify-history-container .ui-pnotify-history-pulldown {
-	display: block;
-	margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.ui-pnotify.stack-bottomright {
+/* These are just CSS default values to reset the pnotify CSS. */
+    right: auto;
+    top: auto;
 }

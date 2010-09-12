@@ -44,7 +44,7 @@ class TasksController < ApplicationController
   def create
     respond_to do |format|
       if @task.save
-        flash[:notice] = 'Task was successfully created.'
+        flash[:notice] = "#{@task.description} was successfully created."
         format.html { redirect_to @person }
         format.xml { render :xml => @task, :status => :created, :location => @task }
       else
@@ -59,7 +59,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        flash[:notice] = 'Task was successfully updated.'
+        flash[:notice] = "#{@task.description} was successfully updated."
         format.html { redirect_to @person }
         format.xml { head :ok }
       else
@@ -72,7 +72,7 @@ class TasksController < ApplicationController
   # DELETE people/1/company/1/project/1/tasks/1
   # DELETE people/1/company/1/project/1/tasks/1.xml
   def destroy
-    @task.destroy
+    flash[:notice] = "#{@task.description} was successfully deleted." if @task.destroy
 
     respond_to do |format|
       format.html { redirect_to @person }

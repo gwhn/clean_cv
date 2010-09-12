@@ -60,7 +60,7 @@ class PeopleController < ApplicationController
   def create
     respond_to do |format|
       if @person.save
-        flash[:notice] = 'Person was successfully created.'
+        flash[:notice] = "#{@person.name} was successfully created."
         format.html { redirect_to @person }
         format.xml { render :xml => @person, :status => :created, :location => @person }
         format.js do
@@ -87,7 +87,7 @@ class PeopleController < ApplicationController
   def update
     respond_to do |format|
       if @person.update_attributes(params[:person])
-        flash[:notice] = 'Person was successfully updated.'
+        flash[:notice] = "#{@person.name} was successfully updated."
         format.html { redirect_to @person }
         format.xml { head :ok }
         format.js do
@@ -119,17 +119,14 @@ class PeopleController < ApplicationController
   # DELETE /people/1.xml
   def destroy
     redirect_to @person and return if params[:cancel]
-    @person.destroy
+    
+    flash[:notice] = "#{@person.name} was successfully deleted." if @person.destroy
 
     respond_to do |format|
       format.html { redirect_to people_url }
       format.xml { head :ok }
       format.js { render :action => :index }
     end
-  end
-
-  # GET /people/search
-  def search
   end
 
   protected
