@@ -91,7 +91,7 @@ JS
   def visualize_timeline(data, target)
     Seer::visualize(
             data,
-            :as => :line_chart,
+            :as => :area_chart,
             :in_element => target,
             :series => {
                     :series_label => 'name',
