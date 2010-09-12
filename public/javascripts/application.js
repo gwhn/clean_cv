@@ -107,13 +107,15 @@ $(function() {
         settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
     });
 
-//    $(document).ajaxError(flashMessage);
-//    $(document).ajaxSuccess(flashMessage);
-//
-//    function flashMessage(event, request) {
-//        var msg = request.getResponseHeader('X-Message');
-//        if (msg) {
-//            alert(msg);
-//        }
-//    }
+    $(document).ajaxError(flashMessage);
+    $(document).ajaxSuccess(flashMessage);
+
+    function flashMessage(event, request) {
+        var msg = request.getResponseHeader('X-Message');
+        if (msg) {
+            $.pnotify({
+                pnotify_title: msg
+            });
+        }
+    }
 });

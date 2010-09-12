@@ -14,22 +14,22 @@ class ApplicationController < ActionController::Base
 
   layout :choose_layout
 
-  after_filter :discard_flash_if_xhr
+#  after_filter :discard_flash_if_xhr
 
-#  after_filter :flash_to_headers
+  after_filter :flash_to_headers
 
   protected
-  def discard_flash_if_xhr
-    flash.discard if request.xhr?
-  end
-
-#  def flash_to_headers
-#    return unless request.xhr?
-#    response.headers['X-Message'] = flash[:error] unless flash[:error].blank?
-#    response.headers['X-Message'] = flash[:notice] unless flash[:notice].blank?
-#    response.headers['X-Message'] = flash[:alert] unless flash[:alert].blank?
-#    flash.discard # don't want the flash to appear when you reload page
+#  def discard_flash_if_xhr
+#    flash.discard if request.xhr?
 #  end
+
+  def flash_to_headers
+    return unless request.xhr?
+    response.headers['X-Message'] = flash[:error] unless flash[:error].blank?
+    response.headers['X-Message'] = flash[:notice] unless flash[:notice].blank?
+    response.headers['X-Message'] = flash[:alert] unless flash[:alert].blank?
+    flash.discard # don't want the flash to appear when you reload page
+  end
 
   def permission_denied
     flash[:error] = 'Permission denied!'
