@@ -102,7 +102,7 @@ JS
             :chart_options => {
                     :height => 350,
                     :width => 600,
-                    :colors => ['#0066aa', '#fdb020', '#222222'],
+                    :colors => ['#edb03b', '#aecd32', '#ad3735', '#dc8826', '#84c350'],
                     :title => 'Timeline',
                     :point_size => 3,
                     :axis_font_size => 8,
