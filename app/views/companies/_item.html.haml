@@ -35,7 +35,7 @@
         %li= link_to 'New project', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'
 
       - content_for :javascript do
-        = dynamic_tooltip_javascript_for "##{projects_id}", :position => 'top left'
+        = dynamic_tooltip_javascript_for "##{projects_id}", :position => 'center left'
 
   - if user_signed_in? and permitted_to? :manage, item
     %ul.options
@@ -45,4 +45,4 @@
         %li= link_to "Delete #{item.name}", delete_person_company_path(item.person, item), :class => 'remote-link', :title => "Delete #{item.name}"
 
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{company_id} > .company", :position => 'top right'
+      = dynamic_tooltip_javascript_for "##{company_id} > .company", :position => 'center right'

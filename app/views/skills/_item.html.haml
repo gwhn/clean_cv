@@ -26,5 +26,5 @@
         %li= link_to "Delete #{item.name}", delete_person_skill_path(item.person, item), :class => 'remote-link', :title => "Delete #{item.name}"
                                                                                             
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{skill_id} > .skill", :position => 'top right'
+      = dynamic_tooltip_javascript_for "##{skill_id} > .skill", :position => 'center right'
 

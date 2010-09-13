@@ -49,7 +49,7 @@
         %li= link_to 'New company', new_person_company_path(item), :class => 'remote-link', :title => 'New company'
 
       - content_for :javascript do
-        = dynamic_tooltip_javascript_for '.companies', :position => 'top left'
+        = dynamic_tooltip_javascript_for '.companies', :position => 'center left'
 
     .cv-section.fixed.skills
       .cv-section-name
@@ -76,7 +76,7 @@
         %li= link_to 'New skill', new_person_skill_path(item), :class => 'remote-link', :title => 'New skill'
 
       - content_for :javascript do
-        = dynamic_tooltip_javascript_for '.skills', :position => 'top left'
+        = dynamic_tooltip_javascript_for '.skills', :position => 'center left'
 
     .cv-section.last-cv-section.fixed.schools
       .cv-section-name
@@ -100,5 +100,5 @@
         %li= link_to 'New school', new_person_school_path(item), :class => 'remote-link', :title => 'New school'
 
       - content_for :javascript do
-        = dynamic_tooltip_javascript_for '.schools', :position => 'top left'
+        = dynamic_tooltip_javascript_for '.schools', :position => 'center left'
 

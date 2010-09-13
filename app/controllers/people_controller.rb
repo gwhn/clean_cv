@@ -1,4 +1,6 @@
 class PeopleController < ApplicationController
+  PEOPLE_PER_PAGE = 5
+
   skip_before_filter :authenticate_user!, :only => [:index, :show, :search]
 
   before_filter :load_person, :only => [:show, :edit, :update, :delete, :destroy]
@@ -17,17 +19,16 @@ class PeopleController < ApplicationController
   def search
   end
 
-  # GET /people
-  # GET /people.xml
+  # GET /people/query
   def index
     @people = Person.filter(@search_query.filter_options).
-            paginate(:page => params[:page], :per_page => 5)
+            paginate(:page => params[:page], :per_page => PEOPLE_PER_PAGE)
 
-    flash[:notice] = 'No records matched your search query by name, email or job title' and 
+    flash[:notice] = 'No records matched your search query by name, email or job title' and
             redirect_to search_people_path params and return unless @people.count > 0
 
     respond_to do |format|
-      format.html # index.html.haml
+      format.html { render :action => :index }
       format.xml { render :xml => @people }
     end
   end
