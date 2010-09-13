@@ -68,7 +68,7 @@ $("#{selector}").tooltip({
   delay: #{options[:delay]},
   tipClass: "#{options[:tip_class]}"
 });
-$(" #{selector} ").dynamic({bottom: {direction: "down"}});
+$("#{selector}").dynamic({bottom: {direction: "down"}});
 JS
     script = jquery_on_ready(script) if options[:on_ready_wrapper]
     script

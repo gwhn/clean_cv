@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  PEOPLE_PER_PAGE = 5
+  PEOPLE_PER_PAGE = 3
 
   skip_before_filter :authenticate_user!, :only => [:index, :show, :search]
 
@@ -19,7 +19,7 @@ class PeopleController < ApplicationController
   def search
   end
 
-  # GET /people/query
+  # GET /people
   def index
     @people = Person.filter(@search_query.filter_options).
             paginate(:page => params[:page], :per_page => PEOPLE_PER_PAGE)

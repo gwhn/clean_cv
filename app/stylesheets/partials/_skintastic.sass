@@ -1,6 +1,7 @@
 form
   +stack-form
   +float-inputs(10px, 1.4em)
+  :width 100% !important
   // <li> Field wrappers
   li
     :padding 5px 0px
@@ -29,6 +30,7 @@ form
     abbr
       :color #f00
   label
+    :margin 0 4px
     :line-height 1.4em
   legend
     span
@@ -42,29 +44,28 @@ form
   //--------------------------------------------------------
   select
     :padding 3px
-  input, textarea, select
+  input, textarea
+    :color #666
     :font-family inherit
     :font-size 14px
   textarea, input
-    :border 1px solid #999
-    :padding 6px 8px
+    :background #f8f8f8
+    :background -webkit-gradient(linear,left top,left bottom,color-stop(0.15, rgb(248,248,248)),color-stop(1, rgb(194,194,194)))
+    :background -moz-linear-gradient(center top,rgb(248,248,248) 15%,rgb(194,194,194) 100%)
+    :border 1px solid #979797
+    :padding 2px 5px
+    :margin 4px
     :line-height 100%
-    :-webkit-border-radius 5px
-    :-moz-border-radius 5px
-    :border-radius 5px
-    :-webkit-transition all 0.5s ease-in-out
-    :-moz-transition all 0.5s ease-in-out
-    :transition all 0.5s ease-in-out
+    :-webkit-border-radius 3px
+    :-moz-border-radius 3px
+    :border-radius 3px
+    :text-shadow 0 1px 0 #fff
     &:focus, &:focus
-      :border-color #fdb020
-      :-webkit-box-shadow 0 0 15px #fdb020
-      :-moz-box-shadow 0 0 15px #fdb020
-      :box-shadow 0 0 15px #fdb020
-      :-webkit-transform scale(1.05)
-      :-moz-transform scale(1.05)
-      :transform scale(1.05)
+      :-webkit-box-shadow 0 0 5px #666
+      :-moz-box-shadow 0 0 5px #666
+      :box-shadow 0 0 5px #666
   textarea, input, .check_boxes
-    :width 90%
+    :width 490px
   textarea
     :height 5em
   //--------------------------------------------------------
@@ -90,14 +91,12 @@ form
     :padding 3px 0px
   .required
     input,textarea,select
-      :background-color #fff
   .error
     input,textarea,select
       :background-color #fcc
       :border 1px solid #f66
   .optional
     input,textarea,select
-      :background-color #fff
   .errors
     :color #a00
     li
@@ -124,6 +123,7 @@ form
     :margin 8px 30px
   .new-child
     :padding 0 0 5px 10px
+    :margin 0 0 0 4px
   h2
     :color #3C4756
     :font-family 'AllerLightItalic', sans-serif
@@ -135,3 +135,4 @@ form
     :text-align center
     :border-top 1px solid #dfdfdf
     :text-transform none !important
+    :text-shadow 1px 1px 0 #dfdfdf !important

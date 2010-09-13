@@ -544,6 +544,10 @@ body.two-col #content {
   overflow-x: hidden;
 }
 
+/* line 1, ../../../app/stylesheets/partials/_skintastic.sass */
+form {
+  width: 100% !important;
+}
 /* line 157, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form ul, form ol, form legend, form p {
   margin: 0;
@@ -623,13 +627,12 @@ form .date label, form .time label, form .datetime label {
 form .date input, form .time input, form .datetime input {
   display: inline;
   margin: 0;
-  padding: 0;
 }
-/* line 207, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 206, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .errors {
   list-style: square;
 }
-/* line 209, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 208, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .errors li {
   padding: 0;
   border: none;
@@ -637,15 +640,15 @@ form .errors li {
   float: none;
   clear: both;
 }
-/* line 215, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 214, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .inputs {
   z-index: 99;
 }
-/* line 218, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 217, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .buttons li {
   float: left;
 }
-/* line 221, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 220, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form li {
   *display: inline-block;
   display: block;
@@ -658,158 +661,158 @@ form li:after {
   clear: both;
   visibility: hidden;
 }
-/* line 224, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 223, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form li fieldset {
   border: none;
   position: relative;
   margin-top: 0px;
 }
-/* line 228, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 227, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form li legend {
   display: block;
   margin-bottom: 0;
 }
-/* line 231, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 230, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form li .label {
   display: block;
   clear: both;
   background: transparent;
 }
-/* line 236, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 235, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form li ol {
   float: left;
   margin: 0;
 }
-/* line 239, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 238, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form li ol li {
   padding: 0;
   border: 0;
   display: inline;
 }
-/* line 251, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 250, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form fieldset {
   width: 100%;
 }
-/* line 253, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 252, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form ol {
   padding-left: 0;
 }
-/* line 255, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 254, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form input {
   clear: both;
   float: none;
 }
-/* line 258, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 257, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form li {
   display: block;
   clear: both;
   float: none;
   width: 100%;
 }
-/* line 261, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 260, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form li ol {
   padding: 0;
 }
-/* line 263, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 262, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form li li {
   clear: none;
   width: auto;
 }
-/* line 267, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 266, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form li fieldset legend, form li fieldset legend .label {
   display: block;
   clear: both;
 }
-/* line 270, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 269, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form li fieldset .label {
   position: relative;
 }
-/* line 272, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 271, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form li fieldset label, form li fieldset input {
   width: auto;
 }
-/* line 275, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 274, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .date ol, form .time ol, form .datetime ol {
   width: 100%;
 }
-/* line 277, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 276, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .date li, form .time li, form .datetime li {
   display: inline;
   clear: none;
   float: left;
   padding-right: 0;
 }
-/* line 283, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 282, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .checkbox li, form .radio li {
   display: block;
 }
-/* line 285, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 284, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .checkbox input, form .radio input {
   border: none;
 }
-/* line 287, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 286, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form label {
   display: block;
   clear: both;
   float: none;
   width: auto;
 }
-/* line 290, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 289, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form input, form textarea {
   width: auto;
 }
-/* line 295, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 294, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form select {
   width: auto;
 }
-/* line 300, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 299, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .errors li {
   display: list-item;
 }
-/* line 303, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 302, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .buttons ol {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 306, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 305, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .buttons li {
   float: left;
   width: auto;
   clear: none;
   display: inline;
 }
-/* line 314, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 313, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .buttons input {
   width: auto;
 }
-/* line 319, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 318, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form #errorExplanation {
   width: 100%;
 }
-/* line 321, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 320, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .label {
   #left: -0.5em;
   #position: relative;
 }
-/* line 424, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 423, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .radio ol, form .check_boxes ol {
   display: inline;
   float: left;
   clear: none;
 }
-/* line 426, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 425, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .radio li, form .check_boxes li {
   width: auto;
   display: inline;
   float: left;
   clear: none;
 }
-/* line 429, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 428, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .radio input, form .check_boxes input {
   float: none;
   display: inline;
 }
-/* line 432, ../../../app/stylesheets/partials/_formtastic_base.sass */
+/* line 431, ../../../app/stylesheets/partials/_formtastic_base.sass */
 form .radio label, form .check_boxes label {
   display: block;
   clear: none;
@@ -818,162 +821,155 @@ form .radio label, form .check_boxes label {
   line-height: 1.4em;
   margin-right: 10px;
 }
-/* line 5, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 6, ../../../app/stylesheets/partials/_skintastic.sass */
 form li {
   padding: 5px 0px;
 }
-/* line 8, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 9, ../../../app/stylesheets/partials/_skintastic.sass */
 form li li {
   padding: 0;
 }
-/* line 13, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 14, ../../../app/stylesheets/partials/_skintastic.sass */
 form fieldset {
   padding: 0;
 }
-/* line 16, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 17, ../../../app/stylesheets/partials/_skintastic.sass */
 form li {
   margin: 5px 10px;
 }
-/* line 18, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 19, ../../../app/stylesheets/partials/_skintastic.sass */
 form li fieldset {
   padding: 0;
 }
-/* line 23, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 24, ../../../app/stylesheets/partials/_skintastic.sass */
 form legend, form label {
   color: #333333;
 }
-/* line 26, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 27, ../../../app/stylesheets/partials/_skintastic.sass */
 form label, form .label {
   padding-bottom: 5px;
 }
-/* line 29, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 30, ../../../app/stylesheets/partials/_skintastic.sass */
 form label abbr, form .label abbr {
   color: red;
 }
-/* line 31, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 32, ../../../app/stylesheets/partials/_skintastic.sass */
 form label {
+  margin: 0 4px;
   line-height: 1.4em;
 }
-/* line 34, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 36, ../../../app/stylesheets/partials/_skintastic.sass */
 form legend span {
   font-size: 1.4em;
   line-height: 1em;
 }
-/* line 38, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 40, ../../../app/stylesheets/partials/_skintastic.sass */
 form legend span.label {
   font-size: 1em;
 }
-/* line 43, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 45, ../../../app/stylesheets/partials/_skintastic.sass */
 form select {
   padding: 3px;
 }
-/* line 45, ../../../app/stylesheets/partials/_skintastic.sass */
-form input, form textarea, form select {
+/* line 47, ../../../app/stylesheets/partials/_skintastic.sass */
+form input, form textarea {
+  color: #666666;
   font-family: inherit;
   font-size: 14px;
 }
-/* line 48, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 51, ../../../app/stylesheets/partials/_skintastic.sass */
 form textarea, form input {
-  border: 1px solid #999999;
-  padding: 6px 8px;
+  background: #f8f8f8;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.15, #f8f8f8), color-stop(1, #c2c2c2));
+  background: -moz-linear-gradient(center top, #f8f8f8 15%, #c2c2c2 100%);
+  border: 1px solid #979797;
+  padding: 2px 5px;
+  margin: 4px;
   line-height: 100%;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-shadow: 0 1px 0 white;
 }
-/* line 58, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 63, ../../../app/stylesheets/partials/_skintastic.sass */
 form textarea:focus, form textarea:focus, form input:focus, form input:focus {
-  border-color: #fdb020;
-  -webkit-box-shadow: 0 0 15px #fdb020;
-  -moz-box-shadow: 0 0 15px #fdb020;
-  box-shadow: 0 0 15px #fdb020;
-  -webkit-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  transform: scale(1.05);
+  -webkit-box-shadow: 0 0 5px #666666;
+  -moz-box-shadow: 0 0 5px #666666;
+  box-shadow: 0 0 5px #666666;
 }
-/* line 66, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 67, ../../../app/stylesheets/partials/_skintastic.sass */
 form textarea, form input, form .check_boxes {
-  width: 90%;
+  width: 490px;
 }
-/* line 68, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 69, ../../../app/stylesheets/partials/_skintastic.sass */
 form textarea {
   height: 5em;
 }
-/* line 74, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 75, ../../../app/stylesheets/partials/_skintastic.sass */
 form .date li, form .time li, form .datetime li {
   margin: 0 0.3em 0 0;
 }
-/* line 76, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 77, ../../../app/stylesheets/partials/_skintastic.sass */
 form .date li label, form .time li label, form .datetime li label {
   display: none;
 }
-/* line 79, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 80, ../../../app/stylesheets/partials/_skintastic.sass */
 form .date legend label, form .time legend label, form .datetime legend label {
   display: block;
 }
-/* line 87, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 88, ../../../app/stylesheets/partials/_skintastic.sass */
 form #errorExplanation li {
   margin-left: 15px;
 }
-/* line 89, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 90, ../../../app/stylesheets/partials/_skintastic.sass */
 form form p, form .errors {
   padding: 3px 0px;
-}
-/* line 92, ../../../app/stylesheets/partials/_skintastic.sass */
-form .required input, form .required textarea, form .required select {
-  background-color: white;
 }
 /* line 95, ../../../app/stylesheets/partials/_skintastic.sass */
 form .error input, form .error textarea, form .error select {
   background-color: #ffcccc;
   border: 1px solid #ff6666;
 }
-/* line 99, ../../../app/stylesheets/partials/_skintastic.sass */
-form .optional input, form .optional textarea, form .optional select {
-  background-color: white;
-}
-/* line 101, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 100, ../../../app/stylesheets/partials/_skintastic.sass */
 form .errors {
   color: #aa0000;
 }
-/* line 103, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 102, ../../../app/stylesheets/partials/_skintastic.sass */
 form .errors li {
   margin-left: 1.2em;
   list-style-type: disc;
 }
-/* line 107, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 106, ../../../app/stylesheets/partials/_skintastic.sass */
 form p.inline-errors {
   color: red;
 }
-/* line 109, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 108, ../../../app/stylesheets/partials/_skintastic.sass */
 form p.inline-hints {
   color: #777777;
 }
-/* line 114, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 113, ../../../app/stylesheets/partials/_skintastic.sass */
 form .buttons {
   padding-top: 8px;
   padding-bottom: 8px;
   margin-top: 8px;
 }
-/* line 118, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 117, ../../../app/stylesheets/partials/_skintastic.sass */
 form .buttons li {
   padding-right: 0.5em;
 }
-/* line 120, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 119, ../../../app/stylesheets/partials/_skintastic.sass */
 form .buttons input {
   border: 1px solid #999999;
 }
-/* line 122, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 121, ../../../app/stylesheets/partials/_skintastic.sass */
 form .remove-child {
   float: right;
   margin: 8px 30px;
 }
-/* line 125, ../../../app/stylesheets/partials/_skintastic.sass */
+/* line 124, ../../../app/stylesheets/partials/_skintastic.sass */
 form .new-child {
   padding: 0 0 5px 10px;
+  margin: 0 0 0 4px;
 }
 /* line 127, ../../../app/stylesheets/partials/_skintastic.sass */
 form h2 {
@@ -987,6 +983,7 @@ form h2 {
   text-align: center;
   border-top: 1px solid #dfdfdf;
   text-transform: none !important;
+  text-shadow: 1px 1px 0 #dfdfdf !important;
 }
 
 /* =GENERAL
@@ -1244,7 +1241,18 @@ ul li {
   display: inline-block;
 }
 
-/* line 259, ../../../app/stylesheets/screen.scss */
+/* line 260, ../../../app/stylesheets/screen.scss */
+#education_timeline,
+#work_timeline,
+#skills_summary,
+.location-map,
+.tooltip,
+.options-menu,
+.options {
+  display: none;
+}
+
+/* line 269, ../../../app/stylesheets/screen.scss */
 #education_timeline,
 #work_timeline,
 #skills_summary,
@@ -1252,13 +1260,17 @@ ul li {
 .tooltip,
 .options {
   padding: 5px;
-  display: none;
   background-color: #f8f8f8;
   border-top: 2px solid #fdb020;
   border-bottom: 2px solid #fdb020;
 }
 
-/* line 273, ../../../app/stylesheets/screen.scss */
+/* line 276, ../../../app/stylesheets/screen.scss */
+.options-menu > .options {
+  display: block;
+}
+
+/* line 286, ../../../app/stylesheets/screen.scss */
 .js #education_timeline,
 .js #work_timeline,
 .js #skills_summary,
@@ -1274,41 +1286,41 @@ ul li {
   box-shadow: 0 0 15px #fdb020;
 }
 
-/* line 285, ../../../app/stylesheets/screen.scss */
+/* line 298, ../../../app/stylesheets/screen.scss */
 .options li {
   list-style-type: none;
   padding: 5px;
 }
 
 /* root element for accordion. decorated with rounded borders and gradient background image */
-/* line 292, ../../../app/stylesheets/screen.scss */
+/* line 305, ../../../app/stylesheets/screen.scss */
 .accordion {
   /* accordion header */
   /* currently active header */
   /* accordion panel */
 }
-/* line 294, ../../../app/stylesheets/screen.scss */
+/* line 307, ../../../app/stylesheets/screen.scss */
 .accordion h6 {
   border: 1px solid #dfdfdf;
   cursor: pointer;
 }
-/* line 300, ../../../app/stylesheets/screen.scss */
+/* line 313, ../../../app/stylesheets/screen.scss */
 .accordion h6.current {
   background-color: #f8f8f8;
   cursor: default;
 }
-/* line 306, ../../../app/stylesheets/screen.scss */
+/* line 319, ../../../app/stylesheets/screen.scss */
 .accordion .panel {
   border-width: 0 2px;
   display: none;
   padding: 5px;
 }
-/* line 311, ../../../app/stylesheets/screen.scss */
+/* line 324, ../../../app/stylesheets/screen.scss */
 .accordion .panel li {
   list-style-position: inside !important;
 }
 
-/* line 318, ../../../app/stylesheets/screen.scss */
+/* line 331, ../../../app/stylesheets/screen.scss */
 .pager {
   font-size: 16px;
   font-family: 'AllerRegular', sans-serif;
@@ -1316,51 +1328,51 @@ ul li {
   text-align: center;
   color: #475261;
 }
-/* line 325, ../../../app/stylesheets/screen.scss */
+/* line 338, ../../../app/stylesheets/screen.scss */
 .pager .disabled {
   color: #dfdfdf;
 }
-/* line 331, ../../../app/stylesheets/screen.scss */
+/* line 344, ../../../app/stylesheets/screen.scss */
 .pager a,
 .pager .disabled,
 .pager .current {
   padding: 5px;
   border: 1px solid #dfdfdf;
 }
-/* line 336, ../../../app/stylesheets/screen.scss */
+/* line 349, ../../../app/stylesheets/screen.scss */
 .pager .current {
   font-weight: 700;
   background-color: #fdb020;
 }
-/* line 341, ../../../app/stylesheets/screen.scss */
+/* line 354, ../../../app/stylesheets/screen.scss */
 .pager .gap {
   padding: 5px 10px;
 }
 
 /* =COLORS-TYPOGRAPHY
 ----------------------------------*/
-/* line 349, ../../../app/stylesheets/screen.scss */
+/* line 362, ../../../app/stylesheets/screen.scss */
 #cv {
   background-color: #FFF;
   border-bottom: 15px solid #FDB020;
   border-top: 15px solid #FDB020;
 }
 
-/* line 355, ../../../app/stylesheets/screen.scss */
+/* line 368, ../../../app/stylesheets/screen.scss */
 .cv-section {
   border-bottom: 1px solid #dfdfdf;
 }
-/* line 358, ../../../app/stylesheets/screen.scss */
+/* line 371, ../../../app/stylesheets/screen.scss */
 .cv-section p {
   text-align: justify;
 }
 
-/* line 363, ../../../app/stylesheets/screen.scss */
+/* line 376, ../../../app/stylesheets/screen.scss */
 .first-cv-section {
   background-color: #f8f8f8;
 }
 
-/* line 369, ../../../app/stylesheets/screen.scss */
+/* line 382, ../../../app/stylesheets/screen.scss */
 .person h1 {
   color: #475261;
   font-size: 36px;
@@ -1368,11 +1380,11 @@ ul li {
   letter-spacing: -1.4px;
   font-family: 'AllerRegular', sans-serif;
 }
-/* line 376, ../../../app/stylesheets/screen.scss */
+/* line 389, ../../../app/stylesheets/screen.scss */
 .person h1 a {
   color: #475261;
 }
-/* line 382, ../../../app/stylesheets/screen.scss */
+/* line 395, ../../../app/stylesheets/screen.scss */
 .person h2 {
   color: #475261;
   font-size: 24px;
@@ -1380,17 +1392,17 @@ ul li {
   letter-spacing: -0.7px;
   text-transform: uppercase;
 }
-/* line 390, ../../../app/stylesheets/screen.scss */
+/* line 403, ../../../app/stylesheets/screen.scss */
 .person h1, .person h2 {
   text-shadow: 1px 1px 0 #fff;
 }
 
-/* line 395, ../../../app/stylesheets/screen.scss */
+/* line 408, ../../../app/stylesheets/screen.scss */
 .social-media {
   list-style: none;
 }
 
-/* line 399, ../../../app/stylesheets/screen.scss */
+/* line 412, ../../../app/stylesheets/screen.scss */
 .cv-section-name h2 {
   color: #333333;
   font-family: 'AllerLightItalic', sans-serif;
@@ -1399,11 +1411,11 @@ ul li {
   letter-spacing: -1px;
 }
 
-/* line 407, ../../../app/stylesheets/screen.scss */
+/* line 420, ../../../app/stylesheets/screen.scss */
 .item {
   border-bottom: 1px solid #dfdfdf;
 }
-/* line 411, ../../../app/stylesheets/screen.scss */
+/* line 424, ../../../app/stylesheets/screen.scss */
 .item h4 {
   background-color: #f8f8f8;
   font-family: 'AllerRegular', sans-serif;
@@ -1411,19 +1423,19 @@ ul li {
   text-transform: uppercase;
   line-height: 24px;
 }
-/* line 419, ../../../app/stylesheets/screen.scss */
+/* line 432, ../../../app/stylesheets/screen.scss */
 .item h4:hover {
   background-color: #333;
   color: #fff;
 }
-/* line 424, ../../../app/stylesheets/screen.scss */
+/* line 437, ../../../app/stylesheets/screen.scss */
 .item h2 {
   color: #06A;
   font-family: 'AllerRegular', sans-serif;
   font-size: 24px;
   letter-spacing: -1px;
 }
-/* line 433, ../../../app/stylesheets/screen.scss */
+/* line 446, ../../../app/stylesheets/screen.scss */
 .item h3,
 .item h5,
 .item .result {
@@ -1431,107 +1443,124 @@ ul li {
   font-family: 'GentiumBookBasicItalic', serif;
   font-size: 20px;
 }
-/* line 440, ../../../app/stylesheets/screen.scss */
+/* line 453, ../../../app/stylesheets/screen.scss */
 .item h5,
 .item .result {
   font-family: 'GentiumBookBasicRegular', serif;
 }
-/* line 444, ../../../app/stylesheets/screen.scss */
+/* line 457, ../../../app/stylesheets/screen.scss */
 .item h6 {
   color: #06A;
   font-family: 'AllerRegular', sans-serif;
   font-size: 16px;
   letter-spacing: -1px;
 }
-/* line 451, ../../../app/stylesheets/screen.scss */
+/* line 464, ../../../app/stylesheets/screen.scss */
 .item p {
   text-align: justify;
 }
-/* line 455, ../../../app/stylesheets/screen.scss */
+/* line 468, ../../../app/stylesheets/screen.scss */
 .item ul {
   text-align: justify;
 }
-/* line 459, ../../../app/stylesheets/screen.scss */
+/* line 472, ../../../app/stylesheets/screen.scss */
 .item:last-child {
   border-bottom: none;
 }
 
-/* line 464, ../../../app/stylesheets/screen.scss */
+/* line 477, ../../../app/stylesheets/screen.scss */
 .last-cv-section {
   border-bottom: none;
 }
 
-/* line 469, ../../../app/stylesheets/screen.scss */
+/* line 482, ../../../app/stylesheets/screen.scss */
 .repeater li {
   font-family: 'GentiumBookBasicBoldItalic', serif;
   color: #0066aa;
 }
 
-/* line 475, ../../../app/stylesheets/screen.scss */
+/* line 488, ../../../app/stylesheets/screen.scss */
 .handle {
   cursor: move;
 }
 
-/* line 481, ../../../app/stylesheets/screen.scss */
+/* line 494, ../../../app/stylesheets/screen.scss */
 .person img {
   float: left;
+  margin-left: 4px;
   margin-right: 25px;
   padding: 10px;
   background-color: #FFF;
   border: 1px solid #dfdfdf;
 }
 
-/* line 493, ../../../app/stylesheets/screen.scss */
+/* line 507, ../../../app/stylesheets/screen.scss */
 .no-js .options,
 .no-js .accordion .panel {
   display: block !important;
 }
-/* line 497, ../../../app/stylesheets/screen.scss */
+/* line 511, ../../../app/stylesheets/screen.scss */
 .no-js .nested-attributes,
 .no-js .new-child {
   display: none;
 }
 
-/* line 503, ../../../app/stylesheets/screen.scss */
+/* line 518, ../../../app/stylesheets/screen.scss */
+.menu,
 .search,
 .authme {
   background-color: #333;
   border: 1px solid #444;
   display: block;
   padding: 12px 15px;
-  top: 66px;
   position: fixed;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
 }
-/* line 511, ../../../app/stylesheets/screen.scss */
+/* line 528, ../../../app/stylesheets/screen.scss */
+.menu:hover,
 .search:hover,
 .authme:hover {
   background-color: #222;
 }
-/* line 515, ../../../app/stylesheets/screen.scss */
+/* line 532, ../../../app/stylesheets/screen.scss */
+.menu img,
 .search img,
 .authme img {
   padding: 0 0 0 5px;
 }
-/* line 519, ../../../app/stylesheets/screen.scss */
+/* line 536, ../../../app/stylesheets/screen.scss */
+.menu a,
 .search a,
 .authme a {
   color: #fff;
-  font-size: 15px;
-  font-weight: 700;
   text-decoration: none;
 }
 
-/* line 527, ../../../app/stylesheets/screen.scss */
+/* line 543, ../../../app/stylesheets/screen.scss */
+.search,
 .authme {
+  top: 66px;
+}
+
+/* line 548, ../../../app/stylesheets/screen.scss */
+.authme,
+.options {
   left: 0;
 }
 
-/* line 531, ../../../app/stylesheets/screen.scss */
+/* line 552, ../../../app/stylesheets/screen.scss */
 .search {
   right: 0;
 }
 
-/* line 535, ../../../app/stylesheets/screen.scss */
+/* line 556, ../../../app/stylesheets/screen.scss */
+.menu {
+  bottom: 66px;
+}
+
+/* line 560, ../../../app/stylesheets/screen.scss */
 .hint {
   display: none;
   background-color: #f8f8f8;
@@ -1539,12 +1568,12 @@ ul li {
   padding: 10px;
 }
 
-/* line 542, ../../../app/stylesheets/screen.scss */
+/* line 567, ../../../app/stylesheets/screen.scss */
 .no-js .hint {
   display: block !important;
 }
 
-/* line 546, ../../../app/stylesheets/screen.scss */
+/* line 571, ../../../app/stylesheets/screen.scss */
 #flash > div {
   padding: 12px 15px;
 }

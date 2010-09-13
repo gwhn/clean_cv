@@ -256,12 +256,25 @@ ul {
 #skills_summary,
 .location-map,
 .tooltip,
+.options-menu,    
+.options {
+    display: none;
+}
+
+#education_timeline,
+#work_timeline,
+#skills_summary,
+.location-map,
+.tooltip,
 .options {
     padding: 5px;
-    display: none;
     background-color: #f8f8f8;
     border-top: 2px solid #fdb020;
     border-bottom: 2px solid #fdb020;
+}
+
+.options-menu > .options {
+    display: block;
 }
 
 .js {
@@ -480,6 +493,7 @@ ul {
 
     img {
         float: left;
+        margin-left: 4px;
         margin-right: 25px;
         padding: 10px;
         background-color: #FFF;
@@ -499,14 +513,17 @@ ul {
     }
 }
 
+.menu,
 .search,
 .authme {
     background-color: #333;
     border: 1px solid #444;
     display: block;
     padding: 12px 15px;
-    top: 66px;
     position: fixed;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
 
     &:hover {
         background-color: #222;
@@ -518,18 +535,26 @@ ul {
 
     a {
         color: #fff;
-        font-size: 15px;
-        font-weight: 700;
         text-decoration: none;
     }
 }
 
+.search,
 .authme {
+    top: 66px;
+}
+
+.authme,
+.options {
     left: 0;
 }
 
 .search {
     right: 0;
+}
+
+.menu {
+    bottom: 66px;
 }
 
 .hint {
@@ -546,3 +571,4 @@ ul {
 #flash > div {
     padding: 12px 15px;
 }
+
