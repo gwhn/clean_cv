@@ -36,9 +36,9 @@ function bindRemoteLinks(dialog, selector) {
 
 function openForm(dialog, title) {
     bindFormSubmit(dialog);
-    $("select, input:checkbox, input:radio, input:file").uniform();    
     $(dialog).dialog("option", "title", title);
     $(dialog).dialog("open");
+    $("select, input:checkbox, input:radio, input:file").uniform();
 }
 
 function bindFormSubmit(dialog) {

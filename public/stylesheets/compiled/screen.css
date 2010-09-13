@@ -899,7 +899,7 @@ form textarea:focus, form textarea:focus, form input:focus, form input:focus {
 }
 /* line 67, ../../../app/stylesheets/partials/_skintastic.sass */
 form textarea, form input, form .check_boxes {
-  width: 490px;
+  width: 480px;
 }
 /* line 69, ../../../app/stylesheets/partials/_skintastic.sass */
 form textarea {
@@ -964,7 +964,7 @@ form .buttons input {
 /* line 121, ../../../app/stylesheets/partials/_skintastic.sass */
 form .remove-child {
   float: right;
-  margin: 8px 30px;
+  margin: 8px 50px;
 }
 /* line 124, ../../../app/stylesheets/partials/_skintastic.sass */
 form .new-child {
