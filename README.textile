@@ -63,8 +63,30 @@ h2. Features
 # Uses the new data-xxx attributes of HTML 5 to add new child associations to models
 # Uses SASS and blueprint to help manage styles
 # Uses the latest HTML 5 boilerplate template
+# Uses Formtastic to make forms quick and easy, as well as consisten
+# Uses Friendly ID with slugs to make friendly URLs at the Person scope
+# Uses nested resources to scope access for RESTful routes
 
 h2. Future Improvements
 
 Initially I had responsibilities associated with projects, but decided that they were really related to the company, not the project. I added tasks to projects but the data structure was exactly the same, consisting of id, timestamps, description and position (for ordered listing). I now realize that I could have used a polymorphic relationship, named the association note(s) and added them to company and project instead. This could then be taken further and applied to any of the other models i.e. skill.notes or category.note
+
+h2. To Dos
+
+# Update technical skills by category summary table on XHR skill update
+# Update work experience timeline on XHR company update
+# Update education timeline on XHR school update
+# Add rating to skills
+# Add training section for professional qualifications
+# Add references section
+# Enable invitations for references to referees with role-based access control
+# Polymorphic notable list item associations
+# Make skills and projects taggable
+# Enable has and belongs to many categories
+# Enable categories to have sub-categories and act as tree
+# Enable AJAX search with search form displayed in modal dialog
+# Provide version history and publish flags
+# Upgrade to Rails 3
+# Enable full-text search using Sphinx, Solr or Ferret
+# Provide support for OAuth with Devise
 
