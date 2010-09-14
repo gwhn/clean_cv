@@ -43,10 +43,11 @@ class Person < ActiveRecord::Base
                                 }
 
   has_attached_file :photo, :styles => {:small => '100x100#'}
-
-  validates_attachment_presence :photo
-  validates_attachment_size :photo, :less_than => 10.megabytes
-  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
+  validates_attachment_size :photo, :less_than => 10.megabytes,
+                            :unless => lambda { |m| m[:photo].nil? }
+  validates_attachment_content_type :photo,
+                                    :content_type => ['image/jpeg', 'image/png'],
+                                    :unless => lambda { |m| m[:photo].nil? }
 
   named_scope :search, lambda { |query|
     {
