@@ -66,11 +66,5 @@ h2. Features
 
 h2. Future Improvements
 
-p.
- Initially I had responsibilities associated with projects, but decided that they were really
- related to the company, not the project. I added tasks to projects but the data structure was
- exactly the same, consisting of id, timestamps, description and position (for ordered listing).
- I now realize that I could have used a polymorphic relationship, named the association note(s)
- and added them to company and project instead. This could then be taken further and applied to
- any of the other models i.e. skill.notes or category.note
+Initially I had responsibilities associated with projects, but decided that they were really related to the company, not the project. I added tasks to projects but the data structure was exactly the same, consisting of id, timestamps, description and position (for ordered listing). I now realize that I could have used a polymorphic relationship, named the association note(s) and added them to company and project instead. This could then be taken further and applied to any of the other models i.e. skill.notes or category.note
 
