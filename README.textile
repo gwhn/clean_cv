@@ -103,3 +103,4 @@ h2. To Dos
 # Use HAML DOM IDs
 # Open project panel after it's re-positioned making it current
 # Add new company or school to correct position for start date
+# Enable create new skill within project form

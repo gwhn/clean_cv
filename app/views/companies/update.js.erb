@@ -2,7 +2,7 @@
 <%- projects_id = "#person_#{@person.id}_company_#{@company.id}_projects" %>
 <%- responsibilities_id = "#person_#{@person.id}_company_#{@company.id}_responsiblities" -%>
 $("<%= company_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @company) %>");
-$("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {tabs: "h6"});
+$("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {tabs: "h6", effect: "highlight-slide"});
 <%= dynamic_tooltip_javascript_for "#{company_id} > .company", :position => 'top right', :on_ready_wrapper => false %>
 <%= dynamic_tooltip_javascript_for projects_id, :position => 'top left', :on_ready_wrapper => false %>
 <%- @company.projects.each do |project| -%>

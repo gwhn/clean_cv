@@ -14,7 +14,6 @@ window.log = function() {
     }
 };
 
-
 // catch all document.write() calls
 (function(doc) {
     var write = doc.write;
@@ -24,4 +23,12 @@ window.log = function() {
     };
 })(document);
 
-
+// add new highlight slide effect to the tabs
+$.tools.tabs.addEffect("highlight-slide", function(tabIndex, done) {
+    const highlight = "ui-state-highlight";
+	this.getPanes().slideUp().addClass(highlight);
+	this.getPanes().eq(tabIndex).slideDown("slow", function()  {
+		$(this).removeClass(highlight);
+		done.call();
+	});
+});

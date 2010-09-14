@@ -89,7 +89,7 @@
         }
         initFancyBox("a.lightbox");
         $(".social-media [title]").tooltip({effect: "slide"}).dynamic({bottom: {direction: "down"}});
-        $(".accordion").tabs(".accordion .panel", {tabs: "h6"});
+        $(".accordion").tabs(".accordion .panel", {tabs: "h6", effect: "highlight-slide"});
         $(".move-actions, .update-actions").hide();
         bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");
         bindAddChildLinks(".add-person-company, .add-person-skill, .add-person-school, .add-person-company-project, .add-person-company-responsibility, .add-person-company-project-task");
