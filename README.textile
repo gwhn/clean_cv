@@ -12,28 +12,28 @@ realistic as possible (a common frustration with technology demos is they often 
 1 to 1, 1 to many and many to many relationships. The object graph is sufficiently complex as to be
 realistic.
 
-bc.
-.-------------.
-| SocialMedia |
-'-------------'
-     1 ^
-       | has one
-     1 |
-   .--------.      has many      .---------.    has many    .----------------.
-   | Person |------------------->| Company |--------------->| Responsibility |
-   '--------'      1      *      '---------'    1      *    '----------------'
-       |        .----------.          |
-       |        | Category |          |     has many     .---------. has many .------.
-       |        '----------'          '----------------->| Project |--------->| Task |
-       |            1 ^                     1      *     '---------' 1      * '------'
-       |              | has many                              ^
-       |            * |                                       |
-       | has many .-------. has and belongs to many           |
-       '--------->| Skill |-----------------------------------'
-       | 1      * '-------'
-       |
-       | has many .--------.
-       '--------->| School |
-         1      * '--------'
+bc. 
+ .-------------.
+ | SocialMedia |
+ '-------------'
+      1 ^
+        | has one
+      1 |
+    .--------.      has many      .---------.    has many    .----------------.
+    | Person |------------------->| Company |--------------->| Responsibility |
+    '--------'      1      *      '---------'    1      *    '----------------'
+        |        .----------.          |
+        |        | Category |          |     has many     .---------. has many .------.
+        |        '----------'          '----------------->| Project |--------->| Task |
+        |            1 ^                     1      *     '---------' 1      * '------'
+        |              | has many                              ^
+        |            * |                                       |
+        | has many .-------. has and belongs to many           |
+        '--------->| Skill |-----------------------------------'
+        | 1      * '-------'
+        |
+        | has many .--------.
+        '--------->| School |
+          1      * '--------'
 
 h2. Next Heading
