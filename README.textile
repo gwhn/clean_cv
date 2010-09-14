@@ -6,7 +6,7 @@ I have adopted techniques for progressive enhancement to enable dynamic features
 
 h2. Dependencies
 
-All the necessary gems are unpacked in the vendor directory except mysql and rmagick which need to be installed.
+All the necessary gems are unpacked in the vendor directory except mysql and rmagick which need to be installed separately. For PDFKit you will also need to install WebKit's HTMLtoPDF binary and change the initializer to point to it's installation path.
 
 h2. Model Associations
 
