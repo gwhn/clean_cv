@@ -70,6 +70,7 @@ h2. Features
 # Uses Formtastic to make forms quick and easy, as well as consisten
 # Uses Friendly ID with slugs to make friendly URLs at the Person scope
 # Uses nested resources to scope access for RESTful routes
+# Uses downloadable fonts packaged using Font Squirrel (Aller and Gentium)
 
 h2. Future Improvements
 
@@ -86,11 +87,19 @@ h2. To Dos
 # Enable invitations for references to referees with role-based access control
 # Polymorphic notable list item associations
 # Make skills and projects taggable
-# Enable has and belongs to many categories
+# Enable has and belongs to many categories associations
 # Enable categories to have sub-categories and act as tree
 # Enable AJAX search with search form displayed in modal dialog
 # Provide version history and publish flags
 # Upgrade to Rails 3
 # Enable full-text search using Sphinx, Solr or Ferret
 # Provide support for OAuth with Devise
-
+# Use Blueprint link icons
+# Optimize SASS and CSS files
+# Improve print CSS for PDF copy
+# Auto-paginate index search results using JQuery
+# Write specs with Cucumber, WebRat, RSpec, Shoulda and Mocha
+# Write JavaScript tests using Blue Ridge test framework
+# Use HAML DOM IDs
+# Open project panel after it's re-positioned making it current
+# Add new company or school to correct position for start date
