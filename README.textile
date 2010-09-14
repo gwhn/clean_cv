@@ -1,18 +1,28 @@
-*This project is not rocket science and does not push the boundaries of current technology.*
-
 h2. Introduction.
 
-My initial intention was to create a professional looking CV/resum&eacute; using a nice theme template
- that I discovered on themeforest.com named Clean CV. Rather than just updating the Word version of my
- CV I wanted to show prospective clients that I have a solid grasp of web development. It also gave me
- an excuse to re-visit Ruby and Rails, and checkout the current landscape.
+This application allows registered users to manage their CVs, and guests to search and browse them.
+ The initial intention was to create a professional looking CV/resum&eacute; using a theme template
+ I discovered on themeforest.com, called Clean CV. Rather than just updating the Word version of my CV,
+ I wanted to show prospective clients that I have a solid grasp of the _latest_ web development techniques. 
+ It also gave me an excuse to play with Ruby and Rails, and check-out the current gem/plugin landscape.
+
+I have adopted techniques for progressive enhancement to enable dynamic features where the browser's
+ capabilities allow it. This way, user's with the latest browsers get the best experience, but
+ older browsers can still access _all_ the apps functionality. To achieve this, the app uses a
+ technique known as Unobtrusive JavaScript, which separates behaviour from markup, in the same
+ way it is best practice to keep style separate to markup using CSS. This is particularly pertinent
+ at this time (Sep 2010) as the browsers adopt the HTML 5 specification differently.
+
+h2 Dependencies
+
+All the necessary gems are unpacked in the vendor directory except mysql and rmagick
+ which need to be installed.
 
 h2. Model Associations
 
-I wanted to use as many variations of model associations/relationships as possible to make it
- realistic (a common frustration with technology demos is they often aren't), so there are
- 1 to 1, 1 to many and many to many relationships. The object graph is sufficiently complex as to be
- realistic.
+I wanted to use all variations of model associations/relationships as possible to make it more
+ realistic (a common frustration with technology demos is they often aren't), so there are 1 to 1,
+ 1 to many, and many to many relationships.
 
 bc. 
  .-------------.
@@ -38,7 +48,41 @@ bc.
         '--------->| School |
           1      * '--------'
 
-h3. Future Improvements
+h2 Features
+
+# Uses Devise for authentication, which is Rack based, uses Warden and is extremely modular
+# Uses Declarative Authorization for role-based authorization, which provides a DSL to write
+ authorization rules at both controller and model level
+# Registered users can manage any number of CVs that they create
+# Unregistered users can search and browse all CVs by name, email and job title
+ (more search filters to come)
+# Uses Paperclip to allow registered users to upload a photo for each CV, but doesn't require it
+# Uses ImageMagick to create 100x100px thumbnail of uploaded photo, which is centered regardless
+ of the original's aspect ratio
+# Uses PDFKit, which in turn uses WebKit's wkhtmltopdf to dynamically generate PDFs on the fly
+# Allows users to add links to the Flickr, Facebook, LinkedIn and Twitter accounts
+# Allows users to add a link to a Google map of their location
+# Progressively enhances functionality dependent on the browser's capabilities
+# Everything still works when JavaScript is switched off
+# Everything looks reasonable in IE7 (IE6- users should expect things to look crap if they use crap)
+# Work experience and education are displayed in date descending order
+# Only the first project listed for each company is displayed by default to reduce information overload
+# Uses Google Visualization area chart to provide a timeline of the number of months for each year spent
+ with each company
+# Person skills, company responsibilities and project tasks can be re-positioned using drag and drop
+ (when polymorphic notes are implemented, I intend to allow drag and drop between models as well as scopes)
+# Skills can be associated with projects for quick lookup
+# Uses JQuery UI with the Aristo theme, if JavaScript is enabled, to display and post forms using AJAX
+ with submit buttons removed from the form and replaced in the button panel for consistency
+# Skills are summarized by category for quick lookup
+# Uses Uniform with the Aristo theme to provide a quality, consistent look and feel to file upload,
+ checkbox, radio and select input controls
+# Allows nested attributes in forms with parent-child relationships i.e. when creating a person,
+ you can add work experience, skills and schools which offers a more natural workflow
+# Disables nested attributes if JavaScript is not enabled
+# Uses the new data-xxx attributes of HTML 5 to add new child associations to models
+
+h2. Future Improvements
 
 Initially I had responsibilities associated with projects, but decided that they were really
  related to the company, not the project. I added tasks to projects but the data structure was
@@ -47,4 +91,3 @@ Initially I had responsibilities associated with projects, but decided that they
  and added them to company and project instead. This could then be taken further and applied to
  any of the other models i.e. skill.notes or category.note
 
- 
