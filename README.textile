@@ -2,16 +2,14 @@
 
 h2. Introduction.
 
-p.
- My initial intention was to create a professional looking CV/resum&eacute; using a nice theme template
+My initial intention was to create a professional looking CV/resum&eacute; using a nice theme template
  that I discovered on themeforest.com named Clean CV. Rather than just updating the Word version of my
  CV I wanted to show prospective clients that I have a solid grasp of web development. It also gave me
  an excuse to re-visit Ruby and Rails, and checkout the current landscape.
 
 h2. Model Associations
 
-p.
- I wanted to use as many variations of model associations/relationships as possible to make it
+I wanted to use as many variations of model associations/relationships as possible to make it
  realistic (a common frustration with technology demos is they often aren't), so there are
  1 to 1, 1 to many and many to many relationships. The object graph is sufficiently complex as to be
  realistic.
@@ -42,10 +40,11 @@ bc.
 
 h3. Future Improvements
 
-p.
- Initially I had responsibilities associated with projects, but decided that they were really
+Initially I had responsibilities associated with projects, but decided that they were really
  related to the company, not the project. I added tasks to projects but the data structure was
  exactly the same, consisting of id, timestamps, description and position (for ordered listing).
  I now realize that I could have used a polymorphic relationship, named the association note(s)
  and added them to company and project instead. This could then be taken further and applied to
  any of the other models i.e. skill.notes or category.note
+
+ 
