@@ -1,0 +1,37 @@
+hn. Introduction.
+
+*This project is not rocket science and does not push the boundaries of current technology.*
+
+My initial intention was to create a professional looking CV/resum&eacute; using a nice theme template
+that I discovered on themeforest.com named Clean CV. Rather than just updating the Word version of my
+CV I wanted to show prospective clients that I have a solid grasp of web development. It also gave me
+an excuse to re-visit Ruby and Rails, and checkout the current landscape.
+
+I wanted to use as many variations of model associations/relationships as possible to make it as
+realistic as possible (a common frustration with technology demos is they often aren't), so there are
+1 to 1, 1 to many and many to many relationships. The object graph is sufficiently complex as to be
+realistic.
+
+bc.
+.-------------.
+| SocialMedia |
+'-------------'
+     1 ^
+       | has one
+     1 |
+   .--------.      has many      .---------. has many .----------------.
+   | Person |------------------->| Company |--------->| Responsibility |
+   '--------'      1      *      '---------' 1      * '----------------'
+       |        .----------.          |
+       |        | Category |          |     has many     .---------. has many .------.
+       |        '----------'          '----------------->| Project |--------->| Task |
+       |            1 ^                     1      *     '---------' 1      * '------'
+       |              | has many                              ^
+       |            * |                                       |
+       | has many .-------. has and belongs to many           |
+       '--------->| Skill |-----------------------------------'
+       | 1      * '-------'
+       |
+       | has many .--------.
+       '--------->| School |
+         1      * '--------'
