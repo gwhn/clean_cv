@@ -1575,12 +1575,16 @@ ul.options {
   padding: 10px;
 }
 
-/* line 575, ../../../app/stylesheets/screen.scss */
+/* line 576, ../../../app/stylesheets/screen.scss */
 .no-js .hint {
   display: block !important;
 }
-
 /* line 579, ../../../app/stylesheets/screen.scss */
+.no-js .spinner {
+  display: none;
+}
+
+/* line 584, ../../../app/stylesheets/screen.scss */
 #flash > div {
   padding: 12px 15px;
 }

@@ -572,8 +572,13 @@ ul.options {
     padding: 10px;
 }
 
-.no-js .hint {
-    display: block !important;
+.no-js {
+    .hint {
+        display: block !important;
+    }
+    .spinner {
+        display: none;
+    }
 }
 
 #flash > div {
