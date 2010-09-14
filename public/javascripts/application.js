@@ -38,7 +38,7 @@ function openForm(dialog, title) {
     bindFormSubmit(dialog);
     $(dialog).dialog("option", "title", title);
     $(dialog).dialog("open");
-    $("select, input:checkbox, input:radio, input:file").uniform();
+    uniformInputs();
     $("textarea").autogrow();
 }
 
@@ -79,21 +79,28 @@ function bindAddChildLinks(selector) {
         var assoc = $(this).attr("data-association");
         var content = $("#" + assoc + "_fields_template").html();
         var regexp = new RegExp("new_" + assoc, "g");
-        var new_id = new Date().getTime();
-        $(this).parent().before(content.replace(regexp, new_id));
+        var newId = new Date().getTime();
+        $(this).parent().before(content.replace(regexp, newId));
+        $("select[id *= '" + newId + "']").uniform();
         return false;
     });
 }
 
 function bindRemoveChildLinks(selector) {
     $(selector).live("click", function() {
-        var hidden_field = $(this).parent().find("input[type=hidden]")[0];
-        if (hidden_field) {
-            hidden_field.value = "1";
+        var hiddenField = $(this).parent().find("input[type=hidden]")[0];
+        if (hiddenField) {
+            hiddenField.value = "1";
         }
         $(this).parents(".fields").hide();
         return false;
     });
+}
+
+function uniformInputs() {
+    $("select, input:checkbox, input:radio, input:file")
+            .not(".template select, .template  input:checkbox, .template  input:radio, .template  input:file")
+            .uniform();
 }
 
 $(function() {

@@ -95,7 +95,7 @@
         bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");
         bindAddChildLinks(".add-person-company, .add-person-skill, .add-person-school, .add-person-company-project, .add-person-company-responsibility, .add-person-company-project-task");
         bindRemoveChildLinks(".remove-person-company, .remove-person-skill, .remove-person-school, .remove-person-company-project, .remove-person-company-responsibility, .remove-person-company-project-task");
-        $("select, input:checkbox, input:radio, input:file").uniform();
+        uniformInputs();
         $("textarea").autogrow();
         $(".spinner").hide().ajaxStart(function() {
           $(this).show();

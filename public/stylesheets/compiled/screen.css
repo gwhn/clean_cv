@@ -1588,3 +1588,8 @@ ul.options {
 #flash > div {
   padding: 12px 15px;
 }
+
+/* line 588, ../../../app/stylesheets/screen.scss */
+.template {
+  display: none;
+}
