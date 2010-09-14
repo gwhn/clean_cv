@@ -39,6 +39,7 @@ function openForm(dialog, title) {
     $(dialog).dialog("option", "title", title);
     $(dialog).dialog("open");
     $("select, input:checkbox, input:radio, input:file").uniform();
+    $("textarea").autogrow();
 }
 
 function bindFormSubmit(dialog) {

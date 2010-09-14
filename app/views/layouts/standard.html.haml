@@ -66,7 +66,7 @@
       !window.jQuery && document.write('<script src="javascripts/jquery-1.4.2.min.js"><\/script>')
     %script{:src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"}
     %script{:src => "http://cdn.jquerytools.org/1.2.4/all/jquery.tools.min.js"}
-    = javascript_include_tag 'application', 'plugins', 'script', 'jquery.fancybox-1.2.6.pack.js', 'jquery.scrollTo-1.4.2-min.js', 'jquery.cookies.2.2.0.min.js', 'jquery.pnotify.min.js', 'jquery.uniform.min.js'
+    = javascript_include_tag 'application', 'plugins', 'script', 'jquery.fancybox-1.2.6.pack.js', 'jquery.scrollTo-1.4.2-min.js', 'jquery.cookies.2.2.0.min.js', 'jquery.pnotify.min.js', 'jquery.uniform.min.js', 'jquery.autogrow.js'
     /[if lt IE 7 ]
       = javascript_include_tag 'dd_belatedpng'
     /
@@ -95,6 +95,7 @@
         bindAddChildLinks(".add-person-company, .add-person-skill, .add-person-school, .add-person-company-project, .add-person-company-responsibility, .add-person-company-project-task");
         bindRemoveChildLinks(".remove-person-company, .remove-person-skill, .remove-person-school, .remove-person-company-project, .remove-person-company-responsibility, .remove-person-company-project-task");
         $("select, input:checkbox, input:radio, input:file").uniform();
+        $("textarea").autogrow();
       });
 
     = yield :javascript
