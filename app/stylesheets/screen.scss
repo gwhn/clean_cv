@@ -277,6 +277,10 @@ ul {
     display: block;
 }
 
+ul.options {
+    text-align: left !important;
+}
+
 .js {
     #education_timeline,
     #work_timeline,
@@ -553,12 +557,11 @@ ul {
 }
 
 .spinner {
-    bottom: 66px;
+    bottom: 0;
     display: block;
-    padding: 12px 15px;
     position: fixed;
     img {
-        padding: 0 0 0 5px;
+        padding: 5px;
     }
 }
 
