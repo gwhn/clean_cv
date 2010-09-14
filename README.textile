@@ -7,8 +7,10 @@ that I discovered on themeforest.com named Clean CV. Rather than just updating t
 CV I wanted to show prospective clients that I have a solid grasp of web development. It also gave me
 an excuse to re-visit Ruby and Rails, and checkout the current landscape.
 
-I wanted to use as many variations of model associations/relationships as possible to make it as
-realistic as possible (a common frustration with technology demos is they often aren't), so there are
+h2. Model Associations
+
+I wanted to use as many variations of model associations/relationships as possible to make it
+realistic (a common frustration with technology demos is they often aren't), so there are
 1 to 1, 1 to many and many to many relationships. The object graph is sufficiently complex as to be
 realistic.
 
@@ -36,4 +38,11 @@ bc.
         '--------->| School |
           1      * '--------'
 
-h2. Next Heading
+h3. Future Improvements
+
+Initially I had responsibilities associated with projects, but decided that they were really
+related to the company, not the project. I added tasks to projects but the data structure was
+exactly the same, consisting of id, timestamps, description and position (for ordered listing).
+I now realize that I could have used a polymorphic relationship, named the association note(s)
+and added them to company and project instead. This could then be taken further and applied to
+any of the other models i.e. skill.notes or category.note 
