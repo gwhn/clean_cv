@@ -1505,8 +1505,7 @@ ul li {
   display: none;
 }
 
-/* line 518, ../../../app/stylesheets/screen.scss */
-.menu,
+/* line 517, ../../../app/stylesheets/screen.scss */
 .search,
 .authme {
   background-color: #333;
@@ -1518,49 +1517,53 @@ ul li {
   font-size: 15px;
   font-weight: 700;
 }
-/* line 528, ../../../app/stylesheets/screen.scss */
-.menu:hover,
+/* line 527, ../../../app/stylesheets/screen.scss */
 .search:hover,
 .authme:hover {
   background-color: #222;
 }
-/* line 532, ../../../app/stylesheets/screen.scss */
-.menu img,
+/* line 531, ../../../app/stylesheets/screen.scss */
 .search img,
 .authme img {
   padding: 0 0 0 5px;
 }
-/* line 536, ../../../app/stylesheets/screen.scss */
-.menu a,
+/* line 535, ../../../app/stylesheets/screen.scss */
 .search a,
 .authme a {
   color: #fff;
   text-decoration: none;
 }
 
-/* line 543, ../../../app/stylesheets/screen.scss */
+/* line 542, ../../../app/stylesheets/screen.scss */
 .search,
 .authme {
   top: 66px;
 }
 
-/* line 548, ../../../app/stylesheets/screen.scss */
+/* line 547, ../../../app/stylesheets/screen.scss */
 .authme,
 .options {
   left: 0;
 }
 
-/* line 552, ../../../app/stylesheets/screen.scss */
+/* line 551, ../../../app/stylesheets/screen.scss */
 .search {
   right: 0;
 }
 
-/* line 556, ../../../app/stylesheets/screen.scss */
-.menu {
+/* line 555, ../../../app/stylesheets/screen.scss */
+.spinner {
   bottom: 66px;
+  display: block;
+  padding: 12px 15px;
+  position: fixed;
+}
+/* line 560, ../../../app/stylesheets/screen.scss */
+.spinner img {
+  padding: 0 0 0 5px;
 }
 
-/* line 560, ../../../app/stylesheets/screen.scss */
+/* line 565, ../../../app/stylesheets/screen.scss */
 .hint {
   display: none;
   background-color: #f8f8f8;
@@ -1568,12 +1571,12 @@ ul li {
   padding: 10px;
 }
 
-/* line 567, ../../../app/stylesheets/screen.scss */
+/* line 572, ../../../app/stylesheets/screen.scss */
 .no-js .hint {
   display: block !important;
 }
 
-/* line 571, ../../../app/stylesheets/screen.scss */
+/* line 576, ../../../app/stylesheets/screen.scss */
 #flash > div {
   padding: 12px 15px;
 }

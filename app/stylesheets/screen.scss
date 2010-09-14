@@ -513,7 +513,6 @@ ul {
     }
 }
 
-.menu,
 .search,
 .authme {
     background-color: #333;
@@ -553,8 +552,14 @@ ul {
     right: 0;
 }
 
-.menu {
+.spinner {
     bottom: 66px;
+    display: block;
+    padding: 12px 15px;
+    position: fixed;
+    img {
+        padding: 0 0 0 5px;
+    }
 }
 
 .hint {

@@ -56,6 +56,7 @@
             = link_to 'Sign out', destroy_user_session_path
           - else
             = link_to 'Sign in', new_user_session_path
+        .spinner= image_tag 'ajax-loader.gif', :alt => 'Loading...'
       %footer
     / ! end of #container
     / Javascript at the bottom for fast page loading
@@ -96,6 +97,11 @@
         bindRemoveChildLinks(".remove-person-company, .remove-person-skill, .remove-person-school, .remove-person-company-project, .remove-person-company-responsibility, .remove-person-company-project-task");
         $("select, input:checkbox, input:radio, input:file").uniform();
         $("textarea").autogrow();
+        $(".spinner").hide().ajaxStart(function() {
+          $(this).show();
+        }).ajaxStop(function() {
+          $(this).hide();
+        });
       });
 
     = yield :javascript

@@ -71,6 +71,8 @@ h2. Features
 # Uses Friendly ID with slugs to make friendly URLs at the Person scope
 # Uses nested resources to scope access for RESTful routes
 # Uses downloadable fonts packaged using Font Squirrel (Aller and Gentium)
+# Places flash messages from XHR in X-Message header and uses PNotify to display Growl-like
+# Uses custom JQuery highlight effect when changing project tabs
 
 h2. Future Improvements
 
