@@ -1,4 +1,4 @@
-hn. Introduction.
+h2. Introduction.
 
 *This project is not rocket science and does not push the boundaries of current technology.*
 
@@ -12,16 +12,16 @@ realistic as possible (a common frustration with technology demos is they often 
 1 to 1, 1 to many and many to many relationships. The object graph is sufficiently complex as to be
 realistic.
 
-bc.
+bq.
 .-------------.
 | SocialMedia |
 '-------------'
      1 ^
        | has one
      1 |
-   .--------.      has many      .---------. has many .----------------.
-   | Person |------------------->| Company |--------->| Responsibility |
-   '--------'      1      *      '---------' 1      * '----------------'
+   .--------.      has many      .---------.    has many    .----------------.
+   | Person |------------------->| Company |--------------->| Responsibility |
+   '--------'      1      *      '---------'    1      *    '----------------'
        |        .----------.          |
        |        | Category |          |     has many     .---------. has many .------.
        |        '----------'          '----------------->| Project |--------->| Task |
