@@ -152,8 +152,7 @@ $(function() {
         settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
     });
 
-    $(document).ajaxError(flashMessage);
-    $(document).ajaxSuccess(flashMessage);
+    $(document).ajaxError(flashMessage).ajaxSuccess(flashMessage);
 
     function flashMessage(event, request) {
         var msg = request.getResponseHeader('X-Message');
