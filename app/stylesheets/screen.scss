@@ -106,7 +106,8 @@ em {
         line-height: 24px
     }
     .limited-width-cell {
-        overflow: auto;
+        text-overflow: ellipsis;
+        overflow: hidden;
         width: 150px;
     }
 }
