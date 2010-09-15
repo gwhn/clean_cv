@@ -26,7 +26,7 @@
       = render :partial => 'company', :locals => {:f => c}
 
   - if permitted_to? :create, Company.new(:person => person)
-    .new-child= add_child_link 'New company', :companies, :class => 'add-person-company'
+    .new-child= add_child_link 'New company', :companies, :class => 'add'
     = new_child_fields_template f, :companies
 
   .nested-attributes
@@ -35,7 +35,7 @@
       = render :partial => 'skill', :locals => {:f => sk}
 
   -if permitted_to? :create, Skill.new(:person => person)
-    .new-child= add_child_link 'New skill', :skills, :class => 'add-person-skill'
+    .new-child= add_child_link 'New skill', :skills, :class => 'add'
     = new_child_fields_template f, :skills
 
   .nested-attributes
@@ -44,7 +44,7 @@
       = render :partial => 'school', :locals => {:f => sc}
 
   - if permitted_to? :create, School.new(:person => person)
-    .new-child= add_child_link 'New school', :schools, :class => 'add-person-school'
+    .new-child= add_child_link 'New school', :schools, :class => 'add'
     = new_child_fields_template f, :schools
 
   - f.buttons do

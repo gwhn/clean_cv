@@ -9,7 +9,7 @@
       = render :partial => 'responsibility', :locals => {:f => r}
 
   - if permitted_to? :create, Responsibility.new(:company => company)
-    .new-child= add_child_link 'New responsibility', :responsibilities, :class => 'add-person-company-responsibility'
+    .new-child= add_child_link 'New responsibility', :responsibilities, :class => 'add'
     = new_child_fields_template f, :responsibilities
 
   .nested-attributes
@@ -18,7 +18,7 @@
       = render :partial => 'project', :locals => {:f => p}
 
   -if permitted_to? :create, Project.new(:company => company)
-    .new-child= add_child_link 'New project', :projects, :class => 'add-person-company-project'
+    .new-child= add_child_link 'New project', :projects, :class => 'add'
     = new_child_fields_template f, :projects
 
   - f.buttons do

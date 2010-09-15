@@ -44,6 +44,9 @@ function openForm(dialog, title) {
 
 function bindFormSubmit(dialog) {
     var $form = $(dialog).find("form");
+    $form.submit(function(){
+        $(".spinner").show();
+    });
     var $submit = $form.find(":submit");
     var label = $submit.val();
     $submit.remove();
@@ -104,6 +107,39 @@ function uniformInputs() {
 }
 
 $(function() {
+    if ($.cookies.test() && !$.cookies.get("beenHereBefore")) {
+        $.cookies.set("beenHereBefore", true);
+        $("#test_drive").dialog({modal:true, title: $("#test_drive").attr("class").toUpperCase()});
+    }
+
+    initFancyBox("a.lightbox");
+
+    $(".social-media [title]").tooltip({effect: "slide"}).dynamic({bottom: {direction: "down"}});
+
+    $(".accordion").tabs(".accordion .panel", {tabs: "h6", effect: "highlight-slide"});
+
+    $(".move-actions, .update-actions").hide();
+
+    bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");
+
+    bindAddChildLinks("a.add");
+
+    bindRemoveChildLinks("a.remove");
+
+    uniformInputs();
+
+    $("textarea").autogrow();
+
+    $(".spinner").hide().ajaxStart(function() {
+        $(this).show();
+    }).ajaxStop(function() {
+        $(this).hide();
+    });
+
+    $("form").submit(function(){
+        $(".spinner").show();
+    });
+
     // UJS authenticity token fix: add the authenticy_token parameter
     // expected by any Rails POST request.
     $(document).ajaxSend(function(event, request, settings) {

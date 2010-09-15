@@ -13,7 +13,7 @@
       = render :partial => 'task', :locals => {:f => t}
 
   - if permitted_to? :create, Task.new(:project => project)    
-    .new-child= add_child_link 'New task', :tasks, :class => 'add-person-company-project-task'
+    .new-child= add_child_link 'New task', :tasks, :class => 'add'
     = new_child_fields_template f, :tasks
 
   - f.buttons do
