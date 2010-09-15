@@ -30,9 +30,11 @@ $(function() {
         $(this).hide();
     });
 
-    $("form").submit(function(){
+    $("form").submit(function() {
         $(".spinner").show();
     });
+
+    flashMessage();
 
     // UJS authenticity token fix: add the authenticy_token parameter
     // expected by any Rails POST request.
@@ -46,7 +48,7 @@ $(function() {
         settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
     });
 
-    $(document).ajaxError(flashMessage).ajaxSuccess(flashMessage);
+    $(document).ajaxError(flashXMessage).ajaxSuccess(flashXMessage);
 });
 
 function initFancyBox(selector) {
@@ -93,7 +95,7 @@ function openForm(dialog, title) {
 
 function bindFormSubmit(dialog) {
     var $form = $(dialog).find("form");
-    $form.submit(function(){
+    $form.submit(function() {
         $(".spinner").show();
     });
     var $submit = $form.find(":submit");
@@ -155,15 +157,32 @@ function uniformInputs() {
             .uniform();
 }
 
-function flashMessage(event, request) {
-    var msg = request.getResponseHeader('X-Message');
-    var type = request.getResponseHeader('X-Message-Info');
-    if (msg) notify(msg, type);
+function flashXMessage(event, request) {
+    var msg = request.getResponseHeader("X-Message");
+    var type = request.getResponseHeader("X-Message-Info");
+    notify(msg, type);
+}
+
+function flashMessage() {
+    var notice = $("#flash.notice").html();
+    $("#flash.notice").remove();
+    var type = "notice";
+
+    var alert = $("#flash.alert").html();
+    $("#flash.alert").remove();
+    var error = $("#flash.error").html();
+    $("#flash.error").remove();
+    if (alert || error) type = "error";
+
+    var msg = notice || alert || error;
+    notify(msg, type);
 }
 
 function notify(msg, type) {
-    $.pnotify({
-        pnotify_title: msg,
-        pnotify_type: type
-    });
+    if (msg) {
+        $.pnotify({
+            pnotify_title: msg,
+            pnotify_type: type
+        });
+    }
 }

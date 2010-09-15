@@ -566,7 +566,7 @@ ul.options {
     }
 }
 
-.hint {
+.welcome {
     display: none;
     background-color: #f8f8f8;
     border: 1px solid #dfdfdf;
@@ -574,7 +574,7 @@ ul.options {
 }
 
 .no-js {
-    .hint {
+    .welcome {
         display: block !important;
     }
     .spinner {
@@ -588,4 +588,10 @@ ul.options {
 
 .template {
     display: none;
+}
+
+#test_drive {
+    p {
+        margin-bottom: 10px;
+    }
 }
