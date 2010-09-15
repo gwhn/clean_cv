@@ -252,7 +252,7 @@ div.uploader span.action {
 }
 
 div.uploader span.filename {
-    height: 24px; /* change this line to adjust positioning of filename area */
+    height: 22px; /* change this line to adjust positioning of filename area */
     margin: 4px 0px 4px 4px;
     line-height: 24px;
 }
@@ -333,8 +333,6 @@ div.radio {
 /* uploader */
 div.uploader {
     width: 500px;
-    margin-bottom: 20px;
-    cursor: pointer;
 }
 
 div.uploader span.action {
@@ -344,18 +342,27 @@ div.uploader span.action {
     background-color: #fff;
     font-weight: bold;
     color: #1c4257;
+    cursor: pointer;    
 }
 
 div.uploader span.filename {
     color: #777;
-    width: 375px;
+    width: 373px;
+    font-size: 14px;
     border-right: solid 1px #567c91;
-    font-size: 90%;
-    font-size: 11px;
+    border-top: 1px solid #979797;
+    border-bottom: 1px solid #979797;
+    border-left: 1px solid #979797;
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0.15, rgb(248,248,248)),color-stop(1, rgb(194,194,194)));
+    background: -moz-linear-gradient(center top,rgb(248,248,248) 15%,rgb(194,194,194) 100%);
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+    text-shadow: 0 1px 0 #fff;
 }
 
 div.uploader input {
-    width: 500px;
+    width: 100px;
 }
 
 div.uploader.disabled span.action {
@@ -446,7 +453,6 @@ div.uploader span.action {
     display: inline;
     padding: 4px 0px;
     overflow: hidden;
-    cursor: pointer;
 }
 
 div.uploader span.filename {

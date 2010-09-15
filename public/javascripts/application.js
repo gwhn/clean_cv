@@ -1,5 +1,54 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
+$(function() {
+    if ($.cookies.test() && !$.cookies.get("beenHereBefore")) {
+        $.cookies.set("beenHereBefore", true);
+        $("#test_drive").dialog({modal:true, title: $("#test_drive").attr("class").toUpperCase()});
+    }
+
+    initFancyBox("a.lightbox");
+
+    $(".social-media [title]").tooltip({effect: "slide"}).dynamic({bottom: {direction: "down"}});
+
+    $(".accordion").tabs(".accordion .panel", {tabs: "h6", effect: "highlight-slide"});
+
+    $(".move-actions, .update-actions").hide();
+
+    bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");
+
+    bindAddChildLinks("a.add");
+
+    bindRemoveChildLinks("a.remove");
+
+    uniformInputs();
+
+    $("textarea").autogrow();
+
+    $(".spinner").hide().ajaxStart(function() {
+        $(this).show();
+    }).ajaxStop(function() {
+        $(this).hide();
+    });
+
+    $("form").submit(function(){
+        $(".spinner").show();
+    });
+
+    // UJS authenticity token fix: add the authenticy_token parameter
+    // expected by any Rails POST request.
+    $(document).ajaxSend(function(event, request, settings) {
+        // do nothing if this is a GET request. Rails doesn't need
+        // the authenticity token, and IE converts the request method
+        // to POST, just because - with love from redmond.
+        if (settings.type == 'GET') return;
+        if (typeof(AUTH_TOKEN) == "undefined") return;
+        settings.data = settings.data || "";
+        settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
+    });
+
+    $(document).ajaxError(flashMessage).ajaxSuccess(flashMessage);
+});
+
 function initFancyBox(selector) {
     $(selector).fancybox({
         overlayOpacity  : 0.7,
@@ -106,61 +155,15 @@ function uniformInputs() {
             .uniform();
 }
 
-$(function() {
-    if ($.cookies.test() && !$.cookies.get("beenHereBefore")) {
-        $.cookies.set("beenHereBefore", true);
-        $("#test_drive").dialog({modal:true, title: $("#test_drive").attr("class").toUpperCase()});
-    }
+function flashMessage(event, request) {
+    var msg = request.getResponseHeader('X-Message');
+    var type = request.getResponseHeader('X-Message-Info');
+    if (msg) notify(msg, type);
+}
 
-    initFancyBox("a.lightbox");
-
-    $(".social-media [title]").tooltip({effect: "slide"}).dynamic({bottom: {direction: "down"}});
-
-    $(".accordion").tabs(".accordion .panel", {tabs: "h6", effect: "highlight-slide"});
-
-    $(".move-actions, .update-actions").hide();
-
-    bindRemoteLinks(initModalDialog("form-dialog"), ".remote-link");
-
-    bindAddChildLinks("a.add");
-
-    bindRemoveChildLinks("a.remove");
-
-    uniformInputs();
-
-    $("textarea").autogrow();
-
-    $(".spinner").hide().ajaxStart(function() {
-        $(this).show();
-    }).ajaxStop(function() {
-        $(this).hide();
+function notify(msg, type) {
+    $.pnotify({
+        pnotify_title: msg,
+        pnotify_type: type
     });
-
-    $("form").submit(function(){
-        $(".spinner").show();
-    });
-
-    // UJS authenticity token fix: add the authenticy_token parameter
-    // expected by any Rails POST request.
-    $(document).ajaxSend(function(event, request, settings) {
-        // do nothing if this is a GET request. Rails doesn't need
-        // the authenticity token, and IE converts the request method
-        // to POST, just because - with love from redmond.
-        if (settings.type == 'GET') return;
-        if (typeof(AUTH_TOKEN) == "undefined") return;
-        settings.data = settings.data || "";
-        settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
-    });
-
-    $(document).ajaxError(flashMessage).ajaxSuccess(flashMessage);
-
-    function flashMessage(event, request) {
-        var msg = request.getResponseHeader('X-Message');
-        if (msg) {
-            $.pnotify({
-                pnotify_title: msg,
-                pnotify_type: request.getResponseHeader('X-Message-Info')
-            });
-        }
-    }
-});
+}

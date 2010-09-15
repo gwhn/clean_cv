@@ -4,6 +4,7 @@
 body.bp {
   @include blueprint-print(true); }
 
+.spinner,
 caption,
 .hint,
 .pdf,
