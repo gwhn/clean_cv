@@ -136,6 +136,7 @@ function bindAddChildLinks(selector) {
         var newId = new Date().getTime();
         $(this).parent().before(content.replace(regexp, newId));
         $("select[id *= '" + newId + "']").uniform();
+        $("textarea[id *= '" + newId + "']").autogrow();
         return false;
     });
 }
