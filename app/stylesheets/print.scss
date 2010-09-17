@@ -4,13 +4,12 @@
 body.bp {
   @include blueprint-print(true); }
 
-.spinner,
+#spinner,
 caption,
 .hint,
 .pdf,
 .location-map,
-.search,
-.authme,
+#menu,
 .update-actions,
 .move-actions,
 .ui-icon,

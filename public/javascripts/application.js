@@ -24,14 +24,14 @@ $(function() {
 
     $("textarea").autogrow();
 
-    $(".spinner").hide().ajaxStart(function() {
+    $("#spinner").hide().ajaxStart(function() {
         $(this).show();
     }).ajaxStop(function() {
         $(this).hide();
     });
 
     $("form").submit(function() {
-        $(".spinner").show();
+        $("#spinner").show();
     });
 
     flashMessage();
@@ -96,7 +96,7 @@ function openForm(dialog, title) {
 function bindFormSubmit(dialog) {
     var $form = $(dialog).find("form");
     $form.submit(function() {
-        $(".spinner").show();
+        $("#spinner").show();
     });
     var $submit = $form.find(":submit");
     var label = $submit.val();
