@@ -134,9 +134,13 @@ function bindAddChildLinks(selector) {
         var content = $("#" + assoc + "_fields_template").html();
         var regexp = new RegExp("new_" + assoc, "g");
         var newId = new Date().getTime();
-        $(this).parent().prev(".nested-attributes").append(content.replace(regexp, newId));
+        var lastFields = $(this).parent().prev(".nested-attributes")
+                .append(content.replace(regexp, newId))
+                .find(".fields:last-child");
         $("select[id *= '" + newId + "']").uniform();
         $("textarea[id *= '" + newId + "']").autogrow();
+        $(this).parents("#form-dialog").scrollTo(lastFields, 1000);
+        lastFields.find(":input:visible:enabled:first").focus();
         return false;
     });
 }
