@@ -51,6 +51,7 @@
         #cv= yield
       #menu
         %ul
+          %li= link_to 'Home', root_path
           %li= link_to 'Search', search_people_path
           - if user_signed_in?
             %li= link_to 'Sign out', destroy_user_session_path
