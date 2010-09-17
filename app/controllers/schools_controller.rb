@@ -62,7 +62,7 @@ class SchoolsController < ApplicationController
         flash[:notice] = "#{@school.name} was successfully updated."
         format.html { redirect_to @person }
         format.xml { head :ok }
-        format.js { render :layout => false }
+        format.js { @school.reload and render :layout => false }
       else
         format.html { render :action => :edit }
         format.xml { render :xml => @school.errors, :status => :unprocessable_entity }

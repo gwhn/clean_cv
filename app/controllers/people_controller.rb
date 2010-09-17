@@ -92,7 +92,7 @@ class PeopleController < ApplicationController
         format.html { redirect_to @person }
         format.xml { head :ok }
         format.js do
-          responds_to_parent { render :action => :show }
+          responds_to_parent { @person.reload and render :action => :show }
         end
       else
         format.html { render :action => :edit }

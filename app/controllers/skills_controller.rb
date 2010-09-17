@@ -64,7 +64,7 @@ class SkillsController < ApplicationController
         flash[:notice] = "#{@skill.name} was successfully updated."
         format.html { redirect_to @person }
         format.xml { head :ok }
-        format.js { render :layout => false }
+        format.js { @skill.reload and render :layout => false }
       else
         format.html { render :action => :edit }
         format.xml { render :xml => @skill.errors, :status => :unprocessable_entity }

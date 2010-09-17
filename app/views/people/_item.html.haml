@@ -16,7 +16,7 @@
   - if permitted_to? [:manage, :read], item
     %ul.options
       - if permitted_to? :read, item
-        %li= link_to "#{current_page?(item) ? 'Refresh' : 'View'} #{item.name}", item
+        %li= link_to "#{current_page?(item) ? 'Reload' : 'View'} #{item.name}", item
       - if permitted_to? :update, item
         %li= link_to "Edit #{item.name}", edit_person_path(item), :class => 'remote-link', :title => "Edit #{item.name}"
       - if permitted_to? :delete, item

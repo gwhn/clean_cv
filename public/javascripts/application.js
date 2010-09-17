@@ -134,7 +134,7 @@ function bindAddChildLinks(selector) {
         var content = $("#" + assoc + "_fields_template").html();
         var regexp = new RegExp("new_" + assoc, "g");
         var newId = new Date().getTime();
-        $(this).parent().before(content.replace(regexp, newId));
+        $(this).parent().prev(".nested-attributes").append(content.replace(regexp, newId));
         $("select[id *= '" + newId + "']").uniform();
         $("textarea[id *= '" + newId + "']").autogrow();
         return false;

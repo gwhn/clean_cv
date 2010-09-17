@@ -64,7 +64,7 @@ class ProjectsController < ApplicationController
         flash[:notice] = "#{@project.name} was successfully updated."
         format.html { redirect_to @person }
         format.xml { head :ok }
-        format.js { render :layout => false }
+        format.js { @project.reload and render :layout => false }
       else
         format.html { render :action => :edit }
         format.xml { render :xml => @project.errors, :status => :unprocessable_entity }
