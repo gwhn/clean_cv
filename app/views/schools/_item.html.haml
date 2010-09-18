@@ -9,10 +9,12 @@
   
   - if user_signed_in? and permitted_to? :manage, item
     %ul.options
+      - if permitted_to? :create, School.new(:person => item.person)
+        %li= link_to 'New school', new_person_school_path(item.person), :class => 'remote-link', :title => 'New school'
       - if permitted_to? :update, item
         %li= link_to "Edit #{item.name}", edit_person_school_path(item.person, item), :class => 'remote-link', :title => "Edit #{item.name}"
       - if permitted_to? :delete, item
         %li= link_to "Delete #{item.name}", delete_person_school_path(item.person, item), :class => 'remote-link', :title => "Delete #{item.name}"
 
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{school_id} > .school", :position => 'center right'
+      = dynamic_tooltip_javascript_for "##{school_id} > .school", :position => 'center left'

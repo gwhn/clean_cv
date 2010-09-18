@@ -1,0 +1,3 @@
+$(".ui-dialog-content").html("<%= escape_javascript(render :partial => 'form', :locals => {:person => @person, :company => @company, :project => @project, :task => @task}) %>");
+openForm("#form-dialog", "Invalid task");
+

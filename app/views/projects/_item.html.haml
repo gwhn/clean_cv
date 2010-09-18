@@ -32,17 +32,17 @@
             - content_for :javascript do
               = sortable_javascript_for "##{tasks_id}", 'li', "&person_id=#{item.company.person.id}&company_id=#{item.company.id}&project_id=#{item.id}", reposition_person_company_project_tasks_url(item.company.person, item.company, item)
 
-      - if user_signed_in? and permitted_to? :create, Task.new(:project => item)
-        .update-actions
-          = link_to 'New task', new_person_company_project_task_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-plus'
-
   - if user_signed_in? and permitted_to? :manage, item
     %ul.options
+      - if permitted_to? :create, Project.new(:company => item.company)
+        %li= link_to 'New project', new_person_company_project_path(item.company.person, item.company), :class => 'remote-link', :title => 'New project'
       - if permitted_to? :update, item
         %li= link_to "Edit #{item.name}", edit_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => "Edit #{item.name}"
       - if permitted_to? :delete, item
         %li= link_to "Delete #{item.name}", delete_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => "Delete #{item.name}"
+      - if permitted_to? :create, Task.new(:project => item)
+        %li= link_to 'New task', new_person_company_project_task_path(item.company.person, item.company, item), :class => 'remote-link', :title => "New task"
 
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{project_id} > .project"
+      = dynamic_tooltip_javascript_for "##{project_id} > .project", :position => 'top center'
 

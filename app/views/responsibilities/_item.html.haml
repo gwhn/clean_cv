@@ -1,15 +1,19 @@
 - item_counter = responsibility_count = 0 if responsibility_count.nil?
 
-%li{:id => ['responsibility', item.id]}
+- responsibility_id = "responsibility_#{item.id}"
+%li{:id => responsibility_id}
   %span.handle= h item.description
 
   - if user_signed_in? and permitted_to? :manage, item
     %span.update-actions
       - if permitted_to? :edit, item
-        %span= link_to 'Edit', edit_person_company_responsibility_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-pencil'
+        %span= link_to 'Edit', edit_person_company_responsibility_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-pencil remote-link', :title => "Edit #{item.description}"
       - if permitted_to? :delete, item
-        %span= link_to 'Delete', delete_person_company_responsibility_path(item.company.person, item.company, item), :method => :delete, :class => 'ui-icon ui-icon-close'
+        %span= link_to 'Delete', delete_person_company_responsibility_path(item.company.person, item.company, item), :class => 'ui-icon ui-icon-close remote-link', :title => "Delete #{item.description}"
 
+    - content_for :javascript do
+      = show_update_actions_javascript_for "##{responsibility_id}"
+    
   - if user_signed_in? and permitted_to? :reposition, item
     %span.move-actions
       - if item_counter > 0

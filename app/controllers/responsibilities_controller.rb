@@ -1,6 +1,6 @@
 class ResponsibilitiesController < ApplicationController
   before_filter :load_person_company
-  before_filter :load_responsibility, :only => [:show, :edit, :update, :destroy,
+  before_filter :load_responsibility, :only => [:show, :edit, :update, :delete, :destroy,
                                                 :move_top, :move_up, :move_down, :move_bottom]
   before_filter :new_responsibility, :only => [:new, :create, :index]
   filter_access_to :all, :attribute_check => true
@@ -66,6 +66,13 @@ class ResponsibilitiesController < ApplicationController
         format.html { render :action => :edit }
         format.xml { render :xml => @responsibility.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+
+  # GET /people/1/companies/1/responsibilities/1/delete
+  def delete
+    respond_to do |format|
+      format.html # delete.html.haml
     end
   end
 

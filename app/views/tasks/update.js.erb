@@ -1,0 +1,6 @@
+<%- tasks_id = "#person_#{item.company.person.id}_company_#{item.company.id}_project_#{item.id}_tasks" -%>
+<%- task_id = "#task_#{item.id}" -%>
+$("<%= tasks_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @task) %>");
+bindRemoteLinks("#form-dialog", ".remote-link");
+$(".move-actions, .update-actions").hide();
+$("<%= task_id %>").effect("highlight");

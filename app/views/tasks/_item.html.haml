@@ -1,14 +1,18 @@
 - item_counter = task_count = 0 if task_count.nil?
 
-%li{:id => ['task', item.id]}
+- task_id = "task_#{item.id}"
+%li{:id => task_id}
   %span.handle= h item.description
 
   - if user_signed_in? and permitted_to? :manage, item
     %span.update-actions
       - if permitted_to? :edit, item
-        %span= link_to 'Edit', edit_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'ui-icon ui-icon-pencil'
+        %span= link_to 'Edit', edit_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'ui-icon ui-icon-pencil remote-link', :title => "Edit #{item.description}"
       - if permitted_to? :delete, item
-        %span= link_to 'Delete', delete_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :method => :delete, :class => 'ui-icon ui-icon-close'
+        %span= link_to 'Delete', delete_person_company_project_task_path(item.project.company.person, item.project.company, item.project, item), :class => 'ui-icon ui-icon-close remote-link', :title => "Delete #{item.description}"
+
+    - content_for :javascript do
+      = show_update_actions_javascript_for "##{task_id}"
 
   - if user_signed_in? and permitted_to? :reposition, item
     %span.move-actions

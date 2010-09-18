@@ -4,6 +4,9 @@ var lastTabIndex = $("<%= projects_id %>").data("tabs").getTabs().length;
 $("<%= projects_id %>").append("<%= escape_javascript(render :partial => 'item', :object => @project) %>");
 $("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {tabs: "h6", initialIndex: lastTabIndex, effect: "highlight-slide"});
 <%= dynamic_tooltip_javascript_for "#{project_id} > .project", :on_ready_wrapper => false %>
+<%- @project.tasks.each do |task| -%>
+    <%= show_update_actions_javascript_for "#task_#{task.id}", :on_ready_wrapper => false %>
+<%- end -%>
 bindRemoteLinks("#form-dialog", ".remote-link");
 $(".move-actions, .update-actions").hide();
 $.scrollTo("<%= project_id %>", "fast");

@@ -78,6 +78,19 @@ JS
     javascript_tag "$(function(){#{script}});"
   end
 
+  def show_update_actions_javascript_for(selector, options = {})
+    options = {:on_ready_wrapper => true}.merge(options)
+    script = <<JS
+$("#{selector}").hover(function() {
+  $(this).find(".update-actions").show();
+}, function() {
+  $(this).find(".update-actions").hide();  
+});
+JS
+    script = jquery_on_ready(script) if options[:on_ready_wrapper]
+    script
+  end
+
   def formatted_date_range(start_date, end_date, options = {})
     options = {:date_format => :month_and_year}.merge(options)
     formatted_start_date = h start_date.to_date.to_s(options[:date_format])

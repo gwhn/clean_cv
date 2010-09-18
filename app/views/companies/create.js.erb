@@ -6,6 +6,9 @@ $("<%= escape_javascript(render :partial => 'item', :object => @company) %>").ap
 $("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {tabs: "h6", effect: "highlight-slide"});
 <%= dynamic_tooltip_javascript_for "#{company_id} > .company", :position => 'top right', :on_ready_wrapper => false %>
 <%= dynamic_tooltip_javascript_for projects_id, :position => 'top left', :on_ready_wrapper => false %>
+<%- @company.responsibilities.each do |responsibility| -%>
+    <%= show_update_actions_javascript_for "#responsibility_#{responsibility.id}", :on_ready_wrapper => false %>
+<%- end -%>
 <%- @company.projects.each do |project| -%>
     <%= dynamic_tooltip_javascript_for "#project_#{project.id} > .project", :on_ready_wrapper => false %>
 <%- end -%>

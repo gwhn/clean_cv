@@ -2,28 +2,35 @@
 
 - person_id = "person_#{item.id}"
 %li{:id => person_id}
-  .personal
-    .cv-section.first-cv-section.fixed
-      = render :partial => 'person', :object => item
-      = render :partial => 'contact', :object => item
+  .cv-section.first-cv-section.fixed
+    = render :partial => 'person', :object => item
+    = render :partial => 'contact', :object => item
 
-    .cv-section.fixed
-      .cv-section-name
-        %h2 Professional Profile
-      .cv-section-items
-        = render :partial => 'profile', :object => item
+  .cv-section.fixed
+    .cv-section-name
+      %h2 Professional Profile
+    .cv-section-items.profile
+      = render :partial => 'profile', :object => item
 
   - if permitted_to? [:manage, :read], item
     %ul.options
+      - if permitted_to? :create, Person.new(:user => current_user)
+        %li= link_to 'New person', new_person_path, :class => 'remote-link', :title => 'New person'
       - if permitted_to? :read, item
         %li= link_to "#{current_page?(item) ? 'Reload' : 'View'} #{item.name}", item
       - if permitted_to? :update, item
         %li= link_to "Edit #{item.name}", edit_person_path(item), :class => 'remote-link', :title => "Edit #{item.name}"
       - if permitted_to? :delete, item
         %li= link_to "Delete #{item.name}", delete_person_path(item), :class => 'remote-link', :title => "Delete #{item.name}"
+      - if permitted_to? :create, Company.new(:person => item)
+        %li= link_to 'New company', new_person_company_path(item), :class => 'remote-link', :title => 'New company'
+      - if permitted_to? :create, Skill.new(:person => item)
+        %li= link_to 'New skill', new_person_skill_path(item), :class => 'remote-link', :title => 'New skill'
+      - if permitted_to? :create, School.new(:person => item)
+        %li= link_to 'New school', new_person_school_path(item), :class => 'remote-link', :title => 'New school'
 
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{person_id} > .personal", :position => 'center right'
+      = dynamic_tooltip_javascript_for "##{person_id} .profile", :position => 'center left'
 
   - unless summarize
     .cv-section.fixed.companies
@@ -39,17 +46,9 @@
             = dynamic_tooltip_javascript_for '#work_timeline_icon', :position => 'center right'
 
       .cv-section-items
-
         - companies_id = "person_#{item.id}_companies"
         %ul{:id => companies_id}
           = render :partial => 'companies/item', :collection => item.companies
-
-    - if user_signed_in? and permitted_to? :create, Company.new(:person => item)
-      %ul.options
-        %li= link_to 'New company', new_person_company_path(item), :class => 'remote-link', :title => 'New company'
-
-      - content_for :javascript do
-        = dynamic_tooltip_javascript_for '.companies', :position => 'center left'
 
     .cv-section.fixed.skills
       .cv-section-name
@@ -71,13 +70,6 @@
           - content_for :javascript do
             = sortable_javascript_for "##{skills_id}", 'li', "&person_id=#{item.id}", reposition_person_skills_url(item)
 
-    - if user_signed_in? and permitted_to? :create, Skill.new(:person => item)
-      %ul.options
-        %li= link_to 'New skill', new_person_skill_path(item), :class => 'remote-link', :title => 'New skill'
-
-      - content_for :javascript do
-        = dynamic_tooltip_javascript_for '.skills', :position => 'center left'
-
     .cv-section.last-cv-section.fixed.schools
       .cv-section-name
         %h2 Education
@@ -94,11 +86,4 @@
         - schools_id = "person_#{item.id}_schools"
         %ul{:id => schools_id}
           = render :partial => 'schools/item', :collection => item.schools
-
-    - if user_signed_in? and permitted_to? :create, School.new(:person => item)
-      %ul.options
-        %li= link_to 'New school', new_person_school_path(item), :class => 'remote-link', :title => 'New school'
-
-      - content_for :javascript do
-        = dynamic_tooltip_javascript_for '.schools', :position => 'center left'
 
