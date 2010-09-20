@@ -1,10 +1,10 @@
 <%- companies_id = "#person_#{@person.id}_companies" %>
 <%- company_id = "#company_#{@company.id}" %>
-<%- projects_id = "#person_#{@person.id}_company_#{@company.id}_projects" %>
-<%- responsibilities_id = "#person_#{@person.id}_company_#{@company.id}_responsiblities" -%>
+<%- projects_id = "#company_#{@company.id}_projects" %>
+<%- responsibilities_id = "#company_#{@company.id}_responsibilities" -%>
 $("<%= escape_javascript(render :partial => 'item', :object => @company) %>").appendTo("<%= companies_id %>");
 $("<%= projects_id %>").tabs("<%= projects_id %>.accordion .panel", {tabs: "h6", effect: "highlight-slide"});
-<%= dynamic_tooltip_javascript_for "#{company_id} > .company", :position => 'top right', :on_ready_wrapper => false %>
+<%= dynamic_tooltip_javascript_for "#{company_id} > .company", :position => 'center left', :on_ready_wrapper => false %>
 <%= dynamic_tooltip_javascript_for projects_id, :position => 'top left', :on_ready_wrapper => false %>
 <%- @company.responsibilities.each do |responsibility| -%>
     <%= show_update_actions_javascript_for "#responsibility_#{responsibility.id}", :on_ready_wrapper => false %>

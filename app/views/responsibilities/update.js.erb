@@ -1,0 +1,6 @@
+<%- responsibility_id = "#responsibility_#{@responsibility.id}" -%>
+$("<%= responsibility_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @responsibility) %>");
+bindRemoteLinks("#form-dialog", ".remote-link");
+$(".move-actions, .update-actions").hide();
+<%= show_update_actions_javascript_for "#{responsibility_id}", :on_ready_wrapper => false %>
+$("<%= responsibility_id %>").effect("highlight");

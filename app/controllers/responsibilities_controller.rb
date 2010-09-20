@@ -47,9 +47,11 @@ class ResponsibilitiesController < ApplicationController
         flash[:notice] = "#{@responsibility.description} was successfully created."
         format.html { redirect_to @person }
         format.xml { render :xml => @responsibility, :status => :created, :location => @responsibility }
+        format.js { render :layout => false }
       else
         format.html { render :action => :new }
         format.xml { render :xml => @responsibility.errors, :status => :unprocessable_entity }
+        format.js { render :action => :invalid, :layout => false }
       end
     end
   end
@@ -62,9 +64,11 @@ class ResponsibilitiesController < ApplicationController
         flash[:notice] = "#{@responsibility.description} was successfully updated."
         format.html { redirect_to @person }
         format.xml { head :ok }
+        format.js { @responsibility.reload and render :layout => false }
       else
         format.html { render :action => :edit }
         format.xml { render :xml => @responsibility.errors, :status => :unprocessable_entity }
+        format.js { render :action => :invalid, :layout => false }
       end
     end
   end
@@ -84,6 +88,7 @@ class ResponsibilitiesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @person }
       format.xml { head :ok }
+      format.js
     end
   end
 

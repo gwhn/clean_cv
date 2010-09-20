@@ -1,0 +1,8 @@
+<%- responsibilities_id = "#company_#{@company.id}_responsibilities" -%>
+<%- responsibility_id = "#responsibility_#{@responsibility.id}" -%>
+$("<%= escape_javascript(render :partial => 'item', :object => @responsibility) %>").appendTo("<%= responsibilities_id %>");
+bindRemoteLinks("#form-dialog", ".remote-link");
+$(".move-actions, .update-actions").hide();
+<%= show_update_actions_javascript_for "#{responsibility_id}", :on_ready_wrapper => false %>
+$("<%= responsibility_id %>").effect("highlight");
+

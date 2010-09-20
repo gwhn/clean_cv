@@ -1,4 +1,4 @@
-<%- projects_id = "#person_#{@person.id}_company_#{@company.id}_projects" -%>
+<%- projects_id = "#company_#{@company.id}_projects" -%>
 <%- project_id = "#project_#{@project.id}" -%>
 var lastTabIndex = $("<%= projects_id %>").data("tabs").getTabs().length;
 $("<%= projects_id %>").append("<%= escape_javascript(render :partial => 'item', :object => @project) %>");

@@ -7,19 +7,18 @@
     %h5= h item.role
     %h3= h item.business_type
 
-    - if item.responsibilities.count > 0
-      - responsibilities_id = "person_#{item.person.id}_company_#{item.id}_responsiblities"
-      %ul.list{:id => responsibilities_id}
+    - responsibilities_id = "company_#{item.id}_responsibilities"
+    %ul.list{:id => responsibilities_id}
+      - if item.responsibilities.count > 0
         = render :partial => 'responsibilities/item', :collection => item.responsibilities, :locals => {:responsibility_count => item.responsibilities.count}
 
         - if user_signed_in? and permitted_to? :reposition, :responsibilities
           - content_for :javascript do
             = sortable_javascript_for "##{responsibilities_id}", 'li', "&person_id=#{item.person.id}&company_id=#{item.id}", reposition_person_company_responsibilities_url(item.person, item)
 
-    - projects_id = "person_#{item.person.id}_company_#{item.id}_projects"
-    - if item.projects.count > 0
-      %ul.accordion{:id => projects_id}
-
+    - projects_id = "company_#{item.id}_projects"
+    %ul.accordion{:id => projects_id}
+      - if item.projects.count > 0
         = render :partial => 'projects/item', :collection => item.projects, :locals => {:project_count => item.projects.count}
 
         - if permitted_to? :reposition, :projects

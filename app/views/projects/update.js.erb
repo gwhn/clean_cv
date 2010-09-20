@@ -1,4 +1,4 @@
-<%- projects_id = "#person_#{@project.company.person.id}_company_#{@project.company.id}_projects" -%>
+<%- projects_id = "#company_#{@project.company.id}_projects" -%>
 <%- project_id = "#project_#{@project.id}" -%>
 var currentTabIndex = $("<%= projects_id %>").data("tabs").getIndex();
 $("<%= project_id %>").replaceWith("<%= escape_javascript(render :partial => 'item', :object => @project) %>");
