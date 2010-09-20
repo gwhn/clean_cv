@@ -41,7 +41,7 @@
       - if permitted_to? :delete, item
         %li= link_to "Delete #{item.name}", delete_person_company_project_path(item.company.person, item.company, item), :class => 'remote-link', :title => "Delete #{item.name}"
       - if permitted_to? :create, Task.new(:project => item)
-        %li= link_to 'New task', new_person_company_project_task_path(item.company.person, item.company, item), :class => 'remote-link', :title => "New task"
+        %li= link_to 'Add task', new_person_company_project_task_path(item.company.person, item.company, item), :class => 'remote-link', :title => "Add task"
 
     - content_for :javascript do
       = dynamic_tooltip_javascript_for "##{project_id} > .project", :position => 'top center'

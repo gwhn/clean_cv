@@ -35,9 +35,9 @@
       - if permitted_to? :delete, item
         %li= link_to "Delete #{item.name}", delete_person_company_path(item.person, item), :class => 'remote-link', :title => "Delete #{item.name}"
       - if permitted_to? :create, Responsibility.new(:company => item)
-        %li= link_to 'New responsibility', new_person_company_responsibility_path(item.person, item), :class => 'remote-link', :title => "New responsibility"
+        %li= link_to 'Add responsibility', new_person_company_responsibility_path(item.person, item), :class => 'remote-link', :title => "Add responsibility"
       - if permitted_to? :create, Project.new(:company => item)
-        %li= link_to 'New project', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'New project'
+        %li= link_to 'Add project', new_person_company_project_path(item.person, item), :class => 'remote-link', :title => 'Add project'
 
     - content_for :javascript do
       = dynamic_tooltip_javascript_for "##{company_id} > .company", :position => 'center left'

@@ -88,6 +88,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @person }
       format.xml { head :ok }
+      format.js
     end
   end
 
