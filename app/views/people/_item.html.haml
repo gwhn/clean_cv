@@ -31,7 +31,7 @@
         %li= link_to 'Add school', new_person_school_path(item), :class => 'remote-link', :title => 'Add school'
 
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{person_id} > .personal", :position => 'center left', :offset_px_left => 100 
+      = dynamic_tooltip_javascript_for "##{person_id} > .personal", :position => 'center left', :offset_px_left => 125 
 
   - unless summarize
     .cv-section.fixed.companies
