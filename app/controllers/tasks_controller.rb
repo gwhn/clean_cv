@@ -47,9 +47,11 @@ class TasksController < ApplicationController
         flash[:notice] = "#{@task.description} was successfully created."
         format.html { redirect_to @person }
         format.xml { render :xml => @task, :status => :created, :location => @task }
+        format.js { render :layout => false }
       else
         format.html { render :action => :new }
         format.xml { render :xml => @task.errors, :status => :unprocessable_entity }
+        format.js { render :action => :invalid, :layout => false }
       end
     end
   end
@@ -62,9 +64,11 @@ class TasksController < ApplicationController
         flash[:notice] = "#{@task.description} was successfully updated."
         format.html { redirect_to @person }
         format.xml { head :ok }
+        format.js { @task.reload and render :layout => false }
       else
         format.html { render :action => :edit }
         format.xml { render :xml => @task.errors, :status => :unprocessable_entity }
+        format.js { render :action => :invalid, :layout => false }
       end
     end
   end

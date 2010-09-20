@@ -25,7 +25,7 @@ window.log = function() {
 
 // add new highlight slide effect to the tabs
 $.tools.tabs.addEffect("highlight-slide", function(tabIndex, done) {
-    const highlight = "ui-state-highlight";
+    var highlight = "ui-state-highlight";
 	this.getPanes().slideUp().eq(tabIndex).addClass(highlight);
 	this.getPanes().eq(tabIndex).slideDown("slow", function()  {
 		$(this).removeClass(highlight);
