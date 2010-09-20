@@ -2,15 +2,16 @@
 
 - person_id = "person_#{item.id}"
 %li{:id => person_id}
-  .cv-section.first-cv-section.fixed
-    = render :partial => 'person', :object => item
-    = render :partial => 'contact', :object => item
+  .personal
+    .cv-section.first-cv-section.fixed
+      = render :partial => 'person', :object => item
+      = render :partial => 'contact', :object => item
 
-  .cv-section.fixed
-    .cv-section-name
-      %h2 Professional Profile
-    .cv-section-items.profile
-      = render :partial => 'profile', :object => item
+    .cv-section.fixed
+      .cv-section-name
+        %h2 Professional Profile
+      .cv-section-items.profile
+        = render :partial => 'profile', :object => item
 
   - if permitted_to? [:manage, :read], item
     %ul.options
@@ -30,7 +31,7 @@
         %li= link_to 'Add school', new_person_school_path(item), :class => 'remote-link', :title => 'Add school'
 
     - content_for :javascript do
-      = dynamic_tooltip_javascript_for "##{person_id} .profile", :position => 'center left'
+      = dynamic_tooltip_javascript_for "##{person_id} > .personal", :position => 'center left', :offset_px_left => 100 
 
   - unless summarize
     .cv-section.fixed.companies

@@ -54,8 +54,8 @@ JS
 
   def dynamic_tooltip_javascript_for(selector, options = {})
     options = {:effect => 'slide',
-               :offset_top => 0,
-               :offset_left => 0,
+               :offset_px_top => 0,
+               :offset_px_left => 0,
                :position => 'top center',
                :delay => 750,
                :tip_class => 'options',
@@ -63,7 +63,7 @@ JS
     script = <<JS
 $("#{selector}").tooltip({
   effect:"#{options[:effect]}",
-  offset: [#{options[:offset_top]},#{options[:offset_left]}],
+  offset: [#{options[:offset_px_top]},#{options[:offset_px_left]}],
   position: "#{options[:position]}",
   delay: #{options[:delay]},
   tipClass: "#{options[:tip_class]}"
